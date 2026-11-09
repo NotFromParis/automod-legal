@@ -174,8 +174,8 @@ coupe d'un clic. Les <strong>salons</strong> de logs se choisissent dans <code>/
 </ul>
 
 <h3>🎉 Communauté — droit de <code>/controls</code></h3>
-<p>Bienvenue, au revoir, arrivées et départs, rôles automatiques, compteur de membres, suggestions et menus de rôles :
-chaque fonction a sa page avec un bouton ON / OFF et ses réglages (voir <a href="#communaute">Communauté</a>).</p>
+<p>Bienvenue, au revoir, arrivées et départs, rôles automatiques, compteur de membres, suggestions, menus de rôles,
+rôles par réaction et absences du staff : chaque fonction a sa page avec un bouton ON / OFF et ses réglages (voir <a href="#communaute">Communauté</a>).</p>
 
 <h3>🔐 Permissions — propriétaire, buyer, administrateurs, admins du bot</h3>
 <ul>
@@ -235,12 +235,29 @@ quelqu'un.</p>
 
 <h2 id="communaute">9. Communauté</h2>
 <p>Dans <code>/controls</code> → 🎉 Communauté : message de bienvenue et d'au revoir (dans un salon ou en message
-privé), annonce des arrivées et départs, rôles donnés automatiquement, compteur de membres, salon de suggestions
-et menus de rôles. Variables utilisables dans les messages :</p>
+privé), annonce des arrivées et départs, rôles donnés automatiquement, compteur de membres, salon de suggestions,
+menus de rôles et rôles par réaction. Variables utilisables dans les messages :</p>
 <p><code>{user.ping}</code> <code>{user.name}</code> <code>{user.tag}</code> <code>{user.id}</code>
 <code>{user.created}</code> <code>{user.avatar}</code> <code>{server.name}</code> <code>{server.members}</code>
 <code>{member.number}</code></p>
 <p>Exemple : <code>Bienvenue {user.ping} sur {server.name} ! Tu es le membre n°{member.number}.</code></p>
+<h3>😀 Rôles par réaction</h3>
+<p>Choisis des rôles, donne un emoji à chacun, un salon, puis <em>Publier</em> : Automod poste le message et y ajoute
+les réactions. Un membre qui réagit reçoit le rôle ; s'il retire sa réaction, le rôle est retiré. Jusqu'à 20 rôles par
+message, emojis classiques ou emojis du serveur. Le rôle d'Automod doit être au-dessus des rôles donnés.</p>
+<h3>🌴 Absences du staff</h3>
+<ol>
+  <li>Dans la page <em>Absences du staff</em>, choisis le rôle d'absence (ou <em>Créer le rôle « En absence »</em>) et le
+  salon des absences, puis <em>Publier le panneau</em>.</li>
+  <li>Un membre du staff clique sur <em>🌴 Signaler une absence</em> et remplit : <strong>du</strong> (facultatif,
+  aujourd'hui par défaut), <strong>jusqu'au</strong> (<code>25/12</code>, <code>25/12/2026</code> ou une durée comme
+  <code>3j</code>, <code>2 semaines</code>) et une raison.</li>
+  <li>Automod lui donne le rôle d'absence (le jour venu si l'absence commence plus tard) et annonce l'absence dans le
+  salon.</li>
+  <li>À la date de retour, le rôle est retiré tout seul. <em>✅ Je suis de retour</em> termine l'absence plus tôt ; un
+  admin peut aussi la terminer depuis <code>/controls</code>.</li>
+</ol>
+<p>Seul le staff peut signaler une absence. Une date comme <code>25/12</code> veut dire « absent le 25 inclus ».</p>
 
 <h2 id="permissions">10. Permissions</h2>
 <ul>
@@ -353,7 +370,7 @@ click. A panel opened by someone else only answers them. The banner is <strong>g
   30 days or all time, most active moderators, automatic detections, most sanctioned members, ongoing timeouts and
   temporary bans; lift a timeout, pardon one member or everyone (with confirmation).</li>
   <li><strong>🎉 Community</strong> (<code>/controls</code> right): welcome, goodbye, join/leave feed, auto-roles, member
-  counter, suggestions, role menus.</li>
+  counter, suggestions, role menus, reaction roles, staff absences.</li>
   <li><strong>🔐 Permissions</strong> (owner, buyer, administrators, bot admins): who can use each command; change a
   command or a whole category to <strong>Discord</strong>, <strong>Owner</strong> or <strong>Roles and members</strong>,
   or reset it. The owner can also remove the buyer.</li>
@@ -390,6 +407,13 @@ on raid mode or pause the automod. <code>=stop</code> / <code>=start</code> paus
 Variables: <code>{user.ping}</code> <code>{user.name}</code> <code>{user.tag}</code> <code>{user.id}</code>
 <code>{user.created}</code> <code>{user.avatar}</code> <code>{server.name}</code> <code>{server.members}</code>
 <code>{member.number}</code>.</p>
+<p><strong>😀 Reaction roles</strong>: pick roles, give each one an emoji, pick a channel, then <em>Publish</em>. Members
+react to get the role and remove their reaction to lose it (up to 20 per message).</p>
+<p><strong>🌴 Staff absences</strong>: set the absence role (or create « On leave ») and the absences channel, then post
+the panel. A staff member clicks <em>🌴 Report an absence</em> and enters <strong>from</strong> (optional),
+<strong>until</strong> (<code>25/12</code>, <code>25/12/2026</code>, <code>3d</code>, <code>2 weeks</code>) and a reason.
+Automod gives the role, announces the absence and removes the role on the return date; <em>✅ I'm back</em> ends it
+early.</p>
 
 <h2>10. Permissions</h2>
 <p>By default a command is open to members who have the matching Discord permission. In <code>/controls</code> →
