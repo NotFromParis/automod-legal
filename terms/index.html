@@ -9,7 +9,7 @@
 <body>
 <header><div class="wrap">
   <h1>Conditions d'utilisation</h1>
-  <p>Automod — bot de modération Discord · Dernière mise à jour : 10 novembre 2026</p>
+  <p>Automod — bot de modération Discord · Dernière mise à jour : 10 novembre 2026 (version 2026-11-10)</p>
   <nav><a href="../terms/">Conditions d'utilisation</a><a href="../privacy/">Politique de confidentialité</a><a href="#english">English</a></nav>
 </div></header>
 <main>
@@ -49,21 +49,45 @@ sanctionner un message correct. Les décisions automatiques peuvent être annul�
 proposé <strong>en version bêta</strong> : il peut être modifié, limité ou suspendu à tout moment, sans préavis. En cas
 d'indisponibilité de l'IA, les règles classiques prennent le relais.</p>
 
-<h2>6. Plans et abonnements</h2>
+<h2>6. Plans, prix et paiement</h2>
 <ul>
-  <li>Automod propose un plan gratuit (Free) et des plans payants (Pro, Max) donnant accès à des fonctions supplémentaires.
-  Le contenu de chaque plan est indiqué dans le bot.</li>
-  <li>Les abonnements sont mensuels et se renouvellent automatiquement. Le paiement est traité par Stripe ou par Discord ;
-  le développeur n'a jamais accès à vos données bancaires.</li>
-  <li>Un plan peut aussi être acheté sous forme de <strong>pass de 30 jours</strong> payé par carte via SumUp. Le pass
-  n'est pas renouvelé automatiquement : un rappel est envoyé avant la fin, et un nouveau paiement le prolonge de 30 jours.</li>
-  <li>Vous pouvez résilier à tout moment depuis l'espace client (bouton « Gérer mon abonnement ») ou depuis Discord.
-  Les fonctions restent disponibles jusqu'à la fin de la période déjà payée.</li>
-  <li>En cas d'échec de paiement, les fonctions payantes restent actives quelques jours puis le serveur repasse au plan Free.
-  La configuration est conservée.</li>
-  <li>Sauf obligation légale contraire, une période entamée n'est pas remboursée.</li>
+  <li>Automod propose un plan gratuit (<strong>Free</strong>) et des plans payants (<strong>Pro</strong>, <strong>Max</strong>)
+  qui débloquent des fonctions supplémentaires. Le contenu de chaque plan est affiché dans le bot (commande
+  <code>/plans</code> ou <code>/controls</code> → Offres).</li>
+  <li>Prix actuels, en euros toutes taxes comprises, pour 30 jours : <strong>Pro 2,99 €</strong>, <strong>Max 9,99 €</strong>.
+  Le prix applicable est celui affiché dans le bot au moment de la commande.</li>
+  <li>Seuls le propriétaire du serveur et le membre qui a ajouté le bot (buyer) peuvent souscrire pour ce serveur.</li>
+  <li>Avant chaque paiement, le bot affiche un récapitulatif (plan, prix, durée, renouvellement), ces conditions et la
+  politique de confidentialité. Le paiement n'est possible qu'après avoir cliqué sur « J'accepte et je paie ».
+  Cette acceptation (compte Discord, date, version des conditions) est enregistrée comme preuve de la commande.</li>
+  <li>Le paiement est traité par un prestataire de paiement (SumUp, Stripe ou Discord). Le développeur n'a jamais accès
+  aux données bancaires.</li>
 </ul>
-
+<h3>Pass de 30 jours (SumUp)</h3>
+<ul>
+  <li>Paiement unique par carte. Le plan est activé automatiquement dès la confirmation du paiement, pour 30 jours.</li>
+  <li><strong>Pas de renouvellement automatique</strong> : un rappel est envoyé dans le salon d'Automod du serveur
+  avant la fin ; un nouveau paiement prolonge le pass de 30 jours à partir de sa date de fin. Sans nouveau paiement,
+  le serveur repasse au plan Free, sa configuration est conservée.</li>
+</ul>
+<h3>Abonnement mensuel (Stripe ou Discord, si proposé)</h3>
+<ul>
+  <li>Renouvelé automatiquement chaque mois. Résiliable à tout moment depuis « Gérer mon abonnement » ou depuis Discord ;
+  le plan reste actif jusqu'à la fin du mois payé.</li>
+  <li>En cas d'échec de paiement, les fonctions payantes restent actives quelques jours, puis le serveur repasse au plan Free.</li>
+</ul>
+<h3>Droit de rétractation</h3>
+<ul>
+  <li>Le client consommateur dispose d'un délai de <strong>14 jours</strong> à compter de l'achat pour se rétracter,
+  sans avoir à se justifier, en écrivant à <a href="mailto:notfromparis.pro@gmail.com">notfromparis.pro@gmail.com</a>.</li>
+  <li>En confirmant l'achat, le client demande expressément que le service commence immédiatement. S'il se rétracte,
+  le montant correspondant à la période déjà fournie jusqu'à sa demande reste dû ; le reste lui est remboursé sous
+  14 jours, par le même moyen de paiement (article L221-25 du Code de la consommation).</li>
+  <li>En dehors de ce délai, et sauf obligation légale contraire, une période entamée n'est pas remboursée.</li>
+</ul>
+<h3>Réclamations</h3>
+<p>Pour toute question ou réclamation concernant un paiement : <a href="mailto:notfromparis.pro@gmail.com">notfromparis.pro@gmail.com</a>.
+Une réponse est apportée dans les meilleurs délais.</p>
 <h2>7. Disponibilité</h2>
 <p>Le bot est fourni « en l'état », sans garantie de disponibilité permanente. Des interruptions (maintenance, hébergement,
 panne de Discord ou d'un prestataire) peuvent survenir. Le développeur peut modifier ou arrêter tout ou partie du service.</p>
@@ -111,15 +135,28 @@ attempt to disrupt, overload, bypass or exploit the bot; do not resell or redist
 is provided <strong>as a beta</strong> and may be changed, limited or suspended at any time without notice; when it is
 unavailable, rule-based detection is used instead.</p>
 
-<h2>6. Plans and subscriptions</h2>
-<p>Automod offers a free plan (Free) and paid plans (Pro, Max). Subscriptions are monthly and renew automatically.
-Payments are processed by Stripe or Discord; the developer never has access to your payment details. A plan can also be
-bought as a <strong>30-day pass</strong> paid by card through SumUp; it does not renew automatically (a reminder is sent
-before it ends, and a new payment extends it by 30 days). You can cancel at
-any time; features remain available until the end of the paid period. If a payment fails, paid features stay active for
-a few days, then the server returns to the Free plan (its configuration is kept). Unless required by law, partial periods
-are not refunded.</p>
-
+<h2>6. Plans, prices and payment</h2>
+<p>Automod offers a free plan (<strong>Free</strong>) and paid plans (<strong>Pro</strong>, <strong>Max</strong>). Current
+prices, in euros including taxes, for 30 days: <strong>Pro €2.99</strong>, <strong>Max €9.99</strong>; the applicable price is the
+one shown in the bot when ordering. Only the server owner and the member who added the bot (buyer) can subscribe for a server.
+Before each payment the bot shows a summary (plan, price, duration, renewal), these terms and the privacy policy; payment is
+only possible after clicking “I accept and pay”, and that acceptance (Discord account, date, terms version) is recorded as
+proof of the order. Payments are processed by SumUp, Stripe or Discord; the developer never has access to payment details.</p>
+<h3>30-day pass (SumUp)</h3>
+<p>One-time card payment. The plan is activated automatically once the payment is confirmed, for 30 days. <strong>No automatic
+renewal</strong>: a reminder is posted before it ends, and a new payment extends the pass by 30 days from its end date. Without a
+new payment the server returns to the Free plan (its configuration is kept).</p>
+<h3>Monthly subscription (Stripe or Discord, when offered)</h3>
+<p>Renews automatically every month. Cancel anytime from “Manage my subscription” or from Discord; the plan stays active until the
+end of the paid month. If a payment fails, paid features stay active for a few days, then the server returns to the Free plan.</p>
+<h3>Right of withdrawal</h3>
+<p>Consumers have <strong>14 days</strong> from the purchase to withdraw, without giving a reason, by writing to
+<a href="mailto:notfromparis.pro@gmail.com">notfromparis.pro@gmail.com</a>. By confirming the purchase, the customer expressly
+asks for the service to start immediately; if they withdraw, the amount for the period already provided remains due and the rest
+is refunded within 14 days using the same payment method. Outside this period, and unless required by law, partial periods are
+not refunded.</p>
+<h3>Complaints</h3>
+<p>For any question or complaint about a payment: <a href="mailto:notfromparis.pro@gmail.com">notfromparis.pro@gmail.com</a>.</p>
 <h2>7. Availability</h2>
 <p>The bot is provided “as is”, without any guarantee of uninterrupted availability. The developer may change or
 discontinue all or part of the service.</p>

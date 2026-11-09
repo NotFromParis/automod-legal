@@ -49,7 +49,9 @@ une IA que si le serveur a activé le mode IA. Vous pouvez demander la suppressi
 <h3>Abonnements</h3>
 <p>Pour un plan payant : identifiant du serveur, plan, état et date de fin de l'abonnement ou du pass, identifiants
 client et abonnement Stripe, identifiant du paiement SumUp (ou droit Discord), identifiant Discord de la personne qui a
-souscrit. Les données bancaires sont traitées uniquement par Stripe, SumUp ou Discord ; Automod n'y a jamais accès.</p>
+souscrit, et la preuve d'acceptation des conditions (compte, date, version des conditions). Les données bancaires sont
+traitées uniquement par Stripe, SumUp ou Discord ; Automod n'y a jamais accès. Aucune donnée Discord (nom ou identifiant du
+serveur, pseudo) n'est transmise à SumUp : le paiement est relié au serveur uniquement dans les données d'Automod.</p>
 
 <h2>3. Intelligence artificielle</h2>
 <p>Uniquement si le serveur dispose du plan Max <strong>et</strong> a activé le mode IA pour un module : le message
@@ -131,8 +133,9 @@ AI mode. You can ask for your data to be deleted at any time.</p>
   in memory for a few minutes for spam detection.</li>
   <li><strong>Joins and leaves</strong>: used for logs, anti-raid (account age) and the server's welcome/goodbye messages.</li>
   <li><strong>Subscriptions</strong>: server ID, plan, subscription status and end date, Stripe customer and
-  subscription IDs, SumUp payment ID (or Discord entitlement), Discord ID of the subscriber. Payment details are handled
-  only by Stripe, SumUp or Discord.</li>
+  subscription IDs, SumUp payment ID (or Discord entitlement), Discord ID of the subscriber and proof of acceptance of the
+  terms (account, date, terms version). Payment details are handled only by Stripe, SumUp or Discord; no Discord data (server
+  name or ID, username) is sent to SumUp.</li>
 </ul>
 
 <h2>3. Artificial intelligence</h2>
