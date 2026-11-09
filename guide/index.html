@@ -61,18 +61,58 @@
 <p class="tip">Tant que <code>/setup</code> n'est pas terminé, la modération automatique reste <strong>désactivée</strong>.</p>
 
 <h2 id="setup">2. Configurer avec /setup</h2>
-<p>Tape <code>/setup</code>. Au tout premier lancement, choisis la langue du bot (français ou anglais) : elle s'applique
-à tout le serveur et se change plus tard avec le bouton <em>Langue · Language</em>.</p>
+<p><code>/setup</code> (ou <code>=setup</code>) ouvre l'assistant de configuration. Il est réservé au propriétaire, au
+buyer, aux administrateurs, aux admins du bot et — avec le réglage par défaut — aux membres qui ont
+<em>Gérer le serveur</em>. Tu peux le relancer à tout moment pour refaire ou ajuster la configuration.</p>
+
+<h3>Premier lancement : la langue</h3>
+<p>La toute première fois, Automod demande sa langue (français ou anglais). Elle s'applique à <strong>tout le
+serveur</strong> : messages, panneaux, logs, messages de bienvenue par défaut. Tu la changes plus tard avec le bouton
+<em>🌐 Langue · Language</em> de l'accueil de <code>/setup</code>.</p>
+
+<h3>⚡ Mode rapide (recommandé)</h3>
+<p>Un aperçu montre exactement ce qui va être fait, puis <em>Lancer la configuration</em> applique tout en un clic :</p>
+<ul>
+  <li>une catégorie privée <em>🛡️ Automod</em> avec les <strong>salons de logs</strong> (seuls le staff et le bot les voient) ;</li>
+  <li>une catégorie privée <em>📌 Convocations</em>, les annonces staff allant dans les logs de modération ;</li>
+  <li>les <strong>rôles staff</strong> détectés automatiquement (rôles qui peuvent bannir, expulser, exclure ou gérer les messages) ;</li>
+  <li>les <strong>protections recommandées</strong> activées.</li>
+</ul>
+<p>Rien n'est supprimé : les salons déjà configurés sont conservés. S'il manque la permission <em>Gérer les salons</em>,
+l'aperçu te prévient et rien n'est créé.</p>
+
+<h3>🛠️ Mode avancé (6 étapes)</h3>
+<p>Tu choisis tout toi-même. Une barre de progression indique l'étape, <em>◀️ Précédent</em> et <em>▶️ Suivant</em>
+permettent de naviguer, <em>Annuler</em> abandonne sans rien changer. <strong>Rien n'est enregistré avant la
+dernière étape.</strong></p>
 <table>
-  <tr><th>Mode</th><th>Ce qu'il fait</th></tr>
-  <tr><td>⚡ <strong>Rapide</strong> (recommandé)</td><td>En 1 clic : crée une catégorie privée <em>🛡️ Automod</em> avec les
-  salons de logs, une catégorie <em>📌 Convocations</em>, détecte les rôles staff et active les protections
-  recommandées. Rien n'est supprimé.</td></tr>
-  <tr><td>🛠️ <strong>Avancé</strong></td><td>6 étapes : salons de logs, rôles staff, modules, permissions, convocations
-  (et lien d'appel envoyé aux bannis), whitelist. Rien n'est enregistré avant la fin.</td></tr>
+  <tr><th>Étape</th><th>Ce que tu règles</th></tr>
+  <tr><td>1. 📋 Salons de logs</td><td>Un salon par type de log (vide = désactivé). <em>✨ Créer les manquants</em>
+  crée les salons dans la catégorie privée.</td></tr>
+  <tr><td>2. 👮 Rôles staff</td><td>Les rôles exemptés de l'anti-spam et de l'anti-raid, pingés lors des convocations et
+  autorisés à lire les logs. <em>🔎 Détecter automatiquement</em> les trouve pour toi.</td></tr>
+  <tr><td>3. 🛡️ Modules</td><td>Les protections à activer (celles d'un plan payant sont signalées).
+  <em>✨ Recommandés</em> coche la sélection conseillée.</td></tr>
+  <tr><td>4. 🔐 Permissions</td><td>Le réglage par défaut des commandes : <strong>Permission Discord</strong> (recommandé,
+  ex. <code>/ban</code> pour ceux qui peuvent bannir) ou <strong>Owner uniquement</strong>, et les <strong>admins du
+  bot</strong> (rôles ou membres avec accès total). Modifiable seulement par le propriétaire, le buyer, les
+  administrateurs et les admins du bot.</td></tr>
+  <tr><td>5. 📌 Convocations</td><td>La catégorie des convocations et le salon des annonces staff
+  (<em>✨ Créer la catégorie</em> si besoin), et le <strong>lien d'appel</strong> ajouté au message privé des bannis.</td></tr>
+  <tr><td>6. ⚪ Whitelist</td><td>Les salons et rôles que l'automod ne modère jamais.</td></tr>
+  <tr><td>✅ Récapitulatif</td><td>Tout ce que tu as choisi, puis <em>💾 Enregistrer</em>.</td></tr>
 </table>
-<p>Juste avant de valider, Automod te montre les plans <strong>Pro</strong> et <strong>Max</strong>. Tu peux
-<strong>t'abonner</strong> ou <strong>rester sur Free</strong> : dans les deux cas ta configuration est enregistrée.</p>
+
+<h3>💎 Avant de valider : le choix du plan</h3>
+<p>Si le serveur est en Free, Automod affiche les plans <strong>Free</strong>, <strong>Pro</strong> et
+<strong>Max</strong> (une carte par plan, le prix et ce qu'il apporte). <em>S'abonner à Pro / Max</em> enregistre la
+configuration puis ouvre le récapitulatif de paiement ; <em>Rester sur Free</em> enregistre simplement la configuration.
+Seuls le propriétaire et le buyer peuvent s'abonner.</p>
+
+<h3>Et après</h3>
+<p>L'écran final résume ce qui a été fait et ce qu'il reste à vérifier (permissions manquantes…), avec trois boutons :
+<em>🎛️ Ouvrir le tableau de bord</em> (<code>/controls</code>), <em>🛠️ Ajuster en mode avancé</em> et
+<em>📘 Mode d'emploi</em>. La modération automatique est active dès cet instant.</p>
 
 <h2 id="tester">3. Tester sans risque</h2>
 <p><code>=testmode on</code> active le <strong>mode test</strong> : le bot détecte comme d'habitude mais
@@ -80,17 +120,72 @@
 fait. Pratique pour régler la sensibilité avant de passer en vrai.</p>
 
 <h2 id="controls">4. Le tableau de bord /controls</h2>
-<p>Tout se règle avec des boutons, sans retenir de commande :</p>
-<table>
-  <tr><th>Page</th><th>Pour quoi faire</th></tr>
-  <tr><td>🏠 Accueil</td><td>État du bot, statistiques du serveur, réglages de base.</td></tr>
-  <tr><td>🛡️ Modules</td><td>Activer, couper et régler chaque protection (sensibilité de 0 à 100).</td></tr>
-  <tr><td>📋 Logs</td><td>Choisir les événements enregistrés et leurs salons.</td></tr>
-  <tr><td>🚨 Urgence</td><td>Verrouillage du serveur, mode raid, pause de l'automod.</td></tr>
-  <tr><td>⚖️ Sanctions</td><td>Analyse de la modération, sanctions en cours.</td></tr>
-  <tr><td>🎉 Communauté</td><td>Bienvenue, au revoir, rôles automatiques, compteur de membres, suggestions, menus de rôles.</td></tr>
-  <tr><td>🔐 Permissions</td><td>Qui peut utiliser chaque commande.</td></tr>
-</table>
+<p><code>/controls</code> (ou <code>=controls</code>) ouvre le tableau de bord : on y <strong>pilote</strong> et on
+<strong>analyse</strong> le serveur, sans retenir de commande (la configuration de départ, c'est <code>/setup</code>).
+Le menu en haut du panneau change de page. Tout le monde peut l'ouvrir, mais seuls les boutons que tu as le droit
+d'utiliser sont cliquables, et les droits sont revérifiés à chaque clic. Un panneau ouvert par quelqu'un d'autre ne
+répond qu'à lui : lance <code>/controls</code> toi-même. La bannière change de couleur selon l'état du bot :
+<strong>vert</strong> actif, <strong>rouge</strong> en pause, <strong>orange</strong> s'il y a un problème (permission
+manquante, maintenance).</p>
+
+<h3>🏠 Accueil — tout le monde</h3>
+<ul>
+  <li><strong>Automod ON / OFF</strong> : met toute la modération automatique en pause (droit de <code>=stop</code>).</li>
+  <li><strong>Mode test</strong> : les sanctions sont simulées ; un rapport complet est posté dans les logs quand tu le
+  coupes (droit de <code>=testmode</code>).</li>
+  <li><strong>Cette semaine</strong> : nombre de sanctions, automatiques et par le staff.</li>
+  <li><strong>Protection</strong> : modules actifs, membres en récidive, serveur verrouillé ou mode raid en cours.</li>
+  <li><strong>Plan</strong> : ton plan actuel et, si les paiements sont ouverts, le bouton <em>Offres</em>.</li>
+  <li>Si la configuration n'est pas faite : bouton <em>Configurer</em> (ouvre <code>/setup</code>).</li>
+</ul>
+
+<h3>🛡️ Modules — droit de <code>/controls</code></h3>
+<p>Deux groupes : <em>Contenu des messages</em> (insultes, contenu sexuel, données personnelles, arnaques) et
+<em>Spam et raids</em> (spam, raids, mentions de masse, liens). Pour chaque protection :</p>
+<ul>
+  <li>le bouton d'état passe de <strong>OFF</strong> à <strong>ON</strong> (détection par règles) puis à
+  <strong>IA</strong> (analyse par l'intelligence artificielle, plan Max, modules de contenu) ;</li>
+  <li>le bouton <strong>%</strong> règle la sensibilité de 0 (insensible) à 100 (le plus sensible) ;</li>
+  <li>une protection d'un plan supérieur affiche un bouton vers les offres.</li>
+</ul>
+
+<h3>📋 Logs — droit de <code>/controls</code></h3>
+<p>Deux groupes : <em>Modération</em> (sanctions du staff et automatiques, cartes interactives, convocations,
+bannissements à vie) et <em>Serveur</em> (raids, arrivées et départs, ajout de bot…). Chaque événement s'active ou se
+coupe d'un clic. Les <strong>salons</strong> de logs se choisissent dans <code>/setup</code>.</p>
+
+<h3>🚨 Urgence — droit de <code>=lock</code> ou de <code>=stop</code></h3>
+<ul>
+  <li><strong>Verrouillage du serveur</strong> : plus personne ne peut écrire dans les salons publics (les
+  administrateurs gardent l'accès). Un second clic restaure les salons.</li>
+  <li><strong>Mode raid</strong> : les nouveaux arrivants sont expulsés dès qu'ils rejoignent, jusqu'à ce que tu le
+  coupes. L'anti-raid automatique l'active aussi tout seul pendant 10 à 15 minutes en cas d'attaque.</li>
+  <li><strong>Automod en pause dans certains salons</strong> : choisis les salons dont les messages ne sont plus
+  analysés.</li>
+</ul>
+
+<h3>⚖️ Sanctions — droit de <code>=history</code> ou de <code>=pardon</code></h3>
+<ul>
+  <li>Période au choix : 24 heures, 7 jours, 30 jours ou depuis le début.</li>
+  <li>Vue d'ensemble par type de sanction, sanctions du staff et <strong>modérateurs les plus actifs</strong>,
+  détections automatiques, <strong>membres les plus sanctionnés</strong>, exclusions et bannissements temporaires en cours.</li>
+  <li>Actions : <strong>lever l'exclusion</strong> d'un membre, <strong>pardonner</strong> un membre (ses récidives
+  repartent de zéro) ou <strong>tout pardonner</strong> (avec confirmation).</li>
+</ul>
+
+<h3>🎉 Communauté — droit de <code>/controls</code></h3>
+<p>Bienvenue, au revoir, arrivées et départs, rôles automatiques, compteur de membres, suggestions et menus de rôles :
+chaque fonction a sa page avec un bouton ON / OFF et ses réglages (voir <a href="#communaute">Communauté</a>).</p>
+
+<h3>🔐 Permissions — propriétaire, buyer, administrateurs, admins du bot</h3>
+<ul>
+  <li>La liste de <strong>chaque commande</strong> et de qui peut l'utiliser.</li>
+  <li><em>Modifier la permission</em> : choisis une catégorie, puis une commande (ou toute la catégorie), puis
+  <strong>Discord</strong> (la permission Discord liée), <strong>Owner</strong> (propriétaire, buyer, admins du bot)
+  ou <strong>Rôles et membres</strong> (ajoute ou retire des rôles et des membres). <em>Réinitialiser</em> revient au
+  réglage par défaut.</li>
+  <li>Le propriétaire peut aussi y retirer les droits du buyer.</li>
+</ul>
 
 <h2 id="protections">5. Les protections</h2>
 <p>Chaque module a trois états : <strong>désactivé</strong>, <strong>activé</strong> (règles du bot) ou
@@ -194,26 +289,75 @@ sans renouvellement automatique (un rappel est envoyé avant la fin).</p>
 </ul>
 <p class="tip">Automatic moderation stays <strong>off</strong> until <code>/setup</code> is finished.</p>
 
-<h2>2. Set up with /setup</h2>
-<p>Run <code>/setup</code>. The first time, pick the bot's language (French or English) for the whole server; change it
-later with the <em>Langue · Language</em> button.</p>
-<ul>
-  <li>⚡ <strong>Quick</strong> (recommended): one click creates a private <em>🛡️ Automod</em> category with log channels,
-  a <em>📌 Convocations</em> category, detects staff roles and turns on the recommended protections. Nothing is deleted.</li>
-  <li>🛠️ <strong>Advanced</strong>: 6 steps — log channels, staff roles, modules, permissions, convocations (and the
-  appeal link sent to banned members), whitelist. Nothing is saved until the end.</li>
-</ul>
-<p>Right before you confirm, Automod shows the <strong>Pro</strong> and <strong>Max</strong> plans: <strong>subscribe</strong>
-or <strong>stay on Free</strong>. Either way your setup is saved.</p>
+<h2 id="setup-en">2. Set up with /setup</h2>
+<p><code>/setup</code> (or <code>=setup</code>) opens the setup assistant. It is available to the owner, the buyer,
+administrators, bot admins and — with the default setting — members with <em>Manage Server</em>. Run it again at any
+time to redo or adjust the setup.</p>
+<h3>First run: the language</h3>
+<p>The very first time, Automod asks for its language (French or English). It applies to the <strong>whole
+server</strong>: messages, panels, logs, default welcome messages. Change it later with the
+<em>🌐 Langue · Language</em> button on the <code>/setup</code> home screen.</p>
+<h3>⚡ Quick mode (recommended)</h3>
+<p>A preview shows exactly what will happen, then <em>Start setup</em> applies everything in one click: a private
+<em>🛡️ Automod</em> category with the <strong>log channels</strong>, a private <em>📌 Convocations</em> category, the
+<strong>staff roles</strong> detected automatically, and the <strong>recommended protections</strong> turned on.
+Nothing is deleted; channels already set up are kept. Without the <em>Manage Channels</em> permission, the preview warns
+you and nothing is created.</p>
+<h3>🛠️ Advanced mode (6 steps)</h3>
+<p>You choose everything. A progress bar shows the step, <em>◀️ Previous</em> / <em>▶️ Next</em> navigate and
+<em>Cancel</em> leaves without changing anything. <strong>Nothing is saved before the last step.</strong></p>
+<table>
+  <tr><th>Step</th><th>What you set</th></tr>
+  <tr><td>1. 📋 Log channels</td><td>One channel per log type (empty = off). <em>✨ Create missing</em> creates them
+  in the private category.</td></tr>
+  <tr><td>2. 👮 Staff roles</td><td>Roles exempt from anti-spam and anti-raid, pinged for convocations and allowed to read
+  the logs. <em>🔎 Detect automatically</em> finds them.</td></tr>
+  <tr><td>3. 🛡️ Modules</td><td>The protections to turn on (paid-plan ones are marked). <em>✨ Recommended</em> selects
+  the advised set.</td></tr>
+  <tr><td>4. 🔐 Permissions</td><td>The default for commands: <strong>Discord permission</strong> (recommended) or
+  <strong>Owner only</strong>, and the <strong>bot admins</strong> (roles or members with full access).</td></tr>
+  <tr><td>5. 📌 Convocations</td><td>The convocation category and staff announcement channel (<em>✨ Create
+  category</em> if needed), and the <strong>appeal link</strong> added to the DM sent to banned members.</td></tr>
+  <tr><td>6. ⚪ Whitelist</td><td>Channels and roles the automod never moderates.</td></tr>
+  <tr><td>✅ Summary</td><td>Everything you chose, then <em>💾 Save</em>.</td></tr>
+</table>
+<h3>💎 Before confirming: choosing a plan</h3>
+<p>On a Free server, Automod shows the <strong>Free</strong>, <strong>Pro</strong> and <strong>Max</strong> plans (one card
+each, with the price and what it adds). <em>Subscribe to Pro / Max</em> saves the setup and opens the payment summary;
+<em>Stay on Free</em> just saves the setup. Only the owner and the buyer can subscribe.</p>
+<h3>Afterwards</h3>
+<p>The final screen sums up what was done and what to check, with <em>🎛️ Open dashboard</em>, <em>🛠️ Adjust in
+advanced mode</em> and <em>📘 User guide</em>. Automatic moderation is active from that moment.</p>
 
 <h2>3. Test safely</h2>
 <p><code>=testmode on</code> turns on <strong>test mode</strong>: the bot detects as usual but <strong>punishes no one</strong>.
 <code>=testmode off</code> turns it off and shows what would have happened.</p>
 
-<h2>4. The /controls dashboard</h2>
-<p>Everything is done with buttons: 🏠 Home (status, stats, basics), 🛡️ Modules (each protection, sensitivity 0–100),
-📋 Logs, 🚨 Emergency (lockdown, raid mode, pause), ⚖️ Sanctions, 🎉 Community (welcome, goodbye, auto-roles, member
-counter, suggestions, role menus), 🔐 Permissions.</p>
+<h2 id="controls-en">4. The /controls dashboard</h2>
+<p><code>/controls</code> (or <code>=controls</code>) opens the dashboard to <strong>run</strong> and
+<strong>analyse</strong> the server (the initial setup is <code>/setup</code>). The menu at the top switches pages.
+Everyone can open it, but only the buttons you are allowed to use are clickable, and rights are checked again on every
+click. A panel opened by someone else only answers them. The banner is <strong>green</strong> when active,
+<strong>red</strong> when paused, <strong>orange</strong> when something is wrong (missing permission, maintenance).</p>
+<ul>
+  <li><strong>🏠 Home</strong> (everyone): automod ON / OFF, test mode, this week's sanctions, active protections,
+  repeat offenders, lockdown / raid mode, your plan and the <em>Plans</em> button, <em>Configure</em> if the setup isn't done.</li>
+  <li><strong>🛡️ Modules</strong> (<code>/controls</code> right): for each protection, <strong>OFF → ON</strong> (rules)
+  <strong>→ AI</strong> (Max plan, content modules) and the <strong>%</strong> button for sensitivity from 0 to 100.</li>
+  <li><strong>📋 Logs</strong> (<code>/controls</code> right): turn each logged event on or off (channels are chosen in
+  <code>/setup</code>).</li>
+  <li><strong>🚨 Emergency</strong> (<code>=lock</code> or <code>=stop</code> right): lock the whole server, raid mode
+  (new members are kicked until you turn it off; the automatic anti-raid turns it on for 10–15 minutes during an
+  attack), pause the automod in chosen channels.</li>
+  <li><strong>⚖️ Sanctions</strong> (<code>=history</code> or <code>=pardon</code> right): stats over 24 h, 7 days,
+  30 days or all time, most active moderators, automatic detections, most sanctioned members, ongoing timeouts and
+  temporary bans; lift a timeout, pardon one member or everyone (with confirmation).</li>
+  <li><strong>🎉 Community</strong> (<code>/controls</code> right): welcome, goodbye, join/leave feed, auto-roles, member
+  counter, suggestions, role menus.</li>
+  <li><strong>🔐 Permissions</strong> (owner, buyer, administrators, bot admins): who can use each command; change a
+  command or a whole category to <strong>Discord</strong>, <strong>Owner</strong> or <strong>Roles and members</strong>,
+  or reset it. The owner can also remove the buyer.</li>
+</ul>
 
 <h2>5. Protections</h2>
 <p>Each module is <strong>off</strong>, <strong>on</strong> (rule-based) or <strong>AI</strong> (Max plan).</p>
