@@ -163,8 +163,8 @@ Smartlog s'il est réglé, sinon dans le salon habituel du log. Les <strong>salo
 
 <h3>🛡️ Protection — droit de <code>=lock</code>, <code>=stop</code> ou <code>/controls</code></h3>
 <p>Tout ce qui protège le serveur, en quatre groupes : <em>Urgence</em>, <em>Raids et arrivées</em> (anti-raid et mode
-raid automatique, âge minimum du compte, vérification à l'arrivée), <em>Anti-nuke</em> et <em>Serveur</em> (verrou de
-l'identité, contrôle des bots) —
+raid automatique, anti comptes récents, captcha), <em>Anti-nuke</em> et <em>Serveur</em> (protection critique du
+serveur, anti bot) —
 voir <a href="#protections">5. Les protections</a>. Le groupe <em>Urgence</em> :</p>
 <ul>
   <li><strong>Verrouillage du serveur</strong> : plus personne ne peut écrire dans les salons publics (les
@@ -204,8 +204,8 @@ rôles par réaction et absences du staff : chaque fonction a sa page avec un bo
 <strong>IA</strong> (plan Max). Plus la sensibilité est haute, plus le bot réagit vite.</p>
 <ul>
   <li><strong>Free</strong> : anti-spam, anti-raid, anti-mass-ping, anti-liens, et la <strong>protection du serveur</strong>
-  ci-dessous (sauf la vérification à l'arrivée).</li>
-  <li><strong>Pro</strong> : vérification à l'arrivée (captcha), anti-insultes et propos haineux, anti-contenu sexuel, anti-données personnelles,
+  ci-dessous (sauf le captcha).</li>
+  <li><strong>Pro</strong> : captcha, anti-insultes et propos haineux, anti-contenu sexuel, anti-données personnelles,
   anti-arnaque (faux Nitro, faux cadeaux, liens d'hameçonnage).</li>
   <li><strong>Max</strong> : mode IA sur ces modules — il comprend le contexte (humour, jeu, second degré) et fait moins
   d'erreurs. Si l'IA ne répond pas, les règles classiques prennent le relais.</li>
@@ -218,20 +218,20 @@ automatiques, ni IA — pendant un temps donné (<code>=bypass @Partenaire 2h</c
 au buyer.</p>
 <h3>🛡️ Protection du serveur (page Protection)</h3>
 <ul>
-  <li><strong>Anti-nuke</strong> : <em>garde des salons</em>, <em>garde des rôles</em> et <em>sanctions en rafale</em>. Quelqu'un qui crée, supprime ou modifie trop de salons ou de rôles, ou qui bannit / expulse / exclut trop de
+  <li><strong>Anti-nuke</strong> : <em>régulation des salons</em>, <em>régulation des rôles</em> et <em>modération de masse</em>. Quelqu'un qui crée, supprime ou modifie trop de salons ou de rôles, ou qui bannit / expulse / exclut trop de
   monde en 10 minutes (seuil selon la sensibilité) est sanctionné : retrait de tous ses rôles, expulsion ou
   bannissement, au choix. Le propriétaire, le buyer et ce qui est en <strong>bypass</strong> ne sont jamais sanctionnés. Automod a besoin de la permission « Voir les logs du serveur ».</li>
-  <li><strong>Verrou de l'identité</strong> : un changement du nom, de l'icône, de la bannière, de la description… fait
+  <li><strong>Protection critique du serveur</strong> : un changement du nom, de l'icône, de la bannière, de la description… fait
   par quelqu'un qui n'est pas en bypass est annulé.</li>
-  <li><strong>Contrôle des bots</strong> : un bot ajouté par quelqu'un qui n'est pas en bypass est expulsé.</li>
-  <li><strong>Âge minimum du compte</strong> : les comptes créés il y a moins de N jours (7 par défaut) sont expulsés.</li>
+  <li><strong>Anti Bot</strong> : un bot ajouté par quelqu'un qui n'est pas en bypass est expulsé.</li>
+  <li><strong>Anti Comptes Récents</strong> : les comptes créés il y a moins de N jours (7 par défaut) sont expulsés.</li>
   <li><strong>Anti-raid et mode raid automatique</strong> : vagues de messages identiques, messages sur plusieurs
   salons, et arrivées massives — si N membres arrivent en S secondes (8 en 10 s par défaut), le mode raid s'active
   pendant M minutes (60 par défaut) et les nouveaux sont expulsés. Les trois chiffres se règlent avec
   <em>Édition</em>.</li>
-  <li><strong>Vérification à l'arrivée</strong> (captcha, plan Pro) : les arrivants reçoivent le rôle « Non vérifié », qui ne voit que le salon de
+  <li><strong>Captcha</strong> (plan Pro) : les arrivants reçoivent le rôle « Non vérifié », qui ne voit que le salon de
   vérification ; ils cliquent sur <em>Vérifier</em> et recopient le code d'une image. Sans réussite dans le délai (10 min
-  par défaut) ou après 3 erreurs, ils sont expulsés. Dans <code>/controls</code> → Protection → Raids et arrivées → Vérification à l'arrivée :
+  par défaut) ou après 3 erreurs, ils sont expulsés. Dans <code>/controls</code> → Protection → Raids et arrivées → Captcha :
   choisis le salon, crée le rôle, clique sur <em>Préparer les salons</em> puis <em>Publier le panneau</em>.</li>
 </ul>
 
@@ -402,8 +402,8 @@ click. A panel opened by someone else only answers them. The banner is <strong>g
   <code>/setup</code>).</li>
   <li><strong>🛡️ Protection</strong> (<code>=lock</code>, <code>=stop</code> or <code>/controls</code> right): emergency
   (lock the whole server, raid mode, pause the automod in chosen channels), raids and joins (anti-raid with automatic
-  raid mode — 8 joins in 10 s → 60 min by default, adjustable —, minimum account age, join verification), anti-nuke and
-  server (identity lock, bot control).</li>
+  raid mode — 8 joins in 10 s → 60 min by default, adjustable —, anti new accounts, captcha), anti-nuke and
+  server (critical server protection, anti bot).</li>
   <li><strong>⚖️ Sanctions</strong> (<code>=history</code> or <code>=pardon</code> right): stats over 24 h, 7 days,
   30 days or all time, most active moderators, automatic detections, most sanctioned members, ongoing timeouts and
   temporary bans; lift a timeout, pardon one member or everyone (with confirmation).</li>
@@ -417,8 +417,8 @@ click. A panel opened by someone else only answers them. The banner is <strong>g
 <h2>5. Protections</h2>
 <p>Each module is <strong>off</strong>, <strong>on</strong> (rule-based) or <strong>AI</strong> (Max plan).</p>
 <ul>
-  <li><strong>Free</strong>: anti-spam, anti-raid, anti-mass-ping, anti-links, and the <strong>server protection</strong> modules below (except join verification).</li>
-  <li><strong>Pro</strong>: join verification (captcha), anti-insults and hate, anti-sexual content, anti-personal data, anti-scam (fake Nitro, fake gifts, phishing).</li>
+  <li><strong>Free</strong>: anti-spam, anti-raid, anti-mass-ping, anti-links, and the <strong>server protection</strong> modules below (except captcha).</li>
+  <li><strong>Pro</strong>: captcha, anti-insults and hate, anti-sexual content, anti-personal data, anti-scam (fake Nitro, fake gifts, phishing).</li>
   <li><strong>Max</strong>: AI mode on those modules — understands context and makes fewer mistakes. If the AI is
   unavailable, the rules take over.</li>
 </ul>
@@ -426,12 +426,12 @@ click. A panel opened by someone else only answers them. The banner is <strong>g
 a <strong>role</strong> or a <strong>channel</strong> (no automatic moderation or protection, no AI) for a given time
 (<code>=bypass @Partner 2h</code>) or with no limit. No permission is given: manual commands still work.
 <code>=bypass</code> alone shows the list, <code>=bypass remove @x</code> removes. Owner and buyer only by default.</p>
-<p><strong>Server protection</strong> (Protection page): <em>anti-nuke</em> (channel guard, role guard, sanction bursts — whoever
+<p><strong>Server protection</strong> (Protection page): <em>anti-nuke</em> (channel regulation, role regulation, mass moderation — whoever
 does too many operations in 10 minutes loses their roles, is kicked or banned, your choice; the owner, the buyer and
-bypassed members or roles are never sanctioned; Automod needs « View Audit Log »), <em>identity lock</em> (name, icon,
-banner… changes made outside bypass are reverted), <em>bot control</em> (bots added by non-bypassed members are kicked),
-<em>minimum account age</em> (accounts younger than N days are kicked), <em>automatic raid mode</em> (anti-raid settings:
-N joins in S seconds → raid mode for M minutes) and <em>join verification</em> (captcha, Pro plan; newcomers get an « Unverified » role, click
+bypassed members or roles are never sanctioned; Automod needs « View Audit Log »), <em>critical server protection</em> (name, icon,
+banner… changes made outside bypass are reverted), <em>anti bot</em> (bots added by non-bypassed members are kicked),
+<em>anti new accounts</em> (accounts younger than N days are kicked), <em>automatic raid mode</em> (anti-raid settings:
+N joins in S seconds → raid mode for M minutes) and <em>captcha</em> (Pro plan; newcomers get an « Unverified » role, click
 Verify and copy an image code, or are kicked after the delay / 3 mistakes).</p>
 
 <h2>6. Punish a member</h2>
