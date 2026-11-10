@@ -150,9 +150,15 @@ manquante, maintenance).</p>
 </ul>
 
 <h3>📋 Logs — droit de <code>/controls</code></h3>
-<p>Deux groupes : <em>Modération</em> (sanctions du staff et automatiques, cartes interactives, convocations,
-bannissements à vie) et <em>Serveur</em> (raids, arrivées et départs, ajout de bot…). Chaque événement s'active ou se
-coupe d'un clic. Les <strong>salons</strong> de logs se choisissent dans <code>/setup</code>.</p>
+<p>Deux groupes : <em>Modération</em> (sanctions du staff et automatiques, convocations, bannissements à vie) et
+<em>Serveur</em> (raids, arrivées et départs, ajout de bot…). Le bouton de chaque événement passe de <strong>OFF</strong>
+à <strong>ON</strong> (log classique) puis, en plan Pro, à <strong>🧠 Smartlog</strong> : une carte interactive avec
+l'avatar et le contexte du membre (âge du compte, casier, récidive, notes) et des boutons selon ce qui s'est passé —
+débannir et réinviter après un ban, lever l'exclusion après un mute, retirer le warn, supprimer le message après un
+@everyone, couper le mode raid… Chaque bouton demande la permission de la commande correspondante, la raison et la
+durée sont demandées avant une sanction, et la carte garde la trace de qui a fait quoi. Les cartes vont dans le salon
+Smartlog s'il est réglé, sinon dans le salon habituel du log. Les <strong>salons</strong> de logs se choisissent dans
+<code>/setup</code> ou sur le tableau de bord.</p>
 
 <h3>🚨 Urgence — droit de <code>=lock</code> ou de <code>=stop</code></h3>
 <ul>
@@ -217,8 +223,9 @@ Durées : <code>10m</code>, <code>2h</code>, <code>3d</code>, <code>1w</code>.</
 </table>
 <p>Chaque sanction reçoit un <strong>numéro de case</strong>, apparaît dans les logs et le membre reçoit un message
 privé (avec le lien d'appel si tu l'as configuré). En plan Pro, tu peux sanctionner
-<strong>plusieurs membres d'un coup</strong> (<code>=ban @a @b 1d raid</code>) et les logs deviennent des
-<strong>cartes interactives</strong> avec des boutons d'action.</p>
+<strong>plusieurs membres d'un coup</strong> (<code>=ban @a @b 1d raid</code>) et passer les logs que tu veux en
+<strong>cartes Smartlog</strong> avec des boutons d'action. Toutes ces sanctions se font aussi depuis le tableau de bord
+(onglet <em>Membres &amp; sanctions</em>).</p>
 
 <h2 id="convocations">7. Convocations (Pro)</h2>
 <p><code>=convocate @membre</code> crée un salon texte et vocal privé entre le staff et le membre, pour discuter d'un
@@ -392,7 +399,8 @@ click. A panel opened by someone else only answers them. The banner is <strong>g
 <code>=mute @member 30m flood</code>, <code>=warn @member</code>, <code>=history @member</code>, <code>=case 42</code>,
 <code>=forceban @member</code>, <code>=purge 20</code>, <code>=lock</code>. Every sanction gets a <strong>case number</strong>,
 is logged and the member gets a DM (with the appeal link if set). Pro lets you punish <strong>several members at once</strong>
-and turns logs into <strong>interactive cards</strong>.</p>
+and lets you switch any log event to <strong>Smartlog cards</strong> (member context + action buttons: unban, reinvite,
+remove timeout, remove warn, delete message…). All sanctions can also be done from the web dashboard.</p>
 
 <h2>7. Convocations (Pro)</h2>
 <p><code>=convocate @member</code> opens a private text and voice channel between staff and the member;
