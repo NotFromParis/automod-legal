@@ -65,6 +65,11 @@ analysé, jusqu'à trois messages précédents du même auteur dans le salon et 
 <a href="https://mistral.ai/terms#privacy-policy">Mistral AI</a> (France, Union européenne), qui renvoie seulement un
 verdict (catégorie détectée ou non). Automod garde ce verdict en mémoire au plus 10 minutes pour éviter les doublons et
 ne l'utilise pour rien d'autre. Le mode IA peut être désactivé à tout moment par le serveur ou par le développeur.</p>
+<p>Clé d'IA du serveur (tableau de bord → Développeur) : un serveur peut brancher sa propre clé d'un fournisseur
+d'IA (par exemple Mistral AI, Anthropic, OpenAI, Google…). Dans ce cas, les mêmes données que ci-dessus sont envoyées à
+<strong>ce fournisseur</strong>, choisi par le serveur et soumis à ses propres conditions, au lieu de Mistral AI. La clé est
+chiffrée avant d'être enregistrée, n'est jamais réaffichée (seuls ses 4 derniers caractères le sont) ni écrite dans les
+journaux, et elle est effacée dès que le serveur la supprime.</p>
 
 <h2>4. Finalités et base légale</h2>
 <ul>
@@ -87,7 +92,7 @@ ne l'utilise pour rien d'autre. Le mode IA peut être désactivé à tout moment
 <h2>6. Partage</h2>
 <p>Les données ne sont ni vendues, ni louées, ni utilisées à des fins publicitaires. Elles sont uniquement transmises aux
 prestataires nécessaires au service : Discord (plateforme), l'hébergeur du bot (serveur situé dans l'Union européenne),
-Mistral AI (mode IA, voir § 3), Stripe et SumUp (paiements), Cloudflare (acheminement sécurisé du tableau de bord web).
+Mistral AI ou le fournisseur d'IA choisi par le serveur (mode IA, voir § 3), Stripe et SumUp (paiements), Cloudflare (acheminement sécurisé du tableau de bord web).
 Les journaux de modération sont publiés dans les salons du serveur
 concerné, visibles par les personnes que ce serveur autorise.</p>
 
@@ -154,6 +159,10 @@ AI mode. You can ask for your data to be deleted at any time.</p>
 three previous messages from the same author in the channel and the message it replies to are sent to
 <a href="https://mistral.ai/terms#privacy-policy">Mistral AI</a> (France, EU), which only returns a verdict. Automod keeps
 that verdict in memory for at most 10 minutes and uses it for nothing else.</p>
+<p>Server AI key (dashboard → Developer): a server can plug in its own key from an AI provider (for example Mistral
+AI, Anthropic, OpenAI, Google…). The same data as above is then sent to <strong>that provider</strong>, chosen by the server
+and bound by its own terms, instead of Mistral AI. The key is encrypted before being stored, never shown again (only its
+last 4 characters) nor written to logs, and deleted as soon as the server removes it.</p>
 
 <h2>4. Purposes and legal basis</h2>
 <p>Moderating and securing servers and providing the features they enabled (legitimate interest); managing paid
@@ -166,7 +175,7 @@ subscriptions: removed about 45 days after they end.</p>
 
 <h2>6. Sharing</h2>
 <p>Data is never sold, rented or used for advertising. It is only shared with providers required to run the service:
-Discord, the bot's hosting provider (EU), Mistral AI (AI mode), Stripe and SumUp (payments), Cloudflare (secure
+Discord, the bot's hosting provider (EU), Mistral AI or the AI provider chosen by the server (AI mode), Stripe and SumUp (payments), Cloudflare (secure
 delivery of the web dashboard). Moderation logs are posted in the
 server's own channels.</p>
 
