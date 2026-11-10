@@ -52,6 +52,12 @@ client et abonnement Stripe, identifiant du paiement SumUp (ou droit Discord), i
 souscrit, et la preuve d'acceptation des conditions (compte, date, version des conditions). Les données bancaires sont
 traitées uniquement par Stripe, SumUp ou Discord ; Automod n'y a jamais accès. Aucune donnée Discord (nom ou identifiant du
 serveur, pseudo) n'est transmise à SumUp : le paiement est relié au serveur uniquement dans les données d'Automod.</p>
+<p>Tableau de bord web (connexion avec Discord) : avec votre accord donné sur la page de Discord, Automod reçoit votre
+identifiant, votre pseudo, votre avatar et la liste de vos serveurs avec vos permissions (autorisations « identify » et
+« guilds »). Ces données servent uniquement à afficher les serveurs que vous pouvez gérer ; elles sont gardées en mémoire le
+temps de la session (7 jours au plus), jamais écrites sur disque, et effacées à la déconnexion ou au redémarrage du bot. Un
+cookie de session strictement nécessaire (« am_sid ») est déposé ; aucun cookie de mesure d'audience ou publicitaire. Les
+modifications faites depuis le site sont les mêmes que celles faites avec <code>/controls</code>.</p>
 
 <h2>3. Intelligence artificielle</h2>
 <p>Uniquement si le serveur dispose du plan Max <strong>et</strong> a activé le mode IA pour un module : le message
@@ -81,7 +87,8 @@ ne l'utilise pour rien d'autre. Le mode IA peut être désactivé à tout moment
 <h2>6. Partage</h2>
 <p>Les données ne sont ni vendues, ni louées, ni utilisées à des fins publicitaires. Elles sont uniquement transmises aux
 prestataires nécessaires au service : Discord (plateforme), l'hébergeur du bot (serveur situé dans l'Union européenne),
-Mistral AI (mode IA, voir § 3), Stripe et SumUp (paiements). Les journaux de modération sont publiés dans les salons du serveur
+Mistral AI (mode IA, voir § 3), Stripe et SumUp (paiements), Cloudflare (acheminement sécurisé du tableau de bord web).
+Les journaux de modération sont publiés dans les salons du serveur
 concerné, visibles par les personnes que ce serveur autorise.</p>
 
 <h2>7. Messages privés</h2>
@@ -136,6 +143,10 @@ AI mode. You can ask for your data to be deleted at any time.</p>
   subscription IDs, SumUp payment ID (or Discord entitlement), Discord ID of the subscriber and proof of acceptance of the
   terms (account, date, terms version). Payment details are handled only by Stripe, SumUp or Discord; no Discord data (server
   name or ID, username) is sent to SumUp.</li>
+  <li>Web dashboard (log in with Discord): with your consent on Discord's page, Automod receives your ID, username, avatar
+  and your server list with your permissions (« identify » and « guilds » scopes), only to show the servers you can manage.
+  Kept in memory for the session (7 days at most), never written to disk, deleted on logout or bot restart. One strictly
+  necessary session cookie (« am_sid »); no analytics or advertising cookies.</li>
 </ul>
 
 <h2>3. Artificial intelligence</h2>
@@ -155,7 +166,8 @@ subscriptions: removed about 45 days after they end.</p>
 
 <h2>6. Sharing</h2>
 <p>Data is never sold, rented or used for advertising. It is only shared with providers required to run the service:
-Discord, the bot's hosting provider (EU), Mistral AI (AI mode), Stripe and SumUp (payments). Moderation logs are posted in the
+Discord, the bot's hosting provider (EU), Mistral AI (AI mode), Stripe and SumUp (payments), Cloudflare (secure
+delivery of the web dashboard). Moderation logs are posted in the
 server's own channels.</p>
 
 <h2>7. Direct messages</h2>
