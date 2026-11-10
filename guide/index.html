@@ -61,9 +61,10 @@
 <p class="tip">Tant que <code>/setup</code> n'est pas terminé, la modération automatique reste <strong>désactivée</strong>.</p>
 
 <h2 id="setup">2. Configurer avec /setup</h2>
-<p><code>/setup</code> (ou <code>=setup</code>) ouvre l'assistant de configuration. Il est réservé au propriétaire, au
-buyer, aux administrateurs, aux admins du bot et — avec le réglage par défaut — aux membres qui ont
-<em>Gérer le serveur</em>. Tu peux le relancer à tout moment pour refaire ou ajuster la configuration.</p>
+<p><code>/setup</code> (ou <code>=setup</code>) ouvre l'assistant de configuration. Comme toutes les commandes de
+gestion d'Automod, il est réservé par défaut au propriétaire, au buyer, aux administrateurs et aux admins du bot
+(réglable dans <code>/controls</code> → Permissions). Tu peux le relancer à tout moment pour refaire ou ajuster la
+configuration.</p>
 
 <h3>Premier lancement : la langue</h3>
 <p>La toute première fois, Automod demande sa langue (français ou anglais). Elle s'applique à <strong>tout le
@@ -99,7 +100,7 @@ dernière étape.</strong></p>
   administrateurs et les admins du bot.</td></tr>
   <tr><td>5. 📌 Convocations</td><td>La catégorie des convocations et le salon des annonces staff
   (<em>✨ Créer la catégorie</em> si besoin), et le <strong>lien d'appel</strong> ajouté au message privé des bannis.</td></tr>
-  <tr><td>6. ⚪ Whitelist</td><td>Les salons et rôles que l'automod ne modère jamais.</td></tr>
+  <tr><td>6. 🎫 Bypass</td><td>Les salons et rôles qu'Automod ignore (pour un membre ou une durée : <code>/bypass</code>).</td></tr>
   <tr><td>✅ Récapitulatif</td><td>Tout ce que tu as choisi, puis <em>💾 Enregistrer</em>.</td></tr>
 </table>
 
@@ -162,7 +163,8 @@ Smartlog s'il est réglé, sinon dans le salon habituel du log. Les <strong>salo
 
 <h3>🛡️ Protection — droit de <code>=lock</code>, <code>=stop</code> ou <code>/controls</code></h3>
 <p>Tout ce qui protège le serveur, en quatre groupes : <em>Urgence</em>, <em>Raids et arrivées</em> (anti-raid et mode
-raid automatique, comptes récents, captcha), <em>Anti-nuke</em> et <em>Serveur</em> (identité du serveur, anti-bots) —
+raid automatique, âge minimum du compte, vérification à l'arrivée), <em>Anti-nuke</em> et <em>Serveur</em> (verrou de
+l'identité, contrôle des bots) —
 voir <a href="#protections">5. Les protections</a>. Le groupe <em>Urgence</em> :</p>
 <ul>
   <li><strong>Verrouillage du serveur</strong> : plus personne ne peut écrire dans les salons publics (les
@@ -202,32 +204,34 @@ rôles par réaction et absences du staff : chaque fonction a sa page avec un bo
 <strong>IA</strong> (plan Max). Plus la sensibilité est haute, plus le bot réagit vite.</p>
 <ul>
   <li><strong>Free</strong> : anti-spam, anti-raid, anti-mass-ping, anti-liens, et la <strong>protection du serveur</strong>
-  ci-dessous (sauf le captcha).</li>
-  <li><strong>Pro</strong> : captcha, anti-insultes et propos haineux, anti-contenu sexuel, anti-données personnelles,
+  ci-dessous (sauf la vérification à l'arrivée).</li>
+  <li><strong>Pro</strong> : vérification à l'arrivée (captcha), anti-insultes et propos haineux, anti-contenu sexuel, anti-données personnelles,
   anti-arnaque (faux Nitro, faux cadeaux, liens d'hameçonnage).</li>
   <li><strong>Max</strong> : mode IA sur ces modules — il comprend le contexte (humour, jeu, second degré) et fait moins
   d'erreurs. Si l'IA ne répond pas, les règles classiques prennent le relais.</li>
 </ul>
-<p><code>=wl</code> gère la <strong>whitelist</strong> : les salons et rôles où le bot ne modère pas
-automatiquement (ex. <code>=wl add #staff</code>).</p>
+<p><strong>🎫 Bypass</strong> : <code>/bypass</code> ou <code>=bypass</code> fait ignorer par Automod un
+<strong>membre</strong>, un <strong>rôle</strong> ou un <strong>salon</strong> — ni modération ni protection
+automatiques, ni IA — pendant un temps donné (<code>=bypass @Partenaire 2h</code>) ou sans limite
+(<code>=bypass #memes</code>). Aucune permission n'est donnée : les commandes manuelles marchent toujours.
+<code>=bypass</code> seul affiche la liste, <code>=bypass retirer @x</code> retire. Réservé par défaut au propriétaire et
+au buyer.</p>
 <h3>🛡️ Protection du serveur (page Protection)</h3>
 <ul>
-  <li><strong>Anti-nuke</strong> : <em>régulation des salons</em>, <em>régulation des rôles</em> et <em>modération de
-  masse</em>. Quelqu'un qui crée, supprime ou modifie trop de salons ou de rôles, ou qui bannit / expulse / exclut trop de
-  monde en 15 minutes (seuil selon la sensibilité) est sanctionné : retrait de tous ses rôles, expulsion ou
-  bannissement, au choix. Les membres et rôles de la <strong>liste blanche</strong> (plus le propriétaire et le buyer)
-  ne sont jamais sanctionnés. Automod a besoin de la permission « Voir les logs du serveur ».</li>
-  <li><strong>Identité du serveur</strong> : un changement du nom, de l'icône, de la bannière, de la description… fait
-  par quelqu'un hors liste blanche est annulé.</li>
-  <li><strong>Anti-bots</strong> : un bot ajouté par quelqu'un hors liste blanche est expulsé.</li>
-  <li><strong>Comptes récents</strong> : les comptes créés il y a moins de N jours (7 par défaut) sont expulsés.</li>
+  <li><strong>Anti-nuke</strong> : <em>garde des salons</em>, <em>garde des rôles</em> et <em>sanctions en rafale</em>. Quelqu'un qui crée, supprime ou modifie trop de salons ou de rôles, ou qui bannit / expulse / exclut trop de
+  monde en 10 minutes (seuil selon la sensibilité) est sanctionné : retrait de tous ses rôles, expulsion ou
+  bannissement, au choix. Le propriétaire, le buyer et ce qui est en <strong>bypass</strong> ne sont jamais sanctionnés. Automod a besoin de la permission « Voir les logs du serveur ».</li>
+  <li><strong>Verrou de l'identité</strong> : un changement du nom, de l'icône, de la bannière, de la description… fait
+  par quelqu'un qui n'est pas en bypass est annulé.</li>
+  <li><strong>Contrôle des bots</strong> : un bot ajouté par quelqu'un qui n'est pas en bypass est expulsé.</li>
+  <li><strong>Âge minimum du compte</strong> : les comptes créés il y a moins de N jours (7 par défaut) sont expulsés.</li>
   <li><strong>Anti-raid et mode raid automatique</strong> : vagues de messages identiques, messages sur plusieurs
   salons, et arrivées massives — si N membres arrivent en S secondes (8 en 10 s par défaut), le mode raid s'active
   pendant M minutes (60 par défaut) et les nouveaux sont expulsés. Les trois chiffres se règlent avec
   <em>Édition</em>.</li>
-  <li><strong>Captcha</strong> (plan Pro) : les arrivants reçoivent le rôle « Non vérifié », qui ne voit que le salon de
+  <li><strong>Vérification à l'arrivée</strong> (captcha, plan Pro) : les arrivants reçoivent le rôle « Non vérifié », qui ne voit que le salon de
   vérification ; ils cliquent sur <em>Vérifier</em> et recopient le code d'une image. Sans réussite dans le délai (10 min
-  par défaut) ou après 3 erreurs, ils sont expulsés. Dans <code>/controls</code> → Protection → Raids et arrivées → Captcha :
+  par défaut) ou après 3 erreurs, ils sont expulsés. Dans <code>/controls</code> → Protection → Raids et arrivées → Vérification à l'arrivée :
   choisis le salon, crée le rôle, clique sur <em>Préparer les salons</em> puis <em>Publier le panneau</em>.</li>
 </ul>
 
@@ -293,7 +297,9 @@ message, emojis classiques ou emojis du serveur. Le rôle d'Automod doit être a
 <h2 id="permissions">10. Permissions</h2>
 <ul>
   <li><strong>Mode natif</strong> (par défaut) : une commande est ouverte à ceux qui ont la permission Discord
-  correspondante (<code>/ban</code> → <em>Bannir des membres</em>).</li>
+  correspondante (<code>/ban</code> → <em>Bannir des membres</em>). Exception : les commandes de <em>gestion
+  d'Automod</em> (<code>/setup</code>, <code>/controls</code>, <code>/bypass</code>, <code>/dashboard</code>,
+  <code>=stop</code>…) sont réservées au propriétaire, au buyer, aux administrateurs et aux admins du bot.</li>
   <li>Dans <code>/controls</code> → 🔐 Permissions, tu peux changer chaque commande, ou toute une catégorie d'un coup :
   Discord (permission native), owner uniquement, ou des rôles et membres précis.</li>
   <li><code>/cmds</code> montre à chacun les commandes qu'il peut utiliser, <code>/help</code> les explique toutes.</li>
@@ -338,9 +344,9 @@ sans renouvellement automatique (un rappel est envoyé avant la fin).</p>
 <p class="tip">Automatic moderation stays <strong>off</strong> until <code>/setup</code> is finished.</p>
 
 <h2 id="setup-en">2. Set up with /setup</h2>
-<p><code>/setup</code> (or <code>=setup</code>) opens the setup assistant. It is available to the owner, the buyer,
-administrators, bot admins and — with the default setting — members with <em>Manage Server</em>. Run it again at any
-time to redo or adjust the setup.</p>
+<p><code>/setup</code> (or <code>=setup</code>) opens the setup assistant. Like every Automod management command, it
+is reserved by default to the owner, the buyer, administrators and bot admins (adjustable in <code>/controls</code> →
+Permissions). Run it again at any time to redo or adjust the setup.</p>
 <h3>First run: the language</h3>
 <p>The very first time, Automod asks for its language (French or English). It applies to the <strong>whole
 server</strong>: messages, panels, logs, default welcome messages. Change it later with the
@@ -366,7 +372,7 @@ you and nothing is created.</p>
   <strong>Owner only</strong>, and the <strong>bot admins</strong> (roles or members with full access).</td></tr>
   <tr><td>5. 📌 Convocations</td><td>The convocation category and staff announcement channel (<em>✨ Create
   category</em> if needed), and the <strong>appeal link</strong> added to the DM sent to banned members.</td></tr>
-  <tr><td>6. ⚪ Whitelist</td><td>Channels and roles the automod never moderates.</td></tr>
+  <tr><td>6. 🎫 Bypass</td><td>Channels and roles Automod ignores (for a member or a duration: <code>/bypass</code>).</td></tr>
   <tr><td>✅ Summary</td><td>Everything you chose, then <em>💾 Save</em>.</td></tr>
 </table>
 <h3>💎 Before confirming: choosing a plan</h3>
@@ -396,8 +402,8 @@ click. A panel opened by someone else only answers them. The banner is <strong>g
   <code>/setup</code>).</li>
   <li><strong>🛡️ Protection</strong> (<code>=lock</code>, <code>=stop</code> or <code>/controls</code> right): emergency
   (lock the whole server, raid mode, pause the automod in chosen channels), raids and joins (anti-raid with automatic
-  raid mode — 8 joins in 10 s → 60 min by default, adjustable —, new accounts, captcha), anti-nuke and server (identity,
-  anti-bots).</li>
+  raid mode — 8 joins in 10 s → 60 min by default, adjustable —, minimum account age, join verification), anti-nuke and
+  server (identity lock, bot control).</li>
   <li><strong>⚖️ Sanctions</strong> (<code>=history</code> or <code>=pardon</code> right): stats over 24 h, 7 days,
   30 days or all time, most active moderators, automatic detections, most sanctioned members, ongoing timeouts and
   temporary bans; lift a timeout, pardon one member or everyone (with confirmation).</li>
@@ -411,18 +417,21 @@ click. A panel opened by someone else only answers them. The banner is <strong>g
 <h2>5. Protections</h2>
 <p>Each module is <strong>off</strong>, <strong>on</strong> (rule-based) or <strong>AI</strong> (Max plan).</p>
 <ul>
-  <li><strong>Free</strong>: anti-spam, anti-raid, anti-mass-ping, anti-links, and the <strong>server protection</strong> modules below (except captcha).</li>
-  <li><strong>Pro</strong>: captcha, anti-insults and hate, anti-sexual content, anti-personal data, anti-scam (fake Nitro, fake gifts, phishing).</li>
+  <li><strong>Free</strong>: anti-spam, anti-raid, anti-mass-ping, anti-links, and the <strong>server protection</strong> modules below (except join verification).</li>
+  <li><strong>Pro</strong>: join verification (captcha), anti-insults and hate, anti-sexual content, anti-personal data, anti-scam (fake Nitro, fake gifts, phishing).</li>
   <li><strong>Max</strong>: AI mode on those modules — understands context and makes fewer mistakes. If the AI is
   unavailable, the rules take over.</li>
 </ul>
-<p><code>=wl</code> manages the <strong>whitelist</strong> (channels and roles the bot does not auto-moderate).</p>
-<p><strong>Server protection</strong> (Protection page): <em>anti-nuke</em> (channel regulation, role regulation, mass moderation — whoever
-does too many operations in 15 minutes loses their roles, is kicked or banned, your choice; the whitelist, owner and
-buyer are never sanctioned; Automod needs « View Audit Log »), <em>server identity</em> (name, icon, banner… changes made
-outside the whitelist are reverted), <em>anti-bots</em> (bots added by non-whitelisted members are kicked),
-<em>new accounts</em> (accounts younger than N days are kicked), <em>automatic raid mode</em> (anti-raid settings:
-N joins in S seconds → raid mode for M minutes) and <em>captcha</em> (Pro plan; newcomers get an « Unverified » role, click
+<p><strong>🎫 Bypass</strong>: <code>/bypass</code> or <code>=bypass</code> makes Automod ignore a <strong>member</strong>,
+a <strong>role</strong> or a <strong>channel</strong> (no automatic moderation or protection, no AI) for a given time
+(<code>=bypass @Partner 2h</code>) or with no limit. No permission is given: manual commands still work.
+<code>=bypass</code> alone shows the list, <code>=bypass remove @x</code> removes. Owner and buyer only by default.</p>
+<p><strong>Server protection</strong> (Protection page): <em>anti-nuke</em> (channel guard, role guard, sanction bursts — whoever
+does too many operations in 10 minutes loses their roles, is kicked or banned, your choice; the owner, the buyer and
+bypassed members or roles are never sanctioned; Automod needs « View Audit Log »), <em>identity lock</em> (name, icon,
+banner… changes made outside bypass are reverted), <em>bot control</em> (bots added by non-bypassed members are kicked),
+<em>minimum account age</em> (accounts younger than N days are kicked), <em>automatic raid mode</em> (anti-raid settings:
+N joins in S seconds → raid mode for M minutes) and <em>join verification</em> (captcha, Pro plan; newcomers get an « Unverified » role, click
 Verify and copy an image code, or are kicked after the delay / 3 mistakes).</p>
 
 <h2>6. Punish a member</h2>
@@ -456,7 +465,9 @@ Automod gives the role, announces the absence and removes the role on the return
 early.</p>
 
 <h2>10. Permissions</h2>
-<p>By default a command is open to members who have the matching Discord permission. In <code>/controls</code> →
+<p>By default a command is open to members who have the matching Discord permission — except Automod management
+commands (<code>/setup</code>, <code>/controls</code>, <code>/bypass</code>, <code>/dashboard</code>, <code>=stop</code>…),
+reserved to the owner, the buyer, administrators and bot admins. In <code>/controls</code> →
 🔐 Permissions you can change each command or a whole category: Discord, owner only, or specific roles and members.
 <code>/cmds</code> lists what you can use, <code>/help</code> explains everything.</p>
 
