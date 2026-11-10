@@ -37,7 +37,12 @@ une IA que si le serveur a activé le mode IA. Vous pouvez demander la suppressi
   <li><strong>Sanctions</strong> : identifiant et pseudo du membre, type de sanction, raison, durée, date, identifiant du
   modérateur. Pour une sanction automatique : un extrait du message concerné (300 caractères maximum) et le salon.</li>
   <li><strong>Suivi de modération</strong> : nombre de récidives, avertissements temporaires, notes internes rédigées
-  par le staff, liste des bannissements permanents, convocations en cours.</li>
+  par le staff, convocations en cours.</li>
+  <li><strong>Sécurité du serveur</strong> (si le serveur l'active) : le journal d'audit du serveur (qui a créé, supprimé
+  ou modifié un salon, un rôle, banni ou expulsé quelqu'un, ajouté un bot, modifié le serveur) est lu en temps réel ;
+  seul un compteur par membre reste en mémoire 15 minutes. La date de création du compte est vérifiée à l'arrivée
+  (comptes récents). Le code du captcha reste en mémoire le temps de la vérification. Les membres et rôles de la liste
+  blanche choisis par le serveur sont enregistrés dans ses réglages.</li>
   <li><strong>Contenu des messages</strong> : analysé en temps réel pour détecter le spam, les raids, les liens dangereux,
   les insultes, le contenu sexuel, les données personnelles et les arnaques. Il n'est <strong>pas conservé</strong>, sauf
   l'extrait joint à une sanction et les journaux que le serveur a choisi de publier dans ses propres salons.
@@ -98,7 +103,8 @@ concerné, visibles par les personnes que ce serveur autorise.</p>
 
 <h2>7. Messages privés</h2>
 <p>Automod n'envoie de message privé que dans ces cas : notification d'une sanction au membre concerné, message de
-bienvenue si le serveur l'a activé, et annonces exceptionnelles du développeur aux propriétaires et administrateurs
+bienvenue si le serveur l'a activé, explication à un compte trop récent expulsé à l'arrivée (si le serveur a activé
+cette protection), et annonces exceptionnelles du développeur aux propriétaires et administrateurs
 des serveurs.</p>
 
 <h2>8. Vos droits</h2>
@@ -137,8 +143,12 @@ AI mode. You can ask for your data to be deleted at any time.</p>
   bot and of bot administrators.</li>
   <li><strong>Sanctions</strong>: member ID and username, sanction type, reason, duration, date, moderator ID; for
   automatic sanctions, an excerpt of the message (max 300 characters) and the channel.</li>
-  <li><strong>Moderation tracking</strong>: repeat-offence counters, temporary warnings, staff notes, permanent ban list,
-  ongoing summons.</li>
+  <li><strong>Moderation tracking</strong>: repeat-offence counters, temporary warnings, staff notes, ongoing summons.</li>
+  <li><strong>Server security</strong> (if enabled by the server): the server's audit log (who created, deleted or
+  edited a channel or role, banned or kicked someone, added a bot, edited the server) is read in real time; only a
+  per-member counter stays in memory for 15 minutes. The account creation date is checked on join (new accounts).
+  The captcha code stays in memory during verification. Whitelisted members and roles chosen by the server are stored
+  in its settings.</li>
   <li><strong>Message content</strong>: analysed in real time to detect spam, raids, dangerous links, insults, sexual
   content, personal data and scams. It is <strong>not stored</strong>, except the excerpt attached to a sanction and the
   logs the server chose to post in its own channels. Minimal technical data (time and channel of recent messages) stays
@@ -181,7 +191,7 @@ server's own channels.</p>
 
 <h2>7. Direct messages</h2>
 <p>Automod only sends direct messages to notify a member of a sanction, to send a welcome message if the server enabled
-it, and for exceptional announcements from the developer to server owners and administrators.</p>
+it, to explain to a too-new account why it was kicked on join (if the server enabled that protection), and for exceptional announcements from the developer to server owners and administrators.</p>
 
 <h2>8. Your rights</h2>
 <p>You can request access to, correction or deletion of your data, or object to its processing, by writing to

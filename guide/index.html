@@ -197,7 +197,8 @@ rôles par réaction et absences du staff : chaque fonction a sa page avec un bo
 <p>Chaque module a trois états : <strong>désactivé</strong>, <strong>activé</strong> (règles du bot) ou
 <strong>IA</strong> (plan Max). Plus la sensibilité est haute, plus le bot réagit vite.</p>
 <ul>
-  <li><strong>Free</strong> : anti-spam, anti-raid, anti-mass-ping, anti-liens.</li>
+  <li><strong>Free</strong> : anti-spam, anti-raid, anti-mass-ping, anti-liens, et la <strong>sécurité du serveur</strong>
+  ci-dessous.</li>
   <li><strong>Pro</strong> : anti-insultes et propos haineux, anti-contenu sexuel, anti-données personnelles,
   anti-arnaque (faux Nitro, faux cadeaux, liens d'hameçonnage).</li>
   <li><strong>Max</strong> : mode IA sur ces modules — il comprend le contexte (humour, jeu, second degré) et fait moins
@@ -205,6 +206,25 @@ rôles par réaction et absences du staff : chaque fonction a sa page avec un bo
 </ul>
 <p><code>=wl</code> gère la <strong>whitelist</strong> : les salons et rôles où le bot ne modère pas
 automatiquement (ex. <code>=wl add #staff</code>).</p>
+<h3>🛡️ Sécurité du serveur</h3>
+<ul>
+  <li><strong>Anti-nuke</strong> : <em>régulation des salons</em>, <em>régulation des rôles</em> et <em>modération de
+  masse</em>. Quelqu'un qui crée, supprime ou modifie trop de salons ou de rôles, ou qui bannit / expulse / exclut trop de
+  monde en 15 minutes (seuil selon la sensibilité) est sanctionné : retrait de tous ses rôles, expulsion ou
+  bannissement, au choix. Les membres et rôles de la <strong>liste blanche</strong> (plus le propriétaire et le buyer)
+  ne sont jamais sanctionnés. Automod a besoin de la permission « Voir les logs du serveur ».</li>
+  <li><strong>Identité du serveur</strong> : un changement du nom, de l'icône, de la bannière, de la description… fait
+  par quelqu'un hors liste blanche est annulé.</li>
+  <li><strong>Anti-bots</strong> : un bot ajouté par quelqu'un hors liste blanche est expulsé.</li>
+  <li><strong>Anti-envoi massif</strong> : trop de messages en une minute sur l'ensemble du serveur → exclusion.</li>
+  <li><strong>Comptes récents</strong> : les comptes créés il y a moins de N jours (7 par défaut) sont expulsés.</li>
+  <li><strong>Mode raid automatique</strong> : si N membres arrivent en S secondes (8 en 10 s par défaut), le mode raid
+  s'active pendant M minutes (60 par défaut) et les nouveaux sont expulsés.</li>
+  <li><strong>Captcha</strong> : les arrivants reçoivent le rôle « Non vérifié », qui ne voit que le salon de
+  vérification ; ils cliquent sur <em>Vérifier</em> et recopient le code d'une image. Sans réussite dans le délai (10 min
+  par défaut) ou après 3 erreurs, ils sont expulsés. Dans <code>/controls</code> → Modules → Arrivées → Captcha :
+  choisis le salon, crée le rôle, clique sur <em>Préparer les salons</em> puis <em>Publier le panneau</em>.</li>
+</ul>
 
 <h2 id="sanctions">6. Sanctionner un membre</h2>
 <p>Les commandes existent en slash (<code>/ban</code>) et avec le préfixe <code>=</code> (<code>=ban</code>).
@@ -218,7 +238,6 @@ Durées : <code>10m</code>, <code>2h</code>, <code>3d</code>, <code>1w</code>.</
   <tr><td>Annuler</td><td><code>=unban</code> · <code>=unmute</code> · <code>=pardon</code></td></tr>
   <tr><td>Historique d'un membre</td><td><code>=history @membre</code></td></tr>
   <tr><td>Détail d'une sanction</td><td><code>=case 42</code> · <code>=editcase</code> · <code>=delcase</code></td></tr>
-  <tr><td>Bannir à vie (re-expulsé à chaque retour)</td><td><code>=forceban @membre</code></td></tr>
   <tr><td>Outils de salon</td><td><code>=purge 20</code> · <code>=lock</code> · <code>=unlock</code> · <code>=slowmode 30</code></td></tr>
 </table>
 <p>Chaque sanction reçoit un <strong>numéro de case</strong>, apparaît dans les logs et le membre reçoit un message
@@ -386,18 +405,25 @@ click. A panel opened by someone else only answers them. The banner is <strong>g
 <h2>5. Protections</h2>
 <p>Each module is <strong>off</strong>, <strong>on</strong> (rule-based) or <strong>AI</strong> (Max plan).</p>
 <ul>
-  <li><strong>Free</strong>: anti-spam, anti-raid, anti-mass-ping, anti-links.</li>
+  <li><strong>Free</strong>: anti-spam, anti-raid, anti-mass-ping, anti-links, and the <strong>server security</strong> modules below.</li>
   <li><strong>Pro</strong>: anti-insults and hate, anti-sexual content, anti-personal data, anti-scam (fake Nitro, fake gifts, phishing).</li>
   <li><strong>Max</strong>: AI mode on those modules — understands context and makes fewer mistakes. If the AI is
   unavailable, the rules take over.</li>
 </ul>
 <p><code>=wl</code> manages the <strong>whitelist</strong> (channels and roles the bot does not auto-moderate).</p>
+<p><strong>Server security</strong>: <em>anti-nuke</em> (channel regulation, role regulation, mass moderation — whoever
+does too many operations in 15 minutes loses their roles, is kicked or banned, your choice; the whitelist, owner and
+buyer are never sanctioned; Automod needs « View Audit Log »), <em>server identity</em> (name, icon, banner… changes made
+outside the whitelist are reverted), <em>anti-bots</em> (bots added by non-whitelisted members are kicked),
+<em>anti-mass messages</em>, <em>new accounts</em> (accounts younger than N days are kicked), <em>automatic raid mode</em>
+(N joins in S seconds → raid mode for M minutes) and <em>captcha</em> (newcomers get an « Unverified » role, click
+Verify and copy an image code, or are kicked after the delay / 3 mistakes).</p>
 
 <h2>6. Punish a member</h2>
 <p>Commands work as slash (<code>/ban</code>) or with the <code>=</code> prefix. Durations: <code>10m</code>, <code>2h</code>,
 <code>3d</code>, <code>1w</code>. Examples: <code>=ban @member 7d toxicity</code>, <code>=kick @member</code>,
 <code>=mute @member 30m flood</code>, <code>=warn @member</code>, <code>=history @member</code>, <code>=case 42</code>,
-<code>=forceban @member</code>, <code>=purge 20</code>, <code>=lock</code>. Every sanction gets a <strong>case number</strong>,
+<code>=purge 20</code>, <code>=lock</code>. Every sanction gets a <strong>case number</strong>,
 is logged and the member gets a DM (with the appeal link if set). Pro lets you punish <strong>several members at once</strong>
 and lets you switch any log event to <strong>Smartlog cards</strong> (member context + action buttons: unban, reinvite,
 remove timeout, remove warn, delete message…). All sanctions can also be done from the web dashboard.</p>
