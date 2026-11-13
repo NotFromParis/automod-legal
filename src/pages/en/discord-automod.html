@@ -1,0 +1,77 @@
+<!--
+title: Discord AutoMod vs AI Automod: what's the difference?
+description: AutoMod, Discord's built-in tool, blocks keywords and spam. AI Automod adds tone understanding, French support, anti-raid, captcha, sanctions and logs.
+label: AI Automod vs Discord AutoMod
+h1: Discord AutoMod vs AI Automod: what's the difference?
+published: 2026-11-14
+-->
+<p class="lead-doc">They have almost the same name, but they are different tools. <strong>AutoMod</strong> is the
+filter built into Discord, free and already on your server. <strong>AI Automod</strong> is an independent bot you add
+on top. Here is an honest look at what each one does, so you can pick one or combine them.</p>
+
+<h2 id="discord-automod">What AutoMod, Discord's tool, does</h2>
+<p>AutoMod lives in <em>Server Settings → AutoMod</em> and works on every server. According to
+<a href="https://support.discord.com/hc/en-us/articles/4421269296535" rel="noopener">Discord's official FAQ</a>, it
+offers:</p>
+<ul>
+  <li><strong>Keyword rules</strong>: your own list (up to 1,000 terms of 60 characters per rule, with <code>*</code>
+    wildcards) and three ready-made lists: insults and slurs, sexual content, severe profanity.</li>
+  <li><strong>A spam filter</strong> trained on messages reported to Discord, and a <strong>mention limit</strong>
+    per message (up to 50).</li>
+  <li><strong>Blocked words in member names</strong>.</li>
+  <li><strong>Three responses</strong>: block the message before it is posted, send an alert to a channel, time out
+    the author (custom keyword and mention spam rules only).</li>
+</ul>
+<p>Its big strength: a blocked message never appears. Its limits, which Discord states itself: the ready-made lists
+and the spam filter <strong>only work in English</strong>, and a keyword is blocked everywhere, whatever the intent.
+Discord itself points out that it's often the intent, not the word, that hurts.</p>
+<p>For raids, Discord also offers alerts and a temporary captcha after a detected raid (gradually rolling out to
+Community servers), and pausing invites.</p>
+
+<h2 id="difference">What AI Automod adds</h2>
+<h3>It judges meaning, not just words</h3>
+<p>In AI mode, each message is read as a whole: category, severity and tone. “you're so dumb 😂” between friends is not
+“you don't even have friends, shut up”. Before any sanction, a second AI checks that the message itself is really at
+fault; when in doubt, nothing is sanctioned. Details are on the <a href="{{url:help/ai}}">AI Automod's AI</a> page.
+AI mode is in beta, included in the Max plan or free with your own AI key.</p>
+<h3>It understands French from the free plan</h3>
+<p>Rule-based moderation (insults, sexual content, personal data, scams) is built for French and the English terms
+common on Discord, with no AI and no subscription.</p>
+<h3>It sanctions and keeps the history</h3>
+<p>Warn, mute, kick, ban, numbered cases, automatic escalation for repeat offenders, appeal link for banned members:
+see <a href="{{url:help/sanctions}}">sanctions</a>.</p>
+<h3>It protects the server all the time</h3>
+<p>Automatic raid mode, one-click lockdown, anti new accounts, anti bot, captcha on every join (Pro) and anti-nuke:
+limits on creating or deleting channels and roles and on mass moderation. See
+<a href="{{url:help/protection}}">protections</a>.</p>
+<h3>It logs everything</h3>
+<p>Logs by category, Smartlog cards with action buttons (Pro) and a <a href="{{url:help/dashboard}}">web
+dashboard</a>.</p>
+
+<h2 id="table">Quick comparison</h2>
+<table>
+  <thead><tr><th></th><th>AutoMod (Discord)</th><th>AI Automod</th></tr></thead>
+  <tbody>
+    <tr><td>Price</td><td>Free, built in</td><td>Free · Pro €2.99 · Max €9.99 (30 days)</td></tr>
+    <tr><td>Ready-made insult lists</td><td>English</td><td>French (and common English terms)</td></tr>
+    <tr><td>Your own word list</td><td>Yes, with wildcards</td><td>No</td></tr>
+    <tr><td>Understands tone (joke or serious)</td><td>No</td><td>Yes, AI mode (beta, Max)</td></tr>
+    <tr><td>Blocks before posting</td><td>Yes</td><td>No: deletes right after</td></tr>
+    <tr><td>Spam and mass mentions</td><td>Yes</td><td>Yes, plus flood, links and scams</td></tr>
+    <tr><td>Personal data (phone, address…)</td><td>With your own list</td><td>Yes</td></tr>
+    <tr><td>Sanctions</td><td>Block, alert, timeout</td><td>Warn, mute, kick, ban, history, escalation</td></tr>
+    <tr><td>Anti-raid</td><td>Alerts and temporary captcha</td><td>Automatic raid mode, lockdown, new accounts</td></tr>
+    <tr><td>Captcha on join</td><td>Temporary, after a detected raid</td><td>On every join (Pro)</td></tr>
+    <tr><td>Anti-nuke (channels, roles, mass bans)</td><td>No</td><td>Yes</td></tr>
+    <tr><td>Logs and dashboard</td><td>Alerts in a channel</td><td>Logs, Smartlog (Pro), web dashboard</td></tr>
+  </tbody>
+</table>
+
+<h2 id="combine">Should you keep Discord's AutoMod?</h2>
+<p>Yes, nothing stops you from using both. A good combination: keep a short list of words you never want posted in
+AutoMod (they are blocked before they appear), and let AI Automod judge the rest by tone, then handle sanctions, raids
+and logs. To get started, follow the <a href="{{url:help/setup}}">setup guide</a>: <code>/setup</code> configures
+everything in two minutes.</p>
+<p class="muted small">AI Automod is an independent bot, not affiliated with Discord Inc. Information about AutoMod
+comes from Discord's public FAQ as of the date shown at the top of the page.</p>
+<p><a class="btn" href="{{url:invite}}">Add AI Automod to Discord — free</a></p>

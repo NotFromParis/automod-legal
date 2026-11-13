@@ -1,0 +1,79 @@
+<!--
+title: AutoMod de Discord ou AI Automod : quelles différences ?
+description: AutoMod, l'outil intégré à Discord, bloque des mots-clés et du spam. AI Automod ajoute le français, la compréhension du ton, l'anti-raid, le captcha, les sanctions et les logs.
+label: AI Automod ou AutoMod de Discord ?
+h1: AutoMod de Discord ou AI Automod : quelles différences ?
+published: 2026-11-14
+-->
+<p class="lead-doc">Les deux portent presque le même nom, mais ce ne sont pas les mêmes outils. <strong>AutoMod</strong>
+est le filtre intégré à Discord, gratuit et déjà présent sur ton serveur. <strong>AI Automod</strong> est un bot
+indépendant que tu ajoutes en plus. Voici ce que fait chacun, honnêtement, pour choisir ou les combiner.</p>
+
+<h2 id="automod-discord">Ce que fait AutoMod, l'outil de Discord</h2>
+<p>AutoMod se règle dans <em>Paramètres du serveur → AutoMod</em> et marche sur tous les serveurs. D'après la
+<a href="https://support.discord.com/hc/fr/articles/4421269296535" rel="noopener">FAQ officielle de Discord</a>, il
+propose :</p>
+<ul>
+  <li><strong>Des règles de mots-clés</strong> : ta propre liste (jusqu'à 1 000 termes de 60 caractères par règle,
+    avec des jokers <code>*</code>) et trois listes toutes prêtes : insultes et injures, contenu sexuel, grossièretés
+    graves.</li>
+  <li><strong>Un filtre de spam</strong> appris sur les messages signalés à Discord, et une <strong>limite de
+    mentions</strong> par message (jusqu'à 50).</li>
+  <li><strong>Des mots interdits dans les pseudos</strong> des membres.</li>
+  <li><strong>Trois réponses</strong> : bloquer le message avant qu'il soit publié, envoyer une alerte dans un salon,
+    exclure temporairement l'auteur (seulement pour les mots-clés personnalisés et le spam de mentions).</li>
+</ul>
+<p>Son gros point fort : le message bloqué n'apparaît jamais. Ses limites, que Discord indique lui-même : les listes
+toutes prêtes et le filtre de spam ne fonctionnent <strong>qu'en anglais</strong>, et un mot-clé est bloqué partout,
+quelle que soit l'intention. Discord rappelle d'ailleurs que c'est souvent l'intention, pas le mot, qui blesse.</p>
+<p>Côté raids, Discord propose aussi des alertes et un captcha temporaire après un raid détecté (déploiement progressif
+sur les serveurs Communauté), et la mise en pause des invitations.</p>
+
+<h2 id="difference">Ce qu'AI Automod ajoute</h2>
+<h3>Il juge le sens, pas seulement le mot</h3>
+<p>En mode IA, chaque message est lu en entier : catégorie, gravité et ton. « t'es trop con toi 😂 » entre potes n'est
+pas « t'as même pas d'amis, parle pas ». Avant toute sanction, une deuxième IA vérifie que le message lui-même est
+vraiment fautif ; dans le doute, rien n'est sanctionné. Le détail est sur la page
+<a href="{{url:help/ai}}">l'IA d'AI Automod</a>. Le mode IA est en bêta, inclus dans le plan Max ou gratuit avec ta
+propre clé d'IA.</p>
+<h3>Il comprend le français dès le plan gratuit</h3>
+<p>La modération par règles (insultes, contenu sexuel, données perso, arnaques) est pensée pour le français et les
+termes anglais courants sur Discord, sans IA et sans abonnement.</p>
+<h3>Il sanctionne et garde l'historique</h3>
+<p>Avertissement, mute, expulsion, ban, cases numérotées, récidive automatique, lien d'appel pour les bannis : voir
+<a href="{{url:help/sanctions}}">les sanctions</a>.</p>
+<h3>Il protège le serveur en permanence</h3>
+<p>Mode raid automatique, verrouillage en un clic, anti comptes récents, anti bot, captcha à chaque arrivée (Pro) et
+anti-nuke : limites sur la création ou la suppression de salons et de rôles et sur la modération de masse. Voir
+<a href="{{url:help/protection}}">les protections</a>.</p>
+<h3>Il trace tout</h3>
+<p>Logs par catégorie, cartes Smartlog avec boutons d'action (Pro) et <a href="{{url:help/dashboard}}">tableau de bord
+web</a>.</p>
+
+<h2 id="tableau">Comparatif rapide</h2>
+<table>
+  <thead><tr><th></th><th>AutoMod (Discord)</th><th>AI Automod</th></tr></thead>
+  <tbody>
+    <tr><td>Prix</td><td>Gratuit, intégré</td><td>Free gratuit · Pro 2,99 € · Max 9,99 € (30 jours)</td></tr>
+    <tr><td>Listes d'insultes prêtes à l'emploi</td><td>En anglais</td><td>En français (et termes anglais courants)</td></tr>
+    <tr><td>Ta propre liste de mots</td><td>Oui, avec jokers</td><td>Non</td></tr>
+    <tr><td>Compréhension du ton (humour ou sérieux)</td><td>Non</td><td>Oui, mode IA (bêta, Max)</td></tr>
+    <tr><td>Bloque avant publication</td><td>Oui</td><td>Non : supprime juste après</td></tr>
+    <tr><td>Spam et mentions de masse</td><td>Oui</td><td>Oui, plus flood, liens et arnaques</td></tr>
+    <tr><td>Données personnelles (téléphone, adresse…)</td><td>Avec ta propre liste</td><td>Oui</td></tr>
+    <tr><td>Sanctions</td><td>Blocage, alerte, exclusion temporaire</td><td>Warn, mute, kick, ban, historique, récidive</td></tr>
+    <tr><td>Anti-raid</td><td>Alertes et captcha temporaire</td><td>Mode raid automatique, verrouillage, comptes récents</td></tr>
+    <tr><td>Captcha à l'arrivée</td><td>Temporaire, après un raid détecté</td><td>À chaque arrivée (Pro)</td></tr>
+    <tr><td>Anti-nuke (salons, rôles, bans de masse)</td><td>Non</td><td>Oui</td></tr>
+    <tr><td>Logs et tableau de bord</td><td>Alertes dans un salon</td><td>Logs, Smartlog (Pro), tableau de bord web</td></tr>
+  </tbody>
+</table>
+
+<h2 id="combiner">Faut-il garder AutoMod de Discord ?</h2>
+<p>Oui, rien n'empêche d'utiliser les deux. Une bonne combinaison : garde dans AutoMod une courte liste de mots que tu
+ne veux jamais voir publiés (ils sont bloqués avant d'apparaître), et laisse AI Automod juger le reste, en français et
+selon le ton, puis gérer les sanctions, les raids et les logs. Pour démarrer, suis le
+<a href="{{url:help/setup}}">guide d'installation</a> : <code>/setup</code> configure tout en deux minutes.</p>
+<p class="muted small">AI Automod est un bot indépendant, non affilié à Discord Inc. Les informations sur AutoMod
+viennent de la FAQ publique de Discord à la date indiquée en haut de la page.</p>
+<p><a class="btn" href="{{url:invite}}">Ajouter AI Automod à Discord — gratuit</a></p>
