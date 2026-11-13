@@ -50,12 +50,15 @@ Les protections se règlent dans <code>/controls</code> → Protection ou sur le
 <p>Chaque module a trois états : <strong>désactivé</strong>, <strong>activé</strong> (règles du bot) ou
 <strong>IA</strong> (plan Max ou ta propre clé). Plus la sensibilité est haute, plus le bot réagit vite.</p>
 <ul>
-  <li><strong>Free</strong> : anti-spam, anti-raid, anti-mass-ping, anti-liens, et toute la <strong>protection du
-  serveur</strong> ci-dessous (sauf le captcha).</li>
-  <li><strong>Pro</strong> : captcha, anti-insultes et propos haineux, anti-contenu sexuel, anti-données personnelles,
-  anti-arnaque (faux Nitro, faux cadeaux, liens d'hameçonnage).</li>
-  <li><strong>Max</strong> : mode IA sur ces modules — il comprend le contexte (humour, jeu, second degré) et fait moins
-  d'erreurs. Si l'IA ne répond pas, les règles classiques prennent le relais. Voir <a href="../ai/">l'IA</a>.</li>
+  <li><strong>Free</strong> : toute la modération automatique par règles (anti-spam, anti-mentions, anti-liens,
+  anti-insultes et propos haineux, anti-contenu sexuel, anti-données personnelles, anti-arnaque) avec la
+  <strong>sensibilité standard</strong>, et la protection du serveur : anti-raid, anti-nuke, Anti Bot, Anti Comptes
+  Récents.</li>
+  <li><strong>Pro</strong> : la <strong>sensibilité réglable</strong> pour chaque module, le captcha et la protection
+  critique du serveur.</li>
+  <li><strong>Max</strong> : mode IA sur les modules de contenu — il comprend le contexte (humour, jeu, second degré) et
+  fait moins d'erreurs. Si l'IA ne répond pas, les règles classiques prennent le relais. Voir
+  <a href="../ai/">l'IA</a>.</li>
 </ul>
 
 <h2 id="anti-raid">Anti-raid et mode raid automatique</h2>
@@ -73,7 +76,7 @@ jamais sanctionnés. Automod a besoin de la permission « Voir les logs du serve
 
 <h2 id="serveur">Protection critique du serveur, Anti Bot, Anti Comptes Récents</h2>
 <ul>
-  <li><strong>Protection critique du serveur</strong> : un changement du nom, de l'icône, de la bannière, de la
+  <li><strong>Protection critique du serveur</strong> (plan Pro) : un changement du nom, de l'icône, de la bannière, de la
   description… fait par quelqu'un qui n'est pas en bypass est annulé.</li>
   <li><strong>Anti Bot</strong> : un bot ajouté par quelqu'un qui n'est pas en bypass est expulsé.</li>
   <li><strong>Anti Comptes Récents</strong> : les comptes créés il y a moins de N jours (7 par défaut) sont expulsés.</li>

@@ -34,7 +34,7 @@ PAGES = {"home": "", "help": "help/", **{f"help/{k}": f"help/{k}/" for k in HELP
 SPECIAL = {"dash": "dash/", "support": "support/"}             # servis par le Worker (pas par ce site)
 UPDATED = {"terms": {"fr": "Dernière mise à jour : 10 novembre 2026 (version 2026-11-10)",
                      "en": "Last updated: November 10, 2026 (version 2026-11-10)"},
-           "policy": {"fr": "Dernière mise à jour : 10 novembre 2026", "en": "Last updated: November 10, 2026"}}
+           "policy": {"fr": "Dernière mise à jour : 13 novembre 2026", "en": "Last updated: November 13, 2026"}}
 
 UI = {
     "fr": {"nav": [("home#fonctions", "Fonctions"), ("help", "Aide"), ("help/ai", "IA"), ("help/plans", "Offres"),
@@ -63,27 +63,29 @@ UI = {
 
 PLANS = {
     "fr": [("🆓", "Free", "Gratuit", "pour toujours", 0,
-            ["Ban, kick, mute, warn", "Anti-spam, anti-raid, anti-mentions, anti-liens",
-             "Anti-nuke, anti bot, anti comptes récents", "Protection critique du serveur",
-             "Logs et tableau de bord web", "Bienvenue, rôles, suggestions, absences"]),
+            ["Commandes de base (ban, kick, mute, warn…)",
+             "Modération auto par règles : insultes, contenu sexuel, données perso, arnaques, spam, mentions, liens",
+             "Sensibilité standard", "Anti-raid, anti-nuke, anti bot, anti comptes récents",
+             "Logs et tableau de bord web", "Bienvenue, rôles, absences, suggestions", "Support standard (24-48 h)"]),
            ("⭐", "Pro", "2,99 €", "pour 30 jours", 2.99,
-            ["<strong>Tout le plan Free</strong>", "Anti-insultes et propos haineux", "Anti-contenu sexuel",
-             "Anti-données personnelles", "Anti-arnaque (faux Nitro, hameçonnage)", "Captcha à l'arrivée",
-             "Smartlog : logs avec boutons d'action", "Convocations, sanctions groupées"]),
+            ["<strong>Tout le plan Free</strong>", "Sensibilité réglable pour chaque module", "Captcha à l'arrivée",
+             "Protection critique du serveur", "Convocations", "Smartlog : logs avec boutons d'action",
+             "Sanctions groupées", "Support prioritaire (12-24 h)"]),
            ("💎", "Max", "9,99 €", "pour 30 jours", 9.99,
             ["<strong>Tout le plan Pro</strong>", "Mode IA (bêta) sur les modules de contenu",
-             "Fait la différence entre humour et insulte", "Moins de faux positifs", "Accompagnement personnalisé"])],
+             "Fait la différence entre humour et insulte", "Moins de faux positifs", "Support personnel"])],
     "en": [("🆓", "Free", "Free", "forever", 0,
-            ["Ban, kick, mute, warn", "Anti-spam, anti-raid, anti-mentions, anti-links",
-             "Anti-nuke, anti bot, anti new accounts", "Critical server protection",
-             "Logs and web dashboard", "Welcome, roles, suggestions, absences"]),
+            ["Basic commands (ban, kick, mute, warn…)",
+             "Rule-based auto-moderation: insults, sexual content, personal data, scams, spam, mentions, links",
+             "Standard sensitivity", "Anti-raid, anti-nuke, anti bot, anti new accounts",
+             "Logs and web dashboard", "Welcome, roles, absences, suggestions", "Standard support (24-48 h)"]),
            ("⭐", "Pro", "€2.99", "for 30 days", 2.99,
-            ["<strong>Everything in Free</strong>", "Anti-insults and hate speech", "Anti-sexual content",
-             "Anti-personal data", "Anti-scam (fake Nitro, phishing)", "Captcha on join",
-             "Smartlog: logs with action buttons", "Convocations, bulk sanctions"]),
+            ["<strong>Everything in Free</strong>", "Adjustable sensitivity for each module", "Captcha on join",
+             "Critical server protection", "Convocations", "Smartlog: logs with action buttons",
+             "Bulk sanctions", "Priority support (12-24 h)"]),
            ("💎", "Max", "€9.99", "for 30 days", 9.99,
             ["<strong>Everything in Pro</strong>", "AI mode (beta) on content modules",
-             "Tells a joke from an insult", "Fewer false positives", "Personal onboarding"])],
+             "Tells a joke from an insult", "Fewer false positives", "Personal support"])],
 }
 PLANS_NOTE = {"fr": "Sans renouvellement automatique : un rappel arrive avant la fin. Paiement par carte sur la page "
                     "sécurisée du prestataire, activé en moins d'une minute. Ou branche ta propre clé d'IA pour "
@@ -93,9 +95,11 @@ PLANS_NOTE = {"fr": "Sans renouvellement automatique : un rappel arrive avant la
 
 FAQ = {
     "fr": [("Automod est-il gratuit ?",
-            "Oui. Le plan Free comprend la modération manuelle, l'anti-spam, l'anti-raid, l'anti-nuke, les logs et le "
-            "tableau de bord web, sans limite de temps. Les plans Pro (2,99 €) et Max (9,99 €) ajoutent les filtres de "
-            "contenu, le captcha, Smartlog et l'IA, pour 30 jours sans renouvellement automatique."),
+            "Oui. Le plan Free comprend les commandes de base, toute la modération automatique par règles (insultes, "
+            "contenu sexuel, données perso, arnaques, spam…), l'anti-raid, l'anti-nuke, les logs et le tableau de bord, "
+            "sans limite de temps. Pro (2,99 €) ajoute la sensibilité réglable, le captcha, la protection critique du "
+            "serveur, Smartlog et les convocations ; Max (9,99 €) ajoute l'IA. 30 jours, sans renouvellement "
+            "automatique."),
            ("Comment l'IA fait-elle la différence entre une blague et une insulte ?",
             "Pour chaque message, l'IA donne la catégorie (insulte, contenu sexuel, données perso, arnaque), la gravité "
             "et le ton : humour ou sérieux. Une vanne entre potes avec « mdr » ou 😂 compte un cran de moins qu'une "
@@ -114,9 +118,10 @@ FAQ = {
             "privé de sanction contient son lien d'appel s'il en a un). L'équipe d'Automod ne peut pas lever une "
             "sanction à sa place.")],
     "en": [("Is Automod free?",
-            "Yes. The Free plan includes manual moderation, anti-spam, anti-raid, anti-nuke, logs and the web dashboard, "
-            "with no time limit. Pro (€2.99) and Max (€9.99) add content filters, captcha, Smartlog and AI, for 30 days "
-            "with no automatic renewal."),
+            "Yes. The Free plan includes basic commands, all rule-based automatic moderation (insults, sexual content, "
+            "personal data, scams, spam…), anti-raid, anti-nuke, logs and the web dashboard, with no time limit. Pro "
+            "(€2.99) adds adjustable sensitivity, captcha, critical server protection, Smartlog and convocations; Max "
+            "(€9.99) adds AI. 30 days, no automatic renewal."),
            ("How does the AI tell a joke from an insult?",
             "For each message, the AI gives the category (insult, sexual content, personal data, scam), the severity "
             "and the tone: joke or serious. Banter between friends with “lol” or 😂 counts one level lower than a real "
