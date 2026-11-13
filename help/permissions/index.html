@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Permissions des commandes — Automod</title>
+<meta name="description" content="Qui peut utiliser les commandes d&#x27;Automod : permissions Discord, commandes de gestion réservées au propriétaire, réglage par commande, buyer et admins du bot.">
+<link rel="canonical" href="https://aiautomod.com/help/permissions/">
+<link rel="alternate" hreflang="fr" href="https://aiautomod.com/help/permissions/">
+<link rel="alternate" hreflang="en" href="https://aiautomod.com/en/help/permissions/">
+<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/en/help/permissions/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Automod">
+<meta property="og:title" content="Permissions des commandes — Automod">
+<meta property="og:description" content="Qui peut utiliser les commandes d&#x27;Automod : permissions Discord, commandes de gestion réservées au propriétaire, réglage par commande, buyer et admins du bot.">
+<meta property="og:url" content="https://aiautomod.com/help/permissions/">
+<meta property="og:image" content="https://aiautomod.com/assets/og-fr.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0612">
+<link rel="icon" href="../../assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-192.png">
+<link rel="stylesheet" href="../../assets/site.css?v=f0549561">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Aide", "item": "https://aiautomod.com/help/"}, {"@type": "ListItem", "position": 2, "name": "Permissions", "item": "https://aiautomod.com/help/permissions/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="../../"><img src="../../assets/logo.svg" width="30" height="30" alt=""><span>Automod</span></a>
+    <nav class="menu" aria-label="Menu"><a href="../../#fonctions">Fonctions</a><a href="../">Aide</a><a href="../ai/">IA</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a></nav>
+    <div class="acts">
+      <a class="lang" href="../../en/help/permissions/" hreflang="en" lang="en" title="English">EN</a>
+      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Ajouter à Discord</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap page">
+  <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="../">Aide</a> <span aria-hidden="true">›</span> Permissions</nav>
+  <div class="help-grid">
+    <article class="doc">
+      <h1>Permissions des commandes</h1>
+<p class="lead-doc">Par défaut, Automod suit les permissions Discord de ton serveur. Tu peux tout ajuster, commande par
+commande.</p>
+
+<h2 id="defaut">Le réglage par défaut</h2>
+<ul>
+  <li><strong>Mode natif</strong> : une commande est ouverte à ceux qui ont la permission Discord correspondante
+  (<code>/ban</code> → <em>Bannir des membres</em>).</li>
+  <li>Exception : les commandes de <em>gestion d'Automod</em> (<code>/setup</code>, <code>/controls</code>,
+  <code>/bypass</code>, <code>/dashboard</code>, <code>=stop</code>…) sont réservées au propriétaire, au buyer, aux
+  administrateurs et aux admins du bot.</li>
+</ul>
+
+<h2 id="modifier">Modifier une permission</h2>
+<p>Dans <code>/controls</code> → 🔐 Permissions (ou sur le tableau de bord), change chaque commande, ou toute une catégorie
+d'un coup :</p>
+<ul>
+  <li><strong>Discord</strong> : la permission Discord liée ;</li>
+  <li><strong>Owner</strong> : propriétaire, buyer et admins du bot seulement ;</li>
+  <li><strong>Rôles et membres</strong> : des rôles et des membres précis.</li>
+</ul>
+<p><em>Réinitialiser</em> revient au réglage par défaut.</p>
+
+<h2 id="buyer">Buyer et admins du bot</h2>
+<ul>
+  <li>Le <strong>buyer</strong> est la personne qui a ajouté Automod si ce n'est pas le propriétaire : il a les mêmes
+  droits que lui sur Automod. Le propriétaire peut les lui retirer à tout moment.</li>
+  <li>Les <strong>admins du bot</strong> (rôles ou membres choisis dans <code>/setup</code>) ont un accès total à
+  Automod.</li>
+</ul>
+
+<h2 id="voir">Voir ses commandes</h2>
+<p><code>/cmds</code> montre à chacun les commandes qu'il peut utiliser, <code>/help</code> les explique toutes avec des
+exemples.</p>
+
+      <nav class="pn" aria-label="Précédent / Suivant"><a class="pn-prev" href="../community/"><span>Précédent</span>Communauté</a><a class="pn-next" href="../dashboard/"><span>Suivant</span>Tableau de bord web</a></nav>
+    </article>
+    <aside class="side" aria-label="Dans l&#x27;aide"><h2>Dans l&#x27;aide</h2><ol><li><a href="../setup/">Installer et configurer</a></li><li><a href="../controls/">Le panneau /controls</a></li><li><a href="../protection/">Protections et anti-raid</a></li><li><a href="../ai/">L&#x27;IA : humour ou sérieux</a></li><li><a href="../sanctions/">Sanctions et commandes</a></li><li><a href="../community/">Communauté</a></li><li><a href="./" aria-current="page">Permissions</a></li><li><a href="../dashboard/">Tableau de bord web</a></li><li><a href="../plans/">Offres Free, Pro, Max</a></li></ol></aside>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <div class="wrap cols">
+    <div class="fbrand"><a class="brand" href="../../"><img src="../../assets/logo.svg" width="26" height="26" alt=""><span>Automod</span></a>
+      <p>Automod est un bot indépendant, non affilié à Discord Inc. ni à sa fonction AutoMod.</p></div>
+    <div><h2>Produit</h2><a href="../../#fonctions">Fonctions</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Ajouter à Discord</a></div><div><h2>Aide</h2><a href="../">Mode d&#x27;emploi</a><a href="../ai/">L&#x27;IA d&#x27;Automod</a><a href="../../support/">Serveur support</a></div><div><h2>Légal</h2><a href="../../terms/">Conditions d&#x27;utilisation</a><a href="../../policy/">Confidentialité</a></div>
+  </div>
+  <p class="wrap copy">© 2026 Automod · <a href="../../en/help/permissions/" hreflang="en" lang="en">English</a></p>
+</footer>
+</body>
+</html>

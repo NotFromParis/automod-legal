@@ -1,0 +1,34 @@
+<!--
+title: Bienvenue, rôles par réaction et absences — Communauté Automod
+description: Bienvenue et au revoir, rôles automatiques et par réaction, compteur de membres, suggestions et absences du staff avec Automod.
+label: Communauté
+-->
+<p class="lead-doc">Dans <code>/controls</code> → 🎉 Communauté (ou sur le tableau de bord), chaque fonction a sa page
+avec un bouton ON / OFF et ses réglages.</p>
+
+<h2 id="bienvenue">Bienvenue, au revoir et arrivées</h2>
+<p>Message de bienvenue et d'au revoir (dans un salon ou en message privé), annonce des arrivées et départs, rôles donnés
+automatiquement, compteur de membres, salon de suggestions et menus de rôles. Variables utilisables dans les messages :</p>
+<p><code>{user.ping}</code> <code>{user.name}</code> <code>{user.tag}</code> <code>{user.id}</code>
+<code>{user.created}</code> <code>{user.avatar}</code> <code>{server.name}</code> <code>{server.members}</code>
+<code>{member.number}</code></p>
+<p>Exemple : <code>Bienvenue {user.ping} sur {server.name} ! Tu es le membre n°{member.number}.</code></p>
+
+<h2 id="reactions">😀 Rôles par réaction</h2>
+<p>Choisis des rôles, donne un emoji à chacun, un salon, puis <em>Publier</em> : Automod poste le message et y ajoute
+les réactions. Un membre qui réagit reçoit le rôle ; s'il retire sa réaction, le rôle est retiré. Jusqu'à 20 rôles par
+message, emojis classiques ou emojis du serveur. Le rôle d'Automod doit être au-dessus des rôles donnés.</p>
+
+<h2 id="absences">🌴 Absences du staff</h2>
+<ol>
+  <li>Dans la page <em>Absences du staff</em>, choisis le rôle d'absence (ou <em>Créer le rôle « En absence »</em>) et le
+  salon des absences, puis <em>Publier le panneau</em>.</li>
+  <li>Un membre du staff clique sur <em>🌴 Signaler une absence</em> et remplit : <strong>du</strong> (facultatif,
+  aujourd'hui par défaut), <strong>jusqu'au</strong> (<code>25/12</code>, <code>25/12/2026</code> ou une durée comme
+  <code>3j</code>, <code>2 semaines</code>) et une raison.</li>
+  <li>Automod lui donne le rôle d'absence (le jour venu si l'absence commence plus tard) et annonce l'absence dans le
+  salon.</li>
+  <li>À la date de retour, le rôle est retiré tout seul. <em>✅ Je suis de retour</em> termine l'absence plus tôt ; un
+  admin peut aussi la terminer depuis <code>/controls</code>.</li>
+</ol>
+<p>Seul le staff peut signaler une absence. Une date comme <code>25/12</code> veut dire « absent le 25 inclus ».</p>

@@ -1,0 +1,38 @@
+<!--
+title: Sanctions and moderation commands — Automod
+description: Automod's moderation commands: ban, kick, mute, warn, history, cases, purge, lock, slowmode, bulk sanctions and convocations.
+label: Sanctions and commands
+-->
+<p class="lead-doc">Every command works as a slash command (<code>/ban</code>) and with the <code>=</code> prefix
+(<code>=ban</code>). Durations: <code>10m</code>, <code>2h</code>, <code>3d</code>, <code>1w</code>.</p>
+
+<h2 id="commandes">Commands</h2>
+<table>
+  <tr><th>Action</th><th>Example</th></tr>
+  <tr><td>Ban (permanent or temporary)</td><td><code>=ban @member 7d toxicity</code></td></tr>
+  <tr><td>Kick</td><td><code>=kick @member spam</code></td></tr>
+  <tr><td>Mute (28 days max)</td><td><code>=mute @member 30m flood</code></td></tr>
+  <tr><td>Warn</td><td><code>=warn @member language</code></td></tr>
+  <tr><td>Undo</td><td><code>=unban</code> · <code>=unmute</code> · <code>=pardon</code></td></tr>
+  <tr><td>A member's history</td><td><code>=history @member</code></td></tr>
+  <tr><td>Sanction details</td><td><code>=case 42</code> · <code>=editcase</code> · <code>=delcase</code></td></tr>
+  <tr><td>Channel tools</td><td><code>=purge 20</code> · <code>=lock</code> · <code>=unlock</code> · <code>=slowmode 30</code></td></tr>
+</table>
+
+<h2 id="suivi">Cases, logs and appeal link</h2>
+<p>Every sanction gets a <strong>case number</strong>, shows up in the logs and the member gets a DM, with the
+<strong>appeal link</strong> if you set one in <code>/setup</code>. For automatic sanctions, repeat offences are counted:
+a member who does it again is sanctioned for longer. <code>=pardon</code> resets their count.</p>
+
+<h2 id="pro">With the Pro plan</h2>
+<ul>
+  <li>Sanction <strong>several members at once</strong>: <code>=ban @a @b 1d raid</code>.</li>
+  <li>Switch any log to <strong>Smartlog cards</strong> with action buttons (see
+  <a href="{{url:help/controls}}#logs">Logs and Smartlog</a>).</li>
+</ul>
+<p>All these sanctions can also be done from the <a href="{{url:help/dashboard}}">web dashboard</a> (<em>Members</em>
+and <em>Sanctions</em> tabs).</p>
+
+<h2 id="convocations">Convocations (Pro plan)</h2>
+<p><code>=convocate @member</code> opens a private text and voice channel between staff and the member to talk about an
+issue. <code>=closeconvoc</code> closes it. <code>=addconvoc</code> / <code>=delconvoc</code> add or remove someone.</p>

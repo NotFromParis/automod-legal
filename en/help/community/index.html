@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome, reaction roles and absences — Automod Community</title>
+<meta name="description" content="Automod&#x27;s community features: welcome and goodbye messages, auto-roles, reaction roles, member counter, suggestions and staff absences.">
+<link rel="canonical" href="https://aiautomod.com/en/help/community/">
+<link rel="alternate" hreflang="fr" href="https://aiautomod.com/help/community/">
+<link rel="alternate" hreflang="en" href="https://aiautomod.com/en/help/community/">
+<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/en/help/community/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Automod">
+<meta property="og:title" content="Welcome, reaction roles and absences — Automod Community">
+<meta property="og:description" content="Automod&#x27;s community features: welcome and goodbye messages, auto-roles, reaction roles, member counter, suggestions and staff absences.">
+<meta property="og:url" content="https://aiautomod.com/en/help/community/">
+<meta property="og:image" content="https://aiautomod.com/assets/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0612">
+<link rel="icon" href="../../../assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/icon-192.png">
+<link rel="stylesheet" href="../../../assets/site.css?v=f0549561">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Help", "item": "https://aiautomod.com/en/help/"}, {"@type": "ListItem", "position": 2, "name": "Community", "item": "https://aiautomod.com/en/help/community/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="../../"><img src="../../../assets/logo.svg" width="30" height="30" alt=""><span>Automod</span></a>
+    <nav class="menu" aria-label="Menu"><a href="../../#fonctions">Features</a><a href="../">Help</a><a href="../ai/">AI</a><a href="../plans/">Pricing</a><a href="../../../dash/">Dashboard</a></nav>
+    <div class="acts">
+      <a class="lang" href="../../../help/community/" hreflang="fr" lang="fr" title="Français">FR</a>
+      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Add to Discord</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap page">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Help</a> <span aria-hidden="true">›</span> Community</nav>
+  <div class="help-grid">
+    <article class="doc">
+      <h1>Welcome, reaction roles and absences</h1>
+<p class="lead-doc">In <code>/controls</code> → 🎉 Community (or on the dashboard), each feature has its own page with
+an ON / OFF button and its settings.</p>
+
+<h2 id="bienvenue">Welcome, goodbye and joins</h2>
+<p>Welcome and goodbye messages (in a channel or by DM), join and leave feed, auto-roles, member counter, suggestions
+channel and role menus. Variables you can use in messages:</p>
+<p><code>{user.ping}</code> <code>{user.name}</code> <code>{user.tag}</code> <code>{user.id}</code>
+<code>{user.created}</code> <code>{user.avatar}</code> <code>{server.name}</code> <code>{server.members}</code>
+<code>{member.number}</code></p>
+<p>Example: <code>Welcome {user.ping} to {server.name}! You are member #{member.number}.</code></p>
+
+<h2 id="reactions">😀 Reaction roles</h2>
+<p>Pick roles, give each one an emoji, pick a channel, then <em>Publish</em>: Automod posts the message and adds the
+reactions. A member who reacts gets the role; removing the reaction removes the role. Up to 20 roles per message,
+standard or server emojis. Automod's role must be above the roles it gives.</p>
+
+<h2 id="absences">🌴 Staff absences</h2>
+<ol>
+  <li>On the <em>Staff absences</em> page, pick the absence role (or <em>Create the « On leave » role</em>) and the
+  absences channel, then <em>Publish panel</em>.</li>
+  <li>A staff member clicks <em>🌴 Report an absence</em> and fills in: <strong>from</strong> (optional, today by
+  default), <strong>until</strong> (<code>25/12</code>, <code>25/12/2026</code> or a duration such as <code>3d</code>,
+  <code>2 weeks</code>) and a reason.</li>
+  <li>Automod gives them the absence role (on the day if the absence starts later) and announces it in the channel.</li>
+  <li>On the return date, the role is removed automatically. <em>✅ I'm back</em> ends the absence early; an admin can
+  also end it from <code>/controls</code>.</li>
+</ol>
+<p>Only staff can report an absence. A date like <code>25/12</code> means “away on the 25th included”.</p>
+
+      <nav class="pn" aria-label="Previous / Next"><a class="pn-prev" href="../sanctions/"><span>Previous</span>Sanctions and commands</a><a class="pn-next" href="../permissions/"><span>Next</span>Permissions</a></nav>
+    </article>
+    <aside class="side" aria-label="In the help"><h2>In the help</h2><ol><li><a href="../setup/">Install and set up</a></li><li><a href="../controls/">The /controls panel</a></li><li><a href="../protection/">Protections and anti-raid</a></li><li><a href="../ai/">The AI: joke or serious</a></li><li><a href="../sanctions/">Sanctions and commands</a></li><li><a href="./" aria-current="page">Community</a></li><li><a href="../permissions/">Permissions</a></li><li><a href="../dashboard/">Web dashboard</a></li><li><a href="../plans/">Free, Pro, Max plans</a></li></ol></aside>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <div class="wrap cols">
+    <div class="fbrand"><a class="brand" href="../../"><img src="../../../assets/logo.svg" width="26" height="26" alt=""><span>Automod</span></a>
+      <p>Automod is an independent bot, not affiliated with Discord Inc. or its AutoMod feature.</p></div>
+    <div><h2>Product</h2><a href="../../#fonctions">Features</a><a href="../plans/">Pricing</a><a href="../../../dash/">Dashboard</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Add to Discord</a></div><div><h2>Help</h2><a href="../">User guide</a><a href="../ai/">Automod&#x27;s AI</a><a href="../../../support/">Support server</a></div><div><h2>Legal</h2><a href="../../terms/">Terms of Service</a><a href="../../policy/">Privacy Policy</a></div>
+  </div>
+  <p class="wrap copy">© 2026 Automod · <a href="../../../help/community/" hreflang="fr" lang="fr">Français</a></p>
+</footer>
+</body>
+</html>

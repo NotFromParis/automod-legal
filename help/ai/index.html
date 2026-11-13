@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L&#x27;IA d&#x27;Automod : humour ou insulte ? Modération Discord par IA</title>
+<meta name="description" content="Comment l&#x27;IA d&#x27;Automod juge chaque message : gravité et ton (humour ou sérieux), rôle de la sensibilité, et brancher ta propre clé d&#x27;IA avec son coût.">
+<link rel="canonical" href="https://aiautomod.com/help/ai/">
+<link rel="alternate" hreflang="fr" href="https://aiautomod.com/help/ai/">
+<link rel="alternate" hreflang="en" href="https://aiautomod.com/en/help/ai/">
+<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/en/help/ai/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Automod">
+<meta property="og:title" content="L&#x27;IA d&#x27;Automod : humour ou insulte ? Modération Discord par IA">
+<meta property="og:description" content="Comment l&#x27;IA d&#x27;Automod juge chaque message : gravité et ton (humour ou sérieux), rôle de la sensibilité, et brancher ta propre clé d&#x27;IA avec son coût.">
+<meta property="og:url" content="https://aiautomod.com/help/ai/">
+<meta property="og:image" content="https://aiautomod.com/assets/og-fr.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0612">
+<link rel="icon" href="../../assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-192.png">
+<link rel="stylesheet" href="../../assets/site.css?v=f0549561">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Aide", "item": "https://aiautomod.com/help/"}, {"@type": "ListItem", "position": 2, "name": "L'IA : humour ou sérieux", "item": "https://aiautomod.com/help/ai/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="../../"><img src="../../assets/logo.svg" width="30" height="30" alt=""><span>Automod</span></a>
+    <nav class="menu" aria-label="Menu"><a href="../../#fonctions">Fonctions</a><a href="../">Aide</a><a href="./" aria-current="page">IA</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a></nav>
+    <div class="acts">
+      <a class="lang" href="../../en/help/ai/" hreflang="en" lang="en" title="English">EN</a>
+      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Ajouter à Discord</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap page">
+  <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="../">Aide</a> <span aria-hidden="true">›</span> L&#x27;IA : humour ou sérieux</nav>
+  <div class="help-grid">
+    <article class="doc">
+      <h1>L&#x27;IA : humour ou sérieux ?</h1>
+<p class="lead-doc">Un filtre de mots ne voit pas la différence entre « t'es trop con 😂 » entre potes et une vraie
+attaque. L'IA d'Automod, si : elle juge chaque message comme le ferait un modérateur, puis applique les réglages de ton
+serveur.</p>
+
+<h2 id="verdict">Ce que l'IA regarde</h2>
+<p>Pour chaque message d'un module en mode IA, l'IA répond en trois informations :</p>
+<ul>
+  <li><strong>la catégorie</strong> : insulte ou haine, contenu sexuel, données personnelles, arnaque ;</li>
+  <li><strong>la gravité</strong> : 1 léger (vanne, grossièreté), 2 net (insulte directe, moquerie qui rabaisse :
+  physique, vie amoureuse, famille…), 3 grave (insulte raciste ou homophobe, menace, incitation au suicide,
+  harcèlement, arnaque évidente) ;</li>
+  <li><strong>le ton</strong> : 😂 humour (taquinerie entre potes) ou 😠 sérieux.</li>
+</ul>
+<p>Elle tient compte du contexte : les messages précédents de l'auteur et le message auquel il répond. Pour éviter les
+excuses faciles, l'humour n'est retenu que s'il y a un vrai indice — « mdr », « lol », « ptdr », 😂, 💀… dans le message
+ou dans celui auquel il répond. Une moquerie méchante « sur un ton cool » reste sérieuse.</p>
+<p class="tip">Les invitations à continuer sur un autre réseau (« compte insta en dm », « ajoute moi sur snap »,
+WhatsApp, TikTok…) comptent comme des <strong>données personnelles</strong> : sur un serveur d'ados, c'est souvent le
+début d'une arnaque ou d'un harcèlement. Les messages privés Discord, eux, ne sont pas concernés.</p>
+
+<h2 id="sensibilite">La sensibilité décide</h2>
+<p>L'IA donne son avis, c'est la <strong>sensibilité</strong> du module (de 0 à 100 %) qui décide de sanctionner.
+L'humour compte un cran de gravité en moins :</p>
+<table>
+  <tr><th>Sensibilité</th><th>Message sérieux</th><th>Message pour rire</th></tr>
+  <tr><td>0 %</td><td>rien (tout est de l'humour)</td><td>rien</td></tr>
+  <tr><td>1 à 34 %</td><td>le grave</td><td>jamais</td></tr>
+  <tr><td>35 à 64 %</td><td>net et grave</td><td>le grave</td></tr>
+  <tr><td>65 à 99 %</td><td>tout</td><td>net et grave</td></tr>
+  <tr><td>100 %</td><td>tout</td><td>tout (l'humour n'existe plus)</td></tr>
+</table>
+<p>Changer la sensibilité ne coûte rien : la consigne envoyée à l'IA est la même quel que soit le réglage.</p>
+
+<h2 id="qui">Qui est analysé</h2>
+<ul>
+  <li>Seuls les <strong>membres</strong> : jamais le propriétaire, le buyer, les administrateurs ni les admins du bot.</li>
+  <li>Pas les membres, rôles ou salons en <a href="../protection/#bypass">bypass</a>.</li>
+  <li>Un message identique n'est analysé qu'une fois toutes les 10 minutes.</li>
+  <li>Si l'IA ne répond pas (panne, limite atteinte), les <strong>règles classiques</strong> prennent le relais : le
+  serveur n'est jamais sans protection.</li>
+</ul>
+
+<h2 id="tester">Tester un message</h2>
+<p><code>/iatest</code> (ou <code>=iatest</code>) suivi d'un texte montre, sans rien supprimer, ce que les règles et
+l'IA en pensent : le ton, la gravité et « sanctionné » ou « ignoré » avec la sensibilité nécessaire. Attention : si tu
+écris toi-même un vrai message alors que tu es admin, il ne sera jamais analysé — c'est voulu.</p>
+
+<h2 id="activer">Activer l'IA</h2>
+<p>Dans <code>/controls</code> → Modération automatique (ou sur le tableau de bord → Modules), passe un module de contenu
+en mode <strong>IA</strong>. Deux façons d'y avoir accès :</p>
+<ul>
+  <li>le plan <a href="../plans/">Max</a>, qui utilise l'IA d'Automod ;</li>
+  <li><strong>ta propre clé d'IA</strong>, sans abonnement.</li>
+</ul>
+
+<h2 id="cle">Brancher ta propre clé d'IA</h2>
+<p>Sur le <a href="../dashboard/">tableau de bord web</a> → onglet <em>Développeur</em>, choisis ton
+fournisseur (Mistral, OpenAI, Claude, Gemini, Groq, OpenRouter, DeepSeek, xAI ou toute API compatible OpenAI), le
+modèle, et colle ta clé. Les modules IA marchent alors sans plan Pro ni Max, sans le quota quotidien d'Automod, et c'est
+ton fournisseur qui te facture. La clé est chiffrée et n'est jamais réaffichée.</p>
+<p>La carte <strong>Coût estimé</strong> du même onglet calcule ce que ça va te coûter selon le modèle et ton nombre de
+messages par jour. Ordres de grandeur (prix relevés en novembre 2026, avec les 4 modules IA) :</p>
+<table>
+  <tr><th>Modèle</th><th>Pour 1 000 messages</th></tr>
+  <tr><td>Mistral Small</td><td>≈ 0,15 $</td></tr>
+  <tr><td>Claude Haiku 5.5</td><td>≈ 0,23 $</td></tr>
+  <tr><td>Claude Opus 5.5</td><td>≈ 8 $ (il réfléchit avant de répondre : inutile pour de la modération)</td></tr>
+</table>
+
+<h2 id="donnees">Et mes données ?</h2>
+<p>Le texte d'un message n'est envoyé à une IA que si le serveur a mis un module en mode IA. Rien n'est vendu ni utilisé
+pour autre chose que la modération. Tout est expliqué dans la <a href="../../policy/">politique de confidentialité</a>.</p>
+
+      <nav class="pn" aria-label="Précédent / Suivant"><a class="pn-prev" href="../protection/"><span>Précédent</span>Protections et anti-raid</a><a class="pn-next" href="../sanctions/"><span>Suivant</span>Sanctions et commandes</a></nav>
+    </article>
+    <aside class="side" aria-label="Dans l&#x27;aide"><h2>Dans l&#x27;aide</h2><ol><li><a href="../setup/">Installer et configurer</a></li><li><a href="../controls/">Le panneau /controls</a></li><li><a href="../protection/">Protections et anti-raid</a></li><li><a href="./" aria-current="page">L&#x27;IA : humour ou sérieux</a></li><li><a href="../sanctions/">Sanctions et commandes</a></li><li><a href="../community/">Communauté</a></li><li><a href="../permissions/">Permissions</a></li><li><a href="../dashboard/">Tableau de bord web</a></li><li><a href="../plans/">Offres Free, Pro, Max</a></li></ol></aside>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <div class="wrap cols">
+    <div class="fbrand"><a class="brand" href="../../"><img src="../../assets/logo.svg" width="26" height="26" alt=""><span>Automod</span></a>
+      <p>Automod est un bot indépendant, non affilié à Discord Inc. ni à sa fonction AutoMod.</p></div>
+    <div><h2>Produit</h2><a href="../../#fonctions">Fonctions</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Ajouter à Discord</a></div><div><h2>Aide</h2><a href="../">Mode d&#x27;emploi</a><a href="./">L&#x27;IA d&#x27;Automod</a><a href="../../support/">Serveur support</a></div><div><h2>Légal</h2><a href="../../terms/">Conditions d&#x27;utilisation</a><a href="../../policy/">Confidentialité</a></div>
+  </div>
+  <p class="wrap copy">© 2026 Automod · <a href="../../en/help/ai/" hreflang="en" lang="en">English</a></p>
+</footer>
+</body>
+</html>

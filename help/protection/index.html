@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Protections anti-raid, anti-nuke et captcha — Automod</title>
+<meta name="description" content="Protéger un serveur Discord avec Automod : anti-raid et mode raid automatique, anti-nuke, captcha, anti bot, anti comptes récents, verrouillage en un clic et bypass.">
+<link rel="canonical" href="https://aiautomod.com/help/protection/">
+<link rel="alternate" hreflang="fr" href="https://aiautomod.com/help/protection/">
+<link rel="alternate" hreflang="en" href="https://aiautomod.com/en/help/protection/">
+<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/en/help/protection/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Automod">
+<meta property="og:title" content="Protections anti-raid, anti-nuke et captcha — Automod">
+<meta property="og:description" content="Protéger un serveur Discord avec Automod : anti-raid et mode raid automatique, anti-nuke, captcha, anti bot, anti comptes récents, verrouillage en un clic et bypass.">
+<meta property="og:url" content="https://aiautomod.com/help/protection/">
+<meta property="og:image" content="https://aiautomod.com/assets/og-fr.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0612">
+<link rel="icon" href="../../assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/icon-192.png">
+<link rel="stylesheet" href="../../assets/site.css?v=f0549561">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Aide", "item": "https://aiautomod.com/help/"}, {"@type": "ListItem", "position": 2, "name": "Protections et anti-raid", "item": "https://aiautomod.com/help/protection/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="../../"><img src="../../assets/logo.svg" width="30" height="30" alt=""><span>Automod</span></a>
+    <nav class="menu" aria-label="Menu"><a href="../../#fonctions">Fonctions</a><a href="../">Aide</a><a href="../ai/">IA</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a></nav>
+    <div class="acts">
+      <a class="lang" href="../../en/help/protection/" hreflang="en" lang="en" title="English">EN</a>
+      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Ajouter à Discord</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap page">
+  <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="../">Aide</a> <span aria-hidden="true">›</span> Protections et anti-raid</nav>
+  <div class="help-grid">
+    <article class="doc">
+      <h1>Protections anti-raid, anti-nuke et captcha</h1>
+<p class="lead-doc">Automod protège ton serveur contre les raids, les comptes jetables et les staffs qui dérapent.
+Les protections se règlent dans <code>/controls</code> → Protection ou sur le tableau de bord.</p>
+
+<h2 id="modules">Les modules et leurs plans</h2>
+<p>Chaque module a trois états : <strong>désactivé</strong>, <strong>activé</strong> (règles du bot) ou
+<strong>IA</strong> (plan Max ou ta propre clé). Plus la sensibilité est haute, plus le bot réagit vite.</p>
+<ul>
+  <li><strong>Free</strong> : anti-spam, anti-raid, anti-mass-ping, anti-liens, et toute la <strong>protection du
+  serveur</strong> ci-dessous (sauf le captcha).</li>
+  <li><strong>Pro</strong> : captcha, anti-insultes et propos haineux, anti-contenu sexuel, anti-données personnelles,
+  anti-arnaque (faux Nitro, faux cadeaux, liens d'hameçonnage).</li>
+  <li><strong>Max</strong> : mode IA sur ces modules — il comprend le contexte (humour, jeu, second degré) et fait moins
+  d'erreurs. Si l'IA ne répond pas, les règles classiques prennent le relais. Voir <a href="../ai/">l'IA</a>.</li>
+</ul>
+
+<h2 id="anti-raid">Anti-raid et mode raid automatique</h2>
+<p>L'anti-raid repère les vagues de messages identiques, les messages postés sur plusieurs salons et les
+<strong>arrivées massives</strong> : si N membres arrivent en S secondes (8 en 10 s par défaut), le <strong>mode
+raid</strong> s'active pendant M minutes (60 par défaut) et les nouveaux arrivants sont expulsés. Les trois chiffres se
+règlent avec le bouton <em>Édition</em> de l'anti-raid.</p>
+
+<h2 id="anti-nuke">Anti-nuke</h2>
+<p>Trois modules surveillent le journal d'audit du serveur : <em>Régulation des salons</em>, <em>Régulation des
+rôles</em> et <em>Modération de masse</em>. Quelqu'un qui crée, supprime ou modifie trop de salons ou de rôles, ou qui
+bannit, expulse ou exclut trop de monde en 10 minutes (seuil selon la sensibilité) est sanctionné : retrait de tous ses
+rôles, expulsion ou bannissement, au choix. Le propriétaire, le buyer et ce qui est en <strong>bypass</strong> ne sont
+jamais sanctionnés. Automod a besoin de la permission « Voir les logs du serveur ».</p>
+
+<h2 id="serveur">Protection critique du serveur, Anti Bot, Anti Comptes Récents</h2>
+<ul>
+  <li><strong>Protection critique du serveur</strong> : un changement du nom, de l'icône, de la bannière, de la
+  description… fait par quelqu'un qui n'est pas en bypass est annulé.</li>
+  <li><strong>Anti Bot</strong> : un bot ajouté par quelqu'un qui n'est pas en bypass est expulsé.</li>
+  <li><strong>Anti Comptes Récents</strong> : les comptes créés il y a moins de N jours (7 par défaut) sont expulsés.</li>
+</ul>
+
+<h2 id="captcha">Captcha (plan Pro)</h2>
+<p>Les arrivants reçoivent le rôle « Non vérifié », qui ne voit que le salon de vérification. Ils cliquent sur
+<em>Vérifier</em> et recopient le code d'une image. Sans réussite dans le délai (10 minutes par défaut) ou après 3
+erreurs, ils sont expulsés.</p>
+<ol>
+  <li><code>/controls</code> → Protection → Raids et arrivées → Captcha.</li>
+  <li>Choisis le salon de vérification et crée le rôle « Non vérifié ».</li>
+  <li><em>Préparer les salons</em> cache tous les salons à ce rôle (sauf la vérification).</li>
+  <li><em>Publier le panneau</em> poste le bouton <em>Vérifier</em>.</li>
+</ol>
+
+<h2 id="urgence">En cas de raid</h2>
+<ul>
+  <li><strong>Verrouillage du serveur</strong> : plus personne ne peut écrire dans les salons publics (les
+  administrateurs gardent l'accès). Un second clic restaure les salons.</li>
+  <li><strong>Mode raid</strong> : les nouveaux arrivants sont expulsés dès qu'ils rejoignent, jusqu'à ce que tu le
+  coupes.</li>
+  <li><strong>Automod en pause dans certains salons</strong> : les messages de ces salons ne sont plus analysés.</li>
+  <li><code>=stop</code> / <code>=start</code> mettent le bot en pause ou le relancent (tout le serveur ou un salon).</li>
+</ul>
+
+<h2 id="bypass">🎫 Bypass</h2>
+<p><code>/bypass</code> ou <code>=bypass</code> fait ignorer par Automod un <strong>membre</strong>, un
+<strong>rôle</strong> ou un <strong>salon</strong> — ni modération ni protection automatiques, ni IA — pendant un temps
+donné (<code>=bypass @Partenaire 2h</code>) ou sans limite (<code>=bypass #memes</code>). Aucune permission n'est
+donnée : les commandes manuelles marchent toujours. <code>=bypass</code> seul affiche la liste,
+<code>=bypass retirer @x</code> retire. Réservé par défaut au propriétaire et au buyer.</p>
+
+      <nav class="pn" aria-label="Précédent / Suivant"><a class="pn-prev" href="../controls/"><span>Précédent</span>Le panneau /controls</a><a class="pn-next" href="../ai/"><span>Suivant</span>L&#x27;IA : humour ou sérieux</a></nav>
+    </article>
+    <aside class="side" aria-label="Dans l&#x27;aide"><h2>Dans l&#x27;aide</h2><ol><li><a href="../setup/">Installer et configurer</a></li><li><a href="../controls/">Le panneau /controls</a></li><li><a href="./" aria-current="page">Protections et anti-raid</a></li><li><a href="../ai/">L&#x27;IA : humour ou sérieux</a></li><li><a href="../sanctions/">Sanctions et commandes</a></li><li><a href="../community/">Communauté</a></li><li><a href="../permissions/">Permissions</a></li><li><a href="../dashboard/">Tableau de bord web</a></li><li><a href="../plans/">Offres Free, Pro, Max</a></li></ol></aside>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <div class="wrap cols">
+    <div class="fbrand"><a class="brand" href="../../"><img src="../../assets/logo.svg" width="26" height="26" alt=""><span>Automod</span></a>
+      <p>Automod est un bot indépendant, non affilié à Discord Inc. ni à sa fonction AutoMod.</p></div>
+    <div><h2>Produit</h2><a href="../../#fonctions">Fonctions</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Ajouter à Discord</a></div><div><h2>Aide</h2><a href="../">Mode d&#x27;emploi</a><a href="../ai/">L&#x27;IA d&#x27;Automod</a><a href="../../support/">Serveur support</a></div><div><h2>Légal</h2><a href="../../terms/">Conditions d&#x27;utilisation</a><a href="../../policy/">Confidentialité</a></div>
+  </div>
+  <p class="wrap copy">© 2026 Automod · <a href="../../en/help/protection/" hreflang="en" lang="en">English</a></p>
+</footer>
+</body>
+</html>

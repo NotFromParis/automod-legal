@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automod&#x27;s AI: joke or insult? AI moderation for Discord</title>
+<meta name="description" content="How Automod&#x27;s AI judges each message: severity and tone (joke or serious), what sensitivity does, and plugging in your own AI key with its cost.">
+<link rel="canonical" href="https://aiautomod.com/en/help/ai/">
+<link rel="alternate" hreflang="fr" href="https://aiautomod.com/help/ai/">
+<link rel="alternate" hreflang="en" href="https://aiautomod.com/en/help/ai/">
+<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/en/help/ai/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Automod">
+<meta property="og:title" content="Automod&#x27;s AI: joke or insult? AI moderation for Discord">
+<meta property="og:description" content="How Automod&#x27;s AI judges each message: severity and tone (joke or serious), what sensitivity does, and plugging in your own AI key with its cost.">
+<meta property="og:url" content="https://aiautomod.com/en/help/ai/">
+<meta property="og:image" content="https://aiautomod.com/assets/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0612">
+<link rel="icon" href="../../../assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/icon-192.png">
+<link rel="stylesheet" href="../../../assets/site.css?v=f0549561">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Help", "item": "https://aiautomod.com/en/help/"}, {"@type": "ListItem", "position": 2, "name": "The AI: joke or serious", "item": "https://aiautomod.com/en/help/ai/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="../../"><img src="../../../assets/logo.svg" width="30" height="30" alt=""><span>Automod</span></a>
+    <nav class="menu" aria-label="Menu"><a href="../../#fonctions">Features</a><a href="../">Help</a><a href="./" aria-current="page">AI</a><a href="../plans/">Pricing</a><a href="../../../dash/">Dashboard</a></nav>
+    <div class="acts">
+      <a class="lang" href="../../../help/ai/" hreflang="fr" lang="fr" title="Français">FR</a>
+      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Add to Discord</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap page">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Help</a> <span aria-hidden="true">›</span> The AI: joke or serious</nav>
+  <div class="help-grid">
+    <article class="doc">
+      <h1>The AI: joke or serious?</h1>
+<p class="lead-doc">A word filter can't tell “you're so dumb 😂” between friends from a real attack. Automod's AI can:
+it judges each message the way a moderator would, then applies your server's settings.</p>
+
+<h2 id="verdict">What the AI looks at</h2>
+<p>For each message in a module set to AI mode, the AI answers with three pieces of information:</p>
+<ul>
+  <li><strong>the category</strong>: insult or hate, sexual content, personal data, scam;</li>
+  <li><strong>the severity</strong>: 1 mild (banter, swearing), 2 clear (direct insult, belittling mockery: looks,
+  love life, family…), 3 severe (racist or homophobic slur, threat, encouraging suicide, harassment, obvious scam);</li>
+  <li><strong>the tone</strong>: 😂 joke (teasing between friends) or 😠 serious.</li>
+</ul>
+<p>It takes context into account: the author's previous messages and the message they reply to. To avoid easy
+excuses, a joke only counts if there is a real sign of it — “lol”, “lmao”, 😂, 💀… in the message or in the one it
+replies to. Mean mockery “in a chill tone” stays serious.</p>
+<p class="tip">Invitations to continue on another network (“insta account in dm”, “add me on snap”, WhatsApp,
+TikTok…) count as <strong>personal data</strong>: on a teen server, it's often how a scam or harassment starts. Discord
+DMs are not concerned.</p>
+
+<h2 id="sensibilite">Sensitivity decides</h2>
+<p>The AI gives its opinion; the module's <strong>sensitivity</strong> (0 to 100 %) decides whether to sanction. A joke
+counts one severity level lower:</p>
+<table>
+  <tr><th>Sensitivity</th><th>Serious message</th><th>Joking message</th></tr>
+  <tr><td>0 %</td><td>nothing (everything is a joke)</td><td>nothing</td></tr>
+  <tr><td>1 to 34 %</td><td>severe</td><td>never</td></tr>
+  <tr><td>35 to 64 %</td><td>clear and severe</td><td>severe</td></tr>
+  <tr><td>65 to 99 %</td><td>everything</td><td>clear and severe</td></tr>
+  <tr><td>100 %</td><td>everything</td><td>everything (jokes no longer exist)</td></tr>
+</table>
+<p>Changing the sensitivity costs nothing: the instructions sent to the AI are the same whatever the setting.</p>
+
+<h2 id="qui">Who is analysed</h2>
+<ul>
+  <li>Only <strong>members</strong>: never the owner, the buyer, administrators or bot admins.</li>
+  <li>Not members, roles or channels that are <a href="../protection/#bypass">bypassed</a>.</li>
+  <li>An identical message is only analysed once every 10 minutes.</li>
+  <li>If the AI doesn't answer (outage, limit reached), the <strong>classic rules</strong> take over: the server is
+  never left unprotected.</li>
+</ul>
+
+<h2 id="tester">Test a message</h2>
+<p><code>/iatest</code> (or <code>=iatest</code>) followed by some text shows, without deleting anything, what the rules
+and the AI think of it: the tone, the severity and “sanctioned” or “ignored” with the sensitivity needed. Note: a real
+message you post yourself as an admin is never analysed — that's on purpose.</p>
+
+<h2 id="activer">Turn the AI on</h2>
+<p>In <code>/controls</code> → Automatic moderation (or on the dashboard → Modules), set a content module to
+<strong>AI</strong> mode. Two ways to get access:</p>
+<ul>
+  <li>the <a href="../plans/">Max</a> plan, which uses Automod's AI;</li>
+  <li><strong>your own AI key</strong>, with no subscription.</li>
+</ul>
+
+<h2 id="cle">Plug in your own AI key</h2>
+<p>On the <a href="../dashboard/">web dashboard</a> → <em>Developer</em> tab, pick your provider (Mistral,
+OpenAI, Claude, Gemini, Groq, OpenRouter, DeepSeek, xAI or any OpenAI-compatible API), the model, and paste your key.
+AI modules then work without the Pro or Max plan, without Automod's daily quota, and your provider bills you. The key
+is encrypted and never shown again.</p>
+<p>The <strong>Estimated cost</strong> card in the same tab works out what it will cost you based on the model and your
+number of messages per day. Ballpark figures (prices noted in November 2026, with the 4 AI modules):</p>
+<table>
+  <tr><th>Model</th><th>Per 1,000 messages</th></tr>
+  <tr><td>Mistral Small</td><td>≈ $0.15</td></tr>
+  <tr><td>Claude Haiku 5.5</td><td>≈ $0.23</td></tr>
+  <tr><td>Claude Opus 5.5</td><td>≈ $8 (it thinks before answering: overkill for moderation)</td></tr>
+</table>
+
+<h2 id="donnees">What about my data?</h2>
+<p>A message's text is only sent to an AI if the server set a module to AI mode. Nothing is sold or used for anything
+other than moderation. Everything is explained in the <a href="../../policy/">privacy policy</a>.</p>
+
+      <nav class="pn" aria-label="Previous / Next"><a class="pn-prev" href="../protection/"><span>Previous</span>Protections and anti-raid</a><a class="pn-next" href="../sanctions/"><span>Next</span>Sanctions and commands</a></nav>
+    </article>
+    <aside class="side" aria-label="In the help"><h2>In the help</h2><ol><li><a href="../setup/">Install and set up</a></li><li><a href="../controls/">The /controls panel</a></li><li><a href="../protection/">Protections and anti-raid</a></li><li><a href="./" aria-current="page">The AI: joke or serious</a></li><li><a href="../sanctions/">Sanctions and commands</a></li><li><a href="../community/">Community</a></li><li><a href="../permissions/">Permissions</a></li><li><a href="../dashboard/">Web dashboard</a></li><li><a href="../plans/">Free, Pro, Max plans</a></li></ol></aside>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <div class="wrap cols">
+    <div class="fbrand"><a class="brand" href="../../"><img src="../../../assets/logo.svg" width="26" height="26" alt=""><span>Automod</span></a>
+      <p>Automod is an independent bot, not affiliated with Discord Inc. or its AutoMod feature.</p></div>
+    <div><h2>Product</h2><a href="../../#fonctions">Features</a><a href="../plans/">Pricing</a><a href="../../../dash/">Dashboard</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Add to Discord</a></div><div><h2>Help</h2><a href="../">User guide</a><a href="./">Automod&#x27;s AI</a><a href="../../../support/">Support server</a></div><div><h2>Legal</h2><a href="../../terms/">Terms of Service</a><a href="../../policy/">Privacy Policy</a></div>
+  </div>
+  <p class="wrap copy">© 2026 Automod · <a href="../../../help/ai/" hreflang="fr" lang="fr">Français</a></p>
+</footer>
+</body>
+</html>

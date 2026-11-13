@@ -1,0 +1,37 @@
+<!--
+title: Tableau de bord web — gérer Automod depuis le navigateur
+description: Le tableau de bord web d'Automod : connexion avec Discord, modules, logs, membres, sanctions, statistiques et ta propre clé d'IA, sur PC et mobile.
+label: Tableau de bord web
+-->
+<p class="lead-doc">Tout ce que fait <code>/controls</code>, en plus grand et plus confortable : le tableau de bord
+gère Automod depuis ton navigateur, sur ordinateur comme sur téléphone.</p>
+<p><a class="btn" href="{{url:dash}}">Ouvrir le tableau de bord</a></p>
+
+<h2 id="connexion">Se connecter</h2>
+<p>Clique sur <em>Se connecter avec Discord</em>. Automod voit seulement ton profil et la liste de tes serveurs, jamais
+ton mot de passe. Tu retrouves ensuite les serveurs où tu peux gérer Automod. Sur Discord, <code>/dashboard</code> donne
+aussi le lien.</p>
+<ul>
+  <li>Ouvrir le tableau de bord d'un serveur demande le droit de <code>/dashboard</code> (propriétaire, buyer,
+  administrateurs et admins du bot par défaut).</li>
+  <li>Changer un réglage demande en plus le droit de la commande équivalente : chaque action est revérifiée par le bot.</li>
+</ul>
+
+<h2 id="onglets">Les onglets</h2>
+<table>
+  <tr><th>Groupe</th><th>Onglets</th></tr>
+  <tr><td>Général</td><td>Aperçu, Paramètres, Permissions</td></tr>
+  <tr><td>Automod</td><td>Modules (avec la sensibilité et le bypass), Logs, Urgence et protection</td></tr>
+  <tr><td>Modération</td><td>Membres (fiche, notes, sanctions en un clic), Sanctions (filtres, export CSV), Bannis,
+  Statistiques, Convocations</td></tr>
+  <tr><td>Communauté</td><td>Bienvenue, Au revoir, Arrivées et départs, Rôles automatiques, Compteur, Suggestions,
+  Menus de rôles, Rôles par réaction, Absences du staff</td></tr>
+  <tr><td>Avancé</td><td>Plan et abonnement, Développeur (ta propre clé d'IA et son coût estimé)</td></tr>
+</table>
+
+<h2 id="securite">Sécurité</h2>
+<ul>
+  <li>Le site passe uniquement en HTTPS, et le bot refuse toute requête qui ne vient pas de lui.</li>
+  <li>Une clé d'IA enregistrée est chiffrée ; seuls ses 4 derniers caractères sont réaffichés.</li>
+  <li>Tu peux te déconnecter à tout moment ; la session expire toute seule.</li>
+</ul>

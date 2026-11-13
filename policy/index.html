@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de confidentialité — Automod</title>
+<meta name="description" content="Quelles données Automod traite, pourquoi, combien de temps, l&#x27;IA, le partage et tes droits. Automod ne vend aucune donnée.">
+<link rel="canonical" href="https://aiautomod.com/policy/">
+<link rel="alternate" hreflang="fr" href="https://aiautomod.com/policy/">
+<link rel="alternate" hreflang="en" href="https://aiautomod.com/en/policy/">
+<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/en/policy/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Automod">
+<meta property="og:title" content="Politique de confidentialité — Automod">
+<meta property="og:description" content="Quelles données Automod traite, pourquoi, combien de temps, l&#x27;IA, le partage et tes droits. Automod ne vend aucune donnée.">
+<meta property="og:url" content="https://aiautomod.com/policy/">
+<meta property="og:image" content="https://aiautomod.com/assets/og-fr.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0612">
+<link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-192.png">
+<link rel="stylesheet" href="../assets/site.css?v=f0549561">
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="../"><img src="../assets/logo.svg" width="30" height="30" alt=""><span>Automod</span></a>
+    <nav class="menu" aria-label="Menu"><a href="../#fonctions">Fonctions</a><a href="../help/">Aide</a><a href="../help/ai/">IA</a><a href="../help/plans/">Offres</a><a href="../dash/">Tableau de bord</a></nav>
+    <div class="acts">
+      <a class="lang" href="../en/policy/" hreflang="en" lang="en" title="English">EN</a>
+      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Ajouter à Discord</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap page narrow doc"><h1>Politique de confidentialité</h1><p class="muted">Dernière mise à jour : 10 novembre 2026</p>
+<div class="box">
+<p><strong>En bref :</strong> Automod ne vend aucune donnée. Il traite les messages pour modérer les serveurs qui l'ont
+ajouté, conserve l'historique des sanctions et les réglages de chaque serveur, et n'envoie le contenu d'un message à
+une IA que si le serveur a activé le mode IA. Vous pouvez demander la suppression de vos données à tout moment.</p>
+</div>
+
+<h2>1. Responsable</h2>
+<p>Le développeur d'Automod, NotFromParis. Contact : <a href="mailto:notfromparis.pro@gmail.com">notfromparis.pro@gmail.com</a>.</p>
+
+<h2>2. Données traitées</h2>
+<h3>Données des serveurs</h3>
+<ul>
+  <li>Identifiant et nom du serveur, réglages d'Automod (modules activés, sensibilités, salons et rôles choisis,
+  permissions des commandes, messages de bienvenue / d'au revoir, menus de rôles).</li>
+  <li>Identifiants Discord des personnes ayant un rôle particulier pour le bot : propriétaire, membre ayant ajouté le bot,
+  administrateurs du bot.</li>
+</ul>
+<h3>Données des membres</h3>
+<ul>
+  <li><strong>Sanctions</strong> : identifiant et pseudo du membre, type de sanction, raison, durée, date, identifiant du
+  modérateur. Pour une sanction automatique : un extrait du message concerné (300 caractères maximum) et le salon.</li>
+  <li><strong>Suivi de modération</strong> : nombre de récidives, avertissements temporaires, notes internes rédigées
+  par le staff, convocations en cours.</li>
+  <li><strong>Sécurité du serveur</strong> (si le serveur l'active) : le journal d'audit du serveur (qui a créé, supprimé
+  ou modifié un salon, un rôle, banni ou expulsé quelqu'un, ajouté un bot, modifié le serveur) est lu en temps réel ;
+  seul un compteur par membre reste en mémoire 15 minutes. La date de création du compte est vérifiée à l'arrivée
+  (comptes récents). Le code du captcha reste en mémoire le temps de la vérification. Les membres, rôles et salons mis
+  en bypass par le serveur (avec l'éventuelle date de fin et la personne qui les a ajoutés) sont enregistrés dans ses
+  réglages.</li>
+  <li><strong>Contenu des messages</strong> : analysé en temps réel pour détecter le spam, les raids, les liens dangereux,
+  les insultes, le contenu sexuel, les données personnelles et les arnaques. Il n'est <strong>pas conservé</strong>, sauf
+  l'extrait joint à une sanction et les journaux que le serveur a choisi de publier dans ses propres salons.
+  Quelques informations techniques (heure et salon des derniers messages) restent en mémoire quelques minutes pour
+  repérer le spam.</li>
+  <li><strong>Arrivées et départs</strong> : utilisés pour les journaux, l'anti-raid (âge du compte) et les messages de
+  bienvenue / d'au revoir configurés par le serveur.</li>
+</ul>
+<h3>Abonnements</h3>
+<p>Pour un plan payant : identifiant du serveur, plan, état et date de fin de l'abonnement ou du pass, identifiants
+client et abonnement Stripe, identifiant du paiement SumUp (ou droit Discord), identifiant Discord de la personne qui a
+souscrit, et la preuve d'acceptation des conditions (compte, date, version des conditions). Les données bancaires sont
+traitées uniquement par Stripe, SumUp ou Discord ; Automod n'y a jamais accès. Aucune donnée Discord (nom ou identifiant du
+serveur, pseudo) n'est transmise à SumUp : le paiement est relié au serveur uniquement dans les données d'Automod.</p>
+<p>Tableau de bord web (connexion avec Discord) : avec votre accord donné sur la page de Discord, Automod reçoit votre
+identifiant, votre pseudo, votre avatar et la liste de vos serveurs avec vos permissions (autorisations « identify » et
+« guilds »). Ces données servent uniquement à afficher les serveurs que vous pouvez gérer ; elles sont gardées en mémoire le
+temps de la session (7 jours au plus), jamais écrites sur disque, et effacées à la déconnexion ou au redémarrage du bot. Un
+cookie de session strictement nécessaire (« am_sid ») est déposé ; aucun cookie de mesure d'audience ou publicitaire. Les
+modifications et les sanctions faites depuis le site sont les mêmes que celles faites avec <code>/controls</code> et les commandes de modération (même casier, mêmes messages privés de sanction, mêmes logs).</p>
+
+<h2>3. Intelligence artificielle</h2>
+<p>Uniquement si le serveur dispose du plan Max <strong>et</strong> a activé le mode IA pour un module : le message
+analysé, jusqu'à trois messages précédents du même auteur dans le salon et le message auquel il répond sont envoyés à
+<a href="https://mistral.ai/terms#privacy-policy">Mistral AI</a> (France, Union européenne), qui renvoie seulement un
+verdict (catégorie détectée ou non). Automod garde ce verdict en mémoire au plus 10 minutes pour éviter les doublons et
+ne l'utilise pour rien d'autre. Le mode IA peut être désactivé à tout moment par le serveur ou par le développeur.</p>
+<p>Clé d'IA du serveur (tableau de bord → Développeur) : un serveur peut brancher sa propre clé d'un fournisseur
+d'IA (par exemple Mistral AI, Anthropic, OpenAI, Google…). Dans ce cas, les mêmes données que ci-dessus sont envoyées à
+<strong>ce fournisseur</strong>, choisi par le serveur et soumis à ses propres conditions, au lieu de Mistral AI. La clé est
+chiffrée avant d'être enregistrée, n'est jamais réaffichée (seuls ses 4 derniers caractères le sont) ni écrite dans les
+journaux, et elle est effacée dès que le serveur la supprime.</p>
+
+<h2>4. Finalités et base légale</h2>
+<ul>
+  <li>Modérer et sécuriser les serveurs qui utilisent Automod, et fournir les fonctions qu'ils ont activées
+  (intérêt légitime des serveurs et de leurs membres).</li>
+  <li>Gérer les abonnements payants (exécution du contrat).</li>
+  <li>Assurer le bon fonctionnement et la sécurité du bot (intérêt légitime).</li>
+</ul>
+
+<h2>5. Durée de conservation</h2>
+<ul>
+  <li>Réglages, sanctions et suivi de modération : tant qu'Automod est présent sur le serveur, ou jusqu'à une demande
+  de suppression.</li>
+  <li>Données techniques anti-spam : quelques minutes, en mémoire uniquement.</li>
+  <li>Verdicts de l'IA : 10 minutes au plus, en mémoire uniquement.</li>
+  <li>Abonnements terminés : effacés environ 45 jours après la fin de l'abonnement (Stripe conserve ses propres
+  données selon ses obligations légales).</li>
+</ul>
+
+<h2>6. Partage</h2>
+<p>Les données ne sont ni vendues, ni louées, ni utilisées à des fins publicitaires. Elles sont uniquement transmises aux
+prestataires nécessaires au service : Discord (plateforme), l'hébergeur du bot (serveur situé dans l'Union européenne),
+Mistral AI ou le fournisseur d'IA choisi par le serveur (mode IA, voir § 3), Stripe et SumUp (paiements), Cloudflare (acheminement sécurisé du tableau de bord web).
+Les journaux de modération sont publiés dans les salons du serveur
+concerné, visibles par les personnes que ce serveur autorise.</p>
+
+<h2>7. Messages privés</h2>
+<p>Automod n'envoie de message privé que dans ces cas : notification d'une sanction au membre concerné, message de
+bienvenue si le serveur l'a activé, explication à un compte trop récent expulsé à l'arrivée (si le serveur a activé
+cette protection), et annonces exceptionnelles du développeur aux propriétaires et administrateurs
+des serveurs.</p>
+
+<h2>8. Vos droits</h2>
+<p>Vous pouvez demander l'accès à vos données, leur correction ou leur suppression, et vous opposer à leur traitement,
+en écrivant à <a href="mailto:notfromparis.pro@gmail.com">notfromparis.pro@gmail.com</a> (précisez votre identifiant
+Discord et le serveur concerné). Le staff d'un serveur peut aussi supprimer des sanctions ou des notes. Vous pouvez
+déposer une réclamation auprès de la <a href="https://www.cnil.fr">CNIL</a>.</p>
+
+<h2>9. Mineurs</h2>
+<p>Discord n'est accessible qu'à partir de l'âge minimum fixé par ses conditions (13 ans en général). Automod ne
+collecte pas d'autres données que celles décrites ici, quel que soit l'âge du membre.</p>
+
+<h2>10. Sécurité</h2>
+<p>Les données sont stockées sur l'hébergement du bot, accessibles uniquement au développeur. Les clés et jetons
+d'accès ne sont jamais partagés.</p>
+
+<h2>11. Modifications</h2>
+<p>Cette politique peut évoluer ; la date de mise à jour figure en haut de la page.</p>
+
+</div>
+</main>
+<footer class="foot">
+  <div class="wrap cols">
+    <div class="fbrand"><a class="brand" href="../"><img src="../assets/logo.svg" width="26" height="26" alt=""><span>Automod</span></a>
+      <p>Automod est un bot indépendant, non affilié à Discord Inc. ni à sa fonction AutoMod.</p></div>
+    <div><h2>Produit</h2><a href="../#fonctions">Fonctions</a><a href="../help/plans/">Offres</a><a href="../dash/">Tableau de bord</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Ajouter à Discord</a></div><div><h2>Aide</h2><a href="../help/">Mode d&#x27;emploi</a><a href="../help/ai/">L&#x27;IA d&#x27;Automod</a><a href="../support/">Serveur support</a></div><div><h2>Légal</h2><a href="../terms/">Conditions d&#x27;utilisation</a><a href="./">Confidentialité</a></div>
+  </div>
+  <p class="wrap copy">© 2026 Automod · <a href="../en/policy/" hreflang="en" lang="en">English</a></p>
+</footer>
+</body>
+</html>

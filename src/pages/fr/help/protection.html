@@ -1,0 +1,68 @@
+<!--
+title: Protections anti-raid, anti-nuke et captcha — Automod
+description: Protéger un serveur Discord avec Automod : anti-raid et mode raid automatique, anti-nuke, captcha, anti bot, anti comptes récents, verrouillage en un clic et bypass.
+label: Protections et anti-raid
+-->
+<p class="lead-doc">Automod protège ton serveur contre les raids, les comptes jetables et les staffs qui dérapent.
+Les protections se règlent dans <code>/controls</code> → Protection ou sur le tableau de bord.</p>
+
+<h2 id="modules">Les modules et leurs plans</h2>
+<p>Chaque module a trois états : <strong>désactivé</strong>, <strong>activé</strong> (règles du bot) ou
+<strong>IA</strong> (plan Max ou ta propre clé). Plus la sensibilité est haute, plus le bot réagit vite.</p>
+<ul>
+  <li><strong>Free</strong> : anti-spam, anti-raid, anti-mass-ping, anti-liens, et toute la <strong>protection du
+  serveur</strong> ci-dessous (sauf le captcha).</li>
+  <li><strong>Pro</strong> : captcha, anti-insultes et propos haineux, anti-contenu sexuel, anti-données personnelles,
+  anti-arnaque (faux Nitro, faux cadeaux, liens d'hameçonnage).</li>
+  <li><strong>Max</strong> : mode IA sur ces modules — il comprend le contexte (humour, jeu, second degré) et fait moins
+  d'erreurs. Si l'IA ne répond pas, les règles classiques prennent le relais. Voir <a href="{{url:help/ai}}">l'IA</a>.</li>
+</ul>
+
+<h2 id="anti-raid">Anti-raid et mode raid automatique</h2>
+<p>L'anti-raid repère les vagues de messages identiques, les messages postés sur plusieurs salons et les
+<strong>arrivées massives</strong> : si N membres arrivent en S secondes (8 en 10 s par défaut), le <strong>mode
+raid</strong> s'active pendant M minutes (60 par défaut) et les nouveaux arrivants sont expulsés. Les trois chiffres se
+règlent avec le bouton <em>Édition</em> de l'anti-raid.</p>
+
+<h2 id="anti-nuke">Anti-nuke</h2>
+<p>Trois modules surveillent le journal d'audit du serveur : <em>Régulation des salons</em>, <em>Régulation des
+rôles</em> et <em>Modération de masse</em>. Quelqu'un qui crée, supprime ou modifie trop de salons ou de rôles, ou qui
+bannit, expulse ou exclut trop de monde en 10 minutes (seuil selon la sensibilité) est sanctionné : retrait de tous ses
+rôles, expulsion ou bannissement, au choix. Le propriétaire, le buyer et ce qui est en <strong>bypass</strong> ne sont
+jamais sanctionnés. Automod a besoin de la permission « Voir les logs du serveur ».</p>
+
+<h2 id="serveur">Protection critique du serveur, Anti Bot, Anti Comptes Récents</h2>
+<ul>
+  <li><strong>Protection critique du serveur</strong> : un changement du nom, de l'icône, de la bannière, de la
+  description… fait par quelqu'un qui n'est pas en bypass est annulé.</li>
+  <li><strong>Anti Bot</strong> : un bot ajouté par quelqu'un qui n'est pas en bypass est expulsé.</li>
+  <li><strong>Anti Comptes Récents</strong> : les comptes créés il y a moins de N jours (7 par défaut) sont expulsés.</li>
+</ul>
+
+<h2 id="captcha">Captcha (plan Pro)</h2>
+<p>Les arrivants reçoivent le rôle « Non vérifié », qui ne voit que le salon de vérification. Ils cliquent sur
+<em>Vérifier</em> et recopient le code d'une image. Sans réussite dans le délai (10 minutes par défaut) ou après 3
+erreurs, ils sont expulsés.</p>
+<ol>
+  <li><code>/controls</code> → Protection → Raids et arrivées → Captcha.</li>
+  <li>Choisis le salon de vérification et crée le rôle « Non vérifié ».</li>
+  <li><em>Préparer les salons</em> cache tous les salons à ce rôle (sauf la vérification).</li>
+  <li><em>Publier le panneau</em> poste le bouton <em>Vérifier</em>.</li>
+</ol>
+
+<h2 id="urgence">En cas de raid</h2>
+<ul>
+  <li><strong>Verrouillage du serveur</strong> : plus personne ne peut écrire dans les salons publics (les
+  administrateurs gardent l'accès). Un second clic restaure les salons.</li>
+  <li><strong>Mode raid</strong> : les nouveaux arrivants sont expulsés dès qu'ils rejoignent, jusqu'à ce que tu le
+  coupes.</li>
+  <li><strong>Automod en pause dans certains salons</strong> : les messages de ces salons ne sont plus analysés.</li>
+  <li><code>=stop</code> / <code>=start</code> mettent le bot en pause ou le relancent (tout le serveur ou un salon).</li>
+</ul>
+
+<h2 id="bypass">🎫 Bypass</h2>
+<p><code>/bypass</code> ou <code>=bypass</code> fait ignorer par Automod un <strong>membre</strong>, un
+<strong>rôle</strong> ou un <strong>salon</strong> — ni modération ni protection automatiques, ni IA — pendant un temps
+donné (<code>=bypass @Partenaire 2h</code>) ou sans limite (<code>=bypass #memes</code>). Aucune permission n'est
+donnée : les commandes manuelles marchent toujours. <code>=bypass</code> seul affiche la liste,
+<code>=bypass retirer @x</code> retire. Réservé par défaut au propriétaire et au buyer.</p>

@@ -1,0 +1,36 @@
+<!--
+title: Command permissions — Automod
+description: Who can use Automod's commands: native Discord permissions, management commands reserved to the owner, per-command or per-category settings, buyer and bot admins.
+label: Permissions
+-->
+<p class="lead-doc">By default, Automod follows your server's Discord permissions. You can adjust everything, command
+by command.</p>
+
+<h2 id="defaut">The default</h2>
+<ul>
+  <li><strong>Native mode</strong>: a command is open to members with the matching Discord permission
+  (<code>/ban</code> → <em>Ban Members</em>).</li>
+  <li>Exception: Automod <em>management</em> commands (<code>/setup</code>, <code>/controls</code>,
+  <code>/bypass</code>, <code>/dashboard</code>, <code>=stop</code>…) are reserved to the owner, the buyer,
+  administrators and bot admins.</li>
+</ul>
+
+<h2 id="modifier">Change a permission</h2>
+<p>In <code>/controls</code> → 🔐 Permissions (or on the dashboard), change each command, or a whole category at once:</p>
+<ul>
+  <li><strong>Discord</strong>: the linked Discord permission;</li>
+  <li><strong>Owner</strong>: owner, buyer and bot admins only;</li>
+  <li><strong>Roles and members</strong>: specific roles and members.</li>
+</ul>
+<p><em>Reset</em> goes back to the default.</p>
+
+<h2 id="buyer">Buyer and bot admins</h2>
+<ul>
+  <li>The <strong>buyer</strong> is whoever added Automod if it isn't the owner: they get the same Automod rights as the
+  owner. The owner can remove them at any time.</li>
+  <li><strong>Bot admins</strong> (roles or members chosen in <code>/setup</code>) have full access to Automod.</li>
+</ul>
+
+<h2 id="voir">See your commands</h2>
+<p><code>/cmds</code> shows each member the commands they can use, <code>/help</code> explains them all with
+examples.</p>

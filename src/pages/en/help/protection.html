@@ -1,0 +1,66 @@
+<!--
+title: Anti-raid, anti-nuke and captcha protections — Automod
+description: Protect a Discord server with Automod: anti-raid and automatic raid mode, anti-nuke, captcha, anti bot, anti new accounts, one-click lockdown and bypass.
+label: Protections and anti-raid
+-->
+<p class="lead-doc">Automod protects your server from raids, throwaway accounts and staff members who go rogue.
+Protections are set in <code>/controls</code> → Protection or on the dashboard.</p>
+
+<h2 id="modules">Modules and their plans</h2>
+<p>Each module has three states: <strong>off</strong>, <strong>on</strong> (rule-based) or <strong>AI</strong> (Max
+plan or your own key). The higher the sensitivity, the faster the bot reacts.</p>
+<ul>
+  <li><strong>Free</strong>: anti-spam, anti-raid, anti-mass-ping, anti-links, and all the <strong>server
+  protection</strong> below (except captcha).</li>
+  <li><strong>Pro</strong>: captcha, anti-insults and hate speech, anti-sexual content, anti-personal data, anti-scam
+  (fake Nitro, fake gifts, phishing links).</li>
+  <li><strong>Max</strong>: AI mode on those modules — it understands context (jokes, games, banter) and makes fewer
+  mistakes. If the AI doesn't answer, the classic rules take over. See <a href="{{url:help/ai}}">the AI</a>.</li>
+</ul>
+
+<h2 id="anti-raid">Anti-raid and automatic raid mode</h2>
+<p>Anti-raid spots waves of identical messages, messages posted across several channels and <strong>mass
+joins</strong>: if N members join within S seconds (8 in 10 s by default), <strong>raid mode</strong> turns on for M
+minutes (60 by default) and newcomers are kicked. The three numbers are set with anti-raid's <em>Edit</em> button.</p>
+
+<h2 id="anti-nuke">Anti-nuke</h2>
+<p>Three modules watch the server's audit log: <em>Channel regulation</em>, <em>Role regulation</em> and <em>Mass
+moderation</em>. Whoever creates, deletes or edits too many channels or roles, or bans, kicks or times out too many
+people within 10 minutes (threshold based on sensitivity) is sanctioned: all their roles removed, kicked or banned,
+your choice. The owner, the buyer and anything <strong>bypassed</strong> are never sanctioned. Automod needs the
+« View Audit Log » permission.</p>
+
+<h2 id="serveur">Critical server protection, Anti Bot, Anti New Accounts</h2>
+<ul>
+  <li><strong>Critical server protection</strong>: a change to the name, icon, banner, description… made by someone who
+  isn't bypassed is reverted.</li>
+  <li><strong>Anti Bot</strong>: a bot added by someone who isn't bypassed is kicked.</li>
+  <li><strong>Anti New Accounts</strong>: accounts created less than N days ago (7 by default) are kicked.</li>
+</ul>
+
+<h2 id="captcha">Captcha (Pro plan)</h2>
+<p>Newcomers get the « Unverified » role, which only sees the verification channel. They click <em>Verify</em> and copy
+the code from an image. Without success within the delay (10 minutes by default) or after 3 mistakes, they are
+kicked.</p>
+<ol>
+  <li><code>/controls</code> → Protection → Raids and joins → Captcha.</li>
+  <li>Pick the verification channel and create the « Unverified » role.</li>
+  <li><em>Prepare channels</em> hides every channel from that role (except verification).</li>
+  <li><em>Publish panel</em> posts the <em>Verify</em> button.</li>
+</ol>
+
+<h2 id="urgence">During a raid</h2>
+<ul>
+  <li><strong>Server lockdown</strong>: nobody can write in public channels anymore (administrators keep access). A
+  second click restores the channels.</li>
+  <li><strong>Raid mode</strong>: newcomers are kicked as soon as they join, until you turn it off.</li>
+  <li><strong>Pause Automod in some channels</strong>: messages in those channels are no longer analysed.</li>
+  <li><code>=stop</code> / <code>=start</code> pause or resume the bot (whole server or one channel).</li>
+</ul>
+
+<h2 id="bypass">🎫 Bypass</h2>
+<p><code>/bypass</code> or <code>=bypass</code> makes Automod ignore a <strong>member</strong>, a <strong>role</strong>
+or a <strong>channel</strong> — no automatic moderation or protection, no AI — for a given time
+(<code>=bypass @Partner 2h</code>) or with no limit (<code>=bypass #memes</code>). No permission is given: manual
+commands still work. <code>=bypass</code> alone shows the list, <code>=bypass remove @x</code> removes. Owner and buyer
+only by default.</p>

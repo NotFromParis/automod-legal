@@ -3,19 +3,157 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Automod — documents</title>
-<link rel="stylesheet" href="style.css">
+<title>Automod — Bot de modération Discord avec IA (anti-raid, captcha, logs)</title>
+<meta name="description" content="Automod protège ton serveur Discord : anti-spam, anti-raid, anti-nuke, captcha, logs et une IA qui fait la différence entre une blague et une insulte. Gratuit.">
+<link rel="canonical" href="https://aiautomod.com/">
+<link rel="alternate" hreflang="fr" href="https://aiautomod.com/">
+<link rel="alternate" hreflang="en" href="https://aiautomod.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/en/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Automod">
+<meta property="og:title" content="Automod — Bot de modération Discord avec IA (anti-raid, captcha, logs)">
+<meta property="og:description" content="Automod protège ton serveur Discord : anti-spam, anti-raid, anti-nuke, captcha, logs et une IA qui fait la différence entre une blague et une insulte. Gratuit.">
+<meta property="og:url" content="https://aiautomod.com/">
+<meta property="og:image" content="https://aiautomod.com/assets/og-fr.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0612">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="stylesheet" href="assets/site.css?v=f0549561">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Automod", "url": "https://aiautomod.com/", "applicationCategory": "CommunicationApplication", "operatingSystem": "Discord", "description": "Automod protège ton serveur Discord : anti-spam, anti-raid, anti-nuke, captcha, logs et une IA qui fait la différence entre une blague et une insulte. Gratuit.", "image": "https://aiautomod.com/assets/og-fr.png", "inLanguage": ["fr", "en"], "offers": [{"@type": "Offer", "name": "Free", "price": "0.00", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Pro", "price": "2.99", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Max", "price": "9.99", "priceCurrency": "EUR"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Automod est-il gratuit ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Le plan Free comprend la modération manuelle, l'anti-spam, l'anti-raid, l'anti-nuke, les logs et le tableau de bord web, sans limite de temps. Les plans Pro (2,99 €) et Max (9,99 €) ajoutent les filtres de contenu, le captcha, Smartlog et l'IA, pour 30 jours sans renouvellement automatique."}}, {"@type": "Question", "name": "Comment l'IA fait-elle la différence entre une blague et une insulte ?", "acceptedAnswer": {"@type": "Answer", "text": "Pour chaque message, l'IA donne la catégorie (insulte, contenu sexuel, données perso, arnaque), la gravité et le ton : humour ou sérieux. Une vanne entre potes avec « mdr » ou 😂 compte un cran de moins qu'une vraie attaque, et c'est la sensibilité choisie par le serveur qui décide de sanctionner ou non."}}, {"@type": "Question", "name": "Comment installer Automod ?", "acceptedAnswer": {"@type": "Answer", "text": "Ajoute le bot avec le bouton « Ajouter à Discord », puis tape /setup sur ton serveur : le mode rapide crée les salons de logs, détecte les rôles du staff et active les protections recommandées en un clic."}}, {"@type": "Question", "name": "Automod parle-t-il anglais ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Au premier /setup, tu choisis le français ou l'anglais pour tout le serveur : messages, panneaux, logs et tableau de bord."}}, {"@type": "Question", "name": "Que fait Automod de mes messages ?", "acceptedAnswer": {"@type": "Answer", "text": "Il les analyse pour modérer le serveur et garde l'historique des sanctions. Le texte d'un message n'est envoyé à une IA que si le serveur a activé le mode IA. Aucune donnée n'est vendue."}}, {"@type": "Question", "name": "J'ai été sanctionné sur un serveur, que faire ?", "acceptedAnswer": {"@type": "Answer", "text": "Chaque serveur décide de ses propres règles et sanctions : contacte le staff de ce serveur (le message privé de sanction contient son lien d'appel s'il en a un). L'équipe d'Automod ne peut pas lever une sanction à sa place."}}]}</script>
 </head>
 <body>
-<header><div class="wrap">
-  <h1>Automod</h1>
-  <p>Bot de modération Discord</p>
-  <nav><a href="guide/">Mode d'emploi</a><a href="terms/">Conditions d'utilisation</a><a href="privacy/">Politique de confidentialité</a></nav>
-</div></header>
-<main>
-  <p><a href="guide/">Mode d'emploi / User guide</a></p>
-  <p><a href="terms/">Conditions d'utilisation / Terms of Service</a></p>
-  <p><a href="privacy/">Politique de confidentialité / Privacy Policy</a></p>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="./"><img src="assets/logo.svg" width="30" height="30" alt=""><span>Automod</span></a>
+    <nav class="menu" aria-label="Menu"><a href="./#fonctions">Fonctions</a><a href="help/">Aide</a><a href="help/ai/">IA</a><a href="help/plans/">Offres</a><a href="dash/">Tableau de bord</a></nav>
+    <div class="acts">
+      <a class="lang" href="en/" hreflang="en" lang="en" title="English">EN</a>
+      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Ajouter à Discord</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Bot de modération Discord · FR / EN</span>
+      <h1>La modération qui fait la différence entre <span class="grad">une vanne et une insulte</span></h1>
+      <p class="lead">Automod protège ton serveur Discord contre le spam, les raids, les arnaques et la toxicité. Son IA
+      comprend le second degré : les blagues entre potes passent, les vraies attaques sont supprimées.</p>
+      <div class="ctas">
+        <a class="btn" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Ajouter à Discord — gratuit</a>
+        <a class="btn btn-ghost" href="help/setup/">Voir comment ça marche</a>
+      </div>
+      <div class="trust"><span>Configuré en 2 minutes</span><span>Plan gratuit complet</span><span>Aucune donnée vendue</span></div>
+    </div>
+    <div class="demo" role="img" aria-label="Exemple : l'IA d'Automod laisse passer une blague et supprime une attaque et une demande de snap">
+      <div class="demo-head">🛡️ <b>Automod</b> · IA activée · sensibilité 50 %</div>
+      <div class="msg"><span class="av" style="background:#6764d5">L</span><div><span class="who">lea</span>
+        <div class="txt">t'es trop con toi 😂</div>
+        <span class="verdict v-joke">😂 Humour · insulte légère → laissé passer</span></div></div>
+      <div class="msg"><span class="av" style="background:#c0587e">T</span><div><span class="who">troll_92</span>
+        <div class="txt">t'as même pas d'amis, parle pas</div>
+        <span class="verdict v-del">😠 Sérieux · insulte nette → supprimé</span></div></div>
+      <div class="msg"><span class="av" style="background:#3a8f7a">K</span><div><span class="who">kevin</span>
+        <div class="txt">ajoute moi sur snap</div>
+        <span class="verdict v-del">🔒 Données perso → supprimé</span></div></div>
+      <p class="demo-foot">Verdicts réels de l'IA d'Automod sur ces messages.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="fonctions">
+  <div class="wrap">
+    <h2>Tout pour protéger ton serveur</h2>
+    <p class="intro">Une seule appli pour la modération automatique, la sécurité du serveur, les logs et la communauté.
+    Chaque protection se règle de 0 à 100 % de sensibilité.</p>
+    <div class="cards">
+      <div class="card"><span class="ico">🧠</span><h3>IA : humour ou sérieux</h3>
+        <p>Pour chaque message, l'IA juge la gravité et le ton. Une vanne avec « mdr » ou 😂 compte moins qu'une vraie
+        attaque, et ta sensibilité décide du reste.</p><a class="more" href="help/ai/">Comment marche l'IA →</a></div>
+      <div class="card"><span class="ico">🤖</span><h3>Modération automatique</h3>
+        <p>Insultes et propos haineux, contenu sexuel, données personnelles, arnaques, spam, mentions de masse et liens
+        interdits.</p><a class="more" href="help/controls/">Les modules →</a></div>
+      <div class="card"><span class="ico">🛡️</span><h3>Anti-raid et anti-nuke</h3>
+        <p>Mode raid automatique, verrouillage en un clic, régulation des salons et des rôles, modération de masse,
+        anti bot, anti comptes récents.</p><a class="more" href="help/protection/">Les protections →</a></div>
+      <div class="card"><span class="ico">🧩</span><h3>Captcha à l'arrivée</h3>
+        <p>Les nouveaux recopient le code d'une image avant de voir le serveur. Les bots et les comptes de raid restent
+        dehors.</p><a class="more" href="help/protection/#captcha">Le captcha →</a></div>
+      <div class="card"><span class="ico">📋</span><h3>Smartlog</h3>
+        <p>Des logs interactifs avec le contexte du membre et des boutons : débannir, lever un mute, retirer un warn,
+        supprimer un message.</p><a class="more" href="help/controls/#logs">Les logs →</a></div>
+      <div class="card"><span class="ico">🖥️</span><h3>Tableau de bord web</h3>
+        <p>Règle tout depuis ton navigateur : modules, logs, sanctions, membres, statistiques, bienvenue, rôles.</p>
+        <a class="more" href="help/dashboard/">Le tableau de bord →</a></div>
+      <div class="card"><span class="ico">⚖️</span><h3>Sanctions complètes</h3>
+        <p>Ban, kick, mute, warn, historique, cases numérotées, récidive automatique et lien d'appel pour les
+        bannis.</p><a class="more" href="help/sanctions/">Les sanctions →</a></div>
+      <div class="card"><span class="ico">🎫</span><h3>Bypass</h3>
+        <p>Fais ignorer un membre, un rôle ou un salon par Automod, pour un temps donné ou sans limite, sans lui donner
+        de permission.</p><a class="more" href="help/protection/#bypass">Le bypass →</a></div>
+      <div class="card"><span class="ico">🎉</span><h3>Communauté</h3>
+        <p>Bienvenue, au revoir, rôles automatiques, rôles par réaction, compteur de membres, suggestions et absences
+        du staff.</p><a class="more" href="help/community/">La communauté →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2>Prêt en 2 minutes</h2>
+    <p class="intro">Pas besoin d'être expert : l'assistant configure tout pour toi.</p>
+    <div class="steps">
+      <div class="step"><h3>Ajoute Automod</h3><p>Un clic sur « Ajouter à Discord », choisis ton serveur et garde les
+        permissions proposées.</p></div>
+      <div class="step"><h3>Lance <code>/setup</code></h3><p>Le mode rapide crée les salons de logs, détecte ton staff et
+        active les protections recommandées.</p></div>
+      <div class="step"><h3>C'est protégé</h3><p>Teste sans risque avec <code>=testmode on</code> : le bot détecte
+        mais ne sanctionne personne.</p></div>
+    </div>
+    <img class="banner" src="assets/banner.jpg" width="1200" height="300" alt="Automod — modération automatique">
+  </div>
+</section>
+
+<section class="sec sec-alt" id="offres">
+  <div class="wrap">
+    <h2>Des offres simples</h2>
+    <p class="intro">Le plan s'applique à tout le serveur. Tape <code>/plans</code> sur Discord pour t'abonner.</p>
+    <div class="plans"><div class="plan"><h3>🆓 Free</h3><p class="price">Gratuit <span>pour toujours</span></p><ul><li>Ban, kick, mute, warn</li><li>Anti-spam, anti-raid, anti-mentions, anti-liens</li><li>Anti-nuke, anti bot, anti comptes récents</li><li>Protection critique du serveur</li><li>Logs et tableau de bord web</li><li>Bienvenue, rôles, suggestions, absences</li></ul></div><div class="plan plan-hi"><h3>⭐ Pro</h3><p class="price">2,99 € <span>pour 30 jours</span></p><ul><li><strong>Tout le plan Free</strong></li><li>Anti-insultes et propos haineux</li><li>Anti-contenu sexuel</li><li>Anti-données personnelles</li><li>Anti-arnaque (faux Nitro, hameçonnage)</li><li>Captcha à l'arrivée</li><li>Smartlog : logs avec boutons d'action</li><li>Convocations, sanctions groupées</li></ul></div><div class="plan"><h3>💎 Max</h3><p class="price">9,99 € <span>pour 30 jours</span></p><ul><li><strong>Tout le plan Pro</strong></li><li>Mode IA (bêta) sur les modules de contenu</li><li>Fait la différence entre humour et insulte</li><li>Moins de faux positifs</li><li>Accompagnement personnalisé</li></ul></div></div><p class="muted small">Sans renouvellement automatique : un rappel arrive avant la fin. Paiement par carte sur la page sécurisée du prestataire, activé en moins d'une minute. Ou branche ta propre clé d'IA pour le mode IA sans abonnement.</p>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <h2>Questions fréquentes</h2>
+    <p class="intro">Une autre question ? Passe sur le <a href="support/">serveur support</a>.</p>
+    <div class="faq"><details><summary>Automod est-il gratuit ?</summary><p>Oui. Le plan Free comprend la modération manuelle, l&#x27;anti-spam, l&#x27;anti-raid, l&#x27;anti-nuke, les logs et le tableau de bord web, sans limite de temps. Les plans Pro (2,99 €) et Max (9,99 €) ajoutent les filtres de contenu, le captcha, Smartlog et l&#x27;IA, pour 30 jours sans renouvellement automatique.</p></details><details><summary>Comment l&#x27;IA fait-elle la différence entre une blague et une insulte ?</summary><p>Pour chaque message, l&#x27;IA donne la catégorie (insulte, contenu sexuel, données perso, arnaque), la gravité et le ton : humour ou sérieux. Une vanne entre potes avec « mdr » ou 😂 compte un cran de moins qu&#x27;une vraie attaque, et c&#x27;est la sensibilité choisie par le serveur qui décide de sanctionner ou non.</p></details><details><summary>Comment installer Automod ?</summary><p>Ajoute le bot avec le bouton « Ajouter à Discord », puis tape /setup sur ton serveur : le mode rapide crée les salons de logs, détecte les rôles du staff et active les protections recommandées en un clic.</p></details><details><summary>Automod parle-t-il anglais ?</summary><p>Oui. Au premier /setup, tu choisis le français ou l&#x27;anglais pour tout le serveur : messages, panneaux, logs et tableau de bord.</p></details><details><summary>Que fait Automod de mes messages ?</summary><p>Il les analyse pour modérer le serveur et garde l&#x27;historique des sanctions. Le texte d&#x27;un message n&#x27;est envoyé à une IA que si le serveur a activé le mode IA. Aucune donnée n&#x27;est vendue.</p></details><details><summary>J&#x27;ai été sanctionné sur un serveur, que faire ?</summary><p>Chaque serveur décide de ses propres règles et sanctions : contacte le staff de ce serveur (le message privé de sanction contient son lien d&#x27;appel s&#x27;il en a un). L&#x27;équipe d&#x27;Automod ne peut pas lever une sanction à sa place.</p></details></div>
+  </div>
+</section>
+
+<section class="endcta">
+  <h2>Protège ton serveur dès maintenant</h2>
+  <p>Gratuit, en français et en anglais, prêt en 2 minutes.</p>
+  <div class="ctas" style="justify-content:center">
+    <a class="btn" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Ajouter à Discord</a>
+    <a class="btn btn-ghost" href="dash/">Ouvrir le tableau de bord</a>
+  </div>
+</section>
+
 </main>
+<footer class="foot">
+  <div class="wrap cols">
+    <div class="fbrand"><a class="brand" href="./"><img src="assets/logo.svg" width="26" height="26" alt=""><span>Automod</span></a>
+      <p>Automod est un bot indépendant, non affilié à Discord Inc. ni à sa fonction AutoMod.</p></div>
+    <div><h2>Produit</h2><a href="./#fonctions">Fonctions</a><a href="help/plans/">Offres</a><a href="dash/">Tableau de bord</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Ajouter à Discord</a></div><div><h2>Aide</h2><a href="help/">Mode d&#x27;emploi</a><a href="help/ai/">L&#x27;IA d&#x27;Automod</a><a href="support/">Serveur support</a></div><div><h2>Légal</h2><a href="terms/">Conditions d&#x27;utilisation</a><a href="policy/">Confidentialité</a></div>
+  </div>
+  <p class="wrap copy">© 2026 Automod · <a href="en/" hreflang="en" lang="en">English</a></p>
+</footer>
 </body>
 </html>

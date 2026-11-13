@@ -1,0 +1,36 @@
+<!--
+title: Web dashboard — manage Automod from your browser
+description: Automod's web dashboard: log in with Discord, settings, modules, logs, members, sanctions, statistics, community and your own AI key, on desktop and mobile.
+label: Web dashboard
+-->
+<p class="lead-doc">Everything <code>/controls</code> does, bigger and more comfortable: the dashboard manages Automod
+from your browser, on desktop and on mobile.</p>
+<p><a class="btn" href="{{url:dash}}">Open the dashboard</a></p>
+
+<h2 id="connexion">Logging in</h2>
+<p>Click <em>Log in with Discord</em>. Automod only sees your profile and your server list, never your password. You
+then see the servers where you can manage Automod. On Discord, <code>/dashboard</code> also gives the link.</p>
+<ul>
+  <li>Opening a server's dashboard requires the <code>/dashboard</code> right (owner, buyer, administrators and bot
+  admins by default).</li>
+  <li>Changing a setting also requires the matching command's right: the bot checks every action again.</li>
+</ul>
+
+<h2 id="onglets">Tabs</h2>
+<table>
+  <tr><th>Group</th><th>Tabs</th></tr>
+  <tr><td>General</td><td>Overview, Settings, Permissions</td></tr>
+  <tr><td>Automod</td><td>Modules (with sensitivity and bypass), Logs, Emergency and protection</td></tr>
+  <tr><td>Moderation</td><td>Members (profile, notes, one-click sanctions), Sanctions (filters, CSV export), Bans,
+  Statistics, Convocations</td></tr>
+  <tr><td>Community</td><td>Welcome, Goodbye, Joins and leaves, Auto-roles, Counter, Suggestions, Role menus, Reaction
+  roles, Staff absences</td></tr>
+  <tr><td>Advanced</td><td>Plan and subscription, Developer (your own AI key and its estimated cost)</td></tr>
+</table>
+
+<h2 id="securite">Security</h2>
+<ul>
+  <li>The site only runs over HTTPS, and the bot rejects any request that doesn't come through it.</li>
+  <li>A saved AI key is encrypted; only its last 4 characters are ever shown.</li>
+  <li>You can log out at any time; the session also expires on its own.</li>
+</ul>

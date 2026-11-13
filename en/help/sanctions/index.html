@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sanctions and moderation commands — Automod</title>
+<meta name="description" content="Automod&#x27;s moderation commands: ban, kick, mute, warn, history, cases, purge, lock, slowmode, bulk sanctions and convocations.">
+<link rel="canonical" href="https://aiautomod.com/en/help/sanctions/">
+<link rel="alternate" hreflang="fr" href="https://aiautomod.com/help/sanctions/">
+<link rel="alternate" hreflang="en" href="https://aiautomod.com/en/help/sanctions/">
+<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/en/help/sanctions/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Automod">
+<meta property="og:title" content="Sanctions and moderation commands — Automod">
+<meta property="og:description" content="Automod&#x27;s moderation commands: ban, kick, mute, warn, history, cases, purge, lock, slowmode, bulk sanctions and convocations.">
+<meta property="og:url" content="https://aiautomod.com/en/help/sanctions/">
+<meta property="og:image" content="https://aiautomod.com/assets/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0612">
+<link rel="icon" href="../../../assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/icon-192.png">
+<link rel="stylesheet" href="../../../assets/site.css?v=f0549561">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Help", "item": "https://aiautomod.com/en/help/"}, {"@type": "ListItem", "position": 2, "name": "Sanctions and commands", "item": "https://aiautomod.com/en/help/sanctions/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="../../"><img src="../../../assets/logo.svg" width="30" height="30" alt=""><span>Automod</span></a>
+    <nav class="menu" aria-label="Menu"><a href="../../#fonctions">Features</a><a href="../">Help</a><a href="../ai/">AI</a><a href="../plans/">Pricing</a><a href="../../../dash/">Dashboard</a></nav>
+    <div class="acts">
+      <a class="lang" href="../../../help/sanctions/" hreflang="fr" lang="fr" title="Français">FR</a>
+      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Add to Discord</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap page">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Help</a> <span aria-hidden="true">›</span> Sanctions and commands</nav>
+  <div class="help-grid">
+    <article class="doc">
+      <h1>Sanctions and moderation commands</h1>
+<p class="lead-doc">Every command works as a slash command (<code>/ban</code>) and with the <code>=</code> prefix
+(<code>=ban</code>). Durations: <code>10m</code>, <code>2h</code>, <code>3d</code>, <code>1w</code>.</p>
+
+<h2 id="commandes">Commands</h2>
+<table>
+  <tr><th>Action</th><th>Example</th></tr>
+  <tr><td>Ban (permanent or temporary)</td><td><code>=ban @member 7d toxicity</code></td></tr>
+  <tr><td>Kick</td><td><code>=kick @member spam</code></td></tr>
+  <tr><td>Mute (28 days max)</td><td><code>=mute @member 30m flood</code></td></tr>
+  <tr><td>Warn</td><td><code>=warn @member language</code></td></tr>
+  <tr><td>Undo</td><td><code>=unban</code> · <code>=unmute</code> · <code>=pardon</code></td></tr>
+  <tr><td>A member's history</td><td><code>=history @member</code></td></tr>
+  <tr><td>Sanction details</td><td><code>=case 42</code> · <code>=editcase</code> · <code>=delcase</code></td></tr>
+  <tr><td>Channel tools</td><td><code>=purge 20</code> · <code>=lock</code> · <code>=unlock</code> · <code>=slowmode 30</code></td></tr>
+</table>
+
+<h2 id="suivi">Cases, logs and appeal link</h2>
+<p>Every sanction gets a <strong>case number</strong>, shows up in the logs and the member gets a DM, with the
+<strong>appeal link</strong> if you set one in <code>/setup</code>. For automatic sanctions, repeat offences are counted:
+a member who does it again is sanctioned for longer. <code>=pardon</code> resets their count.</p>
+
+<h2 id="pro">With the Pro plan</h2>
+<ul>
+  <li>Sanction <strong>several members at once</strong>: <code>=ban @a @b 1d raid</code>.</li>
+  <li>Switch any log to <strong>Smartlog cards</strong> with action buttons (see
+  <a href="../controls/#logs">Logs and Smartlog</a>).</li>
+</ul>
+<p>All these sanctions can also be done from the <a href="../dashboard/">web dashboard</a> (<em>Members</em>
+and <em>Sanctions</em> tabs).</p>
+
+<h2 id="convocations">Convocations (Pro plan)</h2>
+<p><code>=convocate @member</code> opens a private text and voice channel between staff and the member to talk about an
+issue. <code>=closeconvoc</code> closes it. <code>=addconvoc</code> / <code>=delconvoc</code> add or remove someone.</p>
+
+      <nav class="pn" aria-label="Previous / Next"><a class="pn-prev" href="../ai/"><span>Previous</span>The AI: joke or serious</a><a class="pn-next" href="../community/"><span>Next</span>Community</a></nav>
+    </article>
+    <aside class="side" aria-label="In the help"><h2>In the help</h2><ol><li><a href="../setup/">Install and set up</a></li><li><a href="../controls/">The /controls panel</a></li><li><a href="../protection/">Protections and anti-raid</a></li><li><a href="../ai/">The AI: joke or serious</a></li><li><a href="./" aria-current="page">Sanctions and commands</a></li><li><a href="../community/">Community</a></li><li><a href="../permissions/">Permissions</a></li><li><a href="../dashboard/">Web dashboard</a></li><li><a href="../plans/">Free, Pro, Max plans</a></li></ol></aside>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <div class="wrap cols">
+    <div class="fbrand"><a class="brand" href="../../"><img src="../../../assets/logo.svg" width="26" height="26" alt=""><span>Automod</span></a>
+      <p>Automod is an independent bot, not affiliated with Discord Inc. or its AutoMod feature.</p></div>
+    <div><h2>Product</h2><a href="../../#fonctions">Features</a><a href="../plans/">Pricing</a><a href="../../../dash/">Dashboard</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=1460707781879&amp;scope=bot+applications.commands">Add to Discord</a></div><div><h2>Help</h2><a href="../">User guide</a><a href="../ai/">Automod&#x27;s AI</a><a href="../../../support/">Support server</a></div><div><h2>Legal</h2><a href="../../terms/">Terms of Service</a><a href="../../policy/">Privacy Policy</a></div>
+  </div>
+  <p class="wrap copy">© 2026 Automod · <a href="../../../help/sanctions/" hreflang="fr" lang="fr">Français</a></p>
+</footer>
+</body>
+</html>

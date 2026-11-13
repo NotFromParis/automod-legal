@@ -1,0 +1,73 @@
+<!--
+title: The /controls panel — Automod modules, logs and Smartlog
+description: Run Automod from Discord with /controls: automatic moderation, sensitivity, logs and Smartlog cards, protection, sanctions, community and permissions.
+label: The /controls panel
+-->
+<p class="lead-doc"><code>/controls</code> (or <code>=controls</code>) opens Automod's control panel right inside
+Discord: set up and analyse your server without memorising commands.</p>
+<p>The menu at the top of the panel switches pages. Everyone can open it, but only the buttons you are allowed to use
+are clickable, and rights are checked again on every click. A panel opened by someone else only answers them: run
+<code>/controls</code> yourself. The banner is <strong>green</strong> when active, <strong>red</strong> when paused and
+<strong>orange</strong> when something is wrong (missing permission, maintenance). Everything can also be done from the
+<a href="{{url:help/dashboard}}">web dashboard</a>.</p>
+
+<h2 id="accueil">🏠 Home — everyone</h2>
+<ul>
+  <li><strong>Automod ON / OFF</strong>: pauses all automatic moderation (<code>=stop</code> right).</li>
+  <li><strong>Test mode</strong>: sanctions are simulated; a full report is posted in the logs when you turn it off
+  (<code>=testmode</code> right).</li>
+  <li><strong>This week</strong>: number of sanctions, automatic and by staff.</li>
+  <li><strong>Protection</strong>: active modules, repeat offenders, server lockdown or raid mode in progress.</li>
+  <li><strong>Plan</strong>: your current plan and the <em>Plans</em> button.</li>
+  <li>If the setup isn't done: the <em>Configure</em> button (opens <code>/setup</code>).</li>
+</ul>
+
+<h2 id="modules">🤖 Automatic moderation — <code>/controls</code> right</h2>
+<p>What members do, in two groups: <em>Message content</em> (insults, sexual content, personal data, scams) and
+<em>Spam, mentions and links</em>. For each module:</p>
+<ul>
+  <li>the status button goes from <strong>OFF</strong> to <strong>ON</strong> (rule-based detection) then to
+  <strong>AI</strong> (artificial intelligence, Max plan or your own key, content modules — see
+  <a href="{{url:help/ai}}">the AI</a>);</li>
+  <li>the <strong>%</strong> button sets the sensitivity from 0 (insensitive) to 100 (most sensitive);</li>
+  <li>a protection from a higher plan shows a button to the plans.</li>
+</ul>
+
+<h2 id="logs">📋 Logs and Smartlog — <code>/controls</code> right</h2>
+<p>Two groups: <em>Moderation</em> (staff and automatic sanctions, convocations, permanent bans) and <em>Server</em>
+(raids, joins and leaves, bot additions…). Each event's button goes from <strong>OFF</strong> to <strong>ON</strong>
+(classic log) then, on the Pro plan, to <strong>🧠 Smartlog</strong>.</p>
+<p>A Smartlog card shows the member's avatar and context (account age, record, repeat offences, notes) and buttons
+depending on what happened: unban and reinvite after a ban, lift the timeout after a mute, remove the warn, delete the
+message after an @everyone, turn off raid mode… Each button requires the matching command's permission, the reason and
+duration are asked before a sanction, and the card keeps track of who did what. Cards go to the Smartlog channel if
+set, otherwise to the log's usual channel. Log <strong>channels</strong> are chosen in <code>/setup</code> or on the
+dashboard.</p>
+
+<h2 id="protection">🛡️ Protection — <code>=lock</code>, <code>=stop</code> or <code>/controls</code> right</h2>
+<p>Everything that protects the server, in four groups: <em>Emergency</em>, <em>Raids and joins</em>,
+<em>Anti-nuke</em> and <em>Server</em>. Details on the <a href="{{url:help/protection}}">Protections and anti-raid</a>
+page.</p>
+
+<h2 id="sanctions">⚖️ Sanctions — <code>=history</code> or <code>=pardon</code> right</h2>
+<ul>
+  <li>Choose the period: 24 hours, 7 days, 30 days or all time.</li>
+  <li>Overview by sanction type, staff sanctions and <strong>most active moderators</strong>, automatic detections,
+  <strong>most sanctioned members</strong>, ongoing timeouts and temporary bans.</li>
+  <li>Actions: <strong>lift a timeout</strong>, <strong>pardon</strong> a member (their repeat offences reset) or
+  <strong>pardon everyone</strong> (with confirmation).</li>
+</ul>
+
+<h2 id="communaute">🎉 Community — <code>/controls</code> right</h2>
+<p>Welcome, goodbye, joins and leaves, auto-roles, member counter, suggestions, role menus, reaction roles and staff
+absences: each feature has its own page with an ON / OFF button and its settings (see
+<a href="{{url:help/community}}">Community</a>).</p>
+
+<h2 id="permissions">🔐 Permissions — owner, buyer, administrators, bot admins</h2>
+<ul>
+  <li>The list of <strong>every command</strong> and who can use it.</li>
+  <li><em>Edit permission</em>: pick a category, then a command (or the whole category), then <strong>Discord</strong>
+  (the linked Discord permission), <strong>Owner</strong> (owner, buyer, bot admins) or <strong>Roles and
+  members</strong>. <em>Reset</em> goes back to the default.</li>
+  <li>The owner can also remove the buyer's rights there. See <a href="{{url:help/permissions}}">Permissions</a>.</li>
+</ul>
