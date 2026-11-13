@@ -27,6 +27,7 @@ INVITE = ("https://discord.com/oauth2/authorize?client_id=1476525696980357241&pe
 LANGS = ("fr", "en")
 BRAND = "AI Automod"
 DISCOVERY = "https://discord.com/discovery/applications/1476525696980357241"
+LISTINGS = [DISCOVERY, "https://discordbotlist.com/bots/ai-automod"]   # fiches publiques du bot (ajouter Top.gg une fois validé)
 INDEXNOW_KEY = "5f0c8e2a9b7d4c61a3e8f1b2d6c4a907"     # fichier /<clé>.txt : prouve à Bing/IndexNow que le site est à nous
 TODAY = datetime.date.today().isoformat()
 
@@ -378,7 +379,7 @@ def head_for(key: str, lang: str, meta: dict) -> str:
              "alternateName": ["Automod", "aiautomod.com"], "inLanguage": ["fr", "en"], "publisher": {"@id": org}},
             {"@type": "Organization", "@id": org, "name": BRAND, "url": SITE + "/",
              "logo": {"@type": "ImageObject", "url": SITE + "/assets/icon-192.png", "width": 192, "height": 192},
-             "sameAs": [DISCOVERY]},
+             "sameAs": LISTINGS},
             {"@type": "SoftwareApplication", "@id": SITE + "/#app", "name": BRAND, "alternateName": "Automod",
              "url": page, "applicationCategory": "CommunicationApplication", "operatingSystem": "Discord",
              "description": meta["description"], "image": f"{SITE}/assets/og-{lang}.png", "inLanguage": ["fr", "en"],
