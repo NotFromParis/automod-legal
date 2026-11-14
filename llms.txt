@@ -8,6 +8,15 @@
 - Web dashboard: https://aiautomod.com/dash/
 - Listings: https://discord.com/discovery/applications/1476525696980357241 · https://discordbotlist.com/bots/ai-automod
 
+## Signature features (what a classic automod doesn't do)
+
+- AI that understands tone: category + severity + joke/serious for each message, second AI check before any sanction; when in doubt nobody is punished (Max plan or your own AI key).
+- Convocations: `/convocate @member` creates a private text + voice channel between the staff and the member (colour per convocation, staff pinged with reason and deadline, images auto-pinned as evidence, closed with `/closeconvoc`). Pro plan.
+- Moscow Eye: one click when a raid is expected doubles server protection (anti-raid, anti-nuke, new accounts) for up to 24 hours. Free.
+- Auto slowmode: above X messages per second, the channel goes into slowmode for a set time or until it calms down. Free.
+- Anti-scam honeypot: watches public channels for fake gifts (free Nitro, "MrBeast casino" codes, crypto airdrops, withdraw scams) using phrases, links, typed @everyone and screenshots posted by new accounts; deletes and kicks the (often hacked) account. No image is sent to an AI. Free.
+- Details: https://aiautomod.com/en/features/
+
 ## Key facts
 
 - Platform: Discord bot (slash commands and `=` prefix), verified by Discord. Languages: French and English, chosen per server.

@@ -34,8 +34,8 @@ TODAY = datetime.date.today().isoformat()
 HELP = ["setup", "controls", "protection", "ai", "sanctions", "community", "permissions", "dashboard", "plans"]
 # Pages : clé → chemin FR (le chemin EN est préfixé par en/)
 PAGES = {"home": "", "help": "help/", **{f"help/{k}": f"help/{k}/" for k in HELP}, "terms": "terms/",
-         "policy": "policy/", "discord-automod": "discord-automod/"}
-ARTICLES = ("terms", "policy", "discord-automod")
+         "policy": "policy/", "discord-automod": "discord-automod/", "features": "features/"}
+ARTICLES = ("terms", "policy", "discord-automod", "features")
 SPECIAL = {"dash": "dash/", "support": "support/"}             # servis par le Worker (pas par ce site)
 UPDATED = {"terms": {"fr": "Dernière mise à jour : 10 novembre 2026 (version 2026-11-10)",
                      "en": "Last updated: November 10, 2026 (version 2026-11-10)"},
@@ -43,11 +43,11 @@ UPDATED = {"terms": {"fr": "Dernière mise à jour : 10 novembre 2026 (version 2
            "discord-automod": {"fr": "Mis à jour le 14 novembre 2026", "en": "Updated November 14, 2026"}}
 
 UI = {
-    "fr": {"nav": [("home#fonctions", "Fonctions"), ("help", "Aide"), ("help/ai", "IA"), ("help/plans", "Offres"),
+    "fr": {"nav": [("features", "Fonctions"), ("help", "Aide"), ("help/ai", "IA"), ("help/plans", "Offres"),
                    ("dash", "Tableau de bord")],
            "cta": "Ajouter à Discord", "skip": "Aller au contenu", "crumbs": "Fil d'Ariane", "help": "Aide", "in_help": "Dans l'aide",
            "prev": "Précédent", "next": "Suivant", "other": "English", "other_short": "EN",
-           "foot": [("Produit", [("home#fonctions", "Fonctions"), ("help/plans", "Offres"), ("dash", "Tableau de bord"),
+           "foot": [("Produit", [("features", "Fonctions phares"), ("help/plans", "Offres"), ("dash", "Tableau de bord"),
                                  ("invite", "Ajouter à Discord"),
                                  ("discord-automod", "AI Automod ou AutoMod de Discord ?")]),
                     ("Aide", [("help", "Mode d'emploi"), ("help/ai", "L'IA d'AI Automod"), ("support", "Serveur support")]),
@@ -55,11 +55,11 @@ UI = {
            "disclaimer": "AI Automod est un bot indépendant, non affilié à Discord Inc. ni à sa fonction AutoMod.",
            "locale": "fr_FR", "home": "Accueil", "nf_title": "Page introuvable", "nf_text": "Cette page n'existe pas (ou plus).",
            "nf_home": "Retour à l'accueil", "redirect": "Cette page a déménagé :"},
-    "en": {"nav": [("home#fonctions", "Features"), ("help", "Help"), ("help/ai", "AI"), ("help/plans", "Pricing"),
+    "en": {"nav": [("features", "Features"), ("help", "Help"), ("help/ai", "AI"), ("help/plans", "Pricing"),
                    ("dash", "Dashboard")],
            "cta": "Add to Discord", "skip": "Skip to content", "crumbs": "Breadcrumb", "help": "Help", "in_help": "In the help",
            "prev": "Previous", "next": "Next", "other": "Français", "other_short": "FR",
-           "foot": [("Product", [("home#fonctions", "Features"), ("help/plans", "Pricing"), ("dash", "Dashboard"),
+           "foot": [("Product", [("features", "Signature features"), ("help/plans", "Pricing"), ("dash", "Dashboard"),
                                  ("invite", "Add to Discord"),
                                  ("discord-automod", "AI Automod vs Discord AutoMod")]),
                     ("Help", [("help", "User guide"), ("help/ai", "AI Automod's AI"), ("support", "Support server")]),
@@ -74,6 +74,7 @@ PLANS = {
             ["Commandes de base (ban, kick, mute, warn…)",
              "Modération auto par règles : insultes, contenu sexuel, données perso, arnaques, spam, mentions, liens",
              "Sensibilité standard", "Anti-raid, anti-nuke, anti bot, anti comptes récents",
+             "Œil de Moscou, slowmode automatique, honeypot anti-arnaque",
              "Logs et tableau de bord web", "Bienvenue, rôles, absences, suggestions", "Support standard (24-48 h)"]),
            ("⭐", "Pro", "2,99 €", "pour 30 jours", 2.99,
             ["<strong>Tout le plan Free</strong>", "Sensibilité réglable pour chaque module", "Captcha à l'arrivée",
@@ -86,6 +87,7 @@ PLANS = {
             ["Basic commands (ban, kick, mute, warn…)",
              "Rule-based auto-moderation: insults, sexual content, personal data, scams, spam, mentions, links",
              "Standard sensitivity", "Anti-raid, anti-nuke, anti bot, anti new accounts",
+             "Moscow Eye, auto slowmode, anti-scam honeypot",
              "Logs and web dashboard", "Welcome, roles, absences, suggestions", "Standard support (24-48 h)"]),
            ("⭐", "Pro", "€2.99", "for 30 days", 2.99,
             ["<strong>Everything in Free</strong>", "Adjustable sensitivity for each module", "Captcha on join",
@@ -120,6 +122,11 @@ FAQ = {
             "prêtes en anglais. AI Automod est un bot indépendant qui ajoute la modération en français, la "
             "compréhension du ton par IA, les sanctions avec historique, l'anti-raid, l'anti-nuke, le captcha et les "
             "logs. Les deux peuvent tourner ensemble."),
+           ("Que fait AI Automod que les autres automods ne font pas ?",
+            "Cinq fonctions : une IA qui comprend le ton (une vanne passe, une vraie attaque est supprimée), les "
+            "convocations (salons texte et vocal privés avec le staff), l'Œil de Moscou (protection du serveur "
+            "doublée 24 h avant un raid), le slowmode automatique et un honeypot anti-arnaque contre les faux "
+            "cadeaux Nitro, MrBeast ou crypto."),
            ("Automod parle-t-il anglais ?",
             "Oui. Au premier /setup, tu choisis le français ou l'anglais pour tout le serveur : messages, panneaux, logs "
             "et tableau de bord."),
@@ -146,6 +153,10 @@ FAQ = {
             "AutoMod, Discord's tool, blocks keywords and spam before they are posted, with ready-made lists in "
             "English. AI Automod is an independent bot that adds French moderation, AI tone understanding, sanctions "
             "with history, anti-raid, anti-nuke, captcha and logs. Both can run together."),
+           ("What does AI Automod do that other automods don't?",
+            "Five features: an AI that understands tone (a joke passes, a real attack is removed), convocations "
+            "(private text and voice channels with the staff), the Moscow Eye (server protection doubled for 24 h "
+            "before a raid), auto slowmode and an anti-scam honeypot against fake Nitro, MrBeast or crypto gifts."),
            ("Does Automod speak French?",
             "Yes. On the first /setup you choose English or French for the whole server: messages, panels, logs and "
             "dashboard."),
@@ -339,7 +350,7 @@ def simple_page(key: str, lang: str, meta: dict, body: str) -> str:
     here, ui = path_of(key, lang), UI[lang]
     crumbs = (f'<nav class="crumbs" aria-label="{esc(ui["crumbs"])}"><a href="{esc(link("home", lang, here))}">'
               f'{esc(ui["home"])}</a> <span aria-hidden="true">›</span> {esc(meta.get("label", meta["title"]))}</nav>'
-              if key == "discord-automod" else "")
+              if key in ("discord-automod", "features") else "")
     return (f'<div class="wrap page narrow doc">{crumbs}<h1>{esc(meta.get("h1", meta["title"].split(" — ")[0]))}</h1>'
             + (f'<p class="muted">{esc(sub)}</p>' if sub else "") + f"\n{body}\n</div>")
 
@@ -353,13 +364,21 @@ def crumbs_for(key: str, lang: str, meta: dict) -> list[tuple[str, str]]:
 
 
 FEATURES = {
-    "fr": ["Modération automatique par règles : insultes, contenu sexuel, données personnelles, arnaques",
-           "Mode IA qui fait la différence entre humour et insulte", "Anti-spam, anti-mass-ping, anti-liens, slowmode automatique",
+    "fr": ["IA qui fait la différence entre humour et insulte, avec contre-avis avant toute sanction",
+           "Convocations : salons texte et vocal privés entre le staff et un membre",
+           "Œil de Moscou : protection du serveur doublée pendant 24 h avant un raid",
+           "Slowmode automatique au-delà de X messages par seconde",
+           "Honeypot anti-arnaque : faux cadeaux Nitro, MrBeast, crypto supprimés, compte piraté expulsé",
+           "Modération automatique par règles : insultes, contenu sexuel, données personnelles, arnaques", "Anti-spam, anti-mass-ping, anti-liens, slowmode automatique",
            "Anti-raid et mode raid automatique", "Anti-nuke : régulation des salons, des rôles et de la modération de masse",
            "Captcha à l'arrivée", "Logs et Smartlog", "Tableau de bord web", "Sanctions, historique et récidive",
            "Bienvenue, rôles par réaction, suggestions et absences"],
-    "en": ["Rule-based automatic moderation: insults, sexual content, personal data, scams",
-           "AI mode that tells a joke from an insult", "Anti-spam, anti mass ping, anti-links, auto slowmode",
+    "en": ["AI that tells a joke from an insult, with a second check before any sanction",
+           "Convocations: private text and voice channels between the staff and a member",
+           "Moscow Eye: server protection doubled for 24 h before a raid",
+           "Auto slowmode above X messages per second",
+           "Anti-scam honeypot: fake Nitro, MrBeast and crypto gifts deleted, hacked account kicked",
+           "Rule-based automatic moderation: insults, sexual content, personal data, scams", "Anti-spam, anti mass ping, anti-links, auto slowmode",
            "Anti-raid and automatic raid mode", "Anti-nuke: channel, role and mass moderation limits",
            "Captcha on join", "Logs and Smartlog", "Web dashboard", "Sanctions, history and repeat offences",
            "Welcome, reaction roles, suggestions and absences"],
