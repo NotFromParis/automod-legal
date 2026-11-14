@@ -218,12 +218,37 @@ def esc(s: str) -> str:
     return html.escape(s, quote=True)
 
 
+# Icônes dessinées (un seul trait, 24 px) : sprite inséré une fois par page, utilisé avec {{icon:nom}}
+ICONS = {
+    "check": '<path d="M5 12.5l4.2 4.2L19 7"/>',
+    "arrow": '<path d="M5 12h14M13 6l6 6-6 6"/>',
+    "chev": '<path d="M9 6l6 6-6 6"/>',
+    "ia": '<path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h7A2.5 2.5 0 0 1 16 6.5v4a2.5 2.5 0 0 1-2.5 2.5H9.2L6 15.6V13A2.5 2.5 0 0 1 4 10.5z"/>'
+          '<path d="M19 9.2a1.6 1.6 0 0 1 1 1.5v4.6a1.7 1.7 0 0 1-1.7 1.7H18v2.4L15 17h-2.6"/>',
+    "convoc": '<path d="M5 20V5.5A1.5 1.5 0 0 1 6.5 4h7A1.5 1.5 0 0 1 15 5.5V20"/><path d="M3 20h18"/>'
+              '<path d="M12 12.5h.01"/><path d="M18 9v11"/>',
+    "eye": '<path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>',
+    "slow": '<path d="M4.2 17.5a8.5 8.5 0 1 1 15.6 0"/><path d="M12 14l-4-4"/><circle cx="12" cy="14" r="1.2"/>',
+    "scam": '<path d="M14.5 3v10.5a4.5 4.5 0 0 1-9 0V12"/><path d="M5.5 12l-2 2"/><circle cx="14.5" cy="3.6" r=".6"/>'
+            '<path d="M18 7l2.5-2.5M18.5 11H21"/>',
+}
+
+
+def icon(name: str, cls: str = "ico") -> str:
+    return f'<svg class="{cls}" aria-hidden="true" focusable="false"><use href="#i-{name}"/></svg>'
+
+
+SPRITE = ('<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'
+          + "".join(f'<symbol id="i-{k}" viewBox="0 0 24 24">{v}</symbol>' for k, v in ICONS.items())
+          + "</defs></svg>")
+
+
 def plans_html(lang: str) -> str:
     cards = []
-    for emoji, name, price, per, _amount, perks in PLANS[lang]:
+    for _emoji, name, price, per, _amount, perks in PLANS[lang]:
         cards.append(f'<div class="plan{" plan-hi" if name == "Pro" else ""}"><h3>{name}</h3>'
-                     f'<p class="price">{price} <span>{per}</span></p><ul>'
-                     + "".join(f"<li>{p}</li>" for p in perks) + "</ul></div>")
+                     f'<p class="price">{price}<span>{per}</span></p><ul>'
+                     + "".join(f"<li>{icon('check')}<span>{p}</span></li>" for p in perks) + "</ul></div>")
     return f'<div class="plans">{"".join(cards)}</div><p class="muted small">{PLANS_NOTE[lang]}</p>'
 
 
@@ -235,12 +260,41 @@ def faq_html(lang: str) -> str:
 def expand(body: str, lang: str, here: str) -> str:
     body = re.sub(r"\{\{url:([^}]+)\}\}", lambda m: esc(link(m.group(1), lang, here)), body)
     body = re.sub(r"\{\{asset:([^}]+)\}\}", lambda m: asset(m.group(1), here), body)
+    body = re.sub(r"\{\{icon:([a-z]+)\}\}", lambda m: icon(m.group(1)), body)
     body = body.replace("{{plans}}", plans_html(lang)).replace("{{faq}}", faq_html(lang))
     body = body.replace("{{invite}}", esc(INVITE))
+    # « Lien → » : la flèche tapée devient une flèche dessinée (même trait que les icônes)
+    body = re.sub(r"\s*→\s*</a>", '<span class="arr" aria-hidden="true"></span></a>', body)
     left = re.findall(r"\{\{[^}]*\}\}", body)
     if left:
         raise ValueError(f"marqueur inconnu dans {lang}/{here}: {left}")
     return body
+
+
+_NO_TYPO = ("code", "pre", "script", "style", "kbd", "samp")
+
+
+def fr_spacing(html_text: str) -> str:
+    """Typographie française dans le texte visible : espace insécable après « et avant », : ; ? ! (sans toucher aux
+    balises, attributs, code et scripts), pour qu'un signe ne parte jamais seul à la ligne."""
+    out, inside = [], []
+    for part in re.split(r"(<[^>]+>)", html_text):
+        if part.startswith("<"):
+            m = re.match(r"<(/?)([a-zA-Z0-9]+)", part)
+            if m and m.group(2).lower() in _NO_TYPO:
+                if m.group(1):
+                    if inside:
+                        inside.pop()
+                elif not part.endswith("/>"):
+                    inside.append(m.group(2).lower())
+            out.append(part)
+            continue
+        if not inside:
+            part = re.sub(r"«[  ]", "« ", part)
+            part = re.sub(r"[  ]»", " »", part)
+            part = re.sub(r" ([:;?!])", " \\1", part)
+        out.append(part)
+    return "".join(out)
 
 
 def jsonld(obj) -> str:
@@ -251,7 +305,7 @@ def jsonld(obj) -> str:
 #  Gabarit
 # ══════════════════════════════════════════════════════════════════════════════
 
-def layout(key: str, lang: str, meta: dict, content: str, css_v: str, extra_head: str = "") -> str:
+def layout(key: str, lang: str, meta: dict, content: str, css_v: str, extra_head: str = "", js_v: str = "") -> str:
     here = path_of(key, lang)
     ui = UI[lang]
     other = "en" if lang == "fr" else "fr"
@@ -287,16 +341,19 @@ def layout(key: str, lang: str, meta: dict, content: str, css_v: str, extra_head
 <meta property="og:image:alt" content="{BRAND}">
 <meta property="og:locale" content="{ui['locale']}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0b0612">
+<meta name="theme-color" content="#0c0912">
 <link rel="icon" href="{asset('logo.svg', here)}" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{asset('icon-192.png', here)}">
+<link rel="preload" href="{asset('fonts/schibsted-grotesk-latin.woff2', here)}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{asset('site.css', here)}?v={css_v}">
+<script src="{asset('site.js', here)}?v={js_v}" defer></script>
 {extra_head}</head>
 <body>
+{SPRITE}
 <a class="skip" href="#main">{esc(ui['skip'])}</a>
 <header class="top">
   <div class="wrap bar">
-    <a class="brand" href="{esc(link('home', lang, here))}"><img src="{asset('logo.svg', here)}" width="30" height="30" alt=""><span>{BRAND}</span></a>
+    <a class="brand" href="{esc(link('home', lang, here))}"><img src="{asset('logo.svg', here)}" width="28" height="28" alt=""><span>{BRAND}</span></a>
     <nav class="menu" aria-label="Menu">{nav}</nav>
     <div class="acts">
       <a class="lang" href="{esc(link(key, other, here))}" hreflang="{other}" lang="{other}" title="{esc(ui['other'])}">{ui['other_short']}</a>
@@ -309,11 +366,11 @@ def layout(key: str, lang: str, meta: dict, content: str, css_v: str, extra_head
 </main>
 <footer class="foot">
   <div class="wrap cols">
-    <div class="fbrand"><a class="brand" href="{esc(link('home', lang, here))}"><img src="{asset('logo.svg', here)}" width="26" height="26" alt=""><span>{BRAND}</span></a>
+    <div class="fbrand"><a class="brand" href="{esc(link('home', lang, here))}"><img src="{asset('logo.svg', here)}" width="28" height="28" alt=""><span>{BRAND}</span></a>
       <p>{esc(ui['disclaimer'])}</p></div>
     {foot}
   </div>
-  <p class="wrap copy">© 2026 {BRAND} · <a href="{esc(link(key, other, here))}" hreflang="{other}" lang="{other}">{esc(ui['other'])}</a></p>
+  <div class="wrap"><p class="copy"><span>© 2026 {BRAND}</span><a href="{esc(link(key, other, here))}" hreflang="{other}" lang="{other}">{esc(ui['other'])}</a></p></div>
 </footer>
 </body>
 </html>
@@ -333,7 +390,7 @@ def help_page(key: str, lang: str, meta: dict, body: str) -> str:
     nxt = (f'<a class="pn-next" href="{esc(link("help/" + HELP[i + 1], lang, here))}"><span>{ui["next"]}</span>'
            f'{esc(labels[HELP[i + 1]])}</a>') if i < len(HELP) - 1 else "<span></span>"
     return f"""<div class="wrap page">
-  <nav class="crumbs" aria-label="{esc(ui['crumbs'])}"><a href="{esc(link('home', lang, here))}">{esc(ui['home'])}</a> <span aria-hidden="true">›</span> <a href="{esc(link('help', lang, here))}">{esc(ui['help'])}</a> <span aria-hidden="true">›</span> {esc(labels[name])}</nav>
+  <nav class="crumbs" aria-label="{esc(ui['crumbs'])}"><a href="{esc(link('home', lang, here))}">{esc(ui['home'])}</a>{icon('chev', 'ico sep')}<a href="{esc(link('help', lang, here))}">{esc(ui['help'])}</a>{icon('chev', 'ico sep')}<span aria-current="page">{esc(labels[name])}</span></nav>
   <div class="help-grid">
     <article class="doc">
       <h1>{esc(meta.get('h1', meta['title'].split(' — ')[0]))}</h1>
@@ -349,10 +406,11 @@ def simple_page(key: str, lang: str, meta: dict, body: str) -> str:
     sub = UPDATED.get(key, {}).get(lang)
     here, ui = path_of(key, lang), UI[lang]
     crumbs = (f'<nav class="crumbs" aria-label="{esc(ui["crumbs"])}"><a href="{esc(link("home", lang, here))}">'
-              f'{esc(ui["home"])}</a> <span aria-hidden="true">›</span> {esc(meta.get("label", meta["title"]))}</nav>'
+              f'{esc(ui["home"])}</a>{icon("chev", "ico sep")}<span aria-current="page">'
+              f'{esc(meta.get("label", meta["title"]))}</span></nav>'
               if key in ("discord-automod", "features") else "")
     return (f'<div class="wrap page narrow doc">{crumbs}<h1>{esc(meta.get("h1", meta["title"].split(" — ")[0]))}</h1>'
-            + (f'<p class="muted">{esc(sub)}</p>' if sub else "") + f"\n{body}\n</div>")
+            + (f'<p class="updated">{esc(sub)}</p>' if sub else "") + f"\n{body}\n</div>")
 
 
 def crumbs_for(key: str, lang: str, meta: dict) -> list[tuple[str, str]]:
@@ -464,16 +522,17 @@ def redirect_page(target_key: str, lang: str, old: str) -> str:
 """
 
 
-def not_found() -> str:
+def not_found(css_v: str = "") -> str:
     ui_fr, ui_en = UI["fr"], UI["en"]
     return f"""<!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex"><title>{ui_fr['nf_title']} — Automod</title>
-<link rel="icon" href="/assets/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css">
-</head><body><main id="main" class="wrap page narrow nf">
-<img src="/assets/logo.svg" width="72" height="72" alt="">
+<meta name="robots" content="noindex"><title>{ui_fr['nf_title']} — AI Automod</title>
+<meta name="theme-color" content="#0c0912">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={css_v}">
+</head><body><main id="main" class="nf">
+<img src="/assets/logo.svg" width="64" height="64" alt="">
 <h1>404</h1><p>{ui_fr['nf_text']}<br><span lang="en">{ui_en['nf_text']}</span></p>
-<p><a class="btn" href="/">{ui_fr['nf_home']}</a> <a class="btn btn-ghost" href="/en/" lang="en">{ui_en['nf_home']}</a></p>
+<p class="ctas"><a class="btn" href="/">{ui_fr['nf_home']}</a> <a class="btn btn-ghost" href="/en/" lang="en">{ui_en['nf_home']}</a></p>
 </main></body></html>
 """
 
@@ -492,6 +551,7 @@ def sitemap(urls: list[tuple[str, dict]]) -> str:
 def main():
     css = open(os.path.join(ROOT, "assets", "site.css"), "rb").read()
     css_v = hashlib.sha1(css).hexdigest()[:8]
+    js_v = hashlib.sha1(open(os.path.join(ROOT, "assets", "site.js"), "rb").read()).hexdigest()[:8]
     built = []
     for key in PAGES:
         for lang in LANGS:
@@ -505,12 +565,14 @@ def main():
                 content = simple_page(key, lang, meta, body)
             else:
                 content = body
-            write(here + "index.html", layout(key, lang, meta, content, css_v, head_for(key, lang, meta)))
+            if lang == "fr":
+                content = fr_spacing(content)
+            write(here + "index.html", layout(key, lang, meta, content, css_v, head_for(key, lang, meta), js_v))
         built.append((key, {lg: path_of(key, lg) for lg in LANGS}))
     # anciennes adresses → nouvelles
     write("guide/index.html", redirect_page("help", "fr", "guide/"))
     write("privacy/index.html", redirect_page("policy", "fr", "privacy/"))
-    write("404.html", not_found())
+    write("404.html", not_found(css_v))
     write("sitemap.xml", sitemap(built))
     # Content-Signal (contentsignals.org) : moteurs de recherche et IA autorisés à utiliser le contenu
     write("robots.txt", "User-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=yes\nAllow: /\n"

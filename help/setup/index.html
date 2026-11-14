@@ -21,17 +21,20 @@
 <meta property="og:image:alt" content="AI Automod">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0b0612">
+<meta name="theme-color" content="#0c0912">
 <link rel="icon" href="../../assets/logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../assets/icon-192.png">
-<link rel="stylesheet" href="../../assets/site.css?v=d0979ece">
+<link rel="preload" href="../../assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css?v=2b53d111">
+<script src="../../assets/site.js?v=7b5b72ea" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://aiautomod.com/"}, {"@type": "ListItem", "position": 2, "name": "Aide", "item": "https://aiautomod.com/help/"}, {"@type": "ListItem", "position": 3, "name": "Installer et configurer", "item": "https://aiautomod.com/help/setup/"}]}]}</script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-ia" viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h7A2.5 2.5 0 0 1 16 6.5v4a2.5 2.5 0 0 1-2.5 2.5H9.2L6 15.6V13A2.5 2.5 0 0 1 4 10.5z"/><path d="M19 9.2a1.6 1.6 0 0 1 1 1.5v4.6a1.7 1.7 0 0 1-1.7 1.7H18v2.4L15 17h-2.6"/></symbol><symbol id="i-convoc" viewBox="0 0 24 24"><path d="M5 20V5.5A1.5 1.5 0 0 1 6.5 4h7A1.5 1.5 0 0 1 15 5.5V20"/><path d="M3 20h18"/><path d="M12 12.5h.01"/><path d="M18 9v11"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-slow" viewBox="0 0 24 24"><path d="M4.2 17.5a8.5 8.5 0 1 1 15.6 0"/><path d="M12 14l-4-4"/><circle cx="12" cy="14" r="1.2"/></symbol><symbol id="i-scam" viewBox="0 0 24 24"><path d="M14.5 3v10.5a4.5 4.5 0 0 1-9 0V12"/><path d="M5.5 12l-2 2"/><circle cx="14.5" cy="3.6" r=".6"/><path d="M18 7l2.5-2.5M18.5 11H21"/></symbol></defs></svg>
 <a class="skip" href="#main">Aller au contenu</a>
 <header class="top">
   <div class="wrap bar">
-    <a class="brand" href="../../"><img src="../../assets/logo.svg" width="30" height="30" alt=""><span>AI Automod</span></a>
+    <a class="brand" href="../../"><img src="../../assets/logo.svg" width="28" height="28" alt=""><span>AI Automod</span></a>
     <nav class="menu" aria-label="Menu"><a href="../../features/">Fonctions</a><a href="../">Aide</a><a href="../ai/">IA</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a></nav>
     <div class="acts">
       <a class="lang" href="../../en/help/setup/" hreflang="en" lang="en" title="English">EN</a>
@@ -41,7 +44,7 @@
 </header>
 <main id="main">
 <div class="wrap page">
-  <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="../../">Accueil</a> <span aria-hidden="true">›</span> <a href="../">Aide</a> <span aria-hidden="true">›</span> Installer et configurer</nav>
+  <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="../../">Accueil</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><a href="../">Aide</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><span aria-current="page">Installer et configurer</span></nav>
   <div class="help-grid">
     <article class="doc">
       <h1>Installer et configurer AI Automod sur Discord</h1>
@@ -51,11 +54,11 @@
 <p><a class="btn" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Ajouter Automod à mon serveur</a></p>
 <ul>
   <li>Il faut la permission <strong>Gérer le serveur</strong> pour ajouter un bot.</li>
-  <li>Garde les permissions proposées : sans elles, certaines fonctions ne marchent pas (créer les salons de logs,
+  <li>Garde les permissions proposées : sans elles, certaines fonctions ne marchent pas (créer les salons de logs,
   bannir, exclure…).</li>
-  <li>Place le rôle <strong>Automod</strong> au-dessus des rôles des membres à modérer (Paramètres du serveur → Rôles) :
+  <li>Place le rôle <strong>Automod</strong> au-dessus des rôles des membres à modérer (Paramètres du serveur → Rôles) :
   Discord interdit à un bot de sanctionner quelqu'un qui a un rôle plus haut que le sien.</li>
-  <li>Si une autre personne que le propriétaire ajoute le bot, elle devient <strong>buyer</strong> : elle a les mêmes
+  <li>Si une autre personne que le propriétaire ajoute le bot, elle devient <strong>buyer</strong> : elle a les mêmes
   droits que le propriétaire sur Automod. Le propriétaire peut lui retirer ces droits à tout moment.</li>
 </ul>
 <p class="tip">Tant que <code>/setup</code> n'est pas terminé, la modération automatique reste <strong>désactivée</strong>.</p>
@@ -66,20 +69,20 @@ gestion d'Automod, il est réservé par défaut au propriétaire, au buyer, aux 
 (réglable dans <code>/controls</code> → Permissions). Tu peux le relancer à tout moment pour refaire ou ajuster la
 configuration.</p>
 
-<h3>Premier lancement : la langue</h3>
+<h3>Premier lancement : la langue</h3>
 <p>La toute première fois, Automod demande sa langue (français ou anglais). Elle s'applique à <strong>tout le
-serveur</strong> : messages, panneaux, logs, messages de bienvenue par défaut. Tu la changes plus tard avec le bouton
+serveur</strong> : messages, panneaux, logs, messages de bienvenue par défaut. Tu la changes plus tard avec le bouton
 <em>Langue · Language</em> de l'accueil de <code>/setup</code>.</p>
 
 <h3>Mode rapide (recommandé)</h3>
-<p>Un aperçu montre exactement ce qui va être fait, puis <em>Lancer la configuration</em> applique tout en un clic :</p>
+<p>Un aperçu montre exactement ce qui va être fait, puis <em>Lancer la configuration</em> applique tout en un clic :</p>
 <ul>
-  <li>une catégorie privée <em>Automod</em> avec les <strong>salons de logs</strong> (seuls le staff et le bot les voient) ;</li>
-  <li>une catégorie privée <em>Convocations</em>, les annonces staff allant dans les logs de modération ;</li>
-  <li>les <strong>rôles staff</strong> détectés automatiquement (rôles qui peuvent bannir, expulser, exclure ou gérer les messages) ;</li>
+  <li>une catégorie privée <em>Automod</em> avec les <strong>salons de logs</strong> (seuls le staff et le bot les voient) ;</li>
+  <li>une catégorie privée <em>Convocations</em>, les annonces staff allant dans les logs de modération ;</li>
+  <li>les <strong>rôles staff</strong> détectés automatiquement (rôles qui peuvent bannir, expulser, exclure ou gérer les messages) ;</li>
   <li>les <strong>protections recommandées</strong> activées.</li>
 </ul>
-<p>Rien n'est supprimé : les salons déjà configurés sont conservés. S'il manque la permission <em>Gérer les salons</em>,
+<p>Rien n'est supprimé : les salons déjà configurés sont conservés. S'il manque la permission <em>Gérer les salons</em>,
 l'aperçu te prévient et rien n'est créé.</p>
 
 <h3>Mode avancé (6 étapes)</h3>
@@ -94,43 +97,43 @@ dernière étape.</strong></p>
   autorisés à lire les logs. <em>Détecter automatiquement</em> les trouve pour toi.</td></tr>
   <tr><td>3. Modules</td><td>Les protections à activer (celles d'un plan payant sont signalées).
   <em>Recommandés</em> coche la sélection conseillée.</td></tr>
-  <tr><td>4. Permissions</td><td>Le réglage par défaut des commandes : <strong>Permission Discord</strong> (recommandé,
+  <tr><td>4. Permissions</td><td>Le réglage par défaut des commandes : <strong>Permission Discord</strong> (recommandé,
   ex. <code>/ban</code> pour ceux qui peuvent bannir) ou <strong>Owner uniquement</strong>, et les <strong>admins du
   bot</strong> (rôles ou membres avec accès total).</td></tr>
   <tr><td>5. Convocations</td><td>La catégorie des convocations et le salon des annonces staff
   (<em>Créer la catégorie</em> si besoin), et le <strong>lien d'appel</strong> ajouté au message privé des bannis.</td></tr>
-  <tr><td>6. Bypass</td><td>Les salons et rôles qu'Automod ignore (pour un membre ou une durée : <code>/bypass</code>).</td></tr>
+  <tr><td>6. Bypass</td><td>Les salons et rôles qu'Automod ignore (pour un membre ou une durée : <code>/bypass</code>).</td></tr>
   <tr><td>Récapitulatif</td><td>Tout ce que tu as choisi, puis <em>Enregistrer</em>.</td></tr>
 </table>
 
-<h3>Avant de valider : le choix du plan</h3>
+<h3>Avant de valider : le choix du plan</h3>
 <p>Si le serveur est en Free, Automod affiche les plans <strong>Free</strong>, <strong>Pro</strong> et
 <strong>Max</strong> (une carte par plan, le prix et ce qu'il apporte). <em>S'abonner à Pro / Max</em> enregistre la
-configuration puis ouvre le récapitulatif de paiement ; <em>Rester sur Free</em> enregistre simplement la configuration.
+configuration puis ouvre le récapitulatif de paiement ; <em>Rester sur Free</em> enregistre simplement la configuration.
 Seuls le propriétaire et le buyer peuvent s'abonner. Voir <a href="../plans/">les offres</a>.</p>
 
 <h3>Et après</h3>
-<p>L'écran final résume ce qui a été fait et ce qu'il reste à vérifier (permissions manquantes…), avec trois boutons :
+<p>L'écran final résume ce qui a été fait et ce qu'il reste à vérifier (permissions manquantes…), avec trois boutons :
 <em>Ouvrir le tableau de bord</em> (<code>/controls</code>), <em>Ajuster en mode avancé</em> et
 <em>Mode d'emploi</em>. La modération automatique est active dès cet instant.</p>
 
 <h2 id="tester">Tester sans risque</h2>
 <p>Pour voir ce que les règles et l'IA pensent d'un message précis sans le poster, utilise <code>/iatest</code> (ou
-<code>=iatest</code>) suivi du texte : Automod affiche la détection, la gravité, le ton et s'il aurait sanctionné.</p>
+<code>=iatest</code>) suivi du texte : Automod affiche la détection, la gravité, le ton et s'il aurait sanctionné.</p>
 
       <nav class="pn" aria-label="Précédent / Suivant"><span></span><a class="pn-next" href="../controls/"><span>Suivant</span>Le panneau /controls</a></nav>
     </article>
-    <aside class="side" aria-label="Dans l&#x27;aide"><h2>Dans l&#x27;aide</h2><ol><li><a href="./" aria-current="page">Installer et configurer</a></li><li><a href="../controls/">Le panneau /controls</a></li><li><a href="../protection/">Protections et anti-raid</a></li><li><a href="../ai/">L&#x27;IA : humour ou sérieux</a></li><li><a href="../sanctions/">Sanctions et commandes</a></li><li><a href="../community/">Communauté</a></li><li><a href="../permissions/">Permissions</a></li><li><a href="../dashboard/">Tableau de bord web</a></li><li><a href="../plans/">Offres Free, Pro, Max</a></li></ol></aside>
+    <aside class="side" aria-label="Dans l&#x27;aide"><h2>Dans l&#x27;aide</h2><ol><li><a href="./" aria-current="page">Installer et configurer</a></li><li><a href="../controls/">Le panneau /controls</a></li><li><a href="../protection/">Protections et anti-raid</a></li><li><a href="../ai/">L&#x27;IA : humour ou sérieux</a></li><li><a href="../sanctions/">Sanctions et commandes</a></li><li><a href="../community/">Communauté</a></li><li><a href="../permissions/">Permissions</a></li><li><a href="../dashboard/">Tableau de bord web</a></li><li><a href="../plans/">Offres Free, Pro, Max</a></li></ol></aside>
   </div>
 </div>
 </main>
 <footer class="foot">
   <div class="wrap cols">
-    <div class="fbrand"><a class="brand" href="../../"><img src="../../assets/logo.svg" width="26" height="26" alt=""><span>AI Automod</span></a>
+    <div class="fbrand"><a class="brand" href="../../"><img src="../../assets/logo.svg" width="28" height="28" alt=""><span>AI Automod</span></a>
       <p>AI Automod est un bot indépendant, non affilié à Discord Inc. ni à sa fonction AutoMod.</p></div>
     <div><h2>Produit</h2><a href="../../features/">Fonctions phares</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Ajouter à Discord</a><a href="../../discord-automod/">AI Automod ou AutoMod de Discord ?</a></div><div><h2>Aide</h2><a href="../">Mode d&#x27;emploi</a><a href="../ai/">L&#x27;IA d&#x27;AI Automod</a><a href="../../support/">Serveur support</a></div><div><h2>Légal</h2><a href="../../terms/">Conditions d&#x27;utilisation</a><a href="../../policy/">Confidentialité</a></div>
   </div>
-  <p class="wrap copy">© 2026 AI Automod · <a href="../../en/help/setup/" hreflang="en" lang="en">English</a></p>
+  <div class="wrap"><p class="copy"><span>© 2026 AI Automod</span><a href="../../en/help/setup/" hreflang="en" lang="en">English</a></p></div>
 </footer>
 </body>
 </html>

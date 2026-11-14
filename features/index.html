@@ -21,17 +21,20 @@
 <meta property="og:image:alt" content="AI Automod">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0b0612">
+<meta name="theme-color" content="#0c0912">
 <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/icon-192.png">
-<link rel="stylesheet" href="../assets/site.css?v=d0979ece">
+<link rel="preload" href="../assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css?v=2b53d111">
+<script src="../assets/site.js?v=7b5b72ea" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://aiautomod.com/"}, {"@type": "ListItem", "position": 2, "name": "Fonctions phares", "item": "https://aiautomod.com/features/"}]}]}</script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-ia" viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h7A2.5 2.5 0 0 1 16 6.5v4a2.5 2.5 0 0 1-2.5 2.5H9.2L6 15.6V13A2.5 2.5 0 0 1 4 10.5z"/><path d="M19 9.2a1.6 1.6 0 0 1 1 1.5v4.6a1.7 1.7 0 0 1-1.7 1.7H18v2.4L15 17h-2.6"/></symbol><symbol id="i-convoc" viewBox="0 0 24 24"><path d="M5 20V5.5A1.5 1.5 0 0 1 6.5 4h7A1.5 1.5 0 0 1 15 5.5V20"/><path d="M3 20h18"/><path d="M12 12.5h.01"/><path d="M18 9v11"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-slow" viewBox="0 0 24 24"><path d="M4.2 17.5a8.5 8.5 0 1 1 15.6 0"/><path d="M12 14l-4-4"/><circle cx="12" cy="14" r="1.2"/></symbol><symbol id="i-scam" viewBox="0 0 24 24"><path d="M14.5 3v10.5a4.5 4.5 0 0 1-9 0V12"/><path d="M5.5 12l-2 2"/><circle cx="14.5" cy="3.6" r=".6"/><path d="M18 7l2.5-2.5M18.5 11H21"/></symbol></defs></svg>
 <a class="skip" href="#main">Aller au contenu</a>
 <header class="top">
   <div class="wrap bar">
-    <a class="brand" href="../"><img src="../assets/logo.svg" width="30" height="30" alt=""><span>AI Automod</span></a>
+    <a class="brand" href="../"><img src="../assets/logo.svg" width="28" height="28" alt=""><span>AI Automod</span></a>
     <nav class="menu" aria-label="Menu"><a href="./" aria-current="page">Fonctions</a><a href="../help/">Aide</a><a href="../help/ai/">IA</a><a href="../help/plans/">Offres</a><a href="../dash/">Tableau de bord</a></nav>
     <div class="acts">
       <a class="lang" href="../en/features/" hreflang="en" lang="en" title="English">EN</a>
@@ -40,47 +43,47 @@
   </div>
 </header>
 <main id="main">
-<div class="wrap page narrow doc"><nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="../">Accueil</a> <span aria-hidden="true">›</span> Fonctions phares</nav><h1>Ce qu&#x27;AI Automod fait en plus des automods classiques</h1>
+<div class="wrap page narrow doc"><nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="../">Accueil</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><span aria-current="page">Fonctions phares</span></nav><h1>Ce qu&#x27;AI Automod fait en plus des automods classiques</h1>
 <p class="lead-doc">Des automods, il y en a beaucoup, à commencer par celui intégré à Discord. La plupart filtrent des
 mots et du spam. AI Automod fait ça aussi, mais il a surtout cinq fonctions qu'on ne trouve pas dans un automod
 classique.</p>
 
 <h2 id="ia">Une IA qui comprend le ton</h2>
-<p>C'est ce qui guide tout le bot plutôt qu'une option de plus. En mode IA, chaque message est lu en entier :
-catégorie (insulte, contenu sexuel, données perso, arnaque), gravité et ton, humour ou sérieux. « t'es trop con toi
-😂 » entre potes passe, « t'as même pas d'amis, parle pas » est supprimé. Avant toute sanction, une deuxième IA
-vérifie que le message lui-même est vraiment fautif : <strong>dans le doute, personne n'est puni</strong>. Plan Max, ou
-gratuit avec ta propre clé d'IA. <a href="../help/ai/">Comment marche l'IA →</a></p>
+<p>C'est ce qui guide tout le bot plutôt qu'une option de plus. En mode IA, chaque message est lu en entier :
+catégorie (insulte, contenu sexuel, données perso, arnaque), gravité et ton, humour ou sérieux. « t'es trop con toi
+😂 » entre potes passe, « t'as même pas d'amis, parle pas » est supprimé. Avant toute sanction, une deuxième IA
+vérifie que le message lui-même est vraiment fautif : <strong>dans le doute, personne n'est puni</strong>. Plan Max, ou
+gratuit avec ta propre clé d'IA. <a href="../help/ai/">Comment marche l'IA<span class="arr" aria-hidden="true"></span></a></p>
 
 <h2 id="convocations">Convocations</h2>
-<p>Quand un membre pose problème, un ban ou un mute ne règle pas toujours tout : il faut parfois en parler.
+<p>Quand un membre pose problème, un ban ou un mute ne règle pas toujours tout : il faut parfois en parler.
 <code>/convocate @membre [raison]</code> crée un <strong>salon texte et un salon vocal privés</strong> entre le staff
 et le membre, avec une couleur propre à chaque convocation. Le staff est prévenu dans son salon avec la raison et une
 échéance, les images postées dans la convocation sont épinglées automatiquement pour garder les preuves,
 <code>/addconvoc</code> et <code>/delconvoc</code> ajoutent ou retirent quelqu'un, et <code>/closeconvoc</code>
 ferme le tout, même si le membre a quitté le serveur. Plan Pro.
-<a href="../help/sanctions/#convocations">Les convocations →</a></p>
+<a href="../help/sanctions/#convocations">Les convocations<span class="arr" aria-hidden="true"></span></a></p>
 
 <h2 id="oeil-de-moscou">Œil de Moscou</h2>
-<p>Un raid se prépare, ton serveur a été partagé là où il ne fallait pas ? Un clic sur l'accueil de
+<p>Un raid se prépare, ton serveur a été partagé là où il ne fallait pas ? Un clic sur l'accueil de
 <code>/controls</code> ou du tableau de bord, et pendant <strong>24 heures maximum</strong> la protection du serveur
-est doublée : l'anti-raid et l'anti-nuke réagissent deux fois plus tôt, et l'âge minimum des comptes à l'arrivée est
+est doublée : l'anti-raid et l'anti-nuke réagissent deux fois plus tôt, et l'âge minimum des comptes à l'arrivée est
 doublé. La modération des messages ne change pas. Il s'arrête tout seul.
-<a href="../help/protection/#oeil-de-moscou">L'Œil de Moscou en détail →</a></p>
+<a href="../help/protection/#oeil-de-moscou">L'Œil de Moscou en détail<span class="arr" aria-hidden="true"></span></a></p>
 
 <h2 id="slowmode">Slowmode automatique</h2>
-<p>Un salon s'emballe (live, annonce, drama) ? Quand il dépasse <strong>X messages par seconde</strong>, AI Automod
+<p>Un salon s'emballe (live, annonce, drama) ? Quand il dépasse <strong>X messages par seconde</strong>, AI Automod
 active son mode lent tout seul, soit pour une durée que tu choisis, soit jusqu'au retour au calme. Il ne baisse jamais
 un mode lent mis par le staff et remet l'ancien réglage à la fin. Plan Free.
-<a href="../help/controls/#slowmode">Régler le slowmode automatique →</a></p>
+<a href="../help/controls/#slowmode">Régler le slowmode automatique<span class="arr" aria-hidden="true"></span></a></p>
 
 <h2 id="anti-arnaque">Honeypot anti-arnaque</h2>
-<p>Les comptes piratés et les robots postent leurs faux cadeaux là où tout le monde peut écrire : « free Nitro »,
-« MrBeast casino, use code… », airdrop crypto, « withdraw » et gains faciles. L'anti-arnaque surveille ces salons
-publics et calcule un score : phrases typiques des arnaques, liens, <code>@everyone</code> tapé en texte, captures
+<p>Les comptes piratés et les robots postent leurs faux cadeaux là où tout le monde peut écrire : « free Nitro »,
+« MrBeast casino, use code… », airdrop crypto, « withdraw » et gains faciles. L'anti-arnaque surveille ces salons
+publics et calcule un score : phrases typiques des arnaques, liens, <code>@everyone</code> tapé en texte, captures
 d'écran postées par un compte récent ou tout juste arrivé. Au-delà du seuil, ses messages sont supprimés et le compte
 est expulsé, pas banni, puisqu'il s'agit souvent d'un ami piraté. <strong>Aucune image n'est envoyée à une
-IA</strong> : tout se fait sur place, en direct. Inclus dans le plan Free.</p>
+IA</strong> : tout se fait sur place, en direct. Inclus dans le plan Free.</p>
 
 <h2 id="tableau">En résumé</h2>
 <table>
@@ -93,7 +96,7 @@ IA</strong> : tout se fait sur place, en direct. Inclus dans le plan Free.</p>
     <tr><td>Honeypot anti-arnaque</td><td>Faux cadeaux supprimés, compte piraté expulsé</td><td>Free</td></tr>
   </tbody>
 </table>
-<p>Et tout le reste d'un automod complet : insultes, contenu sexuel, données perso, spam, liens, anti-raid,
+<p>Et tout le reste d'un automod complet : insultes, contenu sexuel, données perso, spam, liens, anti-raid,
 anti-nuke, captcha, sanctions et logs. Voir aussi <a href="../discord-automod/">AI Automod ou AutoMod de
 Discord</a>.</p>
 <p><a class="btn" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Ajouter AI Automod à Discord — gratuit</a></p>
@@ -102,11 +105,11 @@ Discord</a>.</p>
 </main>
 <footer class="foot">
   <div class="wrap cols">
-    <div class="fbrand"><a class="brand" href="../"><img src="../assets/logo.svg" width="26" height="26" alt=""><span>AI Automod</span></a>
+    <div class="fbrand"><a class="brand" href="../"><img src="../assets/logo.svg" width="28" height="28" alt=""><span>AI Automod</span></a>
       <p>AI Automod est un bot indépendant, non affilié à Discord Inc. ni à sa fonction AutoMod.</p></div>
     <div><h2>Produit</h2><a href="./">Fonctions phares</a><a href="../help/plans/">Offres</a><a href="../dash/">Tableau de bord</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Ajouter à Discord</a><a href="../discord-automod/">AI Automod ou AutoMod de Discord ?</a></div><div><h2>Aide</h2><a href="../help/">Mode d&#x27;emploi</a><a href="../help/ai/">L&#x27;IA d&#x27;AI Automod</a><a href="../support/">Serveur support</a></div><div><h2>Légal</h2><a href="../terms/">Conditions d&#x27;utilisation</a><a href="../policy/">Confidentialité</a></div>
   </div>
-  <p class="wrap copy">© 2026 AI Automod · <a href="../en/features/" hreflang="en" lang="en">English</a></p>
+  <div class="wrap"><p class="copy"><span>© 2026 AI Automod</span><a href="../en/features/" hreflang="en" lang="en">English</a></p></div>
 </footer>
 </body>
 </html>

@@ -21,17 +21,20 @@
 <meta property="og:image:alt" content="AI Automod">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0b0612">
+<meta name="theme-color" content="#0c0912">
 <link rel="icon" href="../../assets/logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../assets/icon-192.png">
-<link rel="stylesheet" href="../../assets/site.css?v=d0979ece">
+<link rel="preload" href="../../assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css?v=2b53d111">
+<script src="../../assets/site.js?v=7b5b72ea" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://aiautomod.com/"}, {"@type": "ListItem", "position": 2, "name": "Aide", "item": "https://aiautomod.com/help/"}, {"@type": "ListItem", "position": 3, "name": "Tableau de bord web", "item": "https://aiautomod.com/help/dashboard/"}]}]}</script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-ia" viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h7A2.5 2.5 0 0 1 16 6.5v4a2.5 2.5 0 0 1-2.5 2.5H9.2L6 15.6V13A2.5 2.5 0 0 1 4 10.5z"/><path d="M19 9.2a1.6 1.6 0 0 1 1 1.5v4.6a1.7 1.7 0 0 1-1.7 1.7H18v2.4L15 17h-2.6"/></symbol><symbol id="i-convoc" viewBox="0 0 24 24"><path d="M5 20V5.5A1.5 1.5 0 0 1 6.5 4h7A1.5 1.5 0 0 1 15 5.5V20"/><path d="M3 20h18"/><path d="M12 12.5h.01"/><path d="M18 9v11"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-slow" viewBox="0 0 24 24"><path d="M4.2 17.5a8.5 8.5 0 1 1 15.6 0"/><path d="M12 14l-4-4"/><circle cx="12" cy="14" r="1.2"/></symbol><symbol id="i-scam" viewBox="0 0 24 24"><path d="M14.5 3v10.5a4.5 4.5 0 0 1-9 0V12"/><path d="M5.5 12l-2 2"/><circle cx="14.5" cy="3.6" r=".6"/><path d="M18 7l2.5-2.5M18.5 11H21"/></symbol></defs></svg>
 <a class="skip" href="#main">Aller au contenu</a>
 <header class="top">
   <div class="wrap bar">
-    <a class="brand" href="../../"><img src="../../assets/logo.svg" width="30" height="30" alt=""><span>AI Automod</span></a>
+    <a class="brand" href="../../"><img src="../../assets/logo.svg" width="28" height="28" alt=""><span>AI Automod</span></a>
     <nav class="menu" aria-label="Menu"><a href="../../features/">Fonctions</a><a href="../">Aide</a><a href="../ai/">IA</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a></nav>
     <div class="acts">
       <a class="lang" href="../../en/help/dashboard/" hreflang="en" lang="en" title="English">EN</a>
@@ -41,11 +44,11 @@
 </header>
 <main id="main">
 <div class="wrap page">
-  <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="../../">Accueil</a> <span aria-hidden="true">›</span> <a href="../">Aide</a> <span aria-hidden="true">›</span> Tableau de bord web</nav>
+  <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="../../">Accueil</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><a href="../">Aide</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><span aria-current="page">Tableau de bord web</span></nav>
   <div class="help-grid">
     <article class="doc">
       <h1>Tableau de bord web</h1>
-<p class="lead-doc">Tout ce que fait <code>/controls</code>, en plus grand et plus confortable : le tableau de bord
+<p class="lead-doc">Tout ce que fait <code>/controls</code>, en plus grand et plus confortable : le tableau de bord
 gère Automod depuis ton navigateur, sur ordinateur comme sur téléphone.</p>
 <p><a class="btn" href="../../dash/">Ouvrir le tableau de bord</a></p>
 
@@ -56,7 +59,7 @@ aussi le lien.</p>
 <ul>
   <li>Ouvrir le tableau de bord d'un serveur demande le droit de <code>/dashboard</code> (propriétaire, buyer,
   administrateurs et admins du bot par défaut).</li>
-  <li>Changer un réglage demande en plus le droit de la commande équivalente : chaque action est revérifiée par le bot.</li>
+  <li>Changer un réglage demande en plus le droit de la commande équivalente : chaque action est revérifiée par le bot.</li>
 </ul>
 
 <h2 id="onglets">Les onglets</h2>
@@ -74,23 +77,23 @@ aussi le lien.</p>
 <h2 id="securite">Sécurité</h2>
 <ul>
   <li>Le site passe uniquement en HTTPS, et le bot refuse toute requête qui ne vient pas de lui.</li>
-  <li>Une clé d'IA enregistrée est chiffrée ; seuls ses 4 derniers caractères sont réaffichés.</li>
-  <li>Tu peux te déconnecter à tout moment ; la session expire toute seule.</li>
+  <li>Une clé d'IA enregistrée est chiffrée ; seuls ses 4 derniers caractères sont réaffichés.</li>
+  <li>Tu peux te déconnecter à tout moment ; la session expire toute seule.</li>
 </ul>
 
       <nav class="pn" aria-label="Précédent / Suivant"><a class="pn-prev" href="../permissions/"><span>Précédent</span>Permissions</a><a class="pn-next" href="../plans/"><span>Suivant</span>Offres Free, Pro, Max</a></nav>
     </article>
-    <aside class="side" aria-label="Dans l&#x27;aide"><h2>Dans l&#x27;aide</h2><ol><li><a href="../setup/">Installer et configurer</a></li><li><a href="../controls/">Le panneau /controls</a></li><li><a href="../protection/">Protections et anti-raid</a></li><li><a href="../ai/">L&#x27;IA : humour ou sérieux</a></li><li><a href="../sanctions/">Sanctions et commandes</a></li><li><a href="../community/">Communauté</a></li><li><a href="../permissions/">Permissions</a></li><li><a href="./" aria-current="page">Tableau de bord web</a></li><li><a href="../plans/">Offres Free, Pro, Max</a></li></ol></aside>
+    <aside class="side" aria-label="Dans l&#x27;aide"><h2>Dans l&#x27;aide</h2><ol><li><a href="../setup/">Installer et configurer</a></li><li><a href="../controls/">Le panneau /controls</a></li><li><a href="../protection/">Protections et anti-raid</a></li><li><a href="../ai/">L&#x27;IA : humour ou sérieux</a></li><li><a href="../sanctions/">Sanctions et commandes</a></li><li><a href="../community/">Communauté</a></li><li><a href="../permissions/">Permissions</a></li><li><a href="./" aria-current="page">Tableau de bord web</a></li><li><a href="../plans/">Offres Free, Pro, Max</a></li></ol></aside>
   </div>
 </div>
 </main>
 <footer class="foot">
   <div class="wrap cols">
-    <div class="fbrand"><a class="brand" href="../../"><img src="../../assets/logo.svg" width="26" height="26" alt=""><span>AI Automod</span></a>
+    <div class="fbrand"><a class="brand" href="../../"><img src="../../assets/logo.svg" width="28" height="28" alt=""><span>AI Automod</span></a>
       <p>AI Automod est un bot indépendant, non affilié à Discord Inc. ni à sa fonction AutoMod.</p></div>
     <div><h2>Produit</h2><a href="../../features/">Fonctions phares</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Ajouter à Discord</a><a href="../../discord-automod/">AI Automod ou AutoMod de Discord ?</a></div><div><h2>Aide</h2><a href="../">Mode d&#x27;emploi</a><a href="../ai/">L&#x27;IA d&#x27;AI Automod</a><a href="../../support/">Serveur support</a></div><div><h2>Légal</h2><a href="../../terms/">Conditions d&#x27;utilisation</a><a href="../../policy/">Confidentialité</a></div>
   </div>
-  <p class="wrap copy">© 2026 AI Automod · <a href="../../en/help/dashboard/" hreflang="en" lang="en">English</a></p>
+  <div class="wrap"><p class="copy"><span>© 2026 AI Automod</span><a href="../../en/help/dashboard/" hreflang="en" lang="en">English</a></p></div>
 </footer>
 </body>
 </html>

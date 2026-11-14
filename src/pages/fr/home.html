@@ -3,135 +3,169 @@ title: AI Automod — bot de modération Discord par IA, anti-raid, captcha
 description: AI Automod, bot de modération Discord : IA qui distingue une vanne d'une insulte, convocations, Œil de Moscou anti-raid, slowmode automatique, anti-arnaque. Gratuit.
 -->
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">AI Automod · bot de modération Discord · FR / EN</span>
-      <h1>La modération qui fait la différence entre <span class="grad">une vanne et une insulte</span></h1>
-      <p class="lead">AI Automod protège ton serveur Discord contre le spam, les raids, les arnaques et la toxicité. Son IA
-      comprend le second degré : les blagues entre potes passent, les vraies attaques sont supprimées.</p>
-      <div class="ctas">
-        <a class="btn" href="{{url:invite}}">Ajouter à Discord — gratuit</a>
-        <a class="btn btn-ghost" href="{{url:help/setup}}">Voir comment ça marche</a>
-      </div>
-      <div class="trust"><span>Configuré en 2 minutes</span><span>Plan gratuit complet</span><span>Aucune donnée vendue</span></div>
+  <div class="wrap">
+    <h1>La modération qui fait la différence entre <em>une vanne et une insulte</em></h1>
+    <p class="lead">AI Automod protège ton serveur Discord contre le spam, les raids, les arnaques et la toxicité. Son IA
+    comprend le second degré : les blagues entre potes passent, les vraies attaques sont supprimées.</p>
+    <div class="ctas">
+      <a class="btn" href="{{url:invite}}">Ajouter à Discord</a>
+      <a class="go" href="{{url:help/setup}}">Voir comment ça marche {{icon:arrow}}</a>
     </div>
-    <div class="demo" role="img" aria-label="Exemple : l'IA d'Automod laisse passer une blague et supprime une attaque et une demande de snap">
-      <div class="demo-head"><b>AI Automod</b> · IA activée · sensibilité 50 %</div>
-      <div class="msg"><span class="av" style="background:#6764d5">L</span><div><span class="who">lea</span>
-        <div class="txt">t'es trop con toi 😂</div>
-        <span class="verdict v-joke">Humour · insulte légère → laissé passer</span></div></div>
-      <div class="msg"><span class="av" style="background:#c0587e">T</span><div><span class="who">troll_92</span>
-        <div class="txt">t'as même pas d'amis, parle pas</div>
-        <span class="verdict v-del">Sérieux · insulte nette → supprimé</span></div></div>
-      <div class="msg"><span class="av" style="background:#3a8f7a">K</span><div><span class="who">kevin</span>
-        <div class="txt">ajoute moi sur snap</div>
-        <span class="verdict v-del">Données perso → supprimé</span></div></div>
-      <p class="demo-foot">Verdicts réels de l'IA d'Automod sur ces messages.</p>
+    <ul class="trust">
+      <li>{{icon:check}}Configuré en 2 minutes</li>
+      <li>{{icon:check}}Plan gratuit complet</li>
+      <li>{{icon:check}}Aucune donnée vendue</li>
+    </ul>
+
+    <div class="console" data-console data-pass="laissé passer" data-del="supprimé">
+      <div class="con-head">
+        <span class="live" aria-hidden="true"></span>
+        <span><b>AI Automod</b> · IA activée · sensibilité <span data-sval>50 %</span></span>
+        <div class="sens" role="group" aria-label="Sensibilité de l'exemple" hidden>
+          <span>Sensibilité</span>
+          <button type="button" data-v="0" aria-pressed="false">0 %</button>
+          <button type="button" data-v="25" aria-pressed="false">25 %</button>
+          <button type="button" data-v="50" aria-pressed="true">50 %</button>
+          <button type="button" data-v="100" aria-pressed="false">100 %</button>
+        </div>
+      </div>
+      <div class="con-body" aria-live="polite">
+        <div class="msg" data-v0="pass" data-v25="pass" data-v50="pass" data-v100="del">
+          <span class="av av-1" aria-hidden="true">L</span>
+          <span class="who">lea</span>
+          <div class="txt">t'es trop con toi 😂</div>
+          <div class="verdict"><span class="code"><b>Insulte</b> · gravité 1 · humour</span><span class="dec dec-pass">laissé passer</span></div>
+        </div>
+        <div class="msg" data-v0="pass" data-v25="pass" data-v50="del" data-v100="del">
+          <span class="av av-2" aria-hidden="true">T</span>
+          <span class="who">troll_92</span>
+          <div class="txt">t'as même pas d'amis, parle pas</div>
+          <div class="verdict"><span class="code"><b>Insulte</b> · gravité 2 · sérieux</span><span class="dec dec-del">supprimé</span></div>
+        </div>
+        <div class="msg" data-v0="pass" data-v25="pass" data-v50="del" data-v100="del">
+          <span class="av av-3" aria-hidden="true">K</span>
+          <span class="who">kevin</span>
+          <div class="txt">ajoute moi sur snap</div>
+          <div class="verdict"><span class="code"><b>Données perso</b> · gravité 2 · sérieux</span><span class="dec dec-del">supprimé</span></div>
+        </div>
+      </div>
+      <p class="con-foot">Verdicts réels de l'IA d'Automod à 50 %. Les autres niveaux suivent le
+      <a href="{{url:help/ai}}#sensibilite">tableau de sensibilité</a>.</p>
     </div>
   </div>
 </section>
 
 <section class="sec" id="phares">
   <div class="wrap">
-    <h2>Ce qu'un automod classique ne fait pas</h2>
-    <p class="intro">Des automods, il y en a plein, à commencer par celui de Discord. Voici ce qu'AI Automod a en
-    plus.</p>
-    <div class="cards">
-      <div class="card"><h3>IA qui comprend le ton</h3>
-        <p>Une vanne entre potes passe, une vraie attaque est supprimée. Dans le doute, personne n'est puni.</p>
-        <a class="more" href="{{url:features}}#ia">L'IA →</a></div>
-      <div class="card"><h3>Convocations</h3>
-        <p>Un salon texte et vocal privé entre le staff et le membre, preuves épinglées, échéance, fermeture en une
-        commande.</p><a class="more" href="{{url:features}}#convocations">Les convocations →</a></div>
-      <div class="card"><h3>Œil de Moscou</h3>
-        <p>Un raid se prépare ? Un clic et la protection du serveur est doublée pendant 24 h.</p>
-        <a class="more" href="{{url:features}}#oeil-de-moscou">L'Œil de Moscou →</a></div>
-      <div class="card"><h3>Slowmode automatique</h3>
-        <p>Au-delà de X messages par seconde, le salon passe en mode lent, pour une durée ou jusqu'au calme.</p>
-        <a class="more" href="{{url:features}}#slowmode">Le slowmode auto →</a></div>
-      <div class="card"><h3>Honeypot anti-arnaque</h3>
-        <p>Faux cadeaux Nitro, « MrBeast casino », crypto : supprimés, compte piraté expulsé. Aucune image envoyée à
-        une IA.</p><a class="more" href="{{url:features}}#anti-arnaque">L'anti-arnaque →</a></div>
+    <div class="sec-head">
+      <h2>Ce qu'un automod classique ne fait pas</h2>
+      <p>Des automods, il y en a plein, à commencer par celui de Discord. Voici ce qu'AI Automod a en plus.</p>
     </div>
+    <ul class="feats">
+      <li class="feat h-ia"><span class="mark">{{icon:ia}}</span><h3>IA qui comprend le ton</h3>
+        <p>Une vanne entre potes passe, une vraie attaque est supprimée. Dans le doute, personne n'est puni.</p>
+        <a class="go" href="{{url:features}}#ia">L'IA {{icon:arrow}}</a></li>
+      <li class="feat h-convoc"><span class="mark">{{icon:convoc}}</span><h3>Convocations</h3>
+        <p>Un salon texte et vocal privé entre le staff et le membre, preuves épinglées, échéance, fermeture en une
+        commande.</p><a class="go" href="{{url:features}}#convocations">Les convocations {{icon:arrow}}</a></li>
+      <li class="feat h-eye"><span class="mark">{{icon:eye}}</span><h3>Œil de Moscou</h3>
+        <p>Un raid se prépare ? Un clic et la protection du serveur est doublée pendant 24 h.</p>
+        <a class="go" href="{{url:features}}#oeil-de-moscou">L'Œil de Moscou {{icon:arrow}}</a></li>
+      <li class="feat h-slow"><span class="mark">{{icon:slow}}</span><h3>Slowmode automatique</h3>
+        <p>Au-delà de X messages par seconde, le salon passe en mode lent, pour une durée ou jusqu'au calme.</p>
+        <a class="go" href="{{url:features}}#slowmode">Le slowmode auto {{icon:arrow}}</a></li>
+      <li class="feat h-scam"><span class="mark">{{icon:scam}}</span><h3>Honeypot anti-arnaque</h3>
+        <p>Faux cadeaux Nitro, « MrBeast casino », crypto : supprimés, compte piraté expulsé. Aucune image envoyée à
+        une IA.</p><a class="go" href="{{url:features}}#anti-arnaque">L'anti-arnaque {{icon:arrow}}</a></li>
+    </ul>
   </div>
 </section>
 
-<section class="sec sec-alt" id="fonctions">
+<section class="sec sec-tight" id="fonctions">
   <div class="wrap">
-    <h2>Tout pour protéger ton serveur</h2>
-    <p class="intro">Une seule appli pour la modération automatique, la sécurité du serveur, les logs et la communauté.
-    Chaque protection se règle de 0 à 100 % de sensibilité.</p>
-    <div class="cards">
-      <div class="card"><h3>IA : humour ou sérieux</h3>
-        <p>Pour chaque message, l'IA juge la gravité et le ton. Une vanne avec « mdr » ou 😂 compte moins qu'une vraie
-        attaque, et ta sensibilité décide du reste.</p><a class="more" href="{{url:help/ai}}">Comment marche l'IA →</a></div>
-      <div class="card"><h3>Modération automatique</h3>
-        <p>Insultes et propos haineux, contenu sexuel, données personnelles, arnaques, spam, mentions de masse, liens
-        interdits et slowmode automatique.</p><a class="more" href="{{url:help/controls}}">Les modules →</a></div>
-      <div class="card"><h3>Anti-raid et anti-nuke</h3>
-        <p>Mode raid automatique, verrouillage en un clic, régulation des salons et des rôles, modération de masse,
-        anti bot, anti comptes récents.</p><a class="more" href="{{url:help/protection}}">Les protections →</a></div>
-      <div class="card"><h3>Captcha à l'arrivée</h3>
-        <p>Les nouveaux recopient le code d'une image avant de voir le serveur. Les bots et les comptes de raid restent
-        dehors.</p><a class="more" href="{{url:help/protection}}#captcha">Le captcha →</a></div>
-      <div class="card"><h3>Smartlog</h3>
-        <p>Des logs interactifs avec le contexte du membre et des boutons : débannir, lever un mute, retirer un warn,
-        supprimer un message.</p><a class="more" href="{{url:help/controls}}#logs">Les logs →</a></div>
-      <div class="card"><h3>Tableau de bord web</h3>
-        <p>Règle tout depuis ton navigateur : modules, logs, sanctions, membres, statistiques, bienvenue, rôles.</p>
-        <a class="more" href="{{url:help/dashboard}}">Le tableau de bord →</a></div>
-      <div class="card"><h3>Sanctions complètes</h3>
-        <p>Ban, kick, mute, warn, historique, cases numérotées, récidive automatique et lien d'appel pour les
-        bannis.</p><a class="more" href="{{url:help/sanctions}}">Les sanctions →</a></div>
-      <div class="card"><h3>Bypass</h3>
-        <p>Fais ignorer un membre, un rôle ou un salon par Automod, pour un temps donné ou sans limite, sans lui donner
-        de permission.</p><a class="more" href="{{url:help/protection}}#bypass">Le bypass →</a></div>
-      <div class="card"><h3>Communauté</h3>
-        <p>Bienvenue, au revoir, rôles automatiques, rôles par réaction, compteur de membres, suggestions et absences
-        du staff.</p><a class="more" href="{{url:help/community}}">La communauté →</a></div>
+    <div class="sec-head">
+      <h2>Tout pour protéger ton serveur</h2>
+      <p>Une seule appli pour la modération automatique, la sécurité du serveur, les logs et la communauté. Chaque
+      protection a sa sensibilité, de 0 à 100 %.</p>
     </div>
-    <p class="intro">Tu utilises déjà l'AutoMod intégré à Discord ? <a href="{{url:discord-automod}}">Voir ce
+    <div class="specs">
+      <a class="spec" href="{{url:help/ai}}"><h3>IA : humour ou sérieux</h3>
+        <p>Pour chaque message, l'IA juge la gravité et le ton. Une vanne avec « mdr » ou 😂 compte moins qu'une vraie
+        attaque, et ta sensibilité décide du reste.</p><span class="go">Comment marche l'IA {{icon:arrow}}</span></a>
+      <a class="spec" href="{{url:help/controls}}"><h3>Modération automatique</h3>
+        <p>Insultes et propos haineux, contenu sexuel, données personnelles, arnaques, spam, mentions de masse, liens
+        interdits et slowmode automatique.</p><span class="go">Les modules {{icon:arrow}}</span></a>
+      <a class="spec" href="{{url:help/protection}}"><h3>Anti-raid et anti-nuke</h3>
+        <p>Mode raid automatique, verrouillage en un clic, régulation des salons et des rôles, modération de masse,
+        anti bot, anti comptes récents.</p><span class="go">Les protections {{icon:arrow}}</span></a>
+      <a class="spec" href="{{url:help/protection}}#captcha"><h3>Captcha à l'arrivée</h3>
+        <p>Les nouveaux recopient le code d'une image avant de voir le serveur. Les bots et les comptes de raid restent
+        dehors.</p><span class="go">Le captcha {{icon:arrow}}</span></a>
+      <a class="spec" href="{{url:help/controls}}#logs"><h3>Smartlog</h3>
+        <p>Des logs interactifs avec le contexte du membre et des boutons : débannir, lever un mute, retirer un warn,
+        supprimer un message.</p><span class="go">Les logs {{icon:arrow}}</span></a>
+      <a class="spec" href="{{url:help/dashboard}}"><h3>Tableau de bord web</h3>
+        <p>Règle tout depuis ton navigateur : modules, logs, sanctions, membres, statistiques, bienvenue, rôles.</p>
+        <span class="go">Le tableau de bord {{icon:arrow}}</span></a>
+      <a class="spec" href="{{url:help/sanctions}}"><h3>Sanctions complètes</h3>
+        <p>Ban, kick, mute, warn, historique, cases numérotées, récidive automatique et lien d'appel pour les
+        bannis.</p><span class="go">Les sanctions {{icon:arrow}}</span></a>
+      <a class="spec" href="{{url:help/protection}}#bypass"><h3>Bypass</h3>
+        <p>Fais ignorer un membre, un rôle ou un salon par Automod, pour un temps donné ou sans limite, sans lui donner
+        de permission.</p><span class="go">Le bypass {{icon:arrow}}</span></a>
+      <a class="spec" href="{{url:help/community}}"><h3>Communauté</h3>
+        <p>Bienvenue, au revoir, rôles automatiques, rôles par réaction, compteur de membres, suggestions et absences
+        du staff.</p><span class="go">La communauté {{icon:arrow}}</span></a>
+    </div>
+    <p class="after">Tu utilises déjà l'AutoMod intégré à Discord ? <a href="{{url:discord-automod}}">Voir ce
     qu'AI Automod fait en plus, et comment combiner les deux →</a></p>
   </div>
 </section>
 
-<section class="sec">
+<section class="sec sec-line">
   <div class="wrap">
-    <h2>Prêt en 2 minutes</h2>
-    <p class="intro">Pas besoin d'être expert : l'assistant configure tout pour toi.</p>
-    <div class="steps">
-      <div class="step"><h3>Ajoute Automod</h3><p>Un clic sur « Ajouter à Discord », choisis ton serveur et garde les
-        permissions proposées.</p></div>
-      <div class="step"><h3>Lance <code>/setup</code></h3><p>Le mode rapide crée les salons de logs, détecte ton staff et
-        active les protections recommandées.</p></div>
-      <div class="step"><h3>C'est protégé</h3><p>Un raid s'annonce ? Active l'<strong>Œil de Moscou</strong> dans
-        <code>/controls</code> : la protection du serveur est doublée pendant 24 h.</p></div>
+    <div class="sec-head">
+      <h2>Prêt en 2 minutes</h2>
+      <p>Pas besoin d'être expert : l'assistant configure tout pour toi.</p>
     </div>
-    <picture><source type="image/webp" srcset="{{asset:banner.webp}}"><img class="banner" src="{{asset:banner.jpg}}" width="1200" height="300" loading="lazy" decoding="async" alt="Bannière d'AI Automod, bot de modération Discord"></picture>
+    <ol class="steps">
+      <li class="step"><h3>Ajoute Automod</h3><p>Un clic sur « Ajouter à Discord », choisis ton serveur et garde les
+        permissions proposées.</p></li>
+      <li class="step"><h3>Lance <code>/setup</code></h3><p>Le mode rapide crée les salons de logs, détecte ton staff et
+        active les protections recommandées.</p></li>
+      <li class="step"><h3>C'est protégé</h3><p>Un raid s'annonce ? Active l'<strong>Œil de Moscou</strong> dans
+        <code>/controls</code> : la protection du serveur est doublée pendant 24 h.</p></li>
+    </ol>
   </div>
 </section>
 
-<section class="sec sec-alt" id="offres">
+<section class="sec sec-line" id="offres">
   <div class="wrap">
-    <h2>Des offres simples</h2>
-    <p class="intro">Le plan s'applique à tout le serveur. Tape <code>/plans</code> sur Discord pour t'abonner.</p>
+    <div class="sec-head center">
+      <h2>Des offres simples</h2>
+      <p>Le plan s'applique à tout le serveur. Tape <code>/plans</code> sur Discord pour t'abonner.</p>
+    </div>
     {{plans}}
   </div>
 </section>
 
-<section class="sec" id="faq">
+<section class="sec sec-line" id="faq">
   <div class="wrap">
-    <h2>Questions fréquentes</h2>
-    <p class="intro">Une autre question ? Passe sur le <a href="{{url:support}}">serveur support</a>.</p>
+    <div class="sec-head center">
+      <h2>Questions fréquentes</h2>
+      <p>Une autre question ? Passe sur le <a href="{{url:support}}">serveur support</a>.</p>
+    </div>
     {{faq}}
   </div>
 </section>
 
 <section class="endcta">
-  <h2>Protège ton serveur dès maintenant</h2>
-  <p>Gratuit, en français et en anglais, prêt en 2 minutes.</p>
-  <div class="ctas" style="justify-content:center">
-    <a class="btn" href="{{url:invite}}">Ajouter à Discord</a>
-    <a class="btn btn-ghost" href="{{url:dash}}">Ouvrir le tableau de bord</a>
+  <div class="wrap">
+    <h2>Protège ton serveur dès maintenant</h2>
+    <p>Gratuit, en français et en anglais, prêt en 2 minutes.</p>
+    <div class="ctas">
+      <a class="btn" href="{{url:invite}}">Ajouter à Discord</a>
+      <a class="go" href="{{url:dash}}">Ouvrir le tableau de bord {{icon:arrow}}</a>
+    </div>
   </div>
 </section>
