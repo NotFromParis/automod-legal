@@ -3,7 +3,7 @@ title: Welcome, reaction roles and absences — AI Automod
 description: AI Automod's community features: welcome and goodbye messages, auto-roles, reaction roles, member counter, suggestions and staff absences.
 label: Community
 -->
-<p class="lead-doc">In <code>/controls</code> → 🎉 Community (or on the dashboard), each feature has its own page with
+<p class="lead-doc">In <code>/controls</code> → Community (or on the dashboard), each feature has its own page with
 an ON / OFF button and its settings.</p>
 
 <h2 id="bienvenue">Welcome, goodbye and joins</h2>
@@ -14,20 +14,20 @@ channel and role menus. Variables you can use in messages:</p>
 <code>{member.number}</code></p>
 <p>Example: <code>Welcome {user.ping} to {server.name}! You are member #{member.number}.</code></p>
 
-<h2 id="reactions">😀 Reaction roles</h2>
+<h2 id="reactions">Reaction roles</h2>
 <p>Pick roles, give each one an emoji, pick a channel, then <em>Publish</em>: Automod posts the message and adds the
 reactions. A member who reacts gets the role; removing the reaction removes the role. Up to 20 roles per message,
 standard or server emojis. Automod's role must be above the roles it gives.</p>
 
-<h2 id="absences">🌴 Staff absences</h2>
+<h2 id="absences">Staff absences</h2>
 <ol>
   <li>On the <em>Staff absences</em> page, pick the absence role (or <em>Create the « On leave » role</em>) and the
   absences channel, then <em>Publish panel</em>.</li>
-  <li>A staff member clicks <em>🌴 Report an absence</em> and fills in: <strong>from</strong> (optional, today by
+  <li>A staff member clicks <em>Report an absence</em> and fills in: <strong>from</strong> (optional, today by
   default), <strong>until</strong> (<code>25/12</code>, <code>25/12/2026</code> or a duration such as <code>3d</code>,
   <code>2 weeks</code>) and a reason.</li>
   <li>Automod gives them the absence role (on the day if the absence starts later) and announces it in the channel.</li>
-  <li>On the return date, the role is removed automatically. <em>✅ I'm back</em> ends the absence early; an admin can
+  <li>On the return date, the role is removed automatically. <em>I'm back</em> ends the absence early; an admin can
   also end it from <code>/controls</code>.</li>
 </ol>
 <p>Only staff can report an absence. A date like <code>25/12</code> means “away on the 25th included”.</p>

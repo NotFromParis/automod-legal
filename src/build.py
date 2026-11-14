@@ -70,30 +70,30 @@ UI = {
 }
 
 PLANS = {
-    "fr": [("🆓", "Free", "Gratuit", "pour toujours", 0,
+    "fr": [("", "Free", "Gratuit", "pour toujours", 0,
             ["Commandes de base (ban, kick, mute, warn…)",
              "Modération auto par règles : insultes, contenu sexuel, données perso, arnaques, spam, mentions, liens",
              "Sensibilité standard", "Anti-raid, anti-nuke, anti bot, anti comptes récents",
              "Œil de Moscou, slowmode automatique, honeypot anti-arnaque",
              "Logs et tableau de bord web", "Bienvenue, rôles, absences, suggestions", "Support standard (24-48 h)"]),
-           ("⭐", "Pro", "2,99 €", "pour 30 jours", 2.99,
+           ("", "Pro", "2,99 €", "pour 30 jours", 2.99,
             ["<strong>Tout le plan Free</strong>", "Sensibilité réglable pour chaque module", "Captcha à l'arrivée",
              "Protection critique du serveur", "Convocations", "Smartlog : logs avec boutons d'action",
              "Sanctions groupées", "Support prioritaire (12-24 h)"]),
-           ("💎", "Max", "9,99 €", "pour 30 jours", 9.99,
+           ("", "Max", "9,99 €", "pour 30 jours", 9.99,
             ["<strong>Tout le plan Pro</strong>", "Mode IA (bêta) sur les modules de contenu",
              "Fait la différence entre humour et insulte", "Moins de faux positifs", "Support personnel"])],
-    "en": [("🆓", "Free", "Free", "forever", 0,
+    "en": [("", "Free", "Free", "forever", 0,
             ["Basic commands (ban, kick, mute, warn…)",
              "Rule-based auto-moderation: insults, sexual content, personal data, scams, spam, mentions, links",
              "Standard sensitivity", "Anti-raid, anti-nuke, anti bot, anti new accounts",
              "Moscow Eye, auto slowmode, anti-scam honeypot",
              "Logs and web dashboard", "Welcome, roles, absences, suggestions", "Standard support (24-48 h)"]),
-           ("⭐", "Pro", "€2.99", "for 30 days", 2.99,
+           ("", "Pro", "€2.99", "for 30 days", 2.99,
             ["<strong>Everything in Free</strong>", "Adjustable sensitivity for each module", "Captcha on join",
              "Critical server protection", "Convocations", "Smartlog: logs with action buttons",
              "Bulk sanctions", "Priority support (12-24 h)"]),
-           ("💎", "Max", "€9.99", "for 30 days", 9.99,
+           ("", "Max", "€9.99", "for 30 days", 9.99,
             ["<strong>Everything in Pro</strong>", "AI mode (beta) on content modules",
              "Tells a joke from an insult", "Fewer false positives", "Personal support"])],
 }
@@ -221,7 +221,7 @@ def esc(s: str) -> str:
 def plans_html(lang: str) -> str:
     cards = []
     for emoji, name, price, per, _amount, perks in PLANS[lang]:
-        cards.append(f'<div class="plan{" plan-hi" if name == "Pro" else ""}"><h3>{emoji} {name}</h3>'
+        cards.append(f'<div class="plan{" plan-hi" if name == "Pro" else ""}"><h3>{name}</h3>'
                      f'<p class="price">{price} <span>{per}</span></p><ul>'
                      + "".join(f"<li>{p}</li>" for p in perks) + "</ul></div>")
     return f'<div class="plans">{"".join(cards)}</div><p class="muted small">{PLANS_NOTE[lang]}</p>'
