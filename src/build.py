@@ -493,7 +493,11 @@ def main():
     write("privacy/index.html", redirect_page("policy", "fr", "privacy/"))
     write("404.html", not_found())
     write("sitemap.xml", sitemap(built))
-    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /dash/\n\nSitemap: {SITE}/sitemap.xml\n")
+    # Content-Signal (contentsignals.org) : moteurs de recherche et IA autorisés à utiliser le contenu
+    write("robots.txt", "User-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=yes\nAllow: /\n"
+                        f"Disallow: /dash/\n\nSitemap: {SITE}/sitemap.xml\n")
+    # llms.txt : résumé du bot pour les assistants IA (source : src/llms.txt)
+    write("llms.txt", open(os.path.join(ROOT, "src", "llms.txt"), encoding="utf-8").read())
     write(".nojekyll", "")
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
     if "--cname" in sys.argv:

@@ -1,0 +1,44 @@
+# AI Automod
+
+> AI Automod is a Discord moderation and server protection bot (French and English). Its AI mode judges each message's severity and tone, so friendly banter passes while real insults are removed. Free plan with rule-based auto-moderation, anti-raid, anti-nuke, logs and a web dashboard. Independent bot, not affiliated with Discord Inc. or Discord's built-in AutoMod.
+
+- Website: https://aiautomod.com/ (French) · https://aiautomod.com/en/ (English)
+- Add to Discord: https://aiautomod.com/invite
+- Support server: https://aiautomod.com/support
+- Web dashboard: https://aiautomod.com/dash/
+- Listings: https://discord.com/discovery/applications/1476525696980357241 · https://discordbotlist.com/bots/ai-automod
+
+## Key facts
+
+- Platform: Discord bot (slash commands and `=` prefix), verified by Discord. Languages: French and English, chosen per server.
+- Setup: add the bot, run `/setup` (quick mode creates log channels, detects staff roles and enables recommended protections). Test safely with `=testmode on`.
+- Automatic moderation: insults and hate speech, sexual content, personal data (phone, address, invitations to other networks), scams, spam and flood, mass mentions, dangerous links.
+- AI mode (beta): category + severity + tone (joke or serious) for each message; a second AI check confirms before any sanction, and when in doubt nobody is punished.
+- Server protection: automatic raid mode, one-click lockdown, anti-nuke (channel, role and mass moderation limits), captcha on join, anti bot, anti new accounts, critical server protection (name, icon, banner).
+- Sanctions: warn, mute, kick, ban, history, numbered cases, automatic escalation, bulk sanctions, convocations, appeal link.
+- Logs: per-category logs and Smartlog cards with action buttons; web dashboard for all settings.
+- Community: welcome/goodbye, auto roles, reaction roles, member counter, suggestions, staff absences.
+
+## Pricing
+
+- Free (forever): basic commands, all rule-based auto-moderation at standard sensitivity, anti-raid, anti-nuke, anti bot, logs, web dashboard, community features. Support 24-48 h.
+- Pro (€2.99 / 30 days, no auto-renewal): adjustable sensitivity per module, captcha, critical server protection, convocations, Smartlog, bulk sanctions, priority support.
+- Max (€9.99 / 30 days, no auto-renewal): everything in Pro plus AI mode and personal support.
+- Any server can also plug in its own AI API key to use AI mode without a subscription.
+
+## Compared with Discord's built-in AutoMod
+
+Discord's AutoMod blocks keywords and spam before posting, with ready-made word lists in English only. AI Automod adds French moderation, tone understanding, sanctions with history, anti-raid, anti-nuke, captcha and logs; it deletes right after posting rather than before. Both can run together.
+
+## Docs
+
+- [User guide](https://aiautomod.com/en/help/): installation, /setup, modules, protections, AI, sanctions, permissions, dashboard, plans
+- [The AI: joke or insult?](https://aiautomod.com/en/help/ai/): how the AI judges messages and what it costs with your own key
+- [Protections](https://aiautomod.com/en/help/protection/): anti-raid, anti-nuke, captcha
+- [Plans](https://aiautomod.com/en/help/plans/)
+- [AI Automod vs Discord AutoMod](https://aiautomod.com/en/discord-automod/)
+- [Terms of Service](https://aiautomod.com/en/terms/) · [Privacy Policy](https://aiautomod.com/en/policy/)
+
+## En français
+
+AI Automod est un bot Discord de modération et de protection, en français et en anglais. Son IA fait la différence entre une vanne entre potes et une vraie insulte. Plan gratuit complet (modération par règles, anti-raid, anti-nuke, logs, tableau de bord), Pro à 2,99 € et Max à 9,99 € pour 30 jours. Mode d'emploi : https://aiautomod.com/help/ · Comparatif avec l'AutoMod de Discord : https://aiautomod.com/discord-automod/
