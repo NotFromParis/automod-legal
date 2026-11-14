@@ -1,6 +1,8 @@
 """Génère le site aiautomod.com (pages statiques FR + EN) à partir de src/pages/.
 
     python src/build.py            → écrit les pages à la racine du dépôt (servi par GitHub Pages)
+    Anglais à la racine (langue par défaut depuis le 15/11/2026), français sous /fr/ ; les anciennes adresses /en/…
+    redirigent vers la racine.
     python src/build.py --cname    → écrit aussi le fichier CNAME (à faire seulement quand le domaine pointe ici)
 
 Chaque fragment commence par un bloc <!-- title: … / description: … / label: … --> puis le contenu.
@@ -24,7 +26,7 @@ SRC = os.path.join(ROOT, "src", "pages")
 SITE = "https://aiautomod.com"
 INVITE = ("https://discord.com/oauth2/authorize?client_id=1476525696980357241&permissions=8"
           "&scope=bot+applications.commands")
-LANGS = ("fr", "en")
+LANGS = ("en", "fr")                                   # la première est la langue par défaut (racine)
 BRAND = "AI Automod"
 DISCOVERY = "https://discord.com/discovery/applications/1476525696980357241"
 LISTINGS = [DISCOVERY, "https://discordbotlist.com/bots/ai-automod"]   # fiches publiques du bot (ajouter Top.gg une fois validé)
@@ -32,7 +34,7 @@ INDEXNOW_KEY = "5f0c8e2a9b7d4c61a3e8f1b2d6c4a907"     # fichier /<clé>.txt : pr
 TODAY = datetime.date.today().isoformat()
 
 HELP = ["setup", "controls", "protection", "ai", "sanctions", "community", "permissions", "dashboard", "plans"]
-# Pages : clé → chemin FR (le chemin EN est préfixé par en/)
+# Pages : clé → chemin anglais (le chemin français est préfixé par fr/)
 PAGES = {"home": "", "help": "help/", **{f"help/{k}": f"help/{k}/" for k in HELP}, "terms": "terms/",
          "policy": "policy/", "discord-automod": "discord-automod/", "features": "features/"}
 ARTICLES = ("terms", "policy", "discord-automod", "features")
@@ -177,7 +179,7 @@ def path_of(key: str, lang: str) -> str:
     base = PAGES.get(key, SPECIAL.get(key))
     if base is None:
         raise KeyError(key)
-    return base if (lang == "fr" or key in SPECIAL) else "en/" + base
+    return base if (lang == "en" or key in SPECIAL) else "fr/" + base
 
 
 def rel(from_path: str, to_path: str) -> str:
@@ -525,14 +527,14 @@ def redirect_page(target_key: str, lang: str, old: str) -> str:
 def not_found(css_v: str = "") -> str:
     ui_fr, ui_en = UI["fr"], UI["en"]
     return f"""<!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex"><title>{ui_fr['nf_title']} — AI Automod</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><title>{ui_en['nf_title']} — AI Automod</title>
 <meta name="theme-color" content="#0c0912">
 <link rel="icon" href="/assets/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={css_v}">
 </head><body><main id="main" class="nf">
 <img src="/assets/logo.svg" width="64" height="64" alt="">
-<h1>404</h1><p>{ui_fr['nf_text']}<br><span lang="en">{ui_en['nf_text']}</span></p>
-<p class="ctas"><a class="btn" href="/">{ui_fr['nf_home']}</a> <a class="btn btn-ghost" href="/en/" lang="en">{ui_en['nf_home']}</a></p>
+<h1>404</h1><p>{ui_en['nf_text']}<br><span lang="fr">{ui_fr['nf_text']}</span></p>
+<p class="ctas"><a class="btn" href="/">{ui_en['nf_home']}</a> <a class="btn btn-ghost" href="/fr/" lang="fr">{ui_fr['nf_home']}</a></p>
 </main></body></html>
 """
 
@@ -572,6 +574,10 @@ def main():
     # anciennes adresses → nouvelles
     write("guide/index.html", redirect_page("help", "fr", "guide/"))
     write("privacy/index.html", redirect_page("policy", "fr", "privacy/"))
+    # jusqu'au 15/11/2026 l'anglais était sous /en/ : chaque ancienne page anglaise renvoie à sa nouvelle adresse
+    for key in PAGES:
+        old = "en/" + PAGES[key]
+        write(old + "index.html", redirect_page(key, "en", old))
     write("404.html", not_found(css_v))
     write("sitemap.xml", sitemap(built))
     # Content-Signal (contentsignals.org) : moteurs de recherche et IA autorisés à utiliser le contenu

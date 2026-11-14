@@ -1,25 +1,25 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Le panneau /controls — modules, logs et Smartlog d&#x27;AI Automod</title>
-<meta name="description" content="Piloter AI Automod depuis Discord avec /controls : modération automatique, sensibilité, logs et cartes Smartlog, protection, sanctions, communauté et permissions.">
+<title>The /controls panel — AI Automod modules, logs and Smartlog</title>
+<meta name="description" content="Run AI Automod from Discord with /controls: automatic moderation, sensitivity, logs and Smartlog cards, protection, sanctions, community and permissions.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://aiautomod.com/help/controls/">
-<link rel="alternate" hreflang="fr" href="https://aiautomod.com/help/controls/">
-<link rel="alternate" hreflang="en" href="https://aiautomod.com/en/help/controls/">
-<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/en/help/controls/">
+<link rel="alternate" hreflang="fr" href="https://aiautomod.com/fr/help/controls/">
+<link rel="alternate" hreflang="en" href="https://aiautomod.com/help/controls/">
+<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/help/controls/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AI Automod">
-<meta property="og:title" content="Le panneau /controls — modules, logs et Smartlog d&#x27;AI Automod">
-<meta property="og:description" content="Piloter AI Automod depuis Discord avec /controls : modération automatique, sensibilité, logs et cartes Smartlog, protection, sanctions, communauté et permissions.">
+<meta property="og:title" content="The /controls panel — AI Automod modules, logs and Smartlog">
+<meta property="og:description" content="Run AI Automod from Discord with /controls: automatic moderation, sensitivity, logs and Smartlog cards, protection, sanctions, community and permissions.">
 <meta property="og:url" content="https://aiautomod.com/help/controls/">
-<meta property="og:image" content="https://aiautomod.com/assets/og-fr.png">
+<meta property="og:image" content="https://aiautomod.com/assets/og-en.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="AI Automod">
-<meta property="og:locale" content="fr_FR">
+<meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0c0912">
 <link rel="icon" href="../../assets/logo.svg" type="image/svg+xml">
@@ -27,115 +27,116 @@
 <link rel="preload" href="../../assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/site.css?v=2b53d111">
 <script src="../../assets/site.js?v=7b5b72ea" defer></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://aiautomod.com/"}, {"@type": "ListItem", "position": 2, "name": "Aide", "item": "https://aiautomod.com/help/"}, {"@type": "ListItem", "position": 3, "name": "Le panneau /controls", "item": "https://aiautomod.com/help/controls/"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aiautomod.com/"}, {"@type": "ListItem", "position": 2, "name": "Help", "item": "https://aiautomod.com/help/"}, {"@type": "ListItem", "position": 3, "name": "The /controls panel", "item": "https://aiautomod.com/help/controls/"}]}]}</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-ia" viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h7A2.5 2.5 0 0 1 16 6.5v4a2.5 2.5 0 0 1-2.5 2.5H9.2L6 15.6V13A2.5 2.5 0 0 1 4 10.5z"/><path d="M19 9.2a1.6 1.6 0 0 1 1 1.5v4.6a1.7 1.7 0 0 1-1.7 1.7H18v2.4L15 17h-2.6"/></symbol><symbol id="i-convoc" viewBox="0 0 24 24"><path d="M5 20V5.5A1.5 1.5 0 0 1 6.5 4h7A1.5 1.5 0 0 1 15 5.5V20"/><path d="M3 20h18"/><path d="M12 12.5h.01"/><path d="M18 9v11"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-slow" viewBox="0 0 24 24"><path d="M4.2 17.5a8.5 8.5 0 1 1 15.6 0"/><path d="M12 14l-4-4"/><circle cx="12" cy="14" r="1.2"/></symbol><symbol id="i-scam" viewBox="0 0 24 24"><path d="M14.5 3v10.5a4.5 4.5 0 0 1-9 0V12"/><path d="M5.5 12l-2 2"/><circle cx="14.5" cy="3.6" r=".6"/><path d="M18 7l2.5-2.5M18.5 11H21"/></symbol></defs></svg>
-<a class="skip" href="#main">Aller au contenu</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="wrap bar">
     <a class="brand" href="../../"><img src="../../assets/logo.svg" width="28" height="28" alt=""><span>AI Automod</span></a>
-    <nav class="menu" aria-label="Menu"><a href="../../features/">Fonctions</a><a href="../">Aide</a><a href="../ai/">IA</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a></nav>
+    <nav class="menu" aria-label="Menu"><a href="../../features/">Features</a><a href="../">Help</a><a href="../ai/">AI</a><a href="../plans/">Pricing</a><a href="../../dash/">Dashboard</a></nav>
     <div class="acts">
-      <a class="lang" href="../../en/help/controls/" hreflang="en" lang="en" title="English">EN</a>
-      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Ajouter à Discord</a>
+      <a class="lang" href="../../fr/help/controls/" hreflang="fr" lang="fr" title="Français">FR</a>
+      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Add to Discord</a>
     </div>
   </div>
 </header>
 <main id="main">
 <div class="wrap page">
-  <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="../../">Accueil</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><a href="../">Aide</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><span aria-current="page">Le panneau /controls</span></nav>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><a href="../">Help</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><span aria-current="page">The /controls panel</span></nav>
   <div class="help-grid">
     <article class="doc">
-      <h1>Le panneau /controls</h1>
-<p class="lead-doc"><code>/controls</code> (ou <code>=controls</code>) ouvre le panneau de pilotage d'Automod
-directement dans Discord : on y règle et on analyse le serveur, sans retenir de commande.</p>
-<p>Le menu en haut du panneau change de page. Tout le monde peut l'ouvrir, mais seuls les boutons que tu as le droit
-d'utiliser sont cliquables, et les droits sont revérifiés à chaque clic. Un panneau ouvert par quelqu'un d'autre ne
-répond qu'à lui : lance <code>/controls</code> toi-même. La bannière change de couleur selon l'état du bot :
-<strong>vert</strong> actif, <strong>rouge</strong> en pause, <strong>orange</strong> s'il y a un problème (permission
-manquante, maintenance). Tout se règle aussi depuis le <a href="../dashboard/">tableau de bord web</a>.</p>
+      <h1>The /controls panel</h1>
+<p class="lead-doc"><code>/controls</code> (or <code>=controls</code>) opens Automod's control panel right inside
+Discord: set up and analyse your server without memorising commands.</p>
+<p>The menu at the top of the panel switches pages. Everyone can open it, but only the buttons you are allowed to use
+are clickable, and rights are checked again on every click. A panel opened by someone else only answers them: run
+<code>/controls</code> yourself. The banner is <strong>green</strong> when active, <strong>red</strong> when paused and
+<strong>orange</strong> when something is wrong (missing permission, maintenance). Everything can also be done from the
+<a href="../dashboard/">web dashboard</a>.</p>
 
-<h2 id="accueil">Accueil — tout le monde</h2>
+<h2 id="accueil">Home — everyone</h2>
 <ul>
-  <li><strong>Automod ON / OFF</strong> : met toute la modération automatique en pause (droit de <code>=stop</code>).</li>
-  <li><strong>Œil de Moscou</strong> : un raid se prépare ? Il double la protection du serveur pendant 24 h, puis
-  s'arrête tout seul (droit de <code>/controls</code>). <a href="../protection/#oeil-de-moscou">Détails</a>.</li>
-  <li><strong>Cette semaine</strong> : nombre de sanctions, automatiques et par le staff.</li>
-  <li><strong>Protection</strong> : modules actifs, membres en récidive, serveur verrouillé ou mode raid en cours.</li>
-  <li><strong>Plan</strong> : ton plan actuel et le bouton <em>Offres</em>.</li>
-  <li>Si la configuration n'est pas faite : bouton <em>Configurer</em> (ouvre <code>/setup</code>).</li>
+  <li><strong>Automod ON / OFF</strong>: pauses all automatic moderation (<code>=stop</code> right).</li>
+  <li><strong>Moscow Eye</strong>: raid coming? It doubles server protection for 24 h, then turns itself off
+  (<code>/controls</code> right). <a href="../protection/#oeil-de-moscou">Details</a>.</li>
+  <li><strong>This week</strong>: number of sanctions, automatic and by staff.</li>
+  <li><strong>Protection</strong>: active modules, repeat offenders, server lockdown or raid mode in progress.</li>
+  <li><strong>Plan</strong>: your current plan and the <em>Plans</em> button.</li>
+  <li>If the setup isn't done: the <em>Configure</em> button (opens <code>/setup</code>).</li>
 </ul>
 
-<h2 id="modules">Modération automatique — droit de <code>/controls</code></h2>
-<p>Ce que font les membres, en deux groupes : <em>Contenu des messages</em> (insultes, contenu sexuel, données
-personnelles, arnaques) et <em>Spam, mentions et liens</em>. Pour chaque module :</p>
+<h2 id="modules">Automatic moderation — <code>/controls</code> right</h2>
+<p>What members do, in two groups: <em>Message content</em> (insults, sexual content, personal data, scams) and
+<em>Spam, mentions and links</em>. For each module:</p>
 <ul>
-  <li>le bouton d'état passe de <strong>OFF</strong> à <strong>ON</strong> (détection par règles) puis à
-  <strong>IA</strong> (analyse par l'intelligence artificielle, plan Max ou ta propre clé, modules de contenu — voir
-  <a href="../ai/">l'IA</a>) ;</li>
-  <li>le bouton <strong>%</strong> règle la sensibilité de 0 (insensible) à 100 (le plus sensible) — plan Pro ; en Free,
-  chaque module garde sa sensibilité standard ;</li>
-  <li>une protection d'un plan supérieur affiche un bouton vers les offres.</li>
+  <li>the status button goes from <strong>OFF</strong> to <strong>ON</strong> (rule-based detection) then to
+  <strong>AI</strong> (artificial intelligence, Max plan or your own key, content modules — see
+  <a href="../ai/">the AI</a>);</li>
+  <li>the <strong>%</strong> button sets the sensitivity from 0 (insensitive) to 100 (most sensitive) — Pro plan; on
+  Free, each module keeps its standard sensitivity;</li>
+  <li>a protection from a higher plan shows a button to the plans.</li>
 </ul>
-<h3 id="slowmode">Slowmode automatique</h3>
-<p>Quand un salon dépasse un nombre de <strong>messages par seconde</strong> (mesuré sur 10 secondes), Automod active
-son mode lent. Le bouton <em>Édition</em> règle trois choses : le seuil (1 à 20 messages par seconde), le mode lent
-appliqué (1 seconde à 1 heure) et la durée, en minutes, ou <strong>0</strong> pour le garder jusqu'au retour au calme
-(au moins 2 minutes, puis une minute entière sous la limite). Un mode lent mis par le staff n'est jamais baissé, et si
-le staff le change entre-temps, Automod n'y touche plus. Inclus dans le plan Free.</p>
+<h3 id="slowmode">Auto slowmode</h3>
+<p>When a channel goes over a number of <strong>messages per second</strong> (measured over 10 seconds), Automod turns
+on its slowmode. The <em>Edit</em> button sets three things: the threshold (1 to 20 messages per second), the slowmode
+applied (1 second to 1 hour) and the duration in minutes, or <strong>0</strong> to keep it until things calm down (at
+least 2 minutes, then a full minute under the limit). A slowmode set by the staff is never lowered, and if the staff
+changes it in the meantime, Automod leaves it alone. Included in the Free plan.</p>
 
-<h2 id="logs">Logs et Smartlog — droit de <code>/controls</code></h2>
-<p>Deux groupes : <em>Modération</em> (sanctions du staff et automatiques, convocations, bannissements à vie) et
-<em>Serveur</em> (raids, arrivées et départs, ajout de bot…). Le bouton de chaque événement passe de <strong>OFF</strong>
-à <strong>ON</strong> (log classique) puis, en plan Pro, à <strong>Smartlog</strong>.</p>
-<p>Une carte Smartlog montre l'avatar et le contexte du membre (âge du compte, casier, récidive, notes) et des boutons
-selon ce qui s'est passé : débannir et réinviter après un ban, lever l'exclusion après un mute, retirer le warn,
-supprimer le message après un @everyone, couper le mode raid… Chaque bouton demande la permission de la commande
-correspondante, la raison et la durée sont demandées avant une sanction, et la carte garde la trace de qui a fait quoi.
-Les cartes vont dans le salon Smartlog s'il est réglé, sinon dans le salon habituel du log. Les <strong>salons</strong>
-de logs se choisissent dans <code>/setup</code> ou sur le tableau de bord.</p>
+<h2 id="logs">Logs and Smartlog — <code>/controls</code> right</h2>
+<p>Two groups: <em>Moderation</em> (staff and automatic sanctions, convocations, permanent bans) and <em>Server</em>
+(raids, joins and leaves, bot additions…). Each event's button goes from <strong>OFF</strong> to <strong>ON</strong>
+(classic log) then, on the Pro plan, to <strong>Smartlog</strong>.</p>
+<p>A Smartlog card shows the member's avatar and context (account age, record, repeat offences, notes) and buttons
+depending on what happened: unban and reinvite after a ban, lift the timeout after a mute, remove the warn, delete the
+message after an @everyone, turn off raid mode… Each button requires the matching command's permission, the reason and
+duration are asked before a sanction, and the card keeps track of who did what. Cards go to the Smartlog channel if
+set, otherwise to the log's usual channel. Log <strong>channels</strong> are chosen in <code>/setup</code> or on the
+dashboard.</p>
 
-<h2 id="protection">Protection — droit de <code>=lock</code>, <code>=stop</code> ou <code>/controls</code></h2>
-<p>Tout ce qui protège le serveur, en quatre groupes : <em>Urgence</em>, <em>Raids et arrivées</em>, <em>Anti-nuke</em>
-et <em>Serveur</em>. Le détail est sur la page <a href="../protection/">Protections et anti-raid</a>.</p>
+<h2 id="protection">Protection — <code>=lock</code>, <code>=stop</code> or <code>/controls</code> right</h2>
+<p>Everything that protects the server, in four groups: <em>Emergency</em>, <em>Raids and joins</em>,
+<em>Anti-nuke</em> and <em>Server</em>. Details on the <a href="../protection/">Protections and anti-raid</a>
+page.</p>
 
-<h2 id="sanctions">Sanctions — droit de <code>=history</code> ou de <code>=pardon</code></h2>
+<h2 id="sanctions">Sanctions — <code>=history</code> or <code>=pardon</code> right</h2>
 <ul>
-  <li>Période au choix : 24 heures, 7 jours, 30 jours ou depuis le début.</li>
-  <li>Vue d'ensemble par type de sanction, sanctions du staff et <strong>modérateurs les plus actifs</strong>,
-  détections automatiques, <strong>membres les plus sanctionnés</strong>, exclusions et bannissements temporaires en cours.</li>
-  <li>Actions : <strong>lever l'exclusion</strong> d'un membre, <strong>pardonner</strong> un membre (ses récidives
-  repartent de zéro) ou <strong>tout pardonner</strong> (avec confirmation).</li>
-</ul>
-
-<h2 id="communaute">Communauté — droit de <code>/controls</code></h2>
-<p>Bienvenue, au revoir, arrivées et départs, rôles automatiques, compteur de membres, suggestions, menus de rôles,
-rôles par réaction et absences du staff : chaque fonction a sa page avec un bouton ON / OFF et ses réglages (voir
-<a href="../community/">Communauté</a>).</p>
-
-<h2 id="permissions">Permissions — propriétaire, buyer, administrateurs, admins du bot</h2>
-<ul>
-  <li>La liste de <strong>chaque commande</strong> et de qui peut l'utiliser.</li>
-  <li><em>Modifier la permission</em> : choisis une catégorie, puis une commande (ou toute la catégorie), puis
-  <strong>Discord</strong> (la permission Discord liée), <strong>Owner</strong> (propriétaire, buyer, admins du bot)
-  ou <strong>Rôles et membres</strong>. <em>Réinitialiser</em> revient au réglage par défaut.</li>
-  <li>Le propriétaire peut aussi y retirer les droits du buyer. Voir <a href="../permissions/">Permissions</a>.</li>
+  <li>Choose the period: 24 hours, 7 days, 30 days or all time.</li>
+  <li>Overview by sanction type, staff sanctions and <strong>most active moderators</strong>, automatic detections,
+  <strong>most sanctioned members</strong>, ongoing timeouts and temporary bans.</li>
+  <li>Actions: <strong>lift a timeout</strong>, <strong>pardon</strong> a member (their repeat offences reset) or
+  <strong>pardon everyone</strong> (with confirmation).</li>
 </ul>
 
-      <nav class="pn" aria-label="Précédent / Suivant"><a class="pn-prev" href="../setup/"><span>Précédent</span>Installer et configurer</a><a class="pn-next" href="../protection/"><span>Suivant</span>Protections et anti-raid</a></nav>
+<h2 id="communaute">Community — <code>/controls</code> right</h2>
+<p>Welcome, goodbye, joins and leaves, auto-roles, member counter, suggestions, role menus, reaction roles and staff
+absences: each feature has its own page with an ON / OFF button and its settings (see
+<a href="../community/">Community</a>).</p>
+
+<h2 id="permissions">Permissions — owner, buyer, administrators, bot admins</h2>
+<ul>
+  <li>The list of <strong>every command</strong> and who can use it.</li>
+  <li><em>Edit permission</em>: pick a category, then a command (or the whole category), then <strong>Discord</strong>
+  (the linked Discord permission), <strong>Owner</strong> (owner, buyer, bot admins) or <strong>Roles and
+  members</strong>. <em>Reset</em> goes back to the default.</li>
+  <li>The owner can also remove the buyer's rights there. See <a href="../permissions/">Permissions</a>.</li>
+</ul>
+
+      <nav class="pn" aria-label="Previous / Next"><a class="pn-prev" href="../setup/"><span>Previous</span>Install and set up</a><a class="pn-next" href="../protection/"><span>Next</span>Protections and anti-raid</a></nav>
     </article>
-    <aside class="side" aria-label="Dans l&#x27;aide"><h2>Dans l&#x27;aide</h2><ol><li><a href="../setup/">Installer et configurer</a></li><li><a href="./" aria-current="page">Le panneau /controls</a></li><li><a href="../protection/">Protections et anti-raid</a></li><li><a href="../ai/">L&#x27;IA : humour ou sérieux</a></li><li><a href="../sanctions/">Sanctions et commandes</a></li><li><a href="../community/">Communauté</a></li><li><a href="../permissions/">Permissions</a></li><li><a href="../dashboard/">Tableau de bord web</a></li><li><a href="../plans/">Offres Free, Pro, Max</a></li></ol></aside>
+    <aside class="side" aria-label="In the help"><h2>In the help</h2><ol><li><a href="../setup/">Install and set up</a></li><li><a href="./" aria-current="page">The /controls panel</a></li><li><a href="../protection/">Protections and anti-raid</a></li><li><a href="../ai/">The AI: joke or serious</a></li><li><a href="../sanctions/">Sanctions and commands</a></li><li><a href="../community/">Community</a></li><li><a href="../permissions/">Permissions</a></li><li><a href="../dashboard/">Web dashboard</a></li><li><a href="../plans/">Free, Pro, Max plans</a></li></ol></aside>
   </div>
 </div>
 </main>
 <footer class="foot">
   <div class="wrap cols">
     <div class="fbrand"><a class="brand" href="../../"><img src="../../assets/logo.svg" width="28" height="28" alt=""><span>AI Automod</span></a>
-      <p>AI Automod est un bot indépendant, non affilié à Discord Inc. ni à sa fonction AutoMod.</p></div>
-    <div><h2>Produit</h2><a href="../../features/">Fonctions phares</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Ajouter à Discord</a><a href="../../discord-automod/">AI Automod ou AutoMod de Discord ?</a></div><div><h2>Aide</h2><a href="../">Mode d&#x27;emploi</a><a href="../ai/">L&#x27;IA d&#x27;AI Automod</a><a href="../../support/">Serveur support</a></div><div><h2>Légal</h2><a href="../../terms/">Conditions d&#x27;utilisation</a><a href="../../policy/">Confidentialité</a></div>
+      <p>AI Automod is an independent bot, not affiliated with Discord Inc. or its AutoMod feature.</p></div>
+    <div><h2>Product</h2><a href="../../features/">Signature features</a><a href="../plans/">Pricing</a><a href="../../dash/">Dashboard</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Add to Discord</a><a href="../../discord-automod/">AI Automod vs Discord AutoMod</a></div><div><h2>Help</h2><a href="../">User guide</a><a href="../ai/">AI Automod&#x27;s AI</a><a href="../../support/">Support server</a></div><div><h2>Legal</h2><a href="../../terms/">Terms of Service</a><a href="../../policy/">Privacy Policy</a></div>
   </div>
-  <div class="wrap"><p class="copy"><span>© 2026 AI Automod</span><a href="../../en/help/controls/" hreflang="en" lang="en">English</a></p></div>
+  <div class="wrap"><p class="copy"><span>© 2026 AI Automod</span><a href="../../fr/help/controls/" hreflang="fr" lang="fr">Français</a></p></div>
 </footer>
 </body>
 </html>

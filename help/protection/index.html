@@ -1,25 +1,25 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Anti-raid, anti-nuke et captcha pour Discord — AI Automod</title>
-<meta name="description" content="Protéger un serveur Discord des raids avec AI Automod : mode raid automatique, anti-nuke, captcha à l&#x27;arrivée, anti bot, anti comptes récents, verrouillage en un clic.">
+<title>Anti-raid, anti-nuke and captcha for Discord — AI Automod</title>
+<meta name="description" content="Protect a Discord server from raids with AI Automod: automatic raid mode, anti-nuke, captcha on join, anti bot, anti new accounts and one-click lockdown.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://aiautomod.com/help/protection/">
-<link rel="alternate" hreflang="fr" href="https://aiautomod.com/help/protection/">
-<link rel="alternate" hreflang="en" href="https://aiautomod.com/en/help/protection/">
-<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/en/help/protection/">
+<link rel="alternate" hreflang="fr" href="https://aiautomod.com/fr/help/protection/">
+<link rel="alternate" hreflang="en" href="https://aiautomod.com/help/protection/">
+<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/help/protection/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AI Automod">
-<meta property="og:title" content="Anti-raid, anti-nuke et captcha pour Discord — AI Automod">
-<meta property="og:description" content="Protéger un serveur Discord des raids avec AI Automod : mode raid automatique, anti-nuke, captcha à l&#x27;arrivée, anti bot, anti comptes récents, verrouillage en un clic.">
+<meta property="og:title" content="Anti-raid, anti-nuke and captcha for Discord — AI Automod">
+<meta property="og:description" content="Protect a Discord server from raids with AI Automod: automatic raid mode, anti-nuke, captcha on join, anti bot, anti new accounts and one-click lockdown.">
 <meta property="og:url" content="https://aiautomod.com/help/protection/">
-<meta property="og:image" content="https://aiautomod.com/assets/og-fr.png">
+<meta property="og:image" content="https://aiautomod.com/assets/og-en.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="AI Automod">
-<meta property="og:locale" content="fr_FR">
+<meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0c0912">
 <link rel="icon" href="../../assets/logo.svg" type="image/svg+xml">
@@ -27,122 +27,118 @@
 <link rel="preload" href="../../assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/site.css?v=2b53d111">
 <script src="../../assets/site.js?v=7b5b72ea" defer></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://aiautomod.com/"}, {"@type": "ListItem", "position": 2, "name": "Aide", "item": "https://aiautomod.com/help/"}, {"@type": "ListItem", "position": 3, "name": "Protections et anti-raid", "item": "https://aiautomod.com/help/protection/"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aiautomod.com/"}, {"@type": "ListItem", "position": 2, "name": "Help", "item": "https://aiautomod.com/help/"}, {"@type": "ListItem", "position": 3, "name": "Protections and anti-raid", "item": "https://aiautomod.com/help/protection/"}]}]}</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-ia" viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h7A2.5 2.5 0 0 1 16 6.5v4a2.5 2.5 0 0 1-2.5 2.5H9.2L6 15.6V13A2.5 2.5 0 0 1 4 10.5z"/><path d="M19 9.2a1.6 1.6 0 0 1 1 1.5v4.6a1.7 1.7 0 0 1-1.7 1.7H18v2.4L15 17h-2.6"/></symbol><symbol id="i-convoc" viewBox="0 0 24 24"><path d="M5 20V5.5A1.5 1.5 0 0 1 6.5 4h7A1.5 1.5 0 0 1 15 5.5V20"/><path d="M3 20h18"/><path d="M12 12.5h.01"/><path d="M18 9v11"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-slow" viewBox="0 0 24 24"><path d="M4.2 17.5a8.5 8.5 0 1 1 15.6 0"/><path d="M12 14l-4-4"/><circle cx="12" cy="14" r="1.2"/></symbol><symbol id="i-scam" viewBox="0 0 24 24"><path d="M14.5 3v10.5a4.5 4.5 0 0 1-9 0V12"/><path d="M5.5 12l-2 2"/><circle cx="14.5" cy="3.6" r=".6"/><path d="M18 7l2.5-2.5M18.5 11H21"/></symbol></defs></svg>
-<a class="skip" href="#main">Aller au contenu</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="wrap bar">
     <a class="brand" href="../../"><img src="../../assets/logo.svg" width="28" height="28" alt=""><span>AI Automod</span></a>
-    <nav class="menu" aria-label="Menu"><a href="../../features/">Fonctions</a><a href="../">Aide</a><a href="../ai/">IA</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a></nav>
+    <nav class="menu" aria-label="Menu"><a href="../../features/">Features</a><a href="../">Help</a><a href="../ai/">AI</a><a href="../plans/">Pricing</a><a href="../../dash/">Dashboard</a></nav>
     <div class="acts">
-      <a class="lang" href="../../en/help/protection/" hreflang="en" lang="en" title="English">EN</a>
-      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Ajouter à Discord</a>
+      <a class="lang" href="../../fr/help/protection/" hreflang="fr" lang="fr" title="Français">FR</a>
+      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Add to Discord</a>
     </div>
   </div>
 </header>
 <main id="main">
 <div class="wrap page">
-  <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="../../">Accueil</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><a href="../">Aide</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><span aria-current="page">Protections et anti-raid</span></nav>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><a href="../">Help</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><span aria-current="page">Protections and anti-raid</span></nav>
   <div class="help-grid">
     <article class="doc">
-      <h1>Anti-raid, anti-nuke et captcha pour Discord</h1>
-<p class="lead-doc">Automod protège ton serveur contre les raids, les comptes jetables et les staffs qui dérapent.
-Les protections se règlent dans <code>/controls</code> → Protection ou sur le tableau de bord.</p>
+      <h1>Anti-raid, anti-nuke and captcha for Discord</h1>
+<p class="lead-doc">Automod protects your server from raids, throwaway accounts and staff members who go rogue.
+Protections are set in <code>/controls</code> → Protection or on the dashboard.</p>
 
-<h2 id="modules">Les modules et leurs plans</h2>
-<p>Chaque module a trois états : <strong>désactivé</strong>, <strong>activé</strong> (règles du bot) ou
-<strong>IA</strong> (plan Max ou ta propre clé). Plus la sensibilité est haute, plus le bot réagit vite.</p>
+<h2 id="modules">Modules and their plans</h2>
+<p>Each module has three states: <strong>off</strong>, <strong>on</strong> (rule-based) or <strong>AI</strong> (Max
+plan or your own key). The higher the sensitivity, the faster the bot reacts.</p>
 <ul>
-  <li><strong>Free</strong> : toute la modération automatique par règles (anti-spam, anti-mentions, anti-liens,
-  anti-insultes et propos haineux, anti-contenu sexuel, anti-données personnelles, anti-arnaque) avec la
-  <strong>sensibilité standard</strong>, et la protection du serveur : anti-raid, anti-nuke, Anti Bot, Anti Comptes
-  Récents.</li>
-  <li><strong>Pro</strong> : la <strong>sensibilité réglable</strong> pour chaque module, le captcha et la protection
-  critique du serveur.</li>
-  <li><strong>Max</strong> : mode IA sur les modules de contenu — il comprend le contexte (humour, jeu, second degré) et
-  fait moins d'erreurs. Si l'IA ne répond pas, les règles classiques prennent le relais. Voir
-  <a href="../ai/">l'IA</a>.</li>
+  <li><strong>Free</strong>: all rule-based automatic moderation (anti-spam, anti-mentions, anti-links, anti-insults
+  and hate speech, anti-sexual content, anti-personal data, anti-scam) with the <strong>standard sensitivity</strong>,
+  and server protection: anti-raid, anti-nuke, Anti Bot, Anti New Accounts.</li>
+  <li><strong>Pro</strong>: <strong>adjustable sensitivity</strong> for each module, captcha and critical server
+  protection.</li>
+  <li><strong>Max</strong>: AI mode on content modules — it understands context (jokes, games, banter) and makes fewer
+  mistakes. If the AI doesn't answer, the classic rules take over. See <a href="../ai/">the AI</a>.</li>
 </ul>
 
-<h2 id="anti-raid">Anti-raid et mode raid automatique</h2>
-<p>L'anti-raid repère les vagues de messages identiques, les messages postés sur plusieurs salons et les
-<strong>arrivées massives</strong> : si N membres arrivent en S secondes (8 en 10 s par défaut), le <strong>mode
-raid</strong> s'active pendant M minutes (60 par défaut) et les nouveaux arrivants sont expulsés. Les trois chiffres se
-règlent avec le bouton <em>Édition</em> de l'anti-raid.</p>
+<h2 id="anti-raid">Anti-raid and automatic raid mode</h2>
+<p>Anti-raid spots waves of identical messages, messages posted across several channels and <strong>mass
+joins</strong>: if N members join within S seconds (8 in 10 s by default), <strong>raid mode</strong> turns on for M
+minutes (60 by default) and newcomers are kicked. The three numbers are set with anti-raid's <em>Edit</em> button.</p>
 
 <h2 id="anti-nuke">Anti-nuke</h2>
-<p>Trois modules surveillent le journal d'audit du serveur : <em>Régulation des salons</em>, <em>Régulation des
-rôles</em> et <em>Modération de masse</em>. Quelqu'un qui crée, supprime ou modifie trop de salons ou de rôles, ou qui
-bannit, expulse ou exclut trop de monde en 10 minutes (seuil selon la sensibilité) est sanctionné : retrait de tous ses
-rôles, expulsion ou bannissement, au choix. Le propriétaire, le buyer et ce qui est en <strong>bypass</strong> ne sont
-jamais sanctionnés. Automod a besoin de la permission « Voir les logs du serveur ».</p>
+<p>Three modules watch the server's audit log: <em>Channel regulation</em>, <em>Role regulation</em> and <em>Mass
+moderation</em>. Whoever creates, deletes or edits too many channels or roles, or bans, kicks or times out too many
+people within 10 minutes (threshold based on sensitivity) is sanctioned: all their roles removed, kicked or banned,
+your choice. The owner, the buyer and anything <strong>bypassed</strong> are never sanctioned. Automod needs the
+« View Audit Log » permission.</p>
 
-<h2 id="serveur">Protection critique du serveur, Anti Bot, Anti Comptes Récents</h2>
+<h2 id="serveur">Critical server protection, Anti Bot, Anti New Accounts</h2>
 <ul>
-  <li><strong>Protection critique du serveur</strong> (plan Pro) : un changement du nom, de l'icône, de la bannière, de la
-  description… fait par quelqu'un qui n'est pas en bypass est annulé.</li>
-  <li><strong>Anti Bot</strong> : un bot ajouté par quelqu'un qui n'est pas en bypass est expulsé.</li>
-  <li><strong>Anti Comptes Récents</strong> : les comptes créés il y a moins de N jours (7 par défaut) sont expulsés.</li>
+  <li><strong>Critical server protection</strong> (Pro plan): a change to the name, icon, banner, description… made by someone who
+  isn't bypassed is reverted.</li>
+  <li><strong>Anti Bot</strong>: a bot added by someone who isn't bypassed is kicked.</li>
+  <li><strong>Anti New Accounts</strong>: accounts created less than N days ago (7 by default) are kicked.</li>
 </ul>
 
-<h2 id="captcha">Captcha (plan Pro)</h2>
-<p>Les arrivants reçoivent le rôle « Non vérifié », qui ne voit que le salon de vérification. Ils cliquent sur
-<em>Vérifier</em> et recopient le code d'une image. Sans réussite dans le délai (10 minutes par défaut) ou après 3
-erreurs, ils sont expulsés.</p>
+<h2 id="captcha">Captcha (Pro plan)</h2>
+<p>Newcomers get the « Unverified » role, which only sees the verification channel. They click <em>Verify</em> and copy
+the code from an image. Without success within the delay (10 minutes by default) or after 3 mistakes, they are
+kicked.</p>
 <ol>
-  <li><code>/controls</code> → Protection → Raids et arrivées → Captcha.</li>
-  <li>Choisis le salon de vérification et crée le rôle « Non vérifié ».</li>
-  <li><em>Préparer les salons</em> cache tous les salons à ce rôle (sauf la vérification).</li>
-  <li><em>Publier le panneau</em> poste le bouton <em>Vérifier</em>.</li>
+  <li><code>/controls</code> → Protection → Raids and joins → Captcha.</li>
+  <li>Pick the verification channel and create the « Unverified » role.</li>
+  <li><em>Prepare channels</em> hides every channel from that role (except verification).</li>
+  <li><em>Publish panel</em> posts the <em>Verify</em> button.</li>
 </ol>
 
-<h2 id="oeil-de-moscou">Œil de Moscou : protection doublée avant un raid</h2>
-<p>Tu sens qu'un raid se prépare (menaces, serveur cité ailleurs, vague annoncée) ? Active l'<strong>Œil de
-Moscou</strong> sur l'accueil de <code>/controls</code> ou du <a href="../dashboard/">tableau de bord web</a>.
-Pendant <strong>24 h maximum</strong>, la protection du serveur est doublée :</p>
+<h2 id="oeil-de-moscou">Moscow Eye: doubled protection before a raid</h2>
+<p>Feel a raid coming (threats, your server shared elsewhere, an announced wave)? Turn on the <strong>Moscow
+Eye</strong> on the home page of <code>/controls</code> or the <a href="../dashboard/">web dashboard</a>.
+For <strong>24 hours at most</strong>, server protection is doubled:</p>
 <ul>
-  <li><strong>Anti-raid</strong> : il faut deux fois moins de salons, de comptes ou d'arrivées pour déclencher la
-  défense et le mode raid automatique, et les comptes deux fois plus âgés sont considérés comme récents.</li>
-  <li><strong>Anti-nuke</strong> : les limites de création ou de suppression de salons et de rôles et de modération de
-  masse sont divisées par deux.</li>
-  <li><strong>Anti Comptes Récents</strong> : l'âge minimum demandé à l'arrivée est doublé.</li>
+  <li><strong>Anti-raid</strong>: half as many channels, accounts or joins are enough to trigger the defence and the
+  automatic raid mode, and accounts twice as old count as recent.</li>
+  <li><strong>Anti-nuke</strong>: the limits on creating or deleting channels and roles and on mass moderation are
+  halved.</li>
+  <li><strong>Anti New Accounts</strong>: the minimum account age on join is doubled.</li>
 </ul>
-<p>La <strong>modération des messages ne change pas</strong> (insultes, spam, liens…), et seules les protections
-activées sont renforcées. Il s'arrête tout seul au bout de 24 h, ou quand tu le coupes. Chaque activation est notée
-dans le salon des logs de raid.</p>
+<p><strong>Message moderation doesn't change</strong> (insults, spam, links…), and only active protections are
+strengthened. It stops by itself after 24 hours, or when you turn it off. Each activation is noted in the raid log
+channel.</p>
 
-<h2 id="urgence">En cas de raid</h2>
+<h2 id="urgence">During a raid</h2>
 <ul>
-  <li><strong>Verrouillage du serveur</strong> : plus personne ne peut écrire dans les salons publics (les
-  administrateurs gardent l'accès). Un second clic restaure les salons.</li>
-  <li><strong>Mode raid</strong> : les nouveaux arrivants sont expulsés dès qu'ils rejoignent, jusqu'à ce que tu le
-  coupes.</li>
-  <li><strong>Automod en pause dans certains salons</strong> : les messages de ces salons ne sont plus analysés.</li>
-  <li><code>=stop</code> / <code>=start</code> mettent le bot en pause ou le relancent (tout le serveur ou un salon).</li>
+  <li><strong>Server lockdown</strong>: nobody can write in public channels anymore (administrators keep access). A
+  second click restores the channels.</li>
+  <li><strong>Raid mode</strong>: newcomers are kicked as soon as they join, until you turn it off.</li>
+  <li><strong>Pause Automod in some channels</strong>: messages in those channels are no longer analysed.</li>
+  <li><code>=stop</code> / <code>=start</code> pause or resume the bot (whole server or one channel).</li>
 </ul>
 
 <h2 id="bypass">Bypass</h2>
-<p><code>/bypass</code> ou <code>=bypass</code> fait ignorer par Automod un <strong>membre</strong>, un
-<strong>rôle</strong> ou un <strong>salon</strong> — ni modération ni protection automatiques, ni IA — pendant un temps
-donné (<code>=bypass @Partenaire 2h</code>) ou sans limite (<code>=bypass #memes</code>). Aucune permission n'est
-donnée : les commandes manuelles marchent toujours. <code>=bypass</code> seul affiche la liste,
-<code>=bypass retirer @x</code> retire. Réservé par défaut au propriétaire et au buyer.</p>
+<p><code>/bypass</code> or <code>=bypass</code> makes Automod ignore a <strong>member</strong>, a <strong>role</strong>
+or a <strong>channel</strong> — no automatic moderation or protection, no AI — for a given time
+(<code>=bypass @Partner 2h</code>) or with no limit (<code>=bypass #memes</code>). No permission is given: manual
+commands still work. <code>=bypass</code> alone shows the list, <code>=bypass remove @x</code> removes. Owner and buyer
+only by default.</p>
 
-      <nav class="pn" aria-label="Précédent / Suivant"><a class="pn-prev" href="../controls/"><span>Précédent</span>Le panneau /controls</a><a class="pn-next" href="../ai/"><span>Suivant</span>L&#x27;IA : humour ou sérieux</a></nav>
+      <nav class="pn" aria-label="Previous / Next"><a class="pn-prev" href="../controls/"><span>Previous</span>The /controls panel</a><a class="pn-next" href="../ai/"><span>Next</span>The AI: joke or serious</a></nav>
     </article>
-    <aside class="side" aria-label="Dans l&#x27;aide"><h2>Dans l&#x27;aide</h2><ol><li><a href="../setup/">Installer et configurer</a></li><li><a href="../controls/">Le panneau /controls</a></li><li><a href="./" aria-current="page">Protections et anti-raid</a></li><li><a href="../ai/">L&#x27;IA : humour ou sérieux</a></li><li><a href="../sanctions/">Sanctions et commandes</a></li><li><a href="../community/">Communauté</a></li><li><a href="../permissions/">Permissions</a></li><li><a href="../dashboard/">Tableau de bord web</a></li><li><a href="../plans/">Offres Free, Pro, Max</a></li></ol></aside>
+    <aside class="side" aria-label="In the help"><h2>In the help</h2><ol><li><a href="../setup/">Install and set up</a></li><li><a href="../controls/">The /controls panel</a></li><li><a href="./" aria-current="page">Protections and anti-raid</a></li><li><a href="../ai/">The AI: joke or serious</a></li><li><a href="../sanctions/">Sanctions and commands</a></li><li><a href="../community/">Community</a></li><li><a href="../permissions/">Permissions</a></li><li><a href="../dashboard/">Web dashboard</a></li><li><a href="../plans/">Free, Pro, Max plans</a></li></ol></aside>
   </div>
 </div>
 </main>
 <footer class="foot">
   <div class="wrap cols">
     <div class="fbrand"><a class="brand" href="../../"><img src="../../assets/logo.svg" width="28" height="28" alt=""><span>AI Automod</span></a>
-      <p>AI Automod est un bot indépendant, non affilié à Discord Inc. ni à sa fonction AutoMod.</p></div>
-    <div><h2>Produit</h2><a href="../../features/">Fonctions phares</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Ajouter à Discord</a><a href="../../discord-automod/">AI Automod ou AutoMod de Discord ?</a></div><div><h2>Aide</h2><a href="../">Mode d&#x27;emploi</a><a href="../ai/">L&#x27;IA d&#x27;AI Automod</a><a href="../../support/">Serveur support</a></div><div><h2>Légal</h2><a href="../../terms/">Conditions d&#x27;utilisation</a><a href="../../policy/">Confidentialité</a></div>
+      <p>AI Automod is an independent bot, not affiliated with Discord Inc. or its AutoMod feature.</p></div>
+    <div><h2>Product</h2><a href="../../features/">Signature features</a><a href="../plans/">Pricing</a><a href="../../dash/">Dashboard</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Add to Discord</a><a href="../../discord-automod/">AI Automod vs Discord AutoMod</a></div><div><h2>Help</h2><a href="../">User guide</a><a href="../ai/">AI Automod&#x27;s AI</a><a href="../../support/">Support server</a></div><div><h2>Legal</h2><a href="../../terms/">Terms of Service</a><a href="../../policy/">Privacy Policy</a></div>
   </div>
-  <div class="wrap"><p class="copy"><span>© 2026 AI Automod</span><a href="../../en/help/protection/" hreflang="en" lang="en">English</a></p></div>
+  <div class="wrap"><p class="copy"><span>© 2026 AI Automod</span><a href="../../fr/help/protection/" hreflang="fr" lang="fr">Français</a></p></div>
 </footer>
 </body>
 </html>

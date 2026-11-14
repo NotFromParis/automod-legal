@@ -1,25 +1,25 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Permissions des commandes — AI Automod</title>
-<meta name="description" content="Qui peut utiliser les commandes d&#x27;AI Automod : permissions Discord, commandes de gestion réservées au propriétaire, réglage par commande, buyer et admins du bot.">
+<title>Command permissions — AI Automod</title>
+<meta name="description" content="Who can use AI Automod&#x27;s commands: native Discord permissions, management commands reserved to the owner, per-command or per-category settings, buyer and bot admins.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://aiautomod.com/help/permissions/">
-<link rel="alternate" hreflang="fr" href="https://aiautomod.com/help/permissions/">
-<link rel="alternate" hreflang="en" href="https://aiautomod.com/en/help/permissions/">
-<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/en/help/permissions/">
+<link rel="alternate" hreflang="fr" href="https://aiautomod.com/fr/help/permissions/">
+<link rel="alternate" hreflang="en" href="https://aiautomod.com/help/permissions/">
+<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/help/permissions/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AI Automod">
-<meta property="og:title" content="Permissions des commandes — AI Automod">
-<meta property="og:description" content="Qui peut utiliser les commandes d&#x27;AI Automod : permissions Discord, commandes de gestion réservées au propriétaire, réglage par commande, buyer et admins du bot.">
+<meta property="og:title" content="Command permissions — AI Automod">
+<meta property="og:description" content="Who can use AI Automod&#x27;s commands: native Discord permissions, management commands reserved to the owner, per-command or per-category settings, buyer and bot admins.">
 <meta property="og:url" content="https://aiautomod.com/help/permissions/">
-<meta property="og:image" content="https://aiautomod.com/assets/og-fr.png">
+<meta property="og:image" content="https://aiautomod.com/assets/og-en.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="AI Automod">
-<meta property="og:locale" content="fr_FR">
+<meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0c0912">
 <link rel="icon" href="../../assets/logo.svg" type="image/svg+xml">
@@ -27,74 +27,72 @@
 <link rel="preload" href="../../assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/site.css?v=2b53d111">
 <script src="../../assets/site.js?v=7b5b72ea" defer></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://aiautomod.com/"}, {"@type": "ListItem", "position": 2, "name": "Aide", "item": "https://aiautomod.com/help/"}, {"@type": "ListItem", "position": 3, "name": "Permissions", "item": "https://aiautomod.com/help/permissions/"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aiautomod.com/"}, {"@type": "ListItem", "position": 2, "name": "Help", "item": "https://aiautomod.com/help/"}, {"@type": "ListItem", "position": 3, "name": "Permissions", "item": "https://aiautomod.com/help/permissions/"}]}]}</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-ia" viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h7A2.5 2.5 0 0 1 16 6.5v4a2.5 2.5 0 0 1-2.5 2.5H9.2L6 15.6V13A2.5 2.5 0 0 1 4 10.5z"/><path d="M19 9.2a1.6 1.6 0 0 1 1 1.5v4.6a1.7 1.7 0 0 1-1.7 1.7H18v2.4L15 17h-2.6"/></symbol><symbol id="i-convoc" viewBox="0 0 24 24"><path d="M5 20V5.5A1.5 1.5 0 0 1 6.5 4h7A1.5 1.5 0 0 1 15 5.5V20"/><path d="M3 20h18"/><path d="M12 12.5h.01"/><path d="M18 9v11"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-slow" viewBox="0 0 24 24"><path d="M4.2 17.5a8.5 8.5 0 1 1 15.6 0"/><path d="M12 14l-4-4"/><circle cx="12" cy="14" r="1.2"/></symbol><symbol id="i-scam" viewBox="0 0 24 24"><path d="M14.5 3v10.5a4.5 4.5 0 0 1-9 0V12"/><path d="M5.5 12l-2 2"/><circle cx="14.5" cy="3.6" r=".6"/><path d="M18 7l2.5-2.5M18.5 11H21"/></symbol></defs></svg>
-<a class="skip" href="#main">Aller au contenu</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="wrap bar">
     <a class="brand" href="../../"><img src="../../assets/logo.svg" width="28" height="28" alt=""><span>AI Automod</span></a>
-    <nav class="menu" aria-label="Menu"><a href="../../features/">Fonctions</a><a href="../">Aide</a><a href="../ai/">IA</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a></nav>
+    <nav class="menu" aria-label="Menu"><a href="../../features/">Features</a><a href="../">Help</a><a href="../ai/">AI</a><a href="../plans/">Pricing</a><a href="../../dash/">Dashboard</a></nav>
     <div class="acts">
-      <a class="lang" href="../../en/help/permissions/" hreflang="en" lang="en" title="English">EN</a>
-      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Ajouter à Discord</a>
+      <a class="lang" href="../../fr/help/permissions/" hreflang="fr" lang="fr" title="Français">FR</a>
+      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Add to Discord</a>
     </div>
   </div>
 </header>
 <main id="main">
 <div class="wrap page">
-  <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="../../">Accueil</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><a href="../">Aide</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><span aria-current="page">Permissions</span></nav>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><a href="../">Help</a><svg class="ico sep" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><span aria-current="page">Permissions</span></nav>
   <div class="help-grid">
     <article class="doc">
-      <h1>Permissions des commandes</h1>
-<p class="lead-doc">Par défaut, Automod suit les permissions Discord de ton serveur. Tu peux tout ajuster, commande par
-commande.</p>
+      <h1>Command permissions</h1>
+<p class="lead-doc">By default, Automod follows your server's Discord permissions. You can adjust everything, command
+by command.</p>
 
-<h2 id="defaut">Le réglage par défaut</h2>
+<h2 id="defaut">The default</h2>
 <ul>
-  <li><strong>Mode natif</strong> : une commande est ouverte à ceux qui ont la permission Discord correspondante
-  (<code>/ban</code> → <em>Bannir des membres</em>).</li>
-  <li>Exception : les commandes de <em>gestion d'Automod</em> (<code>/setup</code>, <code>/controls</code>,
-  <code>/bypass</code>, <code>/dashboard</code>, <code>=stop</code>…) sont réservées au propriétaire, au buyer, aux
-  administrateurs et aux admins du bot.</li>
+  <li><strong>Native mode</strong>: a command is open to members with the matching Discord permission
+  (<code>/ban</code> → <em>Ban Members</em>).</li>
+  <li>Exception: Automod <em>management</em> commands (<code>/setup</code>, <code>/controls</code>,
+  <code>/bypass</code>, <code>/dashboard</code>, <code>=stop</code>…) are reserved to the owner, the buyer,
+  administrators and bot admins.</li>
 </ul>
 
-<h2 id="modifier">Modifier une permission</h2>
-<p>Dans <code>/controls</code> → Permissions (ou sur le tableau de bord), change chaque commande, ou toute une catégorie
-d'un coup :</p>
+<h2 id="modifier">Change a permission</h2>
+<p>In <code>/controls</code> → Permissions (or on the dashboard), change each command, or a whole category at once:</p>
 <ul>
-  <li><strong>Discord</strong> : la permission Discord liée ;</li>
-  <li><strong>Owner</strong> : propriétaire, buyer et admins du bot seulement ;</li>
-  <li><strong>Rôles et membres</strong> : des rôles et des membres précis.</li>
+  <li><strong>Discord</strong>: the linked Discord permission;</li>
+  <li><strong>Owner</strong>: owner, buyer and bot admins only;</li>
+  <li><strong>Roles and members</strong>: specific roles and members.</li>
 </ul>
-<p><em>Réinitialiser</em> revient au réglage par défaut.</p>
+<p><em>Reset</em> goes back to the default.</p>
 
-<h2 id="buyer">Buyer et admins du bot</h2>
+<h2 id="buyer">Buyer and bot admins</h2>
 <ul>
-  <li>Le <strong>buyer</strong> est la personne qui a ajouté Automod si ce n'est pas le propriétaire : il a les mêmes
-  droits que lui sur Automod. Le propriétaire peut les lui retirer à tout moment.</li>
-  <li>Les <strong>admins du bot</strong> (rôles ou membres choisis dans <code>/setup</code>) ont un accès total à
-  Automod.</li>
+  <li>The <strong>buyer</strong> is whoever added Automod if it isn't the owner: they get the same Automod rights as the
+  owner. The owner can remove them at any time.</li>
+  <li><strong>Bot admins</strong> (roles or members chosen in <code>/setup</code>) have full access to Automod.</li>
 </ul>
 
-<h2 id="voir">Voir ses commandes</h2>
-<p><code>/cmds</code> montre à chacun les commandes qu'il peut utiliser, <code>/help</code> les explique toutes avec des
-exemples.</p>
+<h2 id="voir">See your commands</h2>
+<p><code>/cmds</code> shows each member the commands they can use, <code>/help</code> explains them all with
+examples.</p>
 
-      <nav class="pn" aria-label="Précédent / Suivant"><a class="pn-prev" href="../community/"><span>Précédent</span>Communauté</a><a class="pn-next" href="../dashboard/"><span>Suivant</span>Tableau de bord web</a></nav>
+      <nav class="pn" aria-label="Previous / Next"><a class="pn-prev" href="../community/"><span>Previous</span>Community</a><a class="pn-next" href="../dashboard/"><span>Next</span>Web dashboard</a></nav>
     </article>
-    <aside class="side" aria-label="Dans l&#x27;aide"><h2>Dans l&#x27;aide</h2><ol><li><a href="../setup/">Installer et configurer</a></li><li><a href="../controls/">Le panneau /controls</a></li><li><a href="../protection/">Protections et anti-raid</a></li><li><a href="../ai/">L&#x27;IA : humour ou sérieux</a></li><li><a href="../sanctions/">Sanctions et commandes</a></li><li><a href="../community/">Communauté</a></li><li><a href="./" aria-current="page">Permissions</a></li><li><a href="../dashboard/">Tableau de bord web</a></li><li><a href="../plans/">Offres Free, Pro, Max</a></li></ol></aside>
+    <aside class="side" aria-label="In the help"><h2>In the help</h2><ol><li><a href="../setup/">Install and set up</a></li><li><a href="../controls/">The /controls panel</a></li><li><a href="../protection/">Protections and anti-raid</a></li><li><a href="../ai/">The AI: joke or serious</a></li><li><a href="../sanctions/">Sanctions and commands</a></li><li><a href="../community/">Community</a></li><li><a href="./" aria-current="page">Permissions</a></li><li><a href="../dashboard/">Web dashboard</a></li><li><a href="../plans/">Free, Pro, Max plans</a></li></ol></aside>
   </div>
 </div>
 </main>
 <footer class="foot">
   <div class="wrap cols">
     <div class="fbrand"><a class="brand" href="../../"><img src="../../assets/logo.svg" width="28" height="28" alt=""><span>AI Automod</span></a>
-      <p>AI Automod est un bot indépendant, non affilié à Discord Inc. ni à sa fonction AutoMod.</p></div>
-    <div><h2>Produit</h2><a href="../../features/">Fonctions phares</a><a href="../plans/">Offres</a><a href="../../dash/">Tableau de bord</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Ajouter à Discord</a><a href="../../discord-automod/">AI Automod ou AutoMod de Discord ?</a></div><div><h2>Aide</h2><a href="../">Mode d&#x27;emploi</a><a href="../ai/">L&#x27;IA d&#x27;AI Automod</a><a href="../../support/">Serveur support</a></div><div><h2>Légal</h2><a href="../../terms/">Conditions d&#x27;utilisation</a><a href="../../policy/">Confidentialité</a></div>
+      <p>AI Automod is an independent bot, not affiliated with Discord Inc. or its AutoMod feature.</p></div>
+    <div><h2>Product</h2><a href="../../features/">Signature features</a><a href="../plans/">Pricing</a><a href="../../dash/">Dashboard</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Add to Discord</a><a href="../../discord-automod/">AI Automod vs Discord AutoMod</a></div><div><h2>Help</h2><a href="../">User guide</a><a href="../ai/">AI Automod&#x27;s AI</a><a href="../../support/">Support server</a></div><div><h2>Legal</h2><a href="../../terms/">Terms of Service</a><a href="../../policy/">Privacy Policy</a></div>
   </div>
-  <div class="wrap"><p class="copy"><span>© 2026 AI Automod</span><a href="../../en/help/permissions/" hreflang="en" lang="en">English</a></p></div>
+  <div class="wrap"><p class="copy"><span>© 2026 AI Automod</span><a href="../../fr/help/permissions/" hreflang="fr" lang="fr">Français</a></p></div>
 </footer>
 </body>
 </html>

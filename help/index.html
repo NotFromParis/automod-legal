@@ -1,25 +1,25 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mode d&#x27;emploi d&#x27;AI Automod, bot de modération Discord</title>
-<meta name="description" content="Le mode d&#x27;emploi complet d&#x27;AI Automod : installation, /setup, protections anti-raid et anti-nuke, IA, sanctions, logs, tableau de bord web et offres.">
+<title>User guide — AI Automod, Discord moderation bot</title>
+<meta name="description" content="The complete AI Automod user guide: installation, /setup, anti-raid and anti-nuke protections, AI, sanctions, logs, web dashboard and pricing.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://aiautomod.com/help/">
-<link rel="alternate" hreflang="fr" href="https://aiautomod.com/help/">
-<link rel="alternate" hreflang="en" href="https://aiautomod.com/en/help/">
-<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/en/help/">
+<link rel="alternate" hreflang="fr" href="https://aiautomod.com/fr/help/">
+<link rel="alternate" hreflang="en" href="https://aiautomod.com/help/">
+<link rel="alternate" hreflang="x-default" href="https://aiautomod.com/help/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AI Automod">
-<meta property="og:title" content="Mode d&#x27;emploi d&#x27;AI Automod, bot de modération Discord">
-<meta property="og:description" content="Le mode d&#x27;emploi complet d&#x27;AI Automod : installation, /setup, protections anti-raid et anti-nuke, IA, sanctions, logs, tableau de bord web et offres.">
+<meta property="og:title" content="User guide — AI Automod, Discord moderation bot">
+<meta property="og:description" content="The complete AI Automod user guide: installation, /setup, anti-raid and anti-nuke protections, AI, sanctions, logs, web dashboard and pricing.">
 <meta property="og:url" content="https://aiautomod.com/help/">
-<meta property="og:image" content="https://aiautomod.com/assets/og-fr.png">
+<meta property="og:image" content="https://aiautomod.com/assets/og-en.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="AI Automod">
-<meta property="og:locale" content="fr_FR">
+<meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0c0912">
 <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
@@ -27,43 +27,43 @@
 <link rel="preload" href="../assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/site.css?v=2b53d111">
 <script src="../assets/site.js?v=7b5b72ea" defer></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://aiautomod.com/"}, {"@type": "ListItem", "position": 2, "name": "Mode d'emploi d'AI Automod, bot de modération Discord", "item": "https://aiautomod.com/help/"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aiautomod.com/"}, {"@type": "ListItem", "position": 2, "name": "User guide", "item": "https://aiautomod.com/help/"}]}]}</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-ia" viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h7A2.5 2.5 0 0 1 16 6.5v4a2.5 2.5 0 0 1-2.5 2.5H9.2L6 15.6V13A2.5 2.5 0 0 1 4 10.5z"/><path d="M19 9.2a1.6 1.6 0 0 1 1 1.5v4.6a1.7 1.7 0 0 1-1.7 1.7H18v2.4L15 17h-2.6"/></symbol><symbol id="i-convoc" viewBox="0 0 24 24"><path d="M5 20V5.5A1.5 1.5 0 0 1 6.5 4h7A1.5 1.5 0 0 1 15 5.5V20"/><path d="M3 20h18"/><path d="M12 12.5h.01"/><path d="M18 9v11"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-slow" viewBox="0 0 24 24"><path d="M4.2 17.5a8.5 8.5 0 1 1 15.6 0"/><path d="M12 14l-4-4"/><circle cx="12" cy="14" r="1.2"/></symbol><symbol id="i-scam" viewBox="0 0 24 24"><path d="M14.5 3v10.5a4.5 4.5 0 0 1-9 0V12"/><path d="M5.5 12l-2 2"/><circle cx="14.5" cy="3.6" r=".6"/><path d="M18 7l2.5-2.5M18.5 11H21"/></symbol></defs></svg>
-<a class="skip" href="#main">Aller au contenu</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="wrap bar">
     <a class="brand" href="../"><img src="../assets/logo.svg" width="28" height="28" alt=""><span>AI Automod</span></a>
-    <nav class="menu" aria-label="Menu"><a href="../features/">Fonctions</a><a href="./" aria-current="page">Aide</a><a href="ai/">IA</a><a href="plans/">Offres</a><a href="../dash/">Tableau de bord</a></nav>
+    <nav class="menu" aria-label="Menu"><a href="../features/">Features</a><a href="./" aria-current="page">Help</a><a href="ai/">AI</a><a href="plans/">Pricing</a><a href="../dash/">Dashboard</a></nav>
     <div class="acts">
-      <a class="lang" href="../en/help/" hreflang="en" lang="en" title="English">EN</a>
-      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Ajouter à Discord</a>
+      <a class="lang" href="../fr/help/" hreflang="fr" lang="fr" title="Français">FR</a>
+      <a class="btn btn-sm" href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Add to Discord</a>
     </div>
   </div>
 </header>
 <main id="main">
 <div class="wrap page doc-index">
-  <h1>Mode d'emploi</h1>
-  <p class="lead-doc">Tout ce qu'il faut savoir pour installer Automod et protéger ton serveur Discord. Commence par
-  <a href="setup/">Installer et configurer</a> : en 2 minutes, c'est en place.</p>
+  <h1>User guide</h1>
+  <p class="lead-doc">Everything you need to install Automod and protect your Discord server. Start with
+  <a href="setup/">Install and set up</a>: it's running in 2 minutes.</p>
   <ul class="guide">
-    <li><a href="setup/"><h2>Installer et configurer</h2><p>Ajouter le bot, l'assistant <code>/setup</code> en mode rapide ou avancé, tester sans risque.</p><span class="go">Lire <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
-    <li><a href="controls/"><h2>Le panneau /controls</h2><p>Piloter le serveur depuis Discord : modules, logs, Smartlog, sanctions, communauté, permissions.</p><span class="go">Lire <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
-    <li><a href="protection/"><h2>Protections et anti-raid</h2><p>Anti-raid, anti-nuke, captcha, anti bot, comptes récents, verrouillage et bypass.</p><span class="go">Lire <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
-    <li><a href="ai/"><h2>L'IA : humour ou sérieux</h2><p>Comment l'IA juge la gravité et le ton, le rôle de la sensibilité, ta propre clé d'IA et son coût.</p><span class="go">Lire <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
-    <li><a href="sanctions/"><h2>Sanctions et commandes</h2><p>Ban, kick, mute, warn, historique, cases, outils de salon et convocations.</p><span class="go">Lire <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
-    <li><a href="community/"><h2>Communauté</h2><p>Bienvenue, au revoir, rôles automatiques et par réaction, compteur, suggestions, absences.</p><span class="go">Lire <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
-    <li><a href="permissions/"><h2>Permissions</h2><p>Qui peut utiliser chaque commande : permission Discord, owner uniquement, ou rôles précis.</p><span class="go">Lire <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
-    <li><a href="dashboard/"><h2>Tableau de bord web</h2><p>Gérer Automod depuis ton navigateur, sur ordinateur comme sur téléphone.</p><span class="go">Lire <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
-    <li><a href="plans/"><h2>Offres Free, Pro, Max</h2><p>Ce que contient chaque plan, les prix et comment s'abonner.</p><span class="go">Lire <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
+    <li><a href="setup/"><h2>Install and set up</h2><p>Add the bot, the <code>/setup</code> assistant in quick or advanced mode, test safely.</p><span class="go">Read <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
+    <li><a href="controls/"><h2>The /controls panel</h2><p>Run the server from Discord: modules, logs, Smartlog, sanctions, community, permissions.</p><span class="go">Read <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
+    <li><a href="protection/"><h2>Protections and anti-raid</h2><p>Anti-raid, anti-nuke, captcha, anti bot, new accounts, lockdown and bypass.</p><span class="go">Read <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
+    <li><a href="ai/"><h2>The AI: joke or serious</h2><p>How the AI rates severity and tone, what sensitivity does, your own AI key and its cost.</p><span class="go">Read <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
+    <li><a href="sanctions/"><h2>Sanctions and commands</h2><p>Ban, kick, mute, warn, history, cases, channel tools and convocations.</p><span class="go">Read <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
+    <li><a href="community/"><h2>Community</h2><p>Welcome, goodbye, auto and reaction roles, member counter, suggestions, absences.</p><span class="go">Read <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
+    <li><a href="permissions/"><h2>Permissions</h2><p>Who can use each command: Discord permission, owner only, or specific roles.</p><span class="go">Read <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
+    <li><a href="dashboard/"><h2>Web dashboard</h2><p>Manage Automod from your browser, on desktop and on mobile.</p><span class="go">Read <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
+    <li><a href="plans/"><h2>Free, Pro, Max plans</h2><p>What each plan includes, the prices and how to subscribe.</p><span class="go">Read <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></li>
   </ul>
   <div class="doc help-more">
-    <h2>Besoin d'aide ?</h2>
+    <h2>Need help?</h2>
     <ul>
-      <li><code>/help</code> sur Discord : chaque commande avec sa syntaxe et des exemples.</li>
-      <li>Le <a href="../support/">serveur support</a> pour poser tes questions, signaler un bug ou proposer une idée.</li>
-      <li>Un souci de paiement ou de données : <a href="mailto:notfromparis.pro@gmail.com">notfromparis.pro@gmail.com</a>.</li>
+      <li><code>/help</code> on Discord: every command with its syntax and examples.</li>
+      <li>The <a href="../support/">support server</a> to ask questions, report a bug or suggest an idea.</li>
+      <li>Payment or data questions: <a href="mailto:notfromparis.pro@gmail.com">notfromparis.pro@gmail.com</a>.</li>
     </ul>
   </div>
 </div>
@@ -72,10 +72,10 @@
 <footer class="foot">
   <div class="wrap cols">
     <div class="fbrand"><a class="brand" href="../"><img src="../assets/logo.svg" width="28" height="28" alt=""><span>AI Automod</span></a>
-      <p>AI Automod est un bot indépendant, non affilié à Discord Inc. ni à sa fonction AutoMod.</p></div>
-    <div><h2>Produit</h2><a href="../features/">Fonctions phares</a><a href="plans/">Offres</a><a href="../dash/">Tableau de bord</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Ajouter à Discord</a><a href="../discord-automod/">AI Automod ou AutoMod de Discord ?</a></div><div><h2>Aide</h2><a href="./">Mode d&#x27;emploi</a><a href="ai/">L&#x27;IA d&#x27;AI Automod</a><a href="../support/">Serveur support</a></div><div><h2>Légal</h2><a href="../terms/">Conditions d&#x27;utilisation</a><a href="../policy/">Confidentialité</a></div>
+      <p>AI Automod is an independent bot, not affiliated with Discord Inc. or its AutoMod feature.</p></div>
+    <div><h2>Product</h2><a href="../features/">Signature features</a><a href="plans/">Pricing</a><a href="../dash/">Dashboard</a><a href="https://discord.com/oauth2/authorize?client_id=1476525696980357241&amp;permissions=8&amp;scope=bot+applications.commands">Add to Discord</a><a href="../discord-automod/">AI Automod vs Discord AutoMod</a></div><div><h2>Help</h2><a href="./">User guide</a><a href="ai/">AI Automod&#x27;s AI</a><a href="../support/">Support server</a></div><div><h2>Legal</h2><a href="../terms/">Terms of Service</a><a href="../policy/">Privacy Policy</a></div>
   </div>
-  <div class="wrap"><p class="copy"><span>© 2026 AI Automod</span><a href="../en/help/" hreflang="en" lang="en">English</a></p></div>
+  <div class="wrap"><p class="copy"><span>© 2026 AI Automod</span><a href="../fr/help/" hreflang="fr" lang="fr">Français</a></p></div>
 </footer>
 </body>
 </html>

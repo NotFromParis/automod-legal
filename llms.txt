@@ -2,7 +2,7 @@
 
 > AI Automod is a Discord moderation and server protection bot (French and English). Its AI mode judges each message's severity and tone, so friendly banter passes while real insults are removed. Free plan with rule-based auto-moderation, anti-raid, anti-nuke, logs and a web dashboard. Independent bot, not affiliated with Discord Inc. or Discord's built-in AutoMod.
 
-- Website: https://aiautomod.com/ (French) · https://aiautomod.com/en/ (English)
+- Website: https://aiautomod.com/ (English) · https://aiautomod.com/fr/ (French)
 - Add to Discord: https://aiautomod.com/invite
 - Support server: https://aiautomod.com/support
 - Web dashboard: https://aiautomod.com/dash/
@@ -15,7 +15,7 @@
 - Moscow Eye: one click when a raid is expected doubles server protection (anti-raid, anti-nuke, new accounts) for up to 24 hours. Free.
 - Auto slowmode: above X messages per second, the channel goes into slowmode for a set time or until it calms down. Free.
 - Anti-scam honeypot: watches public channels for fake gifts (free Nitro, "MrBeast casino" codes, crypto airdrops, withdraw scams) using phrases, links, typed @everyone and screenshots posted by new accounts; deletes and kicks the (often hacked) account. No image is sent to an AI. Free.
-- Details: https://aiautomod.com/en/features/
+- Details: https://aiautomod.com/features/
 
 ## Key facts
 
@@ -41,13 +41,13 @@ Discord's AutoMod blocks keywords and spam before posting, with ready-made word 
 
 ## Docs
 
-- [User guide](https://aiautomod.com/en/help/): installation, /setup, modules, protections, AI, sanctions, permissions, dashboard, plans
-- [The AI: joke or insult?](https://aiautomod.com/en/help/ai/): how the AI judges messages and what it costs with your own key
-- [Protections](https://aiautomod.com/en/help/protection/): anti-raid, anti-nuke, captcha
-- [Plans](https://aiautomod.com/en/help/plans/)
-- [AI Automod vs Discord AutoMod](https://aiautomod.com/en/discord-automod/)
-- [Terms of Service](https://aiautomod.com/en/terms/) · [Privacy Policy](https://aiautomod.com/en/policy/)
+- [User guide](https://aiautomod.com/help/): installation, /setup, modules, protections, AI, sanctions, permissions, dashboard, plans
+- [The AI: joke or insult?](https://aiautomod.com/help/ai/): how the AI judges messages and what it costs with your own key
+- [Protections](https://aiautomod.com/help/protection/): anti-raid, anti-nuke, captcha
+- [Plans](https://aiautomod.com/help/plans/)
+- [AI Automod vs Discord AutoMod](https://aiautomod.com/discord-automod/)
+- [Terms of Service](https://aiautomod.com/terms/) · [Privacy Policy](https://aiautomod.com/policy/)
 
 ## En français
 
-AI Automod est un bot Discord de modération et de protection, en français et en anglais. Son IA fait la différence entre une vanne entre potes et une vraie insulte. Plan gratuit complet (modération par règles, anti-raid, anti-nuke, logs, tableau de bord), Pro à 2,99 € et Max à 9,99 € pour 30 jours. Mode d'emploi : https://aiautomod.com/help/ · Comparatif avec l'AutoMod de Discord : https://aiautomod.com/discord-automod/
+AI Automod est un bot Discord de modération et de protection, en français et en anglais. Son IA fait la différence entre une vanne entre potes et une vraie insulte. Plan gratuit complet (modération par règles, anti-raid, anti-nuke, logs, tableau de bord), Pro à 2,99 € et Max à 9,99 € pour 30 jours. Mode d'emploi : https://aiautomod.com/fr/help/ · Comparatif avec l'AutoMod de Discord : https://aiautomod.com/fr/discord-automod/
