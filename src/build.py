@@ -354,12 +354,12 @@ def crumbs_for(key: str, lang: str, meta: dict) -> list[tuple[str, str]]:
 
 FEATURES = {
     "fr": ["Modération automatique par règles : insultes, contenu sexuel, données personnelles, arnaques",
-           "Mode IA qui fait la différence entre humour et insulte", "Anti-spam, anti-mass-ping, anti-liens",
+           "Mode IA qui fait la différence entre humour et insulte", "Anti-spam, anti-mass-ping, anti-liens, slowmode automatique",
            "Anti-raid et mode raid automatique", "Anti-nuke : régulation des salons, des rôles et de la modération de masse",
            "Captcha à l'arrivée", "Logs et Smartlog", "Tableau de bord web", "Sanctions, historique et récidive",
            "Bienvenue, rôles par réaction, suggestions et absences"],
     "en": ["Rule-based automatic moderation: insults, sexual content, personal data, scams",
-           "AI mode that tells a joke from an insult", "Anti-spam, anti mass ping, anti-links",
+           "AI mode that tells a joke from an insult", "Anti-spam, anti mass ping, anti-links, auto slowmode",
            "Anti-raid and automatic raid mode", "Anti-nuke: channel, role and mass moderation limits",
            "Captcha on join", "Logs and Smartlog", "Web dashboard", "Sanctions, history and repeat offences",
            "Welcome, reaction roles, suggestions and absences"],

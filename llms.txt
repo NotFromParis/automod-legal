@@ -12,7 +12,7 @@
 
 - Platform: Discord bot (slash commands and `=` prefix), verified by Discord. Languages: French and English, chosen per server.
 - Setup: add the bot, run `/setup` (quick mode creates log channels, detects staff roles and enables recommended protections). Check what the bot would do with a message using `/iatest`.
-- Automatic moderation: insults and hate speech, sexual content, personal data (phone, address, invitations to other networks), scams, spam and flood, mass mentions, dangerous links.
+- Automatic moderation: insults and hate speech, sexual content, personal data (phone, address, invitations to other networks), scams, spam and flood, mass mentions, dangerous links, auto slowmode (turns on a channel's slowmode above X messages per second, for a set time or until it calms down).
 - AI mode (beta): category + severity + tone (joke or serious) for each message; a second AI check confirms before any sanction, and when in doubt nobody is punished.
 - Server protection: automatic raid mode, one-click lockdown, anti-nuke (channel, role and mass moderation limits), captcha on join, anti bot, anti new accounts, critical server protection (name, icon, banner). "Moscow Eye": when a raid is expected, doubles server protection (anti-raid, anti-nuke, new accounts) for up to 24 hours without changing message moderation.
 - Sanctions: warn, mute, kick, ban, history, numbered cases, automatic escalation, bulk sanctions, convocations, appeal link.
