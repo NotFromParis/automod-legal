@@ -14,6 +14,67 @@
   // Apparitions au défilement : chaque bloc d'information arrive quand il entre à l'écran.
   // Les listes (fonctions, fiche technique, étapes, offres, aide) arrivent élément par élément.
   if (!calm && "IntersectionObserver" in window) {
+    // ── Mouvements liés au défilement : chaque élément suivi reçoit --p (0 → 1) selon sa position à l'écran,
+    // le CSS en tire de grands mouvements (inclinaison, glissés, mots qui s'allument). Rien n'est caché sans JS.
+    const clamp = (v) => (v < 0 ? 0 : v > 1 ? 1 : v);
+    const track = [];
+    // p = 0 quand le haut de l'élément est à `from` × hauteur d'écran, 1 quand il atteint `to`
+    const follow = (el, from, to, name = "--p", after = null) => {
+      track.push({ el, name, after, last: -1,
+                   calc: (h) => clamp((h * from - el.getBoundingClientRect().top) / (h * (from - to))) });
+    };
+    const hero = document.querySelector(".hero");
+    if (hero) track.push({ el: hero, name: "--hp", last: -1, calc: (h) => clamp(window.scrollY / (h * 0.7)) });
+    // titres de section : les mots s'allument un à un pendant qu'on défile
+    document.querySelectorAll(".sec-head h2, .endcta h2").forEach((h2) => {
+      let k = 0;
+      const walker = document.createTreeWalker(h2, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach((node) => {
+        const frag = document.createDocumentFragment();
+        node.nodeValue.split(/([ \t\r\n]+)/).forEach((part) => {
+          if (!part) return;
+          if (/^[ \t\r\n]+$/.test(part)) { frag.append(part); return; }
+          const w = document.createElement("span");
+          w.className = "w";
+          w.style.setProperty("--k", String(k++));
+          w.textContent = part;
+          frag.append(w);
+        });
+        node.replaceWith(frag);
+      });
+      h2.style.setProperty("--n", String(k));
+      h2.setAttribute("data-words", "");
+      follow(h2, 0.95, 0.5);
+    });
+    document.querySelectorAll(".feat").forEach((el) => follow(el, 1.0, 0.62));
+    document.querySelectorAll(".specs").forEach((el) => follow(el, 1.0, 0.5));
+    document.querySelectorAll(".plans").forEach((el) => follow(el, 1.0, 0.45));
+    document.querySelectorAll(".endcta").forEach((el) => follow(el, 1.0, 0.25));
+    document.querySelectorAll(".steps").forEach((el) => {
+      const steps = [...el.querySelectorAll(".step")];
+      follow(el, 0.85, 0.35, "--p", (p) => {           // chaque numéro s'allume quand la ligne l'atteint
+        steps.forEach((s, i) => s.classList.toggle("lit", p >= (steps.length > 1 ? i / (steps.length - 1) : 0) * 0.98));
+      });
+    });
+    let queued = 0;
+    const tick = () => {
+      queued = 0;
+      const h = window.innerHeight;
+      track.forEach((t) => {
+        const p = Math.round(t.calc(h) * 1000) / 1000;
+        if (p === t.last) return;
+        t.last = p;
+        t.el.style.setProperty(t.name, String(p));
+        if (t.after) t.after(p);
+      });
+    };
+    const ask = () => { if (!queued) queued = requestAnimationFrame(tick); };
+    window.addEventListener("scroll", ask, { passive: true });
+    window.addEventListener("resize", ask);
+    tick();
+
     // "kids" : les enfants arrivent l'un après l'autre ; "self" : le bloc entier ; "watch" : seulement observé (décor CSS)
     const groups = [
       [".sec-head", "kids"], [".feats", "kids"], [".specs", "kids"], [".steps", "kids"], [".plans", "kids"],
@@ -26,7 +87,11 @@
       document.querySelectorAll(sel).forEach((el) => {
         if (el.closest(".hero")) return;
         if (mode === "kids") {
-          [...el.children].forEach((c, i) => { c.setAttribute("data-rv", ""); c.style.setProperty("--i", String(Math.min(i, 8))); });
+          [...el.children].forEach((c, i) => {
+            if (c.hasAttribute("data-words")) return;          // ses mots s'allument déjà au défilement
+            c.setAttribute("data-rv", "");
+            c.style.setProperty("--i", String(Math.min(i, 8)));
+          });
         } else if (mode === "self") {
           el.setAttribute("data-rv", "");
         }
