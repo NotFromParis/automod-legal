@@ -13,10 +13,10 @@
 
   if (!calm && "IntersectionObserver" in window) {
     // ── Mouvements liés au défilement, PAR BLOCS : un bloc (titre + texte d'une section, une liste entière, une
-    // grille entière…) bouge d'un seul tenant. Chaque bloc reçoit --p (0 → 1, adouci) et a fini son mouvement quand
-    // son haut atteint 72 % de la hauteur de l'écran, donc bien avant d'être au centre. Rien n'est caché sans JS.
+    // grille entière…) bouge d'un seul tenant. Chaque bloc reçoit --p (0 → 1, adouci) : le mouvement commence quand
+    // il entre en bas de l'écran et se termine quand son haut atteint le milieu. Rien n'est caché sans JS.
     const clamp = (v) => (v < 0 ? 0 : v > 1 ? 1 : v);
-    const ease = (p) => 1 - Math.pow(1 - p, 3);
+    const ease = (p) => p * p * (3 - 2 * p);               // réparti sur toute la montée (lent → rapide → lent)
     const track = [];
     const follow = (el, from, to, name = "--p") => track.push({
       el, name, last: -1,
@@ -30,10 +30,11 @@
     }
     const BLOCKS = [".sec-head", ".feats", ".specs", ".steps", ".plans", ".plans + .muted", ".faq", ".after",
                     ".guide", ".endcta .wrap"];
+    let side = 0;                                          // les blocs arrivent par la gauche, puis la droite, etc.
     document.querySelectorAll(BLOCKS.join(",")).forEach((el) => {
       if (el.closest(".hero")) return;
-      el.setAttribute("data-blk", "");
-      follow(el, 1.0, 0.72);
+      el.setAttribute("data-blk", side++ % 2 ? "r" : "l");
+      follow(el, 0.95, 0.5);                               // bouge pendant qu'il monte du bas au milieu de l'écran
     });
     document.querySelectorAll(".endcta").forEach((el) => follow(el, 1.0, 0.4));   // le coucher de soleil se lève
     let queued = 0;

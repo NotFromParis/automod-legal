@@ -405,11 +405,17 @@ code { font: 500 .88em/1.4 var(--mono); background: rgba(236, 226, 255, .07); bo
 }
 /* ── Mouvement au défilement, PAR BLOCS (classe .motion posée par site.js : sans JS, tout est visible) ──
    Un bloc = le titre et le texte d'une section, une liste entière, une grille entière… Il bouge d'un seul tenant et
-   a fini avant d'atteindre le milieu de l'écran (--p posé par site.js, déjà adouci). */
+   bouge pendant qu'il monte du bas au milieu de l'écran, en arrivant par la gauche ou la droite (--p posé par site.js). */
 @media (prefers-reduced-motion: no-preference) {
   .motion .sec, .motion .endcta { overflow-x: hidden; overflow-x: clip; }
-  .motion [data-blk] { opacity: var(--p, 1); translate: 0 calc((1 - var(--p, 1)) * 80px);
-                       scale: calc(.95 + var(--p, 1) * .05); }
+  .motion .page { overflow-x: hidden; overflow-x: clip; }
+  .motion [data-blk] { opacity: min(1, calc(.1 + var(--p, 1) * 1.4)); scale: calc(.94 + var(--p, 1) * .06); }
+  .motion [data-blk="l"] { translate: calc((1 - var(--p, 1)) * -220px) calc((1 - var(--p, 1)) * 40px); }
+  .motion [data-blk="r"] { translate: calc((1 - var(--p, 1)) * 220px) calc((1 - var(--p, 1)) * 40px); }
+  @media (max-width: 760px) {
+    .motion [data-blk="l"] { translate: calc((1 - var(--p, 1)) * -90px) calc((1 - var(--p, 1)) * 24px); }
+    .motion [data-blk="r"] { translate: calc((1 - var(--p, 1)) * 90px) calc((1 - var(--p, 1)) * 24px); }
+  }
 
   /* Fonctions phares : les icônes se dessinent avec leur bloc */
   .motion .feats[data-blk] .mark .ico { stroke-dasharray: 100; stroke-dashoffset: calc((1 - var(--p, 1)) * 100px); }
