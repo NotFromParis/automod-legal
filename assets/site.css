@@ -403,6 +403,116 @@ code { font: 500 .88em/1.4 var(--mono); background: rgba(236, 226, 255, .07); bo
   @keyframes rise { from { opacity: .35; transform: translate(-50%, 90px) scale(.92); } }
   @keyframes settle { from { transform: translateY(22px); } }
 }
+/* ── Apparitions au défilement (classe .motion posée par site.js : sans JS, tout est visible) ── */
+@media (prefers-reduced-motion: no-preference) {
+  .motion [data-rv] { opacity: 0; transform: translateY(22px);
+    transition: opacity .7s var(--ease), transform .9s var(--ease), background-color .3s var(--ease),
+                border-color .3s var(--ease), box-shadow .3s var(--ease);
+    transition-delay: calc(var(--i, 0) * 80ms), calc(var(--i, 0) * 80ms), 0s, 0s, 0s; }
+  .motion [data-rv].in { opacity: 1; transform: none; }
+  .motion .sec-head > [data-rv] { transform: translateY(14px); }
+  .motion .sec-head > h2[data-rv] { clip-path: inset(0 0 100% 0); transform: translateY(26px);
+    transition: opacity .6s var(--ease), transform 1s var(--ease), clip-path 1s var(--ease); }
+  .motion .sec-head > h2[data-rv].in { clip-path: inset(-10% -4% -20% -4%); transform: none; }
+  .motion .sec-head > p[data-rv] { transition-delay: 160ms; }
+
+  /* Fonctions phares : l'icône se dessine trait par trait */
+  .motion .feat[data-rv] .mark .ico { stroke-dasharray: 100; stroke-dashoffset: 100;
+    transition: stroke-dashoffset 1.4s var(--ease) calc(var(--i, 0) * 80ms + 250ms), transform .45s var(--ease); }
+  .motion .feat[data-rv].in .mark .ico { stroke-dashoffset: 0; }
+
+  /* Mise en route : la ligne d'horizon se trace, puis les numéros s'allument */
+  .motion .steps::before { transform: scaleX(0); transform-origin: left center; transition: transform 1.6s var(--ease) .15s; }
+  .motion .steps.in::before { transform: none; }
+  .motion .step[data-rv] { transition-delay: calc(var(--i, 0) * 260ms + 200ms); }
+  @media (max-width: 760px) {
+    .motion .steps::before { transform: scaleY(0); transform-origin: center top; }
+  }
+
+  /* Appel final : le coucher de soleil se lève */
+  .motion .endcta::before { opacity: .25; transform: translate(-50%, 140px) scale(.86);
+    transition: opacity 1.6s var(--ease), transform 1.8s var(--ease); }
+  .motion .endcta.in::before { opacity: 1; transform: translateX(-50%); }
+  .motion .endcta::after { transform: scaleX(0); transition: transform 1.6s var(--ease) .3s; }
+  .motion .endcta.in::after { transform: none; }
+
+  /* Accueil : le texte du haut arrive en cascade, puis la console reçoit ses messages */
+  .hero h1, .hero .lead, .hero .ctas, .hero .trust { animation: lift .9s var(--ease) both; }
+  .hero .lead { animation-delay: .08s; } .hero .ctas { animation-delay: .16s; } .hero .trust { animation-delay: .24s; }
+  .console .msg { animation: lift .7s var(--ease) both; }
+  .console .msg:nth-child(1) { animation-delay: .55s; }
+  .console .msg:nth-child(2) { animation-delay: .8s; }
+  .console .msg:nth-child(3) { animation-delay: 1.05s; }
+  .console .msg:nth-child(4) { animation-delay: 1.3s; }
+  .console .dec { animation: stamp .5s var(--ease) both; }
+  .console .msg:nth-child(1) .dec { animation-delay: 1s; }
+  .console .msg:nth-child(2) .dec { animation-delay: 1.25s; }
+  .console .msg:nth-child(3) .dec { animation-delay: 1.5s; }
+  .console .msg:nth-child(4) .dec { animation-delay: 1.75s; }
+  .console .msg .dec.stamp { animation: restamp .45s var(--ease) 0s both; }
+  @keyframes lift { from { opacity: 0; transform: translateY(16px); } }
+  @keyframes stamp { 0% { opacity: 0; transform: scale(.7); } 60% { opacity: 1; transform: scale(1.06); } }
+  @keyframes restamp { 0% { opacity: .2; transform: scale(.7); } 60% { opacity: 1; transform: scale(1.08); } }
+}
+
+/* ── Survols ─────────────────────────────────────────────────────────────── */
+.brand img { transition: transform .5s var(--ease); }
+.brand:hover img { transform: rotate(-10deg) scale(1.06); }
+.menu a { transition: color .2s, background-color .2s; }
+
+.feat { position: relative; }
+.feat::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--hue);
+               transform: scaleX(0); transform-origin: left center; transition: transform .6s var(--ease); }
+.feat:hover::after { transform: scaleX(1); }
+.feat h3 { transition: transform .4s var(--ease), color .3s; }
+.feat:hover h3 { transform: translateX(6px); }
+.mark .ico { transition: transform .45s var(--ease); }
+.feat:hover .mark .ico { transform: rotate(-8deg) scale(1.12); }
+.feat:hover .go .ico { transform: translateX(3px); }
+
+.spec { position: relative; }
+.spec::before { content: ""; position: absolute; left: 0; top: 0; height: 1px; width: 100%; background: var(--sunset);
+                transform: scaleX(0); transform-origin: left center; transition: transform .55s var(--ease); }
+.spec:hover::before { transform: scaleX(1); }
+.spec h3 { transition: transform .35s var(--ease); }
+.spec:hover h3 { transform: translateX(4px); }
+
+.step::before { transition: background-color .35s var(--ease), color .35s, border-color .35s, transform .45s var(--ease); }
+.step:hover::before { background: var(--sunset); color: var(--ink); border-color: transparent; transform: scale(1.08); }
+.step h3 { transition: color .3s; }
+.step:hover h3 { color: var(--peach); }
+
+.plan { transition: transform .45s var(--ease), border-color .3s, box-shadow .45s var(--ease); }
+.plan:hover { transform: translateY(-4px); border-color: var(--line-2); box-shadow: 0 30px 60px -34px rgba(0, 0, 0, .9); }
+.plan-hi:hover { border-color: transparent; }
+.plan li .ico { transition: transform .35s var(--ease); }
+.plan:hover li .ico { transform: scale(1.15); }
+.plan:hover li:nth-child(2) .ico { transition-delay: 40ms; }
+.plan:hover li:nth-child(3) .ico { transition-delay: 80ms; }
+.plan:hover li:nth-child(4) .ico { transition-delay: 120ms; }
+.plan:hover li:nth-child(5) .ico { transition-delay: 160ms; }
+.plan:hover li:nth-child(6) .ico { transition-delay: 200ms; }
+
+.faq summary { transition: padding .35s var(--ease), color .25s; }
+.faq summary:hover { padding-left: 10px; color: var(--peach); }
+.faq details[open] summary { color: #fff; }
+
+.msg .av { transition: transform .4s var(--ease); }
+.msg:hover .av { transform: scale(1.08) rotate(-4deg); }
+
+.guide h2 { transition: transform .35s var(--ease); }
+.guide a:hover h2 { transform: translateX(4px); }
+.pn a { transition: border-color .25s, background-color .25s, transform .4s var(--ease); }
+.pn a:hover { transform: translateY(-2px); }
+.foot .cols a:not(.brand) { transition: color .2s, transform .3s var(--ease); }
+.foot .cols a:not(.brand):hover { transform: translateX(3px); }
+.side a { transition: color .2s, border-color .2s, padding .3s var(--ease); }
+.side a:hover { padding-left: 20px; }
+@media (hover: none) {
+  .feat:hover h3, .spec:hover h3, .guide a:hover h2, .plan:hover, .pn a:hover, .foot .cols a:not(.brand):hover { transform: none; }
+  .faq summary:hover { padding-left: 2px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
