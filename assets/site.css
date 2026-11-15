@@ -447,7 +447,7 @@ code { font: 500 .88em/1.4 var(--mono); background: rgba(236, 226, 255, .07); bo
   .motion .hero .wrap { perspective: 1300px; perspective-origin: 50% 0%; }
   .motion .console { transform-origin: 50% 100%; rotate: x 16deg; scale: .92;
     transition: rotate 1.1s var(--ease), scale 1.1s var(--ease); }
-  .motion .hero.go .console { rotate: x 0deg; scale: 1; }
+  .motion .hero.hero-on .console { rotate: x 0deg; scale: 1; }
   @media (max-width: 760px) {
     .motion .console { rotate: x 10deg; }
   }

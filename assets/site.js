@@ -37,7 +37,7 @@
     // Accueil : la console se redresse dès qu'on commence à défiler, se recouche si on revient tout en haut
     const hero = document.querySelector(".hero");
     if (hero) {
-      const onHero = () => hero.classList.toggle("go", window.scrollY > 24);
+      const onHero = () => hero.classList.toggle("hero-on", window.scrollY > 24);
       window.addEventListener("scroll", onHero, { passive: true });
       onHero();
     }
