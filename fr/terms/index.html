@@ -43,7 +43,7 @@
   </div>
 </header>
 <main id="main">
-<div class="wrap page narrow doc"><h1>Conditions d&#x27;utilisation</h1><p class="updated">Dernière mise à jour : 10 novembre 2026 (version 2026-11-10)</p>
+<div class="wrap page narrow doc"><h1>Conditions d&#x27;utilisation</h1><p class="updated">Dernière mise à jour : 15 novembre 2026 (version 2026-11-15)</p>
 <h2>1. Le service</h2>
 <p>Automod (« le bot ») est un bot Discord de modération développé par NotFromParis (« le développeur »). Il propose
 de la modération manuelle (bannissements, exclusions, avertissements…), de la modération automatique (anti-spam,
@@ -70,13 +70,51 @@ Si vous n'êtes pas d'accord, n'utilisez pas le bot et retirez-le de votre serve
   <li>Utiliser le bot pour harceler, discriminer, ou pour toute activité illégale ou contraire aux règles de Discord.</li>
   <li>Tenter de perturber, surcharger, contourner ou exploiter une faille du bot.</li>
   <li>Revendre ou redistribuer l'accès au bot ou à ses plans payants sans autorisation.</li>
+  <li>Tenter de manipuler l'IA : messages conçus pour la tromper ou la détourner (injection de consignes, contournement
+  volontaire des filtres), envois massifs pour la tester ou épuiser le quota d'un serveur.</li>
+  <li>Utiliser les analyses d'Automod pour profiler, ficher ou surveiller des personnes en dehors de la modération du serveur.</li>
 </ul>
 
-<h2>5. Modération automatique et IA</h2>
-<p>La détection automatique (règles et IA) peut se tromper : elle peut laisser passer un message problématique ou
-sanctionner un message correct. Les décisions automatiques peuvent être annulées par le staff du serveur. Le mode IA est
-proposé <strong>en version bêta</strong> : il peut être modifié, limité ou suspendu à tout moment, sans préavis. En cas
-d'indisponibilité de l'IA, les règles classiques prennent le relais.</p>
+<h2>5. Modération automatique et intelligence artificielle</h2>
+<h3>5.1 Ce qu'est l'IA d'Automod</h3>
+<p>Le mode IA envoie le texte des messages concernés à un modèle d'intelligence artificielle fourni par un prestataire
+tiers (aujourd'hui Mistral AI, ou le fournisseur choisi par le serveur avec sa propre clé). Ce modèle produit une
+<strong>estimation statistique</strong> (catégorie, gravité, ton), pas une décision humaine. Il peut se tromper : mal
+comprendre l'humour, le second degré, l'argot, une langue ou un contexte, laisser passer un message problématique
+(faux négatif) ou signaler un message correct (faux positif). Un même message peut être jugé différemment d'une fois
+sur l'autre, et le comportement du modèle peut évoluer dans le temps, notamment quand le prestataire met à jour ses
+modèles (dérive).</p>
+<h3>5.2 Une obligation de moyens</h3>
+<p>Le développeur met en œuvre des moyens raisonnables pour limiter les erreurs : règles de prudence, deuxième
+vérification avant toute sanction décidée par l'IA, et le principe « dans le doute, personne n'est puni ». Il ne
+garantit pas pour autant que tout contenu problématique sera détecté ni qu'aucun message correct ne sera sanctionné.
+La modération automatique, avec ou sans IA, est une <strong>aide</strong> à la modération : elle ne remplace pas la
+vigilance du staff.</p>
+<h3>5.3 Le staff garde le contrôle</h3>
+<ul>
+  <li>Le staff du serveur règle la sensibilité de chaque module, peut désactiver l'IA, mettre en bypass un membre, un
+  rôle ou un salon, et annuler toute sanction automatique (débannir, lever une exclusion, retirer un avertissement).</li>
+  <li>Il lui revient de surveiller les journaux et de corriger les erreurs. Un membre sanctionné à tort s'adresse au
+  staff de son serveur : le développeur n'intervient pas dans la modération des serveurs.</li>
+  <li>Automod ne suffit pas à remplir les obligations légales d'un serveur. Face à un contenu grave (menace, contenu
+  pédocriminel, mise en danger), le staff doit agir lui-même et le signaler à Discord et, si besoin, aux autorités.</li>
+</ul>
+<h3>5.4 Version bêta, prestataires et quotas</h3>
+<ul>
+  <li>Le mode IA est proposé <strong>en version bêta</strong>. Les modèles, prestataires, consignes, seuils et quotas
+  peuvent être modifiés à tout moment pour améliorer la qualité, maîtriser les coûts ou corriger un problème ; le
+  comportement de l'IA peut donc changer après une mise à jour.</li>
+  <li>L'IA dépend de prestataires tiers : pannes, limites de débit, changements de prix ou de conditions. Chaque serveur
+  dispose d'un <strong>quota journalier</strong> de requêtes IA. Quand l'IA est indisponible ou que le quota est
+  atteint, les règles classiques prennent le relais automatiquement.</li>
+  <li>Le développeur peut limiter ou suspendre l'IA sur un serveur ou sur tous (abus, coût anormal, incident de
+  sécurité, défaillance d'un prestataire, obligation légale).</li>
+</ul>
+<h3>5.5 Clé d'IA personnelle</h3>
+<p>Un serveur peut brancher sa propre clé d'IA. Les requêtes sont alors facturées par le fournisseur au titulaire de la
+clé, selon les conditions de ce fournisseur ; le coût affiché sur le tableau de bord est une estimation. Le
+développeur n'est pas responsable de ces frais, ni d'une clé divulguée par son titulaire. La clé est conservée
+chiffrée et peut être retirée si elle est invalide ou utilisée de façon abusive.</p>
 
 <h2>6. Plans, prix et paiement</h2>
 <ul>
@@ -92,6 +130,31 @@ d'indisponibilité de l'IA, les règles classiques prennent le relais.</p>
   <li>Le paiement est traité par un prestataire de paiement (SumUp, Stripe ou Discord). Le développeur n'a jamais accès
   aux données bancaires.</li>
 </ul>
+<h3>Ce que comprend un plan payant</h3>
+<ul>
+  <li>Un plan payant donne accès à des <strong>fonctions</strong>, pas à un résultat : son prix ne rémunère ni un taux
+  de détection, ni un nombre de messages analysés, ni l'absence d'erreur de la modération automatique.</li>
+  <li>Le plan Max inclut le mode IA dans les limites décrites à la section 5 (version bêta, quota journalier par
+  serveur, possibilité de suspension). Le prix ne dépend pas du nombre de requêtes IA.</li>
+  <li>Une erreur de la modération automatique ou de l'IA (faux positif, faux négatif, jugement différent d'une fois sur
+  l'autre) n'est pas en soi un défaut du service et ne donne pas droit à remboursement, sous réserve des garanties
+  légales rappelées ci-dessous.</li>
+</ul>
+<h3>Interruption des fonctions payantes</h3>
+<ul>
+  <li>Si les fonctions payantes d'un serveur, ou le mode IA d'un serveur Max, sont indisponibles pendant plus de
+  <strong>72 heures consécutives</strong> pour une cause qui ne vient pas de ce serveur (abus, réglage, retrait du
+  bot, suspension prévue à la section 8), la période payée est prolongée de la durée de l'interruption, arrondie au jour
+  supérieur, sur simple demande par e-mail dans les 30 jours.</li>
+  <li>Le fonctionnement dégradé décrit à la section 5.4 (règles classiques à la place de l'IA) pendant moins de 72 heures
+  consécutives n'ouvre pas droit à compensation.</li>
+  <li>Si le contenu d'un plan payant est réduit de façon importante pendant une période déjà payée, le client peut
+  demander le remboursement de la partie restante de cette période.</li>
+</ul>
+<h3>Garanties légales</h3>
+<p>Ces conditions ne privent pas le client consommateur des garanties légales de conformité applicables aux contenus
+et services numériques (articles L224-25-12 et suivants du Code de la consommation), ni d'aucun droit que la loi lui
+accorde et auquel il ne peut être renoncé.</p>
 <h3>Pass de 30 jours (SumUp)</h3>
 <ul>
   <li>Paiement unique par carte. Le plan est activé automatiquement dès la confirmation du paiement, pour 30 jours.</li>
@@ -118,20 +181,35 @@ d'indisponibilité de l'IA, les règles classiques prennent le relais.</p>
 <p>Pour toute question ou réclamation concernant un paiement : <a href="mailto:notfromparis.pro@gmail.com">notfromparis.pro@gmail.com</a>.
 Une réponse est apportée dans les meilleurs délais.</p>
 <h2>7. Disponibilité</h2>
-<p>Le bot est fourni « en l'état », sans garantie de disponibilité permanente. Des interruptions (maintenance, hébergement,
-panne de Discord ou d'un prestataire) peuvent survenir. Le développeur peut modifier ou arrêter tout ou partie du service.</p>
+<p>Le bot est fourni « en l'état », avec une obligation de moyens et sans garantie de disponibilité permanente. Des
+interruptions (maintenance, hébergement, panne de Discord ou d'un prestataire d'IA ou de paiement) peuvent survenir.
+Le développeur peut modifier ou arrêter tout ou partie du service ; pour les plans payants, les règles de la section 6
+(« Interruption des fonctions payantes ») s'appliquent.</p>
 
 <h2>8. Suspension</h2>
 <p>En cas d'abus ou de non-respect de ces conditions, le développeur peut désactiver des fonctions, retirer un plan ou
 retirer le bot d'un serveur.</p>
 
 <h2>9. Limitation de responsabilité</h2>
-<p>Dans les limites autorisées par la loi, le développeur ne peut être tenu responsable des dommages indirects liés à
-l'utilisation du bot (perte de messages, sanctions, interruption de service, actions de membres ou de modérateurs).</p>
+<ul>
+  <li>Le développeur n'est pas responsable des décisions prises par le staff d'un serveur, des contenus publiés par les
+  membres, ni des conséquences d'une erreur ou d'une absence de détection de la modération automatique ou de l'IA
+  (message supprimé à tort, membre exclu temporairement, contenu non détecté), sauf faute de sa part.</li>
+  <li>Il n'est pas responsable des pannes, changements ou décisions de Discord et des prestataires tiers (IA, paiement,
+  hébergement), ni des frais liés à une clé d'IA personnelle.</li>
+  <li>Il n'est pas responsable des dommages indirects (perte de messages, de membres, de revenus, atteinte à
+  l'image d'un serveur).</li>
+  <li>Dans tous les cas, sa responsabilité est limitée au montant payé pour le serveur concerné au cours des 12 mois
+  précédant le fait qui en est à l'origine.</li>
+  <li>Ces limites ne s'appliquent pas en cas de faute lourde ou intentionnelle, de dommage corporel, ni lorsque la loi
+  les interdit, notamment à l'égard d'un consommateur.</li>
+</ul>
 
 <h2>10. Modifications</h2>
 <p>Ces conditions peuvent évoluer. La date de mise à jour figure en haut de la page. Continuer à utiliser le bot après
-une modification vaut acceptation de la nouvelle version.</p>
+une modification vaut acceptation de la nouvelle version. Une modification importante des conditions des plans payants
+est annoncée dans le bot ; pour une période déjà payée, la version acceptée lors du paiement reste applicable jusqu'à
+la fin de cette période.</p>
 
 <h2>11. Droit applicable et contact</h2>
 <p>Ces conditions sont régies par le droit français. Contact : <a href="mailto:notfromparis.pro@gmail.com">notfromparis.pro@gmail.com</a>.</p>

@@ -39,8 +39,8 @@ PAGES = {"home": "", "help": "help/", **{f"help/{k}": f"help/{k}/" for k in HELP
          "policy": "policy/", "discord-automod": "discord-automod/", "features": "features/"}
 ARTICLES = ("terms", "policy", "discord-automod", "features")
 SPECIAL = {"dash": "dash/", "support": "support/"}             # servis par le Worker (pas par ce site)
-UPDATED = {"terms": {"fr": "Dernière mise à jour : 10 novembre 2026 (version 2026-11-10)",
-                     "en": "Last updated: November 10, 2026 (version 2026-11-10)"},
+UPDATED = {"terms": {"fr": "Dernière mise à jour : 15 novembre 2026 (version 2026-11-15)",
+                     "en": "Last updated: November 15, 2026 (version 2026-11-15)"},
            "policy": {"fr": "Dernière mise à jour : 13 novembre 2026", "en": "Last updated: November 13, 2026"},
            "discord-automod": {"fr": "Mis à jour le 14 novembre 2026", "en": "Updated November 14, 2026"}}
 

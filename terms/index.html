@@ -43,7 +43,7 @@
   </div>
 </header>
 <main id="main">
-<div class="wrap page narrow doc"><h1>Terms of Service</h1><p class="updated">Last updated: November 10, 2026 (version 2026-11-10)</p>
+<div class="wrap page narrow doc"><h1>Terms of Service</h1><p class="updated">Last updated: November 15, 2026 (version 2026-11-15)</p>
 <h2>1. The service</h2>
 <p>Automod (“the bot”) is a Discord moderation bot developed by NotFromParis (“the developer”). It provides manual
 moderation (bans, timeouts, warnings…), automated moderation (anti-spam, anti-raid, link filtering, content filters,
@@ -62,12 +62,47 @@ in place, and must comply with applicable laws. Sanctions decided by a server's 
 
 <h2>4. Prohibited use</h2>
 <p>Do not use the bot to harass, discriminate or for any illegal activity or activity against Discord's rules; do not
-attempt to disrupt, overload, bypass or exploit the bot; do not resell or redistribute access to the bot or its paid plans.</p>
+attempt to disrupt, overload, bypass or exploit the bot; do not resell or redistribute access to the bot or its paid plans;
+do not try to manipulate the AI (messages designed to fool or hijack it, prompt injection, deliberate filter evasion, mass
+sending to test it or drain a server's quota); do not use Automod's analyses to profile, track or monitor people outside the
+server's moderation.</p>
 
-<h2>5. Automated moderation and AI</h2>
-<p>Automated detection (rules and AI) can make mistakes. Automated decisions can be reverted by server staff. The AI mode
-is provided <strong>as a beta</strong> and may be changed, limited or suspended at any time without notice; when it is
-unavailable, rule-based detection is used instead.</p>
+<h2>5. Automated moderation and artificial intelligence</h2>
+<h3>5.1 What Automod's AI is</h3>
+<p>AI mode sends the text of the relevant messages to an artificial intelligence model provided by a third party
+(currently Mistral AI, or the provider a server picks with its own key). The model produces a <strong>statistical
+estimate</strong> (category, severity, tone), not a human decision. It can be wrong: misread humour, irony, slang, a
+language or a context, let a harmful message through (false negative) or flag a harmless one (false positive). The
+same message may be judged differently from one time to the next, and the model's behaviour may change over time,
+in particular when the provider updates its models (drift).</p>
+<h3>5.2 Best-efforts obligation</h3>
+<p>The developer uses reasonable means to limit errors: cautious rules, a second check before any sanction decided by
+the AI, and the "when in doubt, nobody is punished" principle. It does not guarantee that every harmful message will
+be detected, nor that no harmless message will be sanctioned. Automated moderation, with or without AI, is an
+<strong>aid</strong> to moderation: it does not replace the staff's own attention.</p>
+<h3>5.3 Staff stay in control</h3>
+<ul>
+  <li>Server staff set each module's sensitivity, can turn AI off, bypass a member, role or channel, and revert any
+  automated sanction (unban, remove a timeout, remove a warning).</li>
+  <li>It is up to them to watch the logs and correct mistakes. A member sanctioned by mistake contacts their server's
+  staff: the developer does not take part in the moderation of servers.</li>
+  <li>Automod is not enough to meet a server's legal obligations. For serious content (threats, child sexual abuse
+  material, danger to someone), staff must act themselves and report it to Discord and, if needed, to the authorities.</li>
+</ul>
+<h3>5.4 Beta, providers and quotas</h3>
+<ul>
+  <li>AI mode is offered <strong>as a beta</strong>. Models, providers, instructions, thresholds and quotas may change
+  at any time to improve quality, control costs or fix a problem, so the AI's behaviour may change after an update.</li>
+  <li>The AI depends on third-party providers: outages, rate limits, price or terms changes. Each server has a
+  <strong>daily quota</strong> of AI requests. When the AI is unavailable or the quota is reached, rule-based detection
+  takes over automatically.</li>
+  <li>The developer may limit or suspend the AI on one server or on all of them (abuse, abnormal cost, security
+  incident, provider failure, legal obligation).</li>
+</ul>
+<h3>5.5 Personal AI key</h3>
+<p>A server can plug in its own AI key. Requests are then billed by the provider to the key holder, under that
+provider's terms; the cost shown on the dashboard is an estimate. The developer is not responsible for those charges,
+nor for a key disclosed by its holder. The key is stored encrypted and may be removed if it is invalid or misused.</p>
 
 <h2>6. Plans, prices and payment</h2>
 <p>Automod offers a free plan (<strong>Free</strong>) and paid plans (<strong>Pro</strong>, <strong>Max</strong>). Current
@@ -76,6 +111,23 @@ one shown in the bot when ordering. Only the server owner and the member who add
 Before each payment the bot shows a summary (plan, price, duration, renewal), these terms and the privacy policy; payment is
 only possible after clicking “I accept and pay”, and that acceptance (Discord account, date, terms version) is recorded as
 proof of the order. Payments are processed by SumUp, Stripe or Discord; the developer never has access to payment details.</p>
+<h3>What a paid plan includes</h3>
+<p>A paid plan gives access to <strong>features</strong>, not to a result: its price does not pay for a detection rate,
+a number of analysed messages, or error-free automated moderation. The Max plan includes AI mode within the limits of
+section 5 (beta, daily quota per server, possible suspension); its price does not depend on the number of AI requests.
+An error of automated moderation or of the AI (false positive, false negative, different judgement from one time to the
+next) is not in itself a defect of the service and does not give a right to a refund, subject to the legal guarantees
+below.</p>
+<h3>Interruption of paid features</h3>
+<p>If a server's paid features, or a Max server's AI mode, are unavailable for more than <strong>72 consecutive
+hours</strong> for a reason that does not come from that server (abuse, settings, removal of the bot, suspension under
+section 8), the paid period is extended by the length of the interruption, rounded up to the next day, on simple request
+by email within 30 days. The degraded mode described in section 5.4 (rule-based detection instead of AI) for less than
+72 consecutive hours does not give a right to compensation. If the content of a paid plan is significantly reduced
+during a period already paid, the customer may ask for a refund of the remaining part of that period.</p>
+<h3>Legal guarantees</h3>
+<p>These terms do not deprive consumers of the legal guarantees of conformity that apply to digital content and services
+(articles L224-25-12 and following of the French Consumer Code), nor of any right granted by law that cannot be waived.</p>
 <h3>30-day pass (SumUp)</h3>
 <p>One-time card payment. The plan is activated automatically once the payment is confirmed, for 30 days. <strong>No automatic
 renewal</strong>: a reminder is posted before it ends, and a new payment extends the pass by 30 days from its end date. Without a
@@ -92,18 +144,32 @@ not refunded.</p>
 <h3>Complaints</h3>
 <p>For any question or complaint about a payment: <a href="mailto:notfromparis.pro@gmail.com">notfromparis.pro@gmail.com</a>.</p>
 <h2>7. Availability</h2>
-<p>The bot is provided “as is”, without any guarantee of uninterrupted availability. The developer may change or
-discontinue all or part of the service.</p>
+<p>The bot is provided “as is”, under a best-efforts obligation and without any guarantee of uninterrupted
+availability. Interruptions (maintenance, hosting, outage of Discord or of an AI or payment provider) may happen. The
+developer may change or discontinue all or part of the service; for paid plans, the rules of section 6 (“Interruption
+of paid features”) apply.</p>
 
 <h2>8. Suspension</h2>
 <p>In case of abuse or breach of these terms, the developer may disable features, remove a plan or remove the bot from a server.</p>
 
 <h2>9. Limitation of liability</h2>
-<p>To the extent permitted by law, the developer is not liable for indirect damages arising from the use of the bot.</p>
+<ul>
+  <li>The developer is not liable for decisions made by a server's staff, for content posted by members, or for the
+  consequences of an error or a missed detection by automated moderation or the AI (message deleted by mistake, member
+  timed out, content not detected), unless caused by its own fault.</li>
+  <li>It is not liable for outages, changes or decisions of Discord and third-party providers (AI, payment, hosting),
+  nor for charges related to a personal AI key.</li>
+  <li>It is not liable for indirect damages (loss of messages, members or revenue, harm to a server's reputation).</li>
+  <li>In any case, its liability is limited to the amount paid for the server concerned during the 12 months before the
+  event that caused it.</li>
+  <li>These limits do not apply in case of gross negligence or wilful misconduct, bodily injury, or where the law forbids
+  them, in particular towards a consumer.</li>
+</ul>
 
 <h2>10. Changes</h2>
 <p>These terms may change; the last update date is shown at the top of this page. Continued use after a change means
-you accept the new version.</p>
+you accept the new version. A significant change to the terms of paid plans is announced in the bot; for a period
+already paid, the version accepted at payment keeps applying until the end of that period.</p>
 
 <h2>11. Governing law and contact</h2>
 <p>These terms are governed by French law. Contact: <a href="mailto:notfromparis.pro@gmail.com">notfromparis.pro@gmail.com</a>.</p>
