@@ -12,62 +12,52 @@
   }
 
   if (!calm && "IntersectionObserver" in window) {
-    // ── Mouvements liés au défilement, PAR BLOCS : un bloc (titre + texte d'une section, une liste entière, une
-    // grille entière…) bouge d'un seul tenant. Chaque bloc reçoit --p (0 → 1, adouci) : le mouvement commence quand
-    // il entre en bas de l'écran et se termine quand son haut atteint le milieu. Rien n'est caché sans JS.
-    const clamp = (v) => (v < 0 ? 0 : v > 1 ? 1 : v);
-    const ease = (p) => p * p * (3 - 2 * p);               // réparti sur toute la montée (lent → rapide → lent)
-    const track = [];
-    const follow = (el, from, to, name = "--p") => track.push({
-      el, name, last: -1,
-      calc: (h) => ease(clamp((h * from - el.getBoundingClientRect().top) / (h * (from - to)))),
-    });
-    const hero = document.querySelector(".hero");
-    if (hero) {
-      track.push({ el: hero, name: "--hp", last: -1, calc: (h) => clamp(window.scrollY / (h * 0.7)) });
-      // la console est droite dès qu'on a défilé d'un quart d'écran (avant d'arriver au centre)
-      track.push({ el: hero, name: "--cp", last: -1, calc: (h) => ease(clamp(window.scrollY / (h * 0.25))) });
-    }
+    // ── Blocs déclenchés au défilement : un bloc (titre + texte d'une section, une liste entière, une grille
+    // entière…) lance une animation fluide à durée fixe quand son haut passe au-dessus de 82 % de l'écran, en
+    // arrivant par la gauche ou la droite (en alternance). Si on remonte et qu'il repasse sous ce seuil, il joue
+    // l'animation à l'envers et ressort. Le défilement déclenche, il ne pilote pas la position : pas d'à-coups.
     const BLOCKS = [".sec-head", ".feats", ".specs", ".steps", ".plans", ".plans + .muted", ".faq", ".after",
-                    ".guide", ".endcta .wrap"];
-    let side = 0;                                          // les blocs arrivent par la gauche, puis la droite, etc.
+                    ".guide", ".endcta .wrap", ".endcta"];
+    let side = 0;
+    const blocks = [];
     document.querySelectorAll(BLOCKS.join(",")).forEach((el) => {
       if (el.closest(".hero")) return;
-      el.setAttribute("data-blk", side++ % 2 ? "r" : "l");
-      follow(el, 0.95, 0.5);                               // bouge pendant qu'il monte du bas au milieu de l'écran
+      if (!el.matches(".endcta")) el.setAttribute("data-blk", side++ % 2 ? "r" : "l");   // .endcta : décor seul
+      blocks.push(el);
     });
-    document.querySelectorAll(".endcta").forEach((el) => follow(el, 1.0, 0.4));   // le coucher de soleil se lève
-    let queued = 0;
-    const tick = () => {
-      queued = 0;
-      const h = window.innerHeight;
-      track.forEach((t) => {
-        const p = Math.round(t.calc(h) * 1000) / 1000;
-        if (p === t.last) return;
-        t.last = p;
-        t.el.style.setProperty(t.name, String(p));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add("in");
+        else if (e.boundingClientRect.top > 0) e.target.classList.remove("in");   // repassé sous le seuil : il ressort
+        // sorti par le haut (on descend) : il reste en place
       });
-    };
-    const ask = () => { if (!queued) queued = requestAnimationFrame(tick); };
-    window.addEventListener("scroll", ask, { passive: true });
-    window.addEventListener("resize", ask);
+    }, { rootMargin: "0px 0px -18% 0px", threshold: 0 });
+    blocks.forEach((el) => io.observe(el));
+
+    // Accueil : la console se redresse dès qu'on commence à défiler, se recouche si on revient tout en haut
+    const hero = document.querySelector(".hero");
+    if (hero) {
+      const onHero = () => hero.classList.toggle("go", window.scrollY > 24);
+      window.addEventListener("scroll", onHero, { passive: true });
+      onHero();
+    }
     root.classList.add("motion");
-    tick();
 
     // ── Pages de lecture (aide, légal) : chaque bloc de texte apparaît une fois en entrant à l'écran
     const once = [...document.querySelectorAll(".doc > h2, .doc > .lead-doc, .doc > table, .tip, .box, .pn")]
       .filter((el) => !el.closest("[data-blk]"));
     once.forEach((el) => el.setAttribute("data-rv", ""));
-    const io = new IntersectionObserver((entries) => {
+    const io2 = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (!e.isIntersecting) return;
         e.target.classList.add("in");
-        io.unobserve(e.target);
+        io2.unobserve(e.target);
         setTimeout(() => e.target.removeAttribute("data-rv"), 1200);   // ensuite, transitions normales
       });
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
-    once.forEach((el) => io.observe(el));
-    window.addEventListener("beforeprint", () => document.querySelectorAll("[data-rv]").forEach((c) => c.classList.add("in")));
+    once.forEach((el) => io2.observe(el));
+    window.addEventListener("beforeprint", () => document.querySelectorAll("[data-rv], [data-blk]")
+      .forEach((c) => c.classList.add("in")));
   }
 
   // Console de verdicts : le sélecteur de sensibilité rejuge les messages d'exemple
