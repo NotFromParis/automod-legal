@@ -1,6 +1,6 @@
 # AI Automod
 
-> AI Automod is a Discord moderation and server protection bot (French and English). Its AI mode judges each message's severity and tone, so friendly banter passes while real insults are removed. Free plan with rule-based auto-moderation, anti-raid, anti-nuke, logs and a web dashboard. Independent bot, not affiliated with Discord Inc. or Discord's built-in AutoMod.
+> AI Automod is an AI moderation bot for Discord: automatic moderation and server protection (French and English). Its AI mode judges each message's severity and tone, so friendly banter passes while real insults are removed. Free plan with rule-based auto-moderation, anti-raid, anti-nuke, logs and a web dashboard. Independent bot, not affiliated with Discord Inc. or Discord's built-in AutoMod.
 
 - Website: https://aiautomod.com/ (English) · https://aiautomod.com/fr/ (French)
 - Add to Discord: https://aiautomod.com/invite

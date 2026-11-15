@@ -106,7 +106,17 @@ PLANS_NOTE = {"fr": "Sans renouvellement automatique : un rappel arrive avant la
                     "page, active within a minute. Or plug in your own AI key for AI mode without a subscription."}
 
 FAQ = {
-    "fr": [("Automod est-il gratuit ?",
+    "fr": [("Qu'est-ce que la modération IA sur Discord ?",
+            "Un bot de modération IA lit chaque message avec un modèle d'intelligence artificielle au lieu de "
+            "seulement chercher des mots interdits. L'IA d'AI Automod donne à chaque message une catégorie, une "
+            "gravité et un ton : les blagues entre potes passent, les vraies attaques sont supprimées "
+            "automatiquement. Une deuxième vérification confirme avant toute sanction, et dans le doute personne "
+            "n'est puni."),
+           ("Existe-t-il un bot de modération IA gratuit pour Discord ?",
+            "AI Automod s'ajoute gratuitement : le plan Free comprend la modération automatique par règles, la "
+            "protection anti-raid et anti-nuke, les logs et le tableau de bord. Le mode IA est inclus dans le plan "
+            "Max (9,99 € pour 30 jours), ou utilisable avec ta propre clé d'IA."),
+           ("Automod est-il gratuit ?",
             "Oui. Le plan Free comprend les commandes de base, toute la modération automatique par règles (insultes, "
             "contenu sexuel, données perso, arnaques, spam…), l'anti-raid, l'anti-nuke, les logs et le tableau de bord, "
             "sans limite de temps. Pro (2,99 €) ajoute la sensibilité réglable, le captcha, la protection critique du "
@@ -139,7 +149,16 @@ FAQ = {
             "Chaque serveur décide de ses propres règles et sanctions : contacte le staff de ce serveur (le message "
             "privé de sanction contient son lien d'appel s'il en a un). L'équipe d'Automod ne peut pas lever une "
             "sanction à sa place.")],
-    "en": [("Is Automod free?",
+    "en": [("What is AI moderation on Discord?",
+            "An AI moderation bot reads each message with an artificial intelligence model instead of only matching "
+            "banned words. AI Automod's AI gives every message a category, a severity and a tone, so banter between "
+            "friends passes and real attacks are removed automatically. A second check confirms before any sanction, "
+            "and when in doubt nobody is punished."),
+           ("Is there a free AI moderation bot for Discord?",
+            "AI Automod is free to add: the Free plan includes rule-based automatic moderation, anti-raid and "
+            "anti-nuke protection, logs and the web dashboard. AI mode is included in the Max plan (€9.99 for 30 "
+            "days), or works with your own AI key."),
+           ("Is Automod free?",
             "Yes. The Free plan includes basic commands, all rule-based automatic moderation (insults, sexual content, "
             "personal data, scams, spam…), anti-raid, anti-nuke, logs and the web dashboard, with no time limit. Pro "
             "(€2.99) adds adjustable sensitivity, captcha, critical server protection, Smartlog and convocations; Max "
@@ -423,6 +442,14 @@ def crumbs_for(key: str, lang: str, meta: dict) -> list[tuple[str, str]]:
     return out
 
 
+# Recherches visées (balisage SoftwareApplication ; le texte visible les reprend naturellement)
+KEYWORDS = {
+    "en": "Discord AI moderation, AI moderation bot for Discord, Discord moderation bot, automatic moderation, "
+          "auto moderation Discord, Discord server protection, anti-raid, anti-scam, AI moderation",
+    "fr": "modération IA Discord, bot de modération IA Discord, bot de modération Discord, modération automatique, "
+          "modération auto Discord, protection de serveur Discord, anti-raid, anti-arnaque, modération IA",
+}
+
 FEATURES = {
     "fr": ["IA qui fait la différence entre humour et insulte, avec contre-avis avant toute sanction",
            "Convocations : salons texte et vocal privés entre le staff et un membre",
@@ -462,7 +489,8 @@ def head_for(key: str, lang: str, meta: dict) -> str:
             {"@type": "SoftwareApplication", "@id": SITE + "/#app", "name": BRAND, "alternateName": "Automod",
              "url": page, "applicationCategory": "CommunicationApplication", "operatingSystem": "Discord",
              "description": meta["description"], "image": f"{SITE}/assets/og-{lang}.png", "inLanguage": ["fr", "en"],
-             "featureList": FEATURES[lang], "offers": offers, "publisher": {"@id": org}, "installUrl": INVITE},
+             "featureList": FEATURES[lang], "offers": offers, "publisher": {"@id": org}, "installUrl": INVITE,
+             "keywords": KEYWORDS[lang]},
             # FAQ identique à celle affichée sur la page (Google ne l'affiche plus en résultat enrichi pour ce type
             # de site, mais elle reste lue par les moteurs et les assistants)
             {"@type": "FAQPage", "mainEntity": [
