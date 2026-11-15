@@ -90,6 +90,32 @@ code { font: 500 .88em/1.4 var(--mono); background: rgba(236, 226, 255, .07); bo
 .lang { color: var(--dim); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: .02em;
         padding: 7px 11px; border-radius: 999px; border: 1px solid var(--line); }
 .lang:hover { color: #fff; border-color: var(--line-2); }
+/* Compte Discord (posé par site.js quand on est connecté) */
+.acct { position: relative; }
+.acct-btn { display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border-radius: 50%;
+            border: 1px solid var(--line-2); background: var(--raise); cursor: pointer; overflow: hidden;
+            transition: border-color .2s, transform .3s var(--ease); }
+.acct-btn:hover, .acct-btn[aria-expanded="true"] { border-color: var(--pink); }
+.acct-btn:active { transform: scale(.96); }
+.acct-btn img { width: 100%; height: 100%; object-fit: cover; }
+.acct-ini { font: 650 15px/1 var(--font); color: #fff; }
+.acct-menu { position: absolute; right: 0; top: calc(100% + 10px); z-index: 30; min-width: 220px; padding: 6px;
+             border-radius: var(--r-md); background: var(--raise); border: 1px solid var(--line-2);
+             box-shadow: 0 24px 48px -20px rgba(0, 0, 0, .85); }
+.acct-menu[hidden] { display: none; }
+.acct-name { margin: 0; padding: 10px 12px 8px; font-size: 13px; color: var(--faint); white-space: nowrap;
+             overflow: hidden; text-overflow: ellipsis; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
+.acct-item { display: block; width: 100%; text-align: left; padding: 10px 12px; border-radius: 10px; border: 0;
+             background: none; color: #ece6f4; font: 500 14.5px/1.3 var(--font); text-decoration: none; cursor: pointer;
+             transition: background-color .2s, color .2s; }
+.acct-item:hover, .acct-item:focus-visible { background: rgba(236, 226, 255, .07); color: #fff; }
+.acct-item:last-child { color: var(--dim); }
+.acct-item:last-child:hover { color: #ff8f8f; }
+@media (prefers-reduced-motion: no-preference) {
+  .acct-menu:not([hidden]) { animation: acct-in .22s var(--ease); }
+  @keyframes acct-in { from { opacity: 0; transform: translateY(-6px); } }
+}
+
 @media (max-width: 860px) {
   .bar { flex-wrap: wrap; gap: 6px 14px; min-height: 0; padding-top: 12px; padding-bottom: 8px; }
   .menu { order: 3; flex-basis: 100%; overflow-x: auto; scrollbar-width: none; margin: 0 -12px; padding: 0 6px 2px;

@@ -11,6 +11,75 @@
     onScroll();
   }
 
+  // ── Compte Discord sur le site (même session que le tableau de bord : aiautomod.com/dash) ──────────────────
+  // Pas connecté : « Ajouter à Discord » ouvre la connexion Discord puis ramène sur la page d'origine.
+  // Connecté : l'avatar remplace le bouton de l'en-tête, avec un menu Tableau de bord / Ajouter le bot / Déconnexion.
+  // Si le tableau de bord ne répond pas (bot hors ligne, copie du site ailleurs), rien ne change : liens d'origine.
+  (async () => {
+    const acts = document.querySelector(".top .acts");
+    const head = acts && acts.querySelector(".btn-sm");
+    if (!acts || !head) return;
+    const invite = head.href;
+    const adds = [...document.querySelectorAll('a[href^="https://discord.com/oauth2/authorize"]')];
+    let me;
+    try {
+      const r = await fetch("/dash/api/me", { credentials: "same-origin", headers: { Accept: "application/json" } });
+      if (!r.ok || !(r.headers.get("content-type") || "").includes("json")) return;
+      me = await r.json();
+    } catch (e) { return; }
+    const fr = (document.documentElement.lang || "").startsWith("fr");
+    const L = fr ? { dash: "Tableau de bord", add: "Ajouter le bot", out: "Se déconnecter", acct: "Mon compte" }
+                 : { dash: "Dashboard", add: "Add the bot", out: "Log out", acct: "My account" };
+    if (!me || !me.logged) {
+      const login = "/dash/login?next=" + encodeURIComponent(location.pathname + location.search + location.hash);
+      adds.forEach((a) => { a.href = login; });
+      return;
+    }
+    const user = me.user || {};
+    const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; };
+    const box = el("div", "acct");
+    const btn = el("button", "acct-btn");
+    btn.type = "button";
+    btn.setAttribute("aria-haspopup", "menu");
+    btn.setAttribute("aria-expanded", "false");
+    btn.setAttribute("aria-label", L.acct + " : " + (user.name || ""));
+    if (user.avatar && /^https:\/\/cdn\.discordapp\.com\//.test(user.avatar)) {
+      const img = el("img");
+      img.src = user.avatar; img.alt = ""; img.width = 34; img.height = 34; img.referrerPolicy = "no-referrer";
+      btn.append(img);
+    } else {
+      btn.append(el("span", "acct-ini", (user.name || "?").trim().charAt(0).toUpperCase()));
+    }
+    const menu = el("div", "acct-menu");
+    menu.setAttribute("role", "menu");
+    menu.hidden = true;
+    menu.append(el("p", "acct-name", user.name || ""));
+    const item = (tag, label, href) => {
+      const n = el(tag, "acct-item", label);
+      n.setAttribute("role", "menuitem");
+      if (href) n.href = href; else n.type = "button";
+      menu.append(n);
+      return n;
+    };
+    item("a", L.dash, "/dash/#/servers");
+    item("a", L.add, invite);
+    const out = item("button", L.out);
+    box.append(btn, menu);
+    head.replaceWith(box);
+    const open = (v) => { menu.hidden = !v; btn.setAttribute("aria-expanded", String(v)); };
+    btn.addEventListener("click", (e) => { e.stopPropagation(); open(menu.hidden); });
+    document.addEventListener("click", (e) => { if (!box.contains(e.target)) open(false); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !menu.hidden) { open(false); btn.focus(); } });
+    out.addEventListener("click", async () => {
+      out.disabled = true;
+      try {
+        await fetch("/dash/api/logout", { method: "POST", credentials: "same-origin",
+                                          headers: { "X-CSRF-Token": me.csrf || "" } });
+      } catch (e) { /* on recharge quand même */ }
+      location.reload();
+    });
+  })();
+
   if (!calm && "IntersectionObserver" in window) {
     // ── Blocs déclenchés au défilement : un bloc (titre + texte d'une section, une liste entière, une grille
     // entière…) lance une animation fluide à durée fixe quand son haut passe au-dessus de 82 % de l'écran, en
