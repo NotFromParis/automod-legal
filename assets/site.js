@@ -143,6 +143,96 @@
     sel.addEventListener("change", onServer);
     onServer();
     show("form");
+    // ── Mes demandes : état de chaque demande et, si le support a ouvert un ticket, le chat ─────────────────
+    const M = fr ? {
+      title: "Mes demandes", waiting: "En attente de réponse", done: "Traitée", open: "Ticket ouvert",
+      resolved: (d) => `Traité · se ferme le ${d} si tu ne le rouvres pas`, closed: "Ticket fermé",
+      me: "Toi", support: "Support AI Automod", reply: "Ta réponse…", send: "Envoyer", reopen: "Rouvrir le ticket",
+      none: "Le support ne t'a pas encore répondu : tu recevras un MP du bot dès qu'il ouvre un ticket.",
+      first: "Ta demande", err: "L'envoi a échoué. Réessaie.",
+    } : {
+      title: "My requests", waiting: "Waiting for a reply", done: "Done", open: "Ticket open",
+      resolved: (d) => `Solved · closes on ${d} unless you reopen it`, closed: "Ticket closed",
+      me: "You", support: "AI Automod support", reply: "Your reply…", send: "Send", reopen: "Reopen the ticket",
+      none: "Support hasn't replied yet: the bot will DM you as soon as a ticket is opened.",
+      first: "Your request", err: "Sending failed. Try again.",
+    };
+    const mine = hf.querySelector("[data-hf-mine]"), list = hf.querySelector("[data-hf-list]");
+    const when = (iso) => { const d = new Date(iso); return isNaN(d) ? "" : d.toLocaleString(fr ? "fr-FR" : "en-GB", { dateStyle: "medium", timeStyle: "short" }); };
+    const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; };
+    const drafts = {};
+    let requests = info.requests || [];
+    const post = async (body) => {
+      const r = await fetch("/dash/api/help/ticket", { method: "POST", credentials: "same-origin",
+        headers: { "Content-Type": "application/json", "X-CSRF-Token": info.csrf || "" }, body: JSON.stringify(body) });
+      const out = await r.json().catch(() => null);
+      if (!r.ok || !out || !out.ok) throw new Error((out && out.error) || "generic");
+      requests = requests.map((x) => (x.id === out.request.id ? out.request : x));
+      draw();
+    };
+    const card = (q) => {
+      const c = el("article", "hf-req");
+      c.id = "ticket-" + q.id;
+      const top = el("div", "hf-req-top");
+      top.append(el("span", "hf-state-badge " + q.state, q.state === "resolved" ? M.resolved(when(q.closes)) : M[q.state] || q.state),
+                 el("span", "muted small", when(q.at)));
+      c.append(top, el("h3", null, q.subject));
+      const chat = el("div", "hf-chat");
+      const bubble = (by, at, text) => {
+        const b = el("div", "hf-msg " + (by === "support" ? "them" : "me"));
+        b.append(el("div", "hf-msg-meta", (by === "support" ? M.support : (by === "first" ? M.first : M.me)) + " · " + when(at)),
+                 el("div", "hf-msg-text", text));
+        chat.append(b);
+      };
+      bubble("first", q.at, q.message);
+      (q.msgs || []).forEach((m) => bubble(m.by, m.at, m.text));
+      c.append(chat);
+      if (q.state === "waiting") c.append(el("p", "muted small", M.none));
+      if (q.state === "open" || q.state === "resolved") {
+        const ta = el("textarea");
+        ta.maxLength = 2000; ta.rows = 3; ta.placeholder = M.reply; ta.value = drafts[q.id] || "";
+        ta.setAttribute("aria-label", M.reply);
+        const err = el("p", "hf-err"); err.hidden = true; err.setAttribute("role", "alert");
+        const send = el("button", "btn btn-sm", M.send); send.type = "button"; send.disabled = !ta.value.trim();
+        ta.addEventListener("input", () => { drafts[q.id] = ta.value; send.disabled = !ta.value.trim(); });
+        send.addEventListener("click", async () => {
+          send.disabled = true;
+          try { await post({ id: q.id, action: "message", text: ta.value }); delete drafts[q.id]; draw(); }
+          catch (e) { err.textContent = T.err[e.message] || M.err; err.hidden = false; send.disabled = false; }
+        });
+        const row = el("div", "hf-req-acts");
+        if (q.state === "resolved") {
+          const re = el("button", "btn btn-ghost btn-sm", M.reopen); re.type = "button";
+          re.addEventListener("click", async () => { re.disabled = true; try { await post({ id: q.id, action: "reopen" }); } catch (e) { re.disabled = false; } });
+          row.append(re);
+        }
+        row.append(send);
+        c.append(ta, err, row);
+      }
+      setTimeout(() => { chat.scrollTop = chat.scrollHeight; });
+      return c;
+    };
+    const draw = () => {
+      mine.hidden = !requests.length;
+      list.replaceChildren(...requests.map(card));
+    };
+    mine.querySelector("h2").textContent = M.title;
+    draw();
+    if (location.hash.startsWith("#ticket-")) {
+      const t = document.getElementById(location.hash.slice(1));
+      if (t) setTimeout(() => t.scrollIntoView({ behavior: "instant", block: "start" }), 300);
+    }
+    const refresh = async () => {
+      try {
+        const r = await fetch("/dash/api/help", { credentials: "same-origin", headers: { Accept: "application/json" } });
+        const d = r.ok ? await r.json() : null;
+        if (d && d.logged) { requests = d.requests || []; draw(); }
+      } catch (e) { /* réessaie au prochain tour */ }
+    };
+    setInterval(() => {
+      if (document.hidden || (document.activeElement && document.activeElement.tagName === "TEXTAREA")) return;
+      if (requests.some((q) => q.state !== "closed" && q.state !== "done")) refresh();
+    }, 20000);
     const lim = info.limits || {};
     const fail = (code) => { errBox.textContent = T.err[code] || T.err.generic; errBox.hidden = false; };
     form.addEventListener("submit", async (ev) => {
@@ -156,6 +246,7 @@
       if (ext.length && files.some((f) => !ext.includes((f.name.split(".").pop() || "").toLowerCase()))) return fail("file_type");
       const data = new FormData(form);
       if (sel.value === "other") data.set("server", "");
+      data.set("lang", fr ? "fr" : "en");
       submit.disabled = true; submit.textContent = T.sending;
       try {
         const r = await fetch("/dash/api/help", { method: "POST", credentials: "same-origin", body: data,
@@ -168,6 +259,7 @@
           return fail(code);
         }
         show("sent");
+        refresh();
         const done = hf.querySelector('[data-hf="sent"]');
         done.focus({ preventScroll: true });
         if (done.getBoundingClientRect().top < 80) done.scrollIntoView({ behavior: "smooth", block: "start" });
