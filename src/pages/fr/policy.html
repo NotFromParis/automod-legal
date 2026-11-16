@@ -51,8 +51,9 @@ traitées uniquement par Stripe, SumUp ou Discord ; Automod n'y a jamais accès.
 serveur, pseudo) n'est transmise à SumUp : le paiement est relié au serveur uniquement dans les données d'Automod.</p>
 <p>Tableau de bord web (connexion avec Discord) : avec votre accord donné sur la page de Discord, Automod reçoit votre
 identifiant, votre pseudo, votre avatar et la liste de vos serveurs avec vos permissions (autorisations « identify » et
-« guilds »). Ces données servent uniquement à afficher les serveurs que vous pouvez gérer ; elles sont gardées en mémoire le
-temps de la session (7 jours au plus), jamais écrites sur disque, et effacées à la déconnexion ou au redémarrage du bot. Un
+« guilds »). Ces données servent uniquement à afficher les serveurs que vous pouvez gérer ; elles sont gardées le temps de la
+session (30 jours au plus, y compris après un redémarrage du bot, sur le serveur de l'hébergeur, avec seulement une
+empreinte du cookie) et effacées à la déconnexion ou à l'expiration de la session. Un
 cookie de session strictement nécessaire (« am_sid ») est déposé ; aucun cookie de mesure d'audience ou publicitaire. Les
 modifications et les sanctions faites depuis le site sont les mêmes que celles faites avec <code>/controls</code> et les commandes de modération (même casier, mêmes messages privés de sanction, mêmes logs).</p>
 <p>Formulaire d'aide (page Support du site, connexion avec Discord) : votre nom ou pseudo, votre identifiant et votre

@@ -80,7 +80,8 @@ AI mode. You can ask for your data to be deleted at any time.</p>
   name or ID, username) is sent to SumUp.</li>
   <li>Web dashboard (log in with Discord): with your consent on Discord's page, Automod receives your ID, username, avatar
   and your server list with your permissions (« identify » and « guilds » scopes), only to show the servers you can manage.
-  Kept in memory for the session (7 days at most), never written to disk, deleted on logout or bot restart. One strictly
+  Kept for the session (30 days at most, including across bot restarts, on the host's server, with only a hash of the
+cookie) and deleted on logout or when the session expires. One strictly
   necessary session cookie (« am_sid »); no analytics or advertising cookies.</li>
   <li>Help form (Support page of the website, log in with Discord): your name or nickname, your Discord ID and name, the
   server you pick (and its plan, which sets the request's priority), the subject, the message and any attachments. The
