@@ -1,0 +1,55 @@
+<!--
+title: AI Automod support: get help
+description: A problem with AI Automod, a question about setup or your subscription? Send your request to the bot's creator. Pro and Max servers get priority.
+label: Support
+h1: Get help
+-->
+<p class="lead-doc">A problem with AI Automod, a question about setup or your subscription? Write to us here: your
+request goes straight to the bot's creator. <strong>Pro</strong> and <strong>Max</strong> servers get priority.</p>
+
+<div class="hf" data-helpform>
+  <p class="hf-state muted" data-hf="loading">Loading the form…</p>
+
+  <div class="hf-state hf-box" data-hf="login" hidden>
+    <h2>Log in with Discord</h2>
+    <p>We'll know who is writing so we can get back to you, and if your server has Pro or Max, your request gets
+    priority. We only see your Discord name and your list of servers.</p>
+    <p class="ctas"><a class="btn" data-hf-login href="/dash/login">Log in with Discord</a></p>
+  </div>
+
+  <div class="hf-state hf-box" data-hf="off" hidden>
+    <h2>Form unavailable</h2>
+    <p>The form isn't responding right now. You can open a ticket on the support server.</p>
+    <p class="ctas"><a class="btn" href="{{url:support}}">Join the support server</a></p>
+  </div>
+
+  <form class="hf-form hf-state" data-hf="form" hidden novalidate>
+    <div class="hf-row">
+      <label class="hf-field"><span>Name or nickname</span>
+        <input name="name" maxlength="64" autocomplete="nickname" required></label>
+      <label class="hf-field"><span>Server</span>
+        <select name="server"></select></label>
+    </div>
+    <label class="hf-field" data-hf-other hidden><span>Server name or ID</span>
+      <input name="server_other" maxlength="100"></label>
+    <p class="hf-prio" data-hf-prio hidden></p>
+    <label class="hf-field"><span>Subject</span>
+      <input name="subject" maxlength="120" required></label>
+    <label class="hf-field"><span>Message</span>
+      <textarea name="message" rows="8" maxlength="4000" required></textarea></label>
+    <label class="hf-field"><span>Attachments <em>optional</em></span>
+      <input type="file" name="files" multiple accept=".png,.jpg,.jpeg,.gif,.webp,.pdf,.txt,.log,.json,.mp4,.mov,.webm,.zip">
+      <small>Up to 4 files, 8 MB in total: images, videos, PDF, text or zip.</small></label>
+    <p class="hf-err" data-hf-err role="alert" hidden></p>
+    <p class="ctas"><button class="btn" type="submit">Send the request</button></p>
+  </form>
+
+  <div class="hf-state hf-box hf-done" data-hf="sent" hidden tabindex="-1">
+    <h2>Request sent</h2>
+    <p>Thanks, your request has arrived. We'll get back to you on Discord.</p>
+    <p>You can also open a ticket on the support server: it's often the fastest way to talk it through.</p>
+    <p class="ctas"><a class="btn" href="{{url:support}}">Join the support server</a></p>
+  </div>
+</div>
+<noscript><p>The form needs JavaScript. You can also open a ticket on the
+<a href="{{url:support}}">support server</a>.</p></noscript>

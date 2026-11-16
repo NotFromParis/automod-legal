@@ -80,6 +80,96 @@
     });
   })();
 
+  // ── Formulaire d'aide (page Support) : connexion Discord obligatoire, envoi au bot (/dash/api/help) ────────
+  // Le bot l'envoie en MP au créateur et le range dans sa page Créateur, par priorité (plan du serveur).
+  const hf = document.querySelector("[data-helpform]");
+  if (hf) (async () => {
+    const fr = (document.documentElement.lang || "").startsWith("fr");
+    const T = fr ? {
+      other: "Un autre serveur…", none: "Pas de serveur",
+      prio: { max: "Serveur Max : ta demande passera en priorité haute.", pro: "Serveur Pro : ta demande passera en priorité.",
+              free: "" },
+      sending: "Envoi…", send: "Envoyer la demande",
+      err: { missing: "Remplis l'objet et le message.", files_count: "4 fichiers au plus.",
+             files_size: "Les pièces jointes dépassent 8 Mo au total.",
+             file_type: "Type de fichier refusé : images, vidéos, PDF, texte ou zip seulement.",
+             rate: "Tu as déjà envoyé plusieurs demandes : réessaie un peu plus tard.",
+             login: "Ta session a expiré : reconnecte-toi.", generic: "L'envoi a échoué. Réessaie, ou passe par le serveur support." },
+    } : {
+      other: "Another server…", none: "No server",
+      prio: { max: "Max server: your request gets high priority.", pro: "Pro server: your request gets priority.", free: "" },
+      sending: "Sending…", send: "Send the request",
+      err: { missing: "Fill in the subject and the message.", files_count: "Up to 4 files.",
+             files_size: "The attachments exceed 8 MB in total.",
+             file_type: "File type refused: images, videos, PDF, text or zip only.",
+             rate: "You have already sent several requests: try again a bit later.",
+             login: "Your session has expired: log in again.", generic: "Sending failed. Try again, or use the support server." },
+    };
+    const show = (name) => hf.querySelectorAll("[data-hf]").forEach((n) => { n.hidden = n.getAttribute("data-hf") !== name; });
+    let info;
+    try {
+      const r = await fetch("/dash/api/help", { credentials: "same-origin", headers: { Accept: "application/json" } });
+      if (!r.ok || !(r.headers.get("content-type") || "").includes("json")) throw new Error("off");
+      info = await r.json();
+    } catch (e) { show("off"); return; }
+    if (!info.logged) {
+      hf.querySelector("[data-hf-login]").href = "/dash/login?next=" + encodeURIComponent(location.pathname);
+      show("login");
+      return;
+    }
+    const form = hf.querySelector("form");
+    const sel = form.elements.server, other = hf.querySelector("[data-hf-other]"), prio = hf.querySelector("[data-hf-prio]");
+    const errBox = hf.querySelector("[data-hf-err]"), submit = form.querySelector('button[type="submit"]');
+    const opt = (value, label) => { const o = document.createElement("option"); o.value = value; o.textContent = label; sel.append(o); };
+    (info.servers || []).forEach((s) => opt(s.id, `${s.name} · ${s.plan_label}`));
+    opt("other", T.other);
+    opt("", T.none);
+    form.elements.name.value = (info.user && info.user.name) || "";
+    const onServer = () => {
+      other.hidden = sel.value !== "other";
+      const s = (info.servers || []).find((x) => x.id === sel.value);
+      prio.textContent = s ? T.prio[s.plan] || "" : "";
+      prio.hidden = !prio.textContent;
+    };
+    sel.addEventListener("change", onServer);
+    onServer();
+    show("form");
+    const lim = info.limits || {};
+    const fail = (code) => { errBox.textContent = T.err[code] || T.err.generic; errBox.hidden = false; };
+    form.addEventListener("submit", async (ev) => {
+      ev.preventDefault();
+      errBox.hidden = true;
+      if (!form.elements.subject.value.trim() || !form.elements.message.value.trim()) return fail("missing");
+      const files = [...form.elements.files.files];
+      if (files.length > (lim.files || 4)) return fail("files_count");
+      if (files.reduce((n, f) => n + f.size, 0) > (lim.total || 8388608)) return fail("files_size");
+      const ext = lim.ext || [];
+      if (ext.length && files.some((f) => !ext.includes((f.name.split(".").pop() || "").toLowerCase()))) return fail("file_type");
+      const data = new FormData(form);
+      if (sel.value === "other") data.set("server", "");
+      submit.disabled = true; submit.textContent = T.sending;
+      try {
+        const r = await fetch("/dash/api/help", { method: "POST", credentials: "same-origin", body: data,
+                                                  headers: { "X-CSRF-Token": info.csrf || "" } });
+        let out = null;
+        try { out = await r.json(); } catch (e) { /* réponse vide */ }
+        if (!r.ok || !out || !out.ok) {
+          const code = r.status === 401 ? "login" : (out && out.error) || "generic";
+          if (code === "login") hf.querySelector("[data-hf-login]").href = "/dash/login?next=" + encodeURIComponent(location.pathname);
+          return fail(code);
+        }
+        show("sent");
+        const done = hf.querySelector('[data-hf="sent"]');
+        done.focus({ preventScroll: true });
+        if (done.getBoundingClientRect().top < 80) done.scrollIntoView({ behavior: "smooth", block: "start" });
+      } catch (e) {
+        fail("generic");
+      } finally {
+        submit.disabled = false; submit.textContent = T.send;
+      }
+    });
+  })();
+
   if (!calm && "IntersectionObserver" in window) {
     // ── Blocs déclenchés au défilement : un bloc (titre + texte d'une section, une liste entière, une grille
     // entière…) lance une animation fluide à durée fixe quand son haut passe au-dessus de 82 % de l'écran, en

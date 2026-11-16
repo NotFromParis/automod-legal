@@ -36,35 +36,38 @@ TODAY = datetime.date.today().isoformat()
 HELP = ["setup", "controls", "protection", "ai", "sanctions", "community", "permissions", "dashboard", "plans"]
 # Pages : clé → chemin anglais (le chemin français est préfixé par fr/)
 PAGES = {"home": "", "help": "help/", **{f"help/{k}": f"help/{k}/" for k in HELP}, "terms": "terms/",
-         "policy": "policy/", "discord-automod": "discord-automod/", "features": "features/"}
-ARTICLES = ("terms", "policy", "discord-automod", "features")
+         "policy": "policy/", "discord-automod": "discord-automod/", "features": "features/",
+         "contact": "contact/"}
+ARTICLES = ("terms", "policy", "discord-automod", "features", "contact")
 SPECIAL = {"dash": "dash/", "support": "support/"}             # servis par le Worker (pas par ce site)
 UPDATED = {"terms": {"fr": "Dernière mise à jour : 15 novembre 2026 (version 2026-11-15)",
                      "en": "Last updated: November 15, 2026 (version 2026-11-15)"},
-           "policy": {"fr": "Dernière mise à jour : 13 novembre 2026", "en": "Last updated: November 13, 2026"},
+           "policy": {"fr": "Dernière mise à jour : 16 novembre 2026", "en": "Last updated: November 16, 2026"},
            "discord-automod": {"fr": "Mis à jour le 14 novembre 2026", "en": "Updated November 14, 2026"}}
 
 UI = {
     "fr": {"nav": [("features", "Fonctions"), ("help", "Aide"), ("help/ai", "IA"), ("help/plans", "Offres"),
-                   ("dash", "Tableau de bord")],
+                   ("contact", "Support"), ("dash", "Tableau de bord")],
            "cta": "Ajouter à Discord", "skip": "Aller au contenu", "crumbs": "Fil d'Ariane", "help": "Aide", "in_help": "Dans l'aide",
            "prev": "Précédent", "next": "Suivant", "other": "English", "other_short": "EN",
            "foot": [("Produit", [("features", "Fonctions phares"), ("help/plans", "Offres"), ("dash", "Tableau de bord"),
                                  ("invite", "Ajouter à Discord"),
                                  ("discord-automod", "AI Automod ou AutoMod de Discord ?")]),
-                    ("Aide", [("help", "Mode d'emploi"), ("help/ai", "L'IA d'AI Automod"), ("support", "Serveur support")]),
+                    ("Aide", [("help", "Mode d'emploi"), ("help/ai", "L'IA d'AI Automod"), ("contact", "Demander de l'aide"),
+                              ("support", "Serveur support")]),
                     ("Légal", [("terms", "Conditions d'utilisation"), ("policy", "Confidentialité")])],
            "disclaimer": "AI Automod est un bot indépendant, non affilié à Discord Inc. ni à sa fonction AutoMod.",
            "locale": "fr_FR", "home": "Accueil", "nf_title": "Page introuvable", "nf_text": "Cette page n'existe pas (ou plus).",
            "nf_home": "Retour à l'accueil", "redirect": "Cette page a déménagé :"},
     "en": {"nav": [("features", "Features"), ("help", "Help"), ("help/ai", "AI"), ("help/plans", "Pricing"),
-                   ("dash", "Dashboard")],
+                   ("contact", "Support"), ("dash", "Dashboard")],
            "cta": "Add to Discord", "skip": "Skip to content", "crumbs": "Breadcrumb", "help": "Help", "in_help": "In the help",
            "prev": "Previous", "next": "Next", "other": "Français", "other_short": "FR",
            "foot": [("Product", [("features", "Signature features"), ("help/plans", "Pricing"), ("dash", "Dashboard"),
                                  ("invite", "Add to Discord"),
                                  ("discord-automod", "AI Automod vs Discord AutoMod")]),
-                    ("Help", [("help", "User guide"), ("help/ai", "AI Automod's AI"), ("support", "Support server")]),
+                    ("Help", [("help", "User guide"), ("help/ai", "AI Automod's AI"), ("contact", "Get help"),
+                              ("support", "Support server")]),
                     ("Legal", [("terms", "Terms of Service"), ("policy", "Privacy Policy")])],
            "disclaimer": "AI Automod is an independent bot, not affiliated with Discord Inc. or its AutoMod feature.",
            "locale": "en_GB", "home": "Home", "nf_title": "Page not found", "nf_text": "This page doesn't exist (anymore).",
@@ -429,7 +432,7 @@ def simple_page(key: str, lang: str, meta: dict, body: str) -> str:
     crumbs = (f'<nav class="crumbs" aria-label="{esc(ui["crumbs"])}"><a href="{esc(link("home", lang, here))}">'
               f'{esc(ui["home"])}</a>{icon("chev", "ico sep")}<span aria-current="page">'
               f'{esc(meta.get("label", meta["title"]))}</span></nav>'
-              if key in ("discord-automod", "features") else "")
+              if key in ("discord-automod", "features", "contact") else "")
     return (f'<div class="wrap page narrow doc">{crumbs}<h1>{esc(meta.get("h1", meta["title"].split(" — ")[0]))}</h1>'
             + (f'<p class="updated">{esc(sub)}</p>' if sub else "") + f"\n{body}\n</div>")
 

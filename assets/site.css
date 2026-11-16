@@ -554,3 +554,40 @@ code { font: 500 .88em/1.4 var(--mono); background: rgba(236, 226, 255, .07); bo
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* ── Page Support : formulaire d'aide ────────────────────────────────────── */
+.hf { margin-top: 28px; }
+.hf [hidden] { display: none !important; }
+.hf-box { padding: 26px 28px; border-radius: var(--r-lg); background: var(--ground-2); border: 1px solid var(--line); }
+.hf-box h2 { margin: 0 0 8px; font-size: 22px; }
+.hf-box p { color: var(--dim); }
+.hf-box .ctas { margin: 18px 0 0; }
+.hf-done { border-color: rgba(95, 211, 160, .35); }
+.hf-done:focus { outline: none; }
+.hf-form { display: flex; flex-direction: column; gap: 18px; }
+.hf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.hf-field { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.hf-field > span { font-size: 14px; font-weight: 600; color: #fff; }
+.hf-field em { font-style: normal; font-weight: 500; color: var(--faint); margin-left: 6px; }
+.hf-field small { font-size: 13px; color: var(--faint); }
+.hf-field input:not([type="file"]), .hf-field select, .hf-field textarea {
+  width: 100%; font: 400 15.5px/1.45 var(--font); color: var(--text); background: var(--raise);
+  border: 1px solid var(--line-2); border-radius: var(--r-sm); padding: 11px 14px;
+  transition: border-color .2s, background-color .2s; }
+.hf-field textarea { resize: vertical; min-height: 170px; }
+.hf-field select { appearance: none; padding-right: 40px; cursor: pointer;
+  background: var(--raise) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b9b0c9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") right 14px center / 16px no-repeat; }
+.hf-field input:not([type="file"]):hover, .hf-field select:hover, .hf-field textarea:hover { border-color: rgba(236, 226, 255, .26); }
+.hf-field input:focus-visible, .hf-field select:focus-visible, .hf-field textarea:focus-visible {
+  outline: none; border-color: var(--pink); background: #1b1524; }
+.hf-field input[type="file"] { font: 400 14px/1.4 var(--font); color: var(--dim); }
+.hf-field input[type="file"]::file-selector-button { font: 600 14px/1 var(--font); color: #fff; background: transparent;
+  border: 1px solid var(--line-2); border-radius: 999px; padding: 10px 16px; margin-right: 12px; cursor: pointer;
+  transition: background-color .2s, border-color .2s; }
+.hf-field input[type="file"]::file-selector-button:hover { background: rgba(236, 226, 255, .06); border-color: rgba(236, 226, 255, .28); }
+.hf-prio { margin: -6px 0 0; font-size: 14px; color: var(--peach); }
+.hf-err { margin: 0; padding: 12px 16px; border-radius: var(--r-sm); font-size: 14.5px; color: #ffd9d9;
+          background: rgba(255, 143, 143, .08); border: 1px solid rgba(255, 143, 143, .3); }
+.hf-form .ctas { margin: 4px 0 0; }
+.hf-form .btn[disabled] { opacity: .6; cursor: progress; transform: none; }
+@media (max-width: 640px) { .hf-row { grid-template-columns: 1fr; } .hf-box { padding: 22px 20px; } }
