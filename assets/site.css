@@ -591,3 +591,6 @@ code { font: 500 .88em/1.4 var(--mono); background: rgba(236, 226, 255, .07); bo
 .hf-form .ctas { margin: 4px 0 0; }
 .hf-form .btn[disabled] { opacity: .6; cursor: progress; transform: none; }
 @media (max-width: 640px) { .hf-row { grid-template-columns: 1fr; } .hf-box { padding: 22px 20px; } }
+.hf-alt { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
+.hf-alt p { margin: 0; }
+.hf-box .hf-alt .ctas { margin-top: 12px; }

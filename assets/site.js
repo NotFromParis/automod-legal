@@ -111,7 +111,16 @@
       const r = await fetch("/dash/api/help", { credentials: "same-origin", headers: { Accept: "application/json" } });
       if (!r.ok || !(r.headers.get("content-type") || "").includes("json")) throw new Error("off");
       info = await r.json();
-    } catch (e) { show("off"); return; }
+    } catch (e) {
+      // Le bot ne connaît pas encore le formulaire (ancienne version) : si on n'est pas connecté, on propose
+      // quand même la connexion ; sinon, le serveur support.
+      try {
+        const r2 = await fetch("/dash/api/me", { credentials: "same-origin", headers: { Accept: "application/json" } });
+        const me = r2.ok && (r2.headers.get("content-type") || "").includes("json") ? await r2.json() : null;
+        info = me && !me.logged ? { logged: false } : null;
+      } catch (e2) { info = null; }
+      if (!info) { show("off"); return; }
+    }
     if (!info.logged) {
       hf.querySelector("[data-hf-login]").href = "/dash/login?next=" + encodeURIComponent(location.pathname);
       show("login");
