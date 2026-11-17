@@ -43,7 +43,7 @@
   </div>
 </header>
 <main id="main">
-<div class="wrap page narrow doc"><h1>Politique de confidentialité</h1><p class="updated">Dernière mise à jour : 16 novembre 2026</p>
+<div class="wrap page narrow doc"><h1>Politique de confidentialité</h1><p class="updated">Dernière mise à jour : 17 novembre 2026</p>
 <div class="box">
 <p><strong>En bref :</strong> Automod ne vend aucune donnée. Il traite les messages pour modérer les serveurs qui l'ont
 ajouté, conserve l'historique des sanctions et les réglages de chaque serveur, et n'envoie le contenu d'un message à
@@ -77,6 +77,12 @@ une IA que si le serveur a activé le mode IA. Vous pouvez demander la suppressi
   (comptes récents). Le code du captcha reste en mémoire le temps de la vérification. Les membres, rôles et salons mis
   en bypass par le serveur (avec l'éventuelle date de fin et la personne qui les a ajoutés) sont enregistrés dans ses
   réglages.</li>
+  <li><strong>Anti Double Compte</strong> (si le serveur l'active) : quand un membre est banni, expulsé par le staff ou
+  exclu temporairement, Automod garde une empreinte de son compte pour reconnaître un nouveau compte de la même personne :
+  identifiant, noms, date de création, empreintes des images de profil et de bannière, couleur, décoration et tag de
+  profil, empreintes hachées de ses messages (jamais leur texte) et identifiants des personnes à qui il écrivait. À
+  l'arrivée d'un membre, ces éléments publics de son profil, l'invitation utilisée et ses premiers messages sont comparés
+  à ces empreintes.</li>
   <li><strong>Contenu des messages</strong> : analysé en temps réel pour détecter le spam, les raids, les liens dangereux,
   les insultes, le contenu sexuel, les données personnelles et les arnaques. Il n'est <strong>pas conservé</strong>, sauf
   l'extrait joint à une sanction et les journaux que le serveur a choisi de publier dans ses propres salons.
@@ -131,6 +137,8 @@ journaux, et elle est effacée dès que le serveur la supprime.</p>
   de suppression.</li>
   <li>Données techniques anti-spam : quelques minutes, en mémoire uniquement.</li>
   <li>Verdicts de l'IA : 10 minutes au plus, en mémoire uniquement.</li>
+  <li>Empreintes de l'Anti Double Compte : 180 jours après un ban, 14 jours après une expulsion, jusqu'à 24 h après la fin
+  d'une exclusion ; effacées dès le débannissement.</li>
   <li>Abonnements terminés : effacés environ 45 jours après la fin de l'abonnement (Stripe conserve ses propres
   données selon ses obligations légales).</li>
   <li>Demandes d'aide du formulaire : les 300 plus récentes sont gardées dans la page Créateur ; une demande peut être

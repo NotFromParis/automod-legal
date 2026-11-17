@@ -43,7 +43,7 @@
   </div>
 </header>
 <main id="main">
-<div class="wrap page narrow doc"><h1>Privacy Policy</h1><p class="updated">Last updated: November 16, 2026</p>
+<div class="wrap page narrow doc"><h1>Privacy Policy</h1><p class="updated">Last updated: November 17, 2026</p>
 <div class="box">
 <p><strong>In short:</strong> Automod never sells data. It processes messages to moderate the servers that added it,
 keeps each server's sanction history and settings, and only sends message content to an AI if the server enabled the
@@ -69,6 +69,11 @@ AI mode. You can ask for your data to be deleted at any time.</p>
   edited a channel or role, banned or kicked someone, added a bot, edited the server) is read in real time; only a
   per-member counter stays in memory for 15 minutes. The account creation date is checked on join (new accounts).
   The captcha code stays in memory during verification. Members, roles and channels bypassed by the server (with the optional end date and who added them) are stored in its settings.</li>
+  <li><strong>Anti Alt Accounts</strong> (if the server enables it): when a member is banned, kicked by the staff or timed
+  out, Automod keeps a fingerprint of their account to recognise a new account of the same person: ID, names, creation
+  date, fingerprints of the profile picture and banner, profile colour, decoration and tag, hashed fingerprints of their
+  messages (never the text) and the IDs of the people they wrote to. When a member joins, these public profile details,
+  the invite used and their first messages are compared with those fingerprints.</li>
   <li><strong>Message content</strong>: analysed in real time to detect spam, raids, dangerous links, insults, sexual
   content, personal data and scams. It is <strong>not stored</strong>, except the excerpt attached to a sanction and the
   logs the server chose to post in its own channels. Minimal technical data (time and channel of recent messages) stays
@@ -106,7 +111,9 @@ subscriptions (performance of a contract); keeping the bot running and secure (l
 
 <h2>5. Retention</h2>
 <p>Settings, sanctions and moderation tracking: as long as Automod is on the server, or until deletion is requested.
-Anti-spam technical data: a few minutes, in memory only. AI verdicts: at most 10 minutes, in memory only. Ended
+Anti-spam technical data: a few minutes, in memory only. AI verdicts: at most 10 minutes, in memory only. Anti Alt
+Accounts fingerprints: 180 days after a ban, 14 days after a kick, up to 24 h after a timeout ends; deleted as soon as
+the member is unbanned. Ended
 subscriptions: removed about 45 days after they end. Help form requests: the 300 most recent are kept in the Creator
 page; a request can be deleted on request.</p>
 
