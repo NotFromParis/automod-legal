@@ -258,7 +258,7 @@ code { font: 500 .88em/1.4 var(--mono); background: rgba(236, 226, 255, .07); bo
 .net-list li::before { content: ""; position: absolute; left: 4px; top: 23px; width: 7px; height: 7px;
                        border-radius: 50%; background: var(--pink); }
 .orbit { --s1: 52px; --s2: 44px; position: relative; margin: 0 auto; width: min(460px, 100%); aspect-ratio: 1;
-         container-type: inline-size; }
+         container-type: inline-size; margin-bottom: 72px; }
 .orbit::before { content: ""; position: absolute; inset: 22%; border-radius: 50%; filter: blur(46px); opacity: .55;
                  background: radial-gradient(circle, rgba(236, 143, 207, .55), rgba(255, 156, 102, .25) 55%, transparent 70%); }
 .orb-ring { position: absolute; left: 50%; top: 50%; border: 1px solid var(--line-2); border-radius: 50%;
@@ -278,11 +278,11 @@ code { font: 500 .88em/1.4 var(--mono); background: rgba(236, 226, 255, .07); bo
             border-radius: 50%; overflow: hidden; background: #000; border: 1px solid var(--line-2);
             box-shadow: 0 0 0 8px rgba(236, 143, 207, .07), 0 30px 60px -20px rgba(0, 0, 0, .7); }
 .orb-core img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.orb-cap { position: absolute; left: 0; right: 0; bottom: -34px; text-align: center; color: var(--faint);
+.orb-cap { position: absolute; left: 0; right: 0; top: calc(100% + 40px); text-align: center; color: var(--faint);
            font-size: 13.5px; }
 @media (max-width: 860px) {
   .net { grid-template-columns: minmax(0, 1fr); }
-  .orbit { --s1: 44px; --s2: 38px; width: min(400px, 100%); margin-bottom: 30px; }
+  .orbit { --s1: 44px; --s2: 38px; width: min(400px, 100%); margin-bottom: 84px; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .orb-s1 { animation: orb-turn 90s linear infinite; }
