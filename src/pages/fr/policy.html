@@ -50,6 +50,15 @@ une IA que si le serveur a activé le mode IA. Vous pouvez demander la suppressi
   réduite à une empreinte numérique, comparée à une banque d'images d'arnaques connues (faux cadeaux, faux casinos…).
   L'image n'est ni conservée ni envoyée à un service extérieur. Seules les empreintes des images reconnues comme
   arnaques sont gardées, avec les serveurs où elles ont été attrapées, pour protéger tous les serveurs AI Automod.</li>
+  <li><strong>Réseau AI Automod</strong> (actif par défaut, le serveur peut le couper dans Protection → Serveur) : quand
+  Automod constate lui-même sur un serveur qu'un compte a participé à un raid, posté une arnaque, déclenché l'anti-nuke ou
+  est le double compte d'un autre, ce fait est partagé avec les autres serveurs AI Automod. Seuls sont stockés des
+  identifiants pseudonymisés (empreinte à sens unique de l'identifiant du compte et du serveur), le type de fait et sa
+  date : jamais un message, une raison, le nom d'un serveur ou d'un membre du staff. Les autres serveurs voient seulement
+  « signalé sur N autres serveurs, il y a X jours », jamais lesquels. Ce fait sert d'alerte au staff ou d'indice parmi
+  d'autres ; il n'entraîne jamais seul une sanction, sauf pour un raider déjà connu qui arrive pendant un raid en cours
+  sur le serveur. Un serveur qui coupe le réseau ne partage ni ne reçoit plus rien, et ses signalements passés sont
+  effacés.</li>
   <li><strong>Arrivées et départs</strong> : utilisés pour les journaux, l'anti-raid (âge du compte) et les messages de
   bienvenue / d'au revoir configurés par le serveur.</li>
 </ul>
@@ -101,6 +110,8 @@ journaux, et elle est effacée dès que le serveur la supprime.</p>
   <li>Verdicts de l'IA : 10 minutes au plus, en mémoire uniquement.</li>
   <li>Empreintes de l'Anti Double Compte : 180 jours après un ban, 14 jours après une expulsion, jusqu'à 24 h après la fin
   d'une exclusion ; effacées dès le débannissement.</li>
+  <li>Réseau AI Automod : 14 jours pour une arnaque (compte souvent piraté, puis récupéré), 30 jours pour une arrivée
+  pendant un raid, 90 jours pour des messages de raid, 180 jours pour l'anti-nuke et les doubles comptes.</li>
   <li>Abonnements terminés : effacés environ 45 jours après la fin de l'abonnement (Stripe conserve ses propres
   données selon ses obligations légales).</li>
   <li>Demandes d'aide du formulaire : les 300 plus récentes sont gardées dans la page Créateur ; une demande peut être

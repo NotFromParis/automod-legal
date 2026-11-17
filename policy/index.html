@@ -82,6 +82,14 @@ AI mode. You can ask for your data to be deleted at any time.</p>
   digital fingerprint, compared with a bank of known scam images (fake giveaways, fake casinos…). The image is neither
   kept nor sent to any outside service. Only the fingerprints of images recognised as scams are kept, with the servers
   where they were caught, to protect every AI Automod server.</li>
+  <li><strong>AI Automod network</strong> (on by default, the server can turn it off in Protection → Server): when
+  Automod itself sees on a server that an account took part in a raid, posted a scam, triggered anti-nuke or is an alt
+  of another account, that fact is shared with the other AI Automod servers. Only pseudonymised IDs (a one-way
+  fingerprint of the account and server IDs), the type of fact and its date are stored: never a message, a reason, the
+  name of a server or of a staff member. Other servers only see « flagged on N other servers, X days ago », never which
+  ones. The fact is used as a staff alert or as one clue among others; it never leads to a sanction on its own, except
+  for an already known raider who joins during a raid in progress on the server. A server that turns the network off no
+  longer shares or receives anything, and its past reports are deleted.</li>
   <li><strong>Joins and leaves</strong>: used for logs, anti-raid (account age) and the server's welcome/goodbye messages.</li>
   <li><strong>Subscriptions</strong>: server ID, plan, subscription status and end date, Stripe customer and
   subscription IDs, SumUp payment ID (or Discord entitlement), Discord ID of the subscriber and proof of acceptance of the
@@ -117,7 +125,8 @@ subscriptions (performance of a contract); keeping the bot running and secure (l
 <p>Settings, sanctions and moderation tracking: as long as Automod is on the server, or until deletion is requested.
 Anti-spam technical data: a few minutes, in memory only. AI verdicts: at most 10 minutes, in memory only. Anti Alt
 Accounts fingerprints: 180 days after a ban, 14 days after a kick, up to 24 h after a timeout ends; deleted as soon as
-the member is unbanned. Ended
+the member is unbanned. AI Automod network: 14 days for a scam (often a hacked account, later recovered), 30 days
+for joining during a raid, 90 days for raid messages, 180 days for anti-nuke and alt accounts. Ended
 subscriptions: removed about 45 days after they end. Help form requests: the 300 most recent are kept in the Creator
 page; a request can be deleted on request.</p>
 
