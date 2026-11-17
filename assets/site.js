@@ -272,7 +272,7 @@
   })();
 
   // ── Réseau AI Automod (accueil) : le bot au centre, les derniers serveurs du réseau en orbite. Les icônes
-  // viennent du bot (/dash/api/network) ; sans réponse, des cercles vides gardent le dessin.
+  // viennent du bot (/dash/api/network) ; sans réponse, seuls les anneaux et l'icône du bot restent.
   (() => {
     const orbit = document.querySelector("[data-orbit]");
     if (!orbit) return;
@@ -301,17 +301,10 @@
         });
       });
     };
-    draw(new Array(9).fill(null));
     fetch("/dash/api/network", { headers: { Accept: "application/json" } })
       .then((r) => (r.ok ? r.json() : null))
       .then((d) => {
         if (!d) return;
-        if (d.bot) {
-          const core = orbit.querySelector("[data-orb-core]");
-          const pre = new Image();
-          pre.addEventListener("load", () => { core.src = d.bot; });
-          pre.src = d.bot;
-        }
         if (Array.isArray(d.icons) && d.icons.length) draw(d.icons.slice(0, 12));
         const cap = orbit.querySelector("[data-orb-cap]");
         if (d.servers > 1 && cap) {
