@@ -271,12 +271,63 @@
     });
   })();
 
+  // ── Réseau AI Automod (accueil) : le bot au centre, les derniers serveurs du réseau en orbite. Les icônes
+  // viennent du bot (/dash/api/network) ; sans réponse, des cercles vides gardent le dessin.
+  (() => {
+    const orbit = document.querySelector("[data-orbit]");
+    if (!orbit) return;
+    const rings = [orbit.querySelector('[data-ring="1"]'), orbit.querySelector('[data-ring="2"]')];
+    const draw = (icons) => {
+      rings.forEach((r) => (r.textContent = ""));
+      const n = icons.length;
+      const inner = n <= 4 ? n : Math.round(n * 5 / 12);
+      [icons.slice(0, inner), icons.slice(inner)].forEach((list, k) => {
+        list.forEach((src, j) => {
+          const a = (360 / list.length) * j + (k ? 180 / list.length : -90);
+          const sat = document.createElement("span");
+          sat.className = "orb-sat";
+          sat.style.setProperty("--a", a + "deg");
+          sat.style.setProperty("--i", String(k ? inner + j : j));
+          const disc = document.createElement("span");
+          if (src) {
+            const img = new Image();
+            img.alt = ""; img.decoding = "async"; img.loading = "lazy"; img.width = 64; img.height = 64;
+            img.addEventListener("error", () => img.remove());
+            img.src = src;
+            disc.append(img);
+          }
+          sat.append(disc);
+          rings[k].append(sat);
+        });
+      });
+    };
+    draw(new Array(9).fill(null));
+    fetch("/dash/api/network", { headers: { Accept: "application/json" } })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (!d) return;
+        if (d.bot) {
+          const core = orbit.querySelector("[data-orb-core]");
+          const pre = new Image();
+          pre.addEventListener("load", () => { core.src = d.bot; });
+          pre.src = d.bot;
+        }
+        if (Array.isArray(d.icons) && d.icons.length) draw(d.icons.slice(0, 12));
+        const cap = orbit.querySelector("[data-orb-cap]");
+        if (d.servers > 1 && cap) {
+          cap.textContent = orbit.dataset.cap.replace("{0}", d.servers);
+          cap.hidden = false;
+        }
+      })
+      .catch(() => {});
+  })();
+
   if (!calm && "IntersectionObserver" in window) {
     // ── Blocs déclenchés au défilement : un bloc (titre + texte d'une section, une liste entière, une grille
     // entière…) lance une animation fluide à durée fixe quand son haut passe au-dessus de 82 % de l'écran, en
     // arrivant par la gauche ou la droite (en alternance). Si on remonte et qu'il repasse sous ce seuil, il joue
     // l'animation à l'envers et ressort. Le défilement déclenche, il ne pilote pas la position : pas d'à-coups.
-    const BLOCKS = [".sec-head", ".feats", ".specs", ".steps", ".plans", ".plans + .muted", ".faq", ".after",
+    const BLOCKS = [".sec-head", ".net-more", ".orbit", ".feats", ".specs", ".steps", ".plans", ".plans + .muted", ".faq", ".after",
                     ".guide", ".endcta .wrap", ".endcta"];
     let side = 0;
     const blocks = [];
