@@ -48,6 +48,12 @@ AI mode. You can ask for your data to be deleted at any time.</p>
   ones. The fact is used as a staff alert or as one clue among others; it never leads to a sanction on its own, except
   for an already known raider who joins during a raid in progress on the server. A server that turns the network off no
   longer shares or receives anything, and its past reports are deleted.</li>
+  <li><strong>Pardoned messages</strong>: when a server's staff presses « Pardon » under an automatic sanction, the
+  moderation got it wrong. The sanctioned message is then kept, with what Automod analysed to judge it (up to three
+  previous messages from the author and the message it replied to), the detection and the module's settings, to fix the
+  detection in later updates. Mentions and IDs are removed from the text; neither the author's username nor ID is kept,
+  and the server is replaced by a one-way fingerprint. To be able to find it, what Automod analysed stays in memory for
+  24 h after a detection, without being written anywhere unless someone pardons.</li>
   <li><strong>Joins and leaves</strong>: used for logs, anti-raid (account age) and the server's welcome/goodbye messages.</li>
   <li><strong>Subscriptions</strong>: server ID, plan, subscription status and end date, Stripe customer and
   subscription IDs, SumUp payment ID (or Discord entitlement), Discord ID of the subscriber and proof of acceptance of the
@@ -77,11 +83,13 @@ last 4 characters) nor written to logs, and deleted as soon as the server remove
 
 <h2>4. Purposes and legal basis</h2>
 <p>Moderating and securing servers and providing the features they enabled (legitimate interest); managing paid
-subscriptions (performance of a contract); keeping the bot running and secure (legitimate interest).</p>
+subscriptions (performance of a contract); keeping the bot running and secure (legitimate interest); fixing the automatic moderation's mistakes from pardoned
+messages (legitimate interest of servers and their members: fewer unfair sanctions).</p>
 
 <h2>5. Retention</h2>
 <p>Settings, sanctions and moderation tracking: as long as Automod is on the server, or until deletion is requested.
-Anti-spam technical data: a few minutes, in memory only. AI verdicts: at most 10 minutes, in memory only. Anti Alt
+Anti-spam technical data: a few minutes, in memory only. AI verdicts: at most 10 minutes, in memory only. What Automod analysed during a detection: 24 h, in memory only.
+Pardoned messages: at most 180 days. Anti Alt
 Accounts fingerprints: 180 days after a ban, 14 days after a kick, up to 24 h after a timeout ends; deleted as soon as
 the member is unbanned. AI Automod network: 14 days for a scam (often a hacked account, later recovered), 30 days
 for joining during a raid, 90 days for raid messages, 180 days for anti-nuke and alt accounts. Ended

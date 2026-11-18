@@ -85,7 +85,8 @@ une IA que si le serveur a activé le mode IA. Vous pouvez demander la suppressi
   à ces empreintes.</li>
   <li><strong>Contenu des messages</strong> : analysé en temps réel pour détecter le spam, les raids, les liens dangereux,
   les insultes, le contenu sexuel, les données personnelles et les arnaques. Il n'est <strong>pas conservé</strong>, sauf
-  l'extrait joint à une sanction et les journaux que le serveur a choisi de publier dans ses propres salons.
+  l'extrait joint à une sanction, les messages pardonnés (voir ci-dessous) et les journaux que le serveur a choisi de
+  publier dans ses propres salons.
   Quelques informations techniques (heure et salon des derniers messages) restent en mémoire quelques minutes pour
   repérer le spam.</li>
   <li><strong>Images postées</strong> (si l'anti-arnaque est actif) : une miniature est téléchargée depuis Discord et
@@ -101,6 +102,13 @@ une IA que si le serveur a activé le mode IA. Vous pouvez demander la suppressi
   d'autres ; il n'entraîne jamais seul une sanction, sauf pour un raider déjà connu qui arrive pendant un raid en cours
   sur le serveur. Un serveur qui coupe le réseau ne partage ni ne reçoit plus rien, et ses signalements passés sont
   effacés.</li>
+  <li><strong>Messages pardonnés</strong> : quand le staff d'un serveur appuie sur « Pardonner » sous une sanction
+  automatique, la modération s'est trompée. Le message sanctionné est alors gardé, avec ce qu'Automod a analysé pour le
+  juger (jusqu'à trois messages précédents de l'auteur et le message auquel il répondait), la détection et les réglages
+  du module, pour corriger la détection lors des mises à jour. Les mentions et identifiants sont retirés du texte ; ni le
+  pseudo ni l'identifiant de l'auteur ne sont gardés, et le serveur est remplacé par une empreinte à sens unique. Pour
+  pouvoir le retrouver, ce qu'Automod a analysé reste en mémoire 24 h après une détection, sans être écrit tant que
+  personne ne pardonne.</li>
   <li><strong>Arrivées et départs</strong> : utilisés pour les journaux, l'anti-raid (âge du compte) et les messages de
   bienvenue / d'au revoir configurés par le serveur.</li>
 </ul>
@@ -142,6 +150,8 @@ journaux, et elle est effacée dès que le serveur la supprime.</p>
   (intérêt légitime des serveurs et de leurs membres).</li>
   <li>Gérer les abonnements payants (exécution du contrat).</li>
   <li>Assurer le bon fonctionnement et la sécurité du bot (intérêt légitime).</li>
+  <li>Corriger les erreurs de la modération automatique à partir des messages pardonnés (intérêt légitime des serveurs
+  et de leurs membres : moins de sanctions injustes).</li>
 </ul>
 
 <h2>5. Durée de conservation</h2>
@@ -150,6 +160,8 @@ journaux, et elle est effacée dès que le serveur la supprime.</p>
   de suppression.</li>
   <li>Données techniques anti-spam : quelques minutes, en mémoire uniquement.</li>
   <li>Verdicts de l'IA : 10 minutes au plus, en mémoire uniquement.</li>
+  <li>Ce qu'Automod a analysé lors d'une détection : 24 h, en mémoire uniquement. Messages pardonnés : 180 jours au
+  plus.</li>
   <li>Empreintes de l'Anti Double Compte : 180 jours après un ban, 14 jours après une expulsion, jusqu'à 24 h après la fin
   d'une exclusion ; effacées dès le débannissement.</li>
   <li>Réseau AI Automod : 14 jours pour une arnaque (compte souvent piraté, puis récupéré), 30 jours pour une arrivée
