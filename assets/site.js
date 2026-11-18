@@ -320,7 +320,7 @@
     // entière…) lance une animation fluide à durée fixe quand son haut passe au-dessus de 82 % de l'écran, en
     // arrivant par la gauche ou la droite (en alternance). Si on remonte et qu'il repasse sous ce seuil, il joue
     // l'animation à l'envers et ressort. Le défilement déclenche, il ne pilote pas la position : pas d'à-coups.
-    const BLOCKS = [".sec-head", ".net-more", ".orbit", ".feats", ".specs", ".steps", ".plans", ".plans + .muted", ".faq", ".after",
+    const BLOCKS = [".sec-head", ".stats", ".net-more", ".orbit", ".feats", ".specs", ".steps", ".plans", ".plans + .muted", ".faq", ".after",
                     ".guide", ".endcta .wrap", ".endcta"];
     let side = 0;
     const blocks = [];
@@ -364,6 +364,49 @@
       .forEach((c) => c.classList.add("in")));
   }
 
+  // ── Statistiques en direct : vrais totaux de tous les serveurs (/dash/api/stats), mis à jour toutes les 30 s.
+  // Sans réponse du bot, le bloc reste caché.
+  (() => {
+    const box = document.querySelector("[data-stats]");
+    if (!box) return;
+    const lang = document.documentElement.lang || "fr";
+    const fmt = new Intl.NumberFormat(lang.startsWith("en") ? "en-US" : "fr-FR");
+    const shown = {};
+    const tween = (el, from, to) => {
+      if (calm || from === to) { el.textContent = fmt.format(to); return; }
+      const t0 = performance.now(), dur = from ? 1200 : 1800;
+      const step = (t) => {
+        const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+        el.textContent = fmt.format(Math.round(from + (to - from) * e));
+        if (k < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    let seen = false, last = null;
+    const paint = () => {
+      if (!last || !seen) return;
+      const tiles = [...box.querySelectorAll("li[data-k]")];
+      const n = tiles.filter((li) => (Number(last[li.dataset.k]) || 0) > 0).length;
+      box.querySelector(".stats").style.setProperty("--cols", String(n === 6 ? 3 : Math.max(n, 1)));
+      tiles.forEach((li) => {
+        const v = Number(last[li.dataset.k]) || 0;
+        li.hidden = v <= 0;
+        if (v > 0) { tween(li.querySelector("b"), shown[li.dataset.k] || 0, v); shown[li.dataset.k] = v; }
+      });
+    };
+    const load = () => fetch("/dash/api/stats", { headers: { Accept: "application/json" } })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (!d) return; last = d; box.hidden = false; paint(); })
+      .catch(() => {});
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((es, o) => {
+        if (es.some((e) => e.isIntersecting)) { seen = true; paint(); o.disconnect(); }
+      }, { threshold: 0.3 }).observe(box);
+    } else seen = true;
+    load();
+    setInterval(() => { if (!document.hidden) load(); }, 30000);
+  })();
+
   // Console de verdicts : le sélecteur de sensibilité rejuge les messages d'exemple
   // selon le tableau publié dans l'aide (aucun appel réseau, rien n'est envoyé).
   const con = document.querySelector("[data-console]");
@@ -392,4 +435,95 @@
     const b = e.target.closest("button[data-v]");
     if (b) set(b.dataset.v);
   });
+
+  // ── Démo animée : les messages défilent, avec parfois un raid (arrivées en masse bloquées) ou une arnaque.
+  // Les verdicts des messages suivent la sensibilité choisie. Mouvement réduit : la console reste fixe.
+  const raw = con.querySelector("[data-scenes]");
+  const body = con.querySelector(".con-body");
+  if (calm || !raw || !body) return;
+  let D;
+  try { D = JSON.parse(raw.textContent); } catch (e) { return; }
+  const L = D.labels;
+  const cur = () => (sw.querySelector('[aria-pressed="true"]') || {}).dataset?.v || "50";
+  const keys = ["0", "25", "50", "100"];
+  const el = (tag, cls, html) => { const x = document.createElement(tag); if (cls) x.className = cls; if (html != null) x.innerHTML = html; return x; };
+  const esc = (t) => t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+  const chip = (del, text) => el("span", `dec ${del ? "dec-del" : "dec-pass"}`, esc(text));
+  const trim = () => { while (body.children.length > 12) body.firstElementChild.remove(); };
+  const msg = (m) => {
+    const row = el("div", "msg");
+    keys.forEach((k, i) => (row.dataset["v" + k] = (m.v || "pppp")[i] === "d" ? "del" : "pass"));
+    row.append(el("span", `av av-${m.av || 1}`, esc(m.who[0].toUpperCase())), el("span", "who", esc(m.who)),
+               el("div", "txt", esc(m.txt)));
+    const v = el("div", "verdict");
+    v.append(el("span", "code", m.code || esc(L.clean)));
+    const del = row.dataset["v" + cur()] === "del";
+    const d = chip(del, del ? con.dataset.del : con.dataset.pass);
+    d.hidden = true;
+    v.append(d);
+    row.append(v);
+    return [row, d];
+  };
+  let on = false, gen = 0;
+  const play = async (s, g) => {
+    if (s.kind === "chat") {
+      for (const m of s.items) {
+        if (g !== gen) return;
+        const [row, d] = msg(m);
+        body.append(row); trim();
+        await wait(900);
+        if (g !== gen) return;
+        const del = row.dataset["v" + cur()] === "del";
+        d.className = `dec ${del ? "dec-del" : "dec-pass"} stamp`;
+        d.textContent = del ? con.dataset.del : con.dataset.pass;
+        d.hidden = false;
+        await wait(1700);
+      }
+    } else if (s.kind === "raid") {
+      const rows = [];
+      for (const [i, n] of s.joins.entries()) {
+        if (g !== gen) return;
+        const r = el("div", "join");
+        r.append(el("span", `av av-${(i % 6) + 1}`, esc(n[0].toUpperCase())), el("span", null,
+          `<b>${esc(n)}</b> ${esc(L.join.replace("{age}", s.age))}`));
+        body.append(r); trim(); rows.push(r);
+        await wait(240);
+      }
+      await wait(500);
+      if (g !== gen) return;
+      const b = el("div", "botline");
+      const img = new Image(); img.src = con.dataset.bot || ""; img.alt = "";
+      const v = el("div", "verdict");
+      v.append(el("span", "code", `<b>${esc(s.title)}</b> · ${esc(s.detail)}`), chip(true, L.blocked));
+      v.lastChild.classList.add("stamp");
+      b.append(img, el("span", "who", esc(L.bot)), v);
+      body.append(b); trim();
+      for (const r of rows) {
+        await wait(110);
+        if (g !== gen) return;
+        r.classList.add("out");
+        const c = chip(true, L.kicked); c.classList.add("stamp"); r.append(c);
+      }
+      await wait(2600);
+    }
+  };
+  const loop = async () => {
+    const g = gen;
+    body.classList.add("feed");
+    let i = 0;
+    while (on && g === gen) {
+      await play(D.scenes[i % D.scenes.length], g);
+      if (g !== gen) return;
+      await wait(1400);
+      i++;
+    }
+  };
+  const start = () => { if (on) return; on = true; gen++; body.textContent = ""; loop(); };
+  const stop = () => { on = false; gen++; };
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((es) => es.forEach((e) => (e.isIntersecting && !document.hidden ? start() : stop())),
+                             { threshold: 0.25 }).observe(con);
+  } else start();
+  document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); });
 })();

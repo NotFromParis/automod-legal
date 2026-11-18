@@ -31,7 +31,7 @@
 ## Pricing
 
 - Free (forever): basic commands, all rule-based auto-moderation at standard sensitivity, anti-raid, anti-nuke, anti bot, logs, web dashboard, community features. Support 24-48 h.
-- Pro (€2.99 / 30 days, no auto-renewal): adjustable sensitivity per module, captcha, critical server protection, convocations, Smartlog, bulk sanctions, priority support.
+- Pro (€2.99 / 30 days, no auto-renewal): adjustable sensitivity per module, captcha, critical server protection, convocations, Smartlog, bulk sanctions, custom bot name and picture on the server (/profil), priority support.
 - Max (€9.99 / 30 days, no auto-renewal): everything in Pro plus AI mode and personal support.
 - Any server can also plug in its own AI API key to use AI mode without a subscription.
 

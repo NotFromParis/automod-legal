@@ -296,6 +296,62 @@ code { font: 500 .88em/1.4 var(--mono); background: rgba(236, 226, 255, .07); bo
   .motion .orbit[data-blk]:not(.in) .orb-sat { opacity: 0; transform: rotate(var(--a)) translateX(0) rotate(calc(-1 * var(--a))) scale(.3); }
 }
 
+/* Démo de l'accueil : un fil de discussion qui défile (messages, raid, arnaque), réglé par la sensibilité */
+.av-4 { background: #b8743a; } .av-5 { background: #3f78b8; } .av-6 { background: #7d4bb0; }
+.con-body.feed { height: 336px; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end;
+                 -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 64px);
+                 mask-image: linear-gradient(to bottom, transparent 0, #000 64px); }
+.feed > * { flex: none; transition: opacity .45s var(--ease); }
+.feed.fading > * { opacity: 0; }
+.feed .msg:first-child, .feed .botline:first-child { border-top: 1px solid var(--line); }
+.feed .dec[hidden] { display: none; }
+.join { display: flex; align-items: center; gap: 10px; padding: 5px 0; font-size: 13.5px; color: var(--dim);
+        transition: opacity .4s var(--ease); }
+.join .av { grid-row: auto; width: 24px; height: 24px; font-size: 11px; flex: none; }
+.join b { color: #fff; font-weight: 600; }
+.join .dec { margin-left: auto; font-size: 12px; padding: 2px 9px 2px 7px; }
+.join.out { opacity: .5; }
+.join.out b { text-decoration: line-through; text-decoration-color: rgba(255, 143, 143, .7); }
+.botline { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 4px 14px; padding: 12px 0;
+           border-top: 1px solid var(--line); }
+.botline img { grid-row: span 2; width: 40px; height: 40px; border-radius: 50%; background: #000; }
+.botline .who::after { content: "BOT"; margin-left: 8px; padding: 1px 5px; border-radius: 4px; font-size: 10.5px;
+                       font-weight: 700; letter-spacing: .02em; color: #fff; background: #5865f2; vertical-align: 2px; }
+.botline .verdict { margin-top: 2px; }
+@media (max-width: 640px) {
+  .con-body.feed { height: 372px; }
+  .botline { grid-template-columns: 34px minmax(0, 1fr); gap: 4px 12px; }
+  .botline img { width: 34px; height: 34px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .feed .msg, .feed .join, .feed .botline { animation: feed-in .5s var(--ease) both; }
+  .feed .dec { animation: none; }
+  .feed .dec.stamp { animation: restamp .45s var(--ease) both; }
+  @keyframes feed-in { from { opacity: 0; transform: translateY(14px); } }
+}
+
+/* Statistiques en direct (vrais totaux de tous les serveurs) */
+.stats-sec { padding: 72px 0 24px; }
+.stats-live { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 0 24px;
+              color: var(--dim); font-size: 14px; }
+.stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+         border-top: 1px solid var(--line); border-left: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
+.stats li { padding: 26px 20px 24px; text-align: center; border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line); }
+.stats li[hidden] { display: none; }
+.stats b { display: block; color: #fff; font-size: clamp(30px, 3.6vw, 42px); font-weight: 560; line-height: 1.1;
+           letter-spacing: -.035em; font-variant-numeric: tabular-nums; }
+.stats span { display: block; margin-top: 6px; color: var(--dim); font-size: 14.5px; }
+@media (max-width: 640px) { .stats-sec { padding: 56px 0 8px; } .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Fiche technique repliée : un titre et une flèche par fonction */
+.specs.compact .spec { flex-direction: row; align-items: center; justify-content: space-between; gap: 12px;
+                       padding: 18px 22px; }
+.specs.compact .spec h3 { margin: 0; font-size: 16.5px; }
+.specs.compact .spec > .ico { flex: none; color: var(--dim); transition: transform .3s var(--ease), color .3s var(--ease); }
+.specs.compact .spec:hover > .ico { color: #fff; transform: translateX(3px); }
+@media (max-width: 560px) { .specs.compact { grid-template-columns: minmax(0, 1fr); } }
+
 /* Tout le reste : fiche technique en grille de filets */
 .specs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line);
          border-left: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }

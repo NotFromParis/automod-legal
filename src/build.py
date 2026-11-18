@@ -84,7 +84,7 @@ PLANS = {
            ("", "Pro", "2,99 €", "pour 30 jours", 2.99,
             ["<strong>Tout le plan Free</strong>", "Sensibilité réglable pour chaque module", "Captcha à l'arrivée",
              "Protection critique du serveur", "Convocations", "Smartlog : logs avec boutons d'action",
-             "Sanctions groupées", "Support prioritaire (12-24 h)"]),
+             "Sanctions groupées", "Nom et image du bot à ton image", "Support prioritaire (12-24 h)"]),
            ("", "Max", "9,99 €", "pour 30 jours", 9.99,
             ["<strong>Tout le plan Pro</strong>", "Mode IA (bêta) sur les modules de contenu",
              "Fait la différence entre humour et insulte", "Moins de faux positifs", "Support personnel"])],
@@ -97,7 +97,7 @@ PLANS = {
            ("", "Pro", "€2.99", "for 30 days", 2.99,
             ["<strong>Everything in Free</strong>", "Adjustable sensitivity for each module", "Captcha on join",
              "Critical server protection", "Convocations", "Smartlog: logs with action buttons",
-             "Bulk sanctions", "Priority support (12-24 h)"]),
+             "Bulk sanctions", "Your own bot name and picture", "Priority support (12-24 h)"]),
            ("", "Max", "€9.99", "for 30 days", 9.99,
             ["<strong>Everything in Pro</strong>", "AI mode (beta) on content modules",
              "Tells a joke from an insult", "Fewer false positives", "Personal support"])],
@@ -123,7 +123,7 @@ FAQ = {
             "Oui. Le plan Free comprend les commandes de base, toute la modération automatique par règles (insultes, "
             "contenu sexuel, données perso, arnaques, spam…), l'anti-raid, l'anti-nuke, les logs et le tableau de bord, "
             "sans limite de temps. Pro (2,99 €) ajoute la sensibilité réglable, le captcha, la protection critique du "
-            "serveur, Smartlog et les convocations ; Max (9,99 €) ajoute l'IA. 30 jours, sans renouvellement "
+            "serveur, Smartlog, les convocations et le nom et l'image du bot personnalisés ; Max (9,99 €) ajoute l'IA. 30 jours, sans renouvellement "
             "automatique."),
            ("Comment l'IA fait-elle la différence entre une blague et une insulte ?",
             "Pour chaque message, l'IA donne la catégorie (insulte, contenu sexuel, données perso, arnaque), la gravité "
@@ -164,7 +164,7 @@ FAQ = {
            ("Is Automod free?",
             "Yes. The Free plan includes basic commands, all rule-based automatic moderation (insults, sexual content, "
             "personal data, scams, spam…), anti-raid, anti-nuke, logs and the web dashboard, with no time limit. Pro "
-            "(€2.99) adds adjustable sensitivity, captcha, critical server protection, Smartlog and convocations; Max "
+            "(€2.99) adds adjustable sensitivity, captcha, critical server protection, Smartlog, convocations and a custom bot name and picture; Max "
             "(€9.99) adds AI. 30 days, no automatic renewal."),
            ("How does the AI tell a joke from an insult?",
             "For each message, the AI gives the category (insult, sexual content, personal data, scam), the severity "

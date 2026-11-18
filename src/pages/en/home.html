@@ -18,7 +18,7 @@ description: AI Automod is a free AI moderation bot for Discord: automatic moder
       <li>{{icon:check}}No data ever sold</li>
     </ul>
 
-    <div class="console" data-console data-pass="let through" data-del="deleted">
+    <div class="console" data-console data-bot="{{asset:bot-icon.png}}" data-pass="let through" data-del="deleted">
       <div class="con-head">
         <span class="live" aria-hidden="true"></span>
         <span><b>AI Automod</b> · AI on · sensitivity <span data-sval>50 %</span></span>
@@ -50,34 +50,24 @@ description: AI Automod is a free AI moderation bot for Discord: automatic moder
           <div class="verdict"><span class="code"><b>Personal data</b> · severity 2 · serious</span><span class="dec dec-del">deleted</span></div>
         </div>
       </div>
-      <p class="con-foot">Real verdicts from Automod's AI at 50 %. The other levels follow the
-      <a href="{{url:help/ai}}#sensibilite">sensitivity table</a>.</p>
+      <p class="con-foot">Examples: message verdicts follow the
+      <a href="{{url:help/ai}}#sensibilite">sensitivity table</a>, the raid follows the default anti-raid
+      settings.</p>
+      <script type="application/json" data-scenes>{"labels": {"clean": "Nothing to report", "join": "joined the server · account created {age} ago", "kicked": "kicked", "blocked": "raid blocked", "bot": "AI Automod"}, "scenes": [{"kind": "chat", "items": [{"who": "leah", "av": 1, "txt": "you're so dumb lmao 😂", "code": "<b>Insult<\/b> · severity 1 · joke", "v": "pppd"}, {"who": "sam", "av": 4, "txt": "who's up for a game tonight?", "v": "pppp"}, {"who": "troll_92", "av": 2, "txt": "nobody likes you, shut up loser", "code": "<b>Insult<\/b> · severity 2 · serious", "v": "ppdd"}]}, {"kind": "raid", "joins": ["raid_4821", "raid_4822", "x_raid_07", "raid_4823", "zz_nuke", "raid_4824", "x_raid_08", "raid_4825"], "age": "2 h", "title": "Raid mode on", "detail": "8 joins in 6 s · 8 new accounts kicked"}, {"kind": "chat", "items": [{"who": "kevin", "av": 3, "txt": "add me on snap", "code": "<b>Personal data<\/b> · severity 2 · serious", "v": "ppdd"}, {"who": "nina", "av": 5, "txt": "lmao you're such a clown 🤡", "code": "<b>Insult<\/b> · severity 1 · joke", "v": "pppd"}, {"who": "xX_rage_Xx", "av": 6, "txt": "i'll find you and beat you up", "code": "<b>Insult<\/b> · severity 3 · serious", "v": "pddd"}]}, {"kind": "chat", "items": [{"who": "theo", "av": 4, "txt": "@everyone 🎁 free Nitro for everyone: discord-nitro-gift.com/claim", "code": "<b>Dangerous link<\/b> · fake Discord site · 1 h timeout · hacked account?", "v": "dddd"}, {"who": "leah", "av": 1, "txt": "oh thanks, I was about to click 😅", "v": "pppp"}]}]}</script>
     </div>
   </div>
 </section>
 
-<section class="sec" id="phares">
+<section class="sec stats-sec" id="stats" data-stats hidden>
   <div class="wrap">
-    <div class="sec-head">
-      <h2>What a classic automod doesn't do</h2>
-      <p>There are plenty of automods, starting with Discord's. Here is what AI Automod has on top.</p>
-    </div>
-    <ul class="feats">
-      <li class="feat h-ia"><span class="mark">{{icon:ia}}</span><h3>AI that understands tone</h3>
-        <p>Banter between friends passes, a real attack is removed. When in doubt, nobody is punished.</p>
-        <a class="go" href="{{url:features}}#ia">The AI {{icon:arrow}}</a></li>
-      <li class="feat h-convoc"><span class="mark">{{icon:convoc}}</span><h3>Convocations</h3>
-        <p>A private text and voice channel between the staff and the member, evidence pinned, deadline, closed in
-        one command.</p><a class="go" href="{{url:features}}#convocations">Convocations {{icon:arrow}}</a></li>
-      <li class="feat h-eye"><span class="mark">{{icon:eye}}</span><h3>Moscow Eye</h3>
-        <p>Raid coming? One click and server protection is doubled for 24 h.</p>
-        <a class="go" href="{{url:features}}#oeil-de-moscou">Moscow Eye {{icon:arrow}}</a></li>
-      <li class="feat h-slow"><span class="mark">{{icon:slow}}</span><h3>Auto slowmode</h3>
-        <p>Above X messages per second, the channel goes into slowmode, for a set time or until it calms down.</p>
-        <a class="go" href="{{url:features}}#slowmode">Auto slowmode {{icon:arrow}}</a></li>
-      <li class="feat h-scam"><span class="mark">{{icon:scam}}</span><h3>Anti-scam honeypot</h3>
-        <p>Fake Nitro gifts, “MrBeast casino”, crypto: deleted, hacked account kicked. No image sent to an AI.</p>
-        <a class="go" href="{{url:features}}#anti-arnaque">Anti-scam {{icon:arrow}}</a></li>
+    <p class="stats-live"><span class="live" aria-hidden="true"></span>Live, across every AI Automod server</p>
+    <ul class="stats">
+      <li data-k="servers" hidden><b>0</b><span>servers protected</span></li>
+      <li data-k="members" hidden><b>0</b><span>members protected</span></li>
+      <li data-k="messages" hidden><b>0</b><span>messages checked</span></li>
+      <li data-k="deleted" hidden><b>0</b><span>messages blocked</span></li>
+      <li data-k="raids" hidden><b>0</b><span>raids stopped</span></li>
+      <li data-k="sanctions" hidden><b>0</b><span>sanctions applied</span></li>
     </ul>
   </div>
 </section>
@@ -109,41 +99,48 @@ description: AI Automod is a free AI moderation bot for Discord: automatic moder
   </div>
 </section>
 
-<section class="sec sec-tight" id="fonctions">
+<section class="sec sec-line" id="phares">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>What a classic automod doesn't do</h2>
+      <p>There are plenty of automods, starting with Discord's. Here is what AI Automod has on top.</p>
+    </div>
+    <ul class="feats">
+      <li class="feat h-ia"><span class="mark">{{icon:ia}}</span><h3>AI that understands tone</h3>
+        <p>Banter between friends passes, a real attack is removed. When in doubt, nobody is punished.</p>
+        <a class="go" href="{{url:features}}#ia">The AI {{icon:arrow}}</a></li>
+      <li class="feat h-convoc"><span class="mark">{{icon:convoc}}</span><h3>Convocations</h3>
+        <p>A private text and voice channel between the staff and the member, evidence pinned, deadline, closed in
+        one command.</p><a class="go" href="{{url:features}}#convocations">Convocations {{icon:arrow}}</a></li>
+      <li class="feat h-eye"><span class="mark">{{icon:eye}}</span><h3>Moscow Eye</h3>
+        <p>Raid coming? One click and server protection is doubled for 24 h.</p>
+        <a class="go" href="{{url:features}}#oeil-de-moscou">Moscow Eye {{icon:arrow}}</a></li>
+      <li class="feat h-slow"><span class="mark">{{icon:slow}}</span><h3>Auto slowmode</h3>
+        <p>Above X messages per second, the channel goes into slowmode, for a set time or until it calms down.</p>
+        <a class="go" href="{{url:features}}#slowmode">Auto slowmode {{icon:arrow}}</a></li>
+      <li class="feat h-scam"><span class="mark">{{icon:scam}}</span><h3>Anti-scam honeypot</h3>
+        <p>Fake Nitro gifts, “MrBeast casino”, crypto: deleted, hacked account kicked. No image sent to an AI.</p>
+        <a class="go" href="{{url:features}}#anti-arnaque">Anti-scam {{icon:arrow}}</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec sec-line" id="fonctions">
   <div class="wrap">
     <div class="sec-head">
       <h2>Automatic moderation and protection for your server</h2>
-      <p>One app for automatic moderation, server security, logs and community. Every protection has its own
-      sensitivity, from 0 to 100 %.</p>
+      <p>Everything else, in short. Every protection has its own sensitivity, from 0 to 100 %.</p>
     </div>
-    <div class="specs">
-      <a class="spec" href="{{url:help/ai}}"><h3>AI: joke or serious</h3>
-        <p>For each message, the AI rates the severity and the tone. Banter with “lol” or 😂 counts less than a real
-        attack, and your sensitivity decides the rest.</p><span class="go">How the AI works {{icon:arrow}}</span></a>
-      <a class="spec" href="{{url:help/controls}}"><h3>Automatic moderation</h3>
-        <p>Insults and hate speech, sexual content, personal data, scams, spam, mass mentions, forbidden links and auto
-        slowmode.</p><span class="go">The modules {{icon:arrow}}</span></a>
-      <a class="spec" href="{{url:help/protection}}"><h3>Anti-raid and anti-nuke</h3>
-        <p>Automatic raid mode, one-click lockdown, channel and role regulation, mass moderation, anti bot, anti new
-        accounts.</p><span class="go">Protections {{icon:arrow}}</span></a>
-      <a class="spec" href="{{url:help/protection}}#captcha"><h3>Captcha on join</h3>
-        <p>Newcomers copy an image code before they can see the server. Bots and raid accounts stay out.</p>
-        <span class="go">The captcha {{icon:arrow}}</span></a>
-      <a class="spec" href="{{url:help/controls}}#logs"><h3>Smartlog</h3>
-        <p>Interactive logs with the member's context and buttons: unban, remove a timeout, remove a warn, delete a
-        message.</p><span class="go">Logs {{icon:arrow}}</span></a>
-      <a class="spec" href="{{url:help/dashboard}}"><h3>Web dashboard</h3>
-        <p>Manage everything from your browser: modules, logs, sanctions, members, statistics, welcome, roles.</p>
-        <span class="go">The dashboard {{icon:arrow}}</span></a>
-      <a class="spec" href="{{url:help/sanctions}}"><h3>Full sanctions</h3>
-        <p>Ban, kick, mute, warn, history, numbered cases, automatic repeat-offender handling and an appeal link for
-        banned members.</p><span class="go">Sanctions {{icon:arrow}}</span></a>
-      <a class="spec" href="{{url:help/protection}}#bypass"><h3>Bypass</h3>
-        <p>Make Automod ignore a member, a role or a channel, for a set time or with no limit, without giving any
-        permission.</p><span class="go">Bypass {{icon:arrow}}</span></a>
-      <a class="spec" href="{{url:help/community}}"><h3>Community</h3>
-        <p>Welcome, goodbye, auto-roles, reaction roles, member counter, suggestions and staff absences.</p>
-        <span class="go">Community {{icon:arrow}}</span></a>
+    <div class="specs compact">
+      <a class="spec" href="{{url:help/ai}}"><h3>AI: joke or serious</h3>{{icon:arrow}}</a>
+      <a class="spec" href="{{url:help/controls}}"><h3>Automatic moderation</h3>{{icon:arrow}}</a>
+      <a class="spec" href="{{url:help/protection}}"><h3>Anti-raid and anti-nuke</h3>{{icon:arrow}}</a>
+      <a class="spec" href="{{url:help/protection}}#captcha"><h3>Captcha on join</h3>{{icon:arrow}}</a>
+      <a class="spec" href="{{url:help/controls}}#logs"><h3>Smartlog</h3>{{icon:arrow}}</a>
+      <a class="spec" href="{{url:help/dashboard}}"><h3>Web dashboard</h3>{{icon:arrow}}</a>
+      <a class="spec" href="{{url:help/sanctions}}"><h3>Full sanctions</h3>{{icon:arrow}}</a>
+      <a class="spec" href="{{url:help/protection}}#bypass"><h3>Bypass</h3>{{icon:arrow}}</a>
+      <a class="spec" href="{{url:help/community}}"><h3>Community</h3>{{icon:arrow}}</a>
     </div>
     <p class="after">Already using Discord's built-in AutoMod? <a href="{{url:discord-automod}}">See what AI Automod
     adds, and how to combine both →</a></p>
