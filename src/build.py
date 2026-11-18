@@ -78,6 +78,7 @@ PLANS = {
     "fr": [("", "Free", "Gratuit", "pour toujours", 0,
             ["Commandes de base (ban, kick, mute, warn…)",
              "Modération auto par règles : insultes, contenu sexuel, données perso, arnaques, spam, mentions, liens",
+             "Sujets sensibles : anti-suicide et anti-religion",
              "Sensibilité standard", "Anti-raid, anti-nuke, anti bot, anti comptes récents",
              "Œil de Moscou, slowmode automatique, honeypot anti-arnaque",
              "Logs et tableau de bord web", "Bienvenue, rôles, absences, suggestions", "Support standard (24-48 h)"]),
@@ -91,6 +92,7 @@ PLANS = {
     "en": [("", "Free", "Free", "forever", 0,
             ["Basic commands (ban, kick, mute, warn…)",
              "Rule-based auto-moderation: insults, sexual content, personal data, scams, spam, mentions, links",
+             "Sensitive topics: anti-suicide and anti-religion",
              "Standard sensitivity", "Anti-raid, anti-nuke, anti bot, anti new accounts",
              "Moscow Eye, auto slowmode, anti-scam honeypot",
              "Logs and web dashboard", "Welcome, roles, absences, suggestions", "Standard support (24-48 h)"]),
@@ -255,6 +257,7 @@ ICONS = {
     "slow": '<path d="M4.2 17.5a8.5 8.5 0 1 1 15.6 0"/><path d="M12 14l-4-4"/><circle cx="12" cy="14" r="1.2"/>',
     "scam": '<path d="M14.5 3v10.5a4.5 4.5 0 0 1-9 0V12"/><path d="M5.5 12l-2 2"/><circle cx="14.5" cy="3.6" r=".6"/>'
             '<path d="M18 7l2.5-2.5M18.5 11H21"/>',
+    "care": '<path d="M12 20s-7.5-4.6-7.5-10A4.2 4.2 0 0 1 12 7.6 4.2 4.2 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/>',
 }
 
 

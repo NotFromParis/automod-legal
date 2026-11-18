@@ -6,7 +6,7 @@ h1: What AI Automod does beyond a classic automod
 published: 2026-11-14
 -->
 <p class="lead-doc">There are plenty of automods, starting with the one built into Discord. Most of them filter words
-and spam. AI Automod does that too, but above all it has five features you won't find in a classic automod.</p>
+and spam. AI Automod does that too, but above all it has six features you won't find in a classic automod.</p>
 
 <h2 id="ia">An AI that understands tone</h2>
 <p>It drives the whole bot rather than being one more option. In AI mode, each message is read as a whole: category
@@ -43,6 +43,26 @@ Above the threshold, its messages are deleted and the account is kicked, not ban
 <strong>No image is ever sent to an AI</strong>: everything happens on the spot, in real time. Included in the Free
 plan.</p>
 
+<h2 id="sujets-sensibles">Sensitive topics: anti-suicide and anti-religion</h2>
+<p>A member knows insulting people is not allowed. But nothing tells them they shouldn't talk about suicide or religion
+on this server, or that an AI moderates the messages. So the goal is not to punish, but to <strong>make them
+understand they should stop</strong>.</p>
+<ul>
+  <li><strong>Anti-suicide</strong>: suicide, self-harm, wanting to die. The message is deleted and replaced by
+  « message about suicide deleted, please avoid this topic in public », with a help line (emergency number,
+  988 in the US, findahelpline.com). <strong>No sanction.</strong> If it happens again (3 times in 7 days), the member
+  also gets a direct message: talk to an adult you trust or someone close, helplines, and a warning that next time will
+  be sanctioned. The staff sees the message in their logs, so they can reach out to the member.</li>
+  <li>The <strong>sensitivity</strong> sets how much room is left for feeling low: low, sadness and depression talk
+  stay allowed; high, they are removed too. Explicit suicide is removed <strong>at any sensitivity</strong>. An
+  exaggeration for a laugh (« I'm gonna kill myself lol I missed the bus ») is never removed, except at 100 %.</li>
+  <li><strong>Anti-religion</strong>: proselytism, religious debates and provocation; the higher the sensitivity, the
+  more a simple mention of one's religion is removed. Stricter: the first time, deleted and warned, then automatic
+  sanction. Common expressions (oh my god, inshallah, thank god) never count.</li>
+</ul>
+<p>Both modules are off by default: it's the server's call. Rules on the Free plan, AI mode on the Max plan (much more
+accurate on these topics). In <code>/controls</code> → Modules → Sensitive topics.</p>
+
 <h2 id="tableau">In short</h2>
 <table>
   <thead><tr><th>Feature</th><th>What it does</th><th>Plan</th></tr></thead>
@@ -52,6 +72,7 @@ plan.</p>
     <tr><td>Moscow Eye</td><td>Server protection doubled for 24 h before a raid</td><td>Free</td></tr>
     <tr><td>Auto slowmode</td><td>Slowmode as soon as a channel gets out of hand</td><td>Free</td></tr>
     <tr><td>Anti-scam honeypot</td><td>Fake gifts deleted, hacked account kicked</td><td>Free</td></tr>
+    <tr><td>Sensitive topics</td><td>Suicide and religion: deleted and explained, help offered, no sanction right away</td><td>Free (AI: Max)</td></tr>
   </tbody>
 </table>
 <p>And everything else a full automod does: insults, sexual content, personal data, spam, links, anti-raid, anti-nuke,

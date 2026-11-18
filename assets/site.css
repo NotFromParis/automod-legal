@@ -241,7 +241,7 @@ code { font: 500 .88em/1.4 var(--mono); background: rgba(236, 226, 255, .07); bo
 .mark { display: block; padding-top: 6px; color: var(--hue); }
 .mark .ico { width: 28px; height: 28px; stroke-width: 1.6; }
 .h-ia { --hue: var(--pink); } .h-convoc { --hue: var(--violet); } .h-eye { --hue: var(--orange); }
-.h-slow { --hue: var(--peach); } .h-scam { --hue: var(--orchid); }
+.h-slow { --hue: var(--peach); } .h-scam { --hue: var(--orchid); } .h-care { --hue: var(--ok); }
 @media (max-width: 860px) {
   .feat { grid-template-columns: 32px minmax(0, 1fr); gap: 10px 16px; padding: 28px 0; }
   .feat p, .feat .go { grid-column: 2; }

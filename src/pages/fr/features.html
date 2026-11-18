@@ -6,7 +6,7 @@ h1: Ce qu'AI Automod fait en plus des automods classiques
 published: 2026-11-14
 -->
 <p class="lead-doc">Des automods, il y en a beaucoup, à commencer par celui intégré à Discord. La plupart filtrent des
-mots et du spam. AI Automod fait ça aussi, mais il a surtout cinq fonctions qu'on ne trouve pas dans un automod
+mots et du spam. AI Automod fait ça aussi, mais il a surtout six fonctions qu'on ne trouve pas dans un automod
 classique.</p>
 
 <h2 id="ia">Une IA qui comprend le ton</h2>
@@ -46,6 +46,28 @@ d'écran postées par un compte récent ou tout juste arrivé. Au-delà du seuil
 est expulsé, pas banni, puisqu'il s'agit souvent d'un ami piraté. <strong>Aucune image n'est envoyée à une
 IA</strong> : tout se fait sur place, en direct. Inclus dans le plan Free.</p>
 
+<h2 id="sujets-sensibles">Sujets sensibles : anti-suicide et anti-religion</h2>
+<p>Un membre sait qu'il ne faut pas insulter. En revanche, rien ne lui dit qu'il ne doit pas parler de suicide ou de
+religion sur ce serveur, ni qu'une IA modère les messages. Le but n'est donc pas de punir, mais de <strong>lui faire
+comprendre d'arrêter</strong>.</p>
+<ul>
+  <li><strong>Anti-suicide</strong> : suicide, automutilation, envie de mourir. Le message est supprimé et remplacé par
+  « message à caractère suicidaire supprimé, évite ce sujet en public », avec une ligne d'aide (3114, gratuit
+  24 h/24, ou 112 en urgence). <strong>Aucune sanction.</strong> Si ça se répète (3 fois en 7 jours), le membre reçoit
+  en plus un message privé : parler à un adulte de confiance ou à un proche, le 3114, le tchat de Fil Santé Jeunes, et
+  l'avertissement que la prochaine fois sera sanctionnée. Le staff voit le message dans ses logs, pour pouvoir aller
+  vers le membre.</li>
+  <li>La <strong>sensibilité</strong> règle la place laissée au mal-être : basse, la déprime et la dépression restent
+  autorisées ; haute, elles sont retirées aussi. Le suicide explicite, lui, est retiré <strong>à toute
+  sensibilité</strong>. Une exagération pour rire (« je vais me tuer mdr j'ai raté le bus ») n'est jamais retirée,
+  sauf à 100 %.</li>
+  <li><strong>Anti-religion</strong> : prosélytisme, débats et provocations religieuses ; plus la sensibilité est haute,
+  plus la simple mention de sa religion est retirée. Plus sec : la première fois, message supprimé et averti, ensuite
+  sanction automatique. Les expressions courantes (wallah, inchallah, oh mon dieu) ne comptent jamais.</li>
+</ul>
+<p>Les deux modules sont éteints par défaut : c'est au serveur de décider. Règles en plan Free, mode IA en plan Max
+(beaucoup plus juste sur ces sujets). Dans <code>/controls</code> → Modules → Sujets sensibles.</p>
+
 <h2 id="tableau">En résumé</h2>
 <table>
   <thead><tr><th>Fonction</th><th>Ce qu'elle fait</th><th>Plan</th></tr></thead>
@@ -55,6 +77,7 @@ IA</strong> : tout se fait sur place, en direct. Inclus dans le plan Free.</p>
     <tr><td>Œil de Moscou</td><td>Protection du serveur doublée 24 h avant un raid</td><td>Free</td></tr>
     <tr><td>Slowmode automatique</td><td>Mode lent dès qu'un salon s'emballe</td><td>Free</td></tr>
     <tr><td>Honeypot anti-arnaque</td><td>Faux cadeaux supprimés, compte piraté expulsé</td><td>Free</td></tr>
+    <tr><td>Sujets sensibles</td><td>Suicide et religion : supprimé et expliqué, aide proposée, sans sanction d'emblée</td><td>Free (IA : Max)</td></tr>
   </tbody>
 </table>
 <p>Et tout le reste d'un automod complet : insultes, contenu sexuel, données perso, spam, liens, anti-raid,

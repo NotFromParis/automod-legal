@@ -60,6 +60,11 @@ une IA que si le serveur a activé le mode IA. Vous pouvez demander la suppressi
   d'autres ; il n'entraîne jamais seul une sanction, sauf pour un raider déjà connu qui arrive pendant un raid en cours
   sur le serveur. Un serveur qui coupe le réseau ne partage ni ne reçoit plus rien, et ses signalements passés sont
   effacés.</li>
+  <li><strong>Sujets sensibles</strong> (anti-suicide et anti-religion, seulement si le serveur les active) : quand un
+  message est retiré, Automod garde la date, avec l'identifiant du membre et du serveur, pendant 7 jours, pour savoir si
+  ça se répète (message privé d'aide au bout de 3 fois pour le suicide, sanction ensuite). Rien d'autre : ni le texte,
+  ni le motif détaillé. Le message retiré est montré au staff dans les logs du serveur, pour qu'il puisse aller vers le
+  membre.</li>
   <li><strong>Messages pardonnés</strong> : quand le staff d'un serveur appuie sur « Pardonner » sous une sanction
   automatique, la modération s'est trompée. Le message sanctionné est alors gardé, avec ce qu'Automod a analysé pour le
   juger (jusqu'à trois messages précédents de l'auteur et le message auquel il répondait), la détection et les réglages
@@ -118,6 +123,7 @@ journaux, et elle est effacée dès que le serveur la supprime.</p>
   de suppression.</li>
   <li>Données techniques anti-spam : quelques minutes, en mémoire uniquement.</li>
   <li>Verdicts de l'IA : 10 minutes au plus, en mémoire uniquement.</li>
+  <li>Compteurs des sujets sensibles : 7 jours.</li>
   <li>Ce qu'Automod a analysé lors d'une détection : 24 h, en mémoire uniquement. Messages pardonnés : 180 jours au
   plus.</li>
   <li>Empreintes de l'Anti Double Compte : 180 jours après un ban, 14 jours après une expulsion, jusqu'à 24 h après la fin
@@ -140,7 +146,8 @@ concerné, visibles par les personnes que ce serveur autorise.</p>
 <h2>7. Messages privés</h2>
 <p>Automod n'envoie de message privé que dans ces cas : notification d'une sanction au membre concerné, message de
 bienvenue si le serveur l'a activé, explication à un compte trop récent expulsé à l'arrivée (si le serveur a activé
-cette protection), annonces exceptionnelles du développeur aux propriétaires et administrateurs
+cette protection), message d'aide à un membre qui parle plusieurs fois de suicide (si le serveur a activé
+l'anti-suicide), annonces exceptionnelles du développeur aux propriétaires et administrateurs
 des serveurs, et avis sur votre propre demande d'aide (ticket ouvert, nouvelle réponse, ticket traité).</p>
 
 <h2>8. Vos droits</h2>
