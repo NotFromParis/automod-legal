@@ -43,7 +43,7 @@
   </div>
 </header>
 <main id="main">
-<div class="wrap page narrow doc"><h1>Politique de confidentialité</h1><p class="updated">Dernière mise à jour : 17 novembre 2026</p>
+<div class="wrap page narrow doc"><h1>Politique de confidentialité</h1><p class="updated">Dernière mise à jour : 21 novembre 2026</p>
 <div class="box">
 <p><strong>En bref :</strong> Automod ne vend aucune donnée. Il traite les messages pour modérer les serveurs qui l'ont
 ajouté, conserve l'historique des sanctions et les réglages de chaque serveur, et n'envoie le contenu d'un message à
@@ -91,8 +91,9 @@ une IA que si le serveur a activé le mode IA. Vous pouvez demander la suppressi
   repérer le spam.</li>
   <li><strong>Images postées</strong> (si l'anti-arnaque est actif) : une miniature est téléchargée depuis Discord et
   réduite à une empreinte numérique, comparée à une banque d'images d'arnaques connues (faux cadeaux, faux casinos…).
-  L'image n'est ni conservée ni envoyée à un service extérieur. Seules les empreintes des images reconnues comme
-  arnaques sont gardées, avec les serveurs où elles ont été attrapées, pour protéger tous les serveurs AI Automod.</li>
+  L'image n'est pas envoyée à un service extérieur. Seules les empreintes des images reconnues comme arnaques sont
+  gardées, avec les serveurs où elles ont été attrapées, pour protéger tous les serveurs AI Automod. Quand une image
+  est supprimée comme arnaque, elle est jointe au log du serveur, pour que son staff voie ce qui a été retiré.</li>
   <li><strong>Réseau AI Automod</strong> (actif par défaut, le serveur peut le couper dans Protection → Serveur) : quand
   Automod constate lui-même sur un serveur qu'un compte a participé à un raid, posté une arnaque, déclenché l'anti-nuke ou
   est le double compte d'un autre, ce fait est partagé avec les autres serveurs AI Automod. Seuls sont stockés des
@@ -112,8 +113,9 @@ une IA que si le serveur a activé le mode IA. Vous pouvez demander la suppressi
   juger (jusqu'à trois messages précédents de l'auteur et le message auquel il répondait), la détection et les réglages
   du module, pour corriger la détection lors des mises à jour. Les mentions et identifiants sont retirés du texte ; ni le
   pseudo ni l'identifiant de l'auteur ne sont gardés, et le serveur est remplacé par une empreinte à sens unique. Pour
-  pouvoir le retrouver, ce qu'Automod a analysé reste en mémoire 24 h après une détection, sans être écrit tant que
-  personne ne pardonne.</li>
+  une image prise pour une arnaque, sa miniature (256 pixels de large) est gardée avec le message. Pour pouvoir le
+  retrouver, ce qu'Automod a analysé reste en mémoire 24 h après une détection, sans être écrit tant que personne ne
+  pardonne.</li>
   <li><strong>Arrivées et départs</strong> : utilisés pour les journaux, l'anti-raid (âge du compte) et les messages de
   bienvenue / d'au revoir configurés par le serveur.</li>
 </ul>

@@ -37,9 +37,10 @@ AI mode. You can ask for your data to be deleted at any time.</p>
   logs the server chose to post in its own channels. Minimal technical data (time and channel of recent messages) stays
   in memory for a few minutes for spam detection.</li>
   <li><strong>Posted images</strong> (if anti-scam is on): a thumbnail is downloaded from Discord and reduced to a
-  digital fingerprint, compared with a bank of known scam images (fake giveaways, fake casinos…). The image is neither
-  kept nor sent to any outside service. Only the fingerprints of images recognised as scams are kept, with the servers
-  where they were caught, to protect every AI Automod server.</li>
+  digital fingerprint, compared with a bank of known scam images (fake giveaways, fake casinos…). The image is not sent
+  to any outside service. Only the fingerprints of images recognised as scams are kept, with the servers where they were
+  caught, to protect every AI Automod server. When an image is deleted as a scam, it is attached to the server's log so
+  its staff can see what was removed.</li>
   <li><strong>AI Automod network</strong> (on by default, the server can turn it off in Protection → Server): when
   Automod itself sees on a server that an account took part in a raid, posted a scam, triggered anti-nuke or is an alt
   of another account, that fact is shared with the other AI Automod servers. Only pseudonymised IDs (a one-way
@@ -57,8 +58,9 @@ AI mode. You can ask for your data to be deleted at any time.</p>
   moderation got it wrong. The sanctioned message is then kept, with what Automod analysed to judge it (up to three
   previous messages from the author and the message it replied to), the detection and the module's settings, to fix the
   detection in later updates. Mentions and IDs are removed from the text; neither the author's username nor ID is kept,
-  and the server is replaced by a one-way fingerprint. To be able to find it, what Automod analysed stays in memory for
-  24 h after a detection, without being written anywhere unless someone pardons.</li>
+  and the server is replaced by a one-way fingerprint. For an image taken for a scam, its thumbnail (256 pixels wide)
+  is kept with the message. To be able to find it, what Automod analysed stays in memory for 24 h after a detection,
+  without being written anywhere unless someone pardons.</li>
   <li><strong>Joins and leaves</strong>: used for logs, anti-raid (account age) and the server's welcome/goodbye messages.</li>
   <li><strong>Subscriptions</strong>: server ID, plan, subscription status and end date, Stripe customer and
   subscription IDs, SumUp payment ID (or Discord entitlement), Discord ID of the subscriber and proof of acceptance of the

@@ -43,7 +43,7 @@ ARTICLES = ("terms", "policy", "discord-automod", "features", "contact")
 SPECIAL = {"dash": "dash/", "support": "support/"}             # servis par le Worker (pas par ce site)
 UPDATED = {"terms": {"fr": "Dernière mise à jour : 21 novembre 2026 (version 2026-11-21)",
                      "en": "Last updated: November 21, 2026 (version 2026-11-21)"},
-           "policy": {"fr": "Dernière mise à jour : 17 novembre 2026", "en": "Last updated: November 17, 2026"},
+           "policy": {"fr": "Dernière mise à jour : 21 novembre 2026", "en": "Last updated: November 21, 2026"},
            "discord-automod": {"fr": "Mis à jour le 14 novembre 2026", "en": "Updated November 14, 2026"}}
 
 UI = {
