@@ -33,15 +33,16 @@ LISTINGS = [DISCOVERY, "https://discordbotlist.com/bots/ai-automod"]   # fiches 
 INDEXNOW_KEY = "5f0c8e2a9b7d4c61a3e8f1b2d6c4a907"     # fichier /<clé>.txt : prouve à Bing/IndexNow que le site est à nous
 TODAY = datetime.date.today().isoformat()
 
-HELP = ["setup", "controls", "protection", "ai", "sanctions", "community", "permissions", "dashboard", "plans"]
+HELP = ["setup", "controls", "protection", "ai", "sanctions", "community", "permissions", "dashboard", "plans",
+        "referral"]
 # Pages : clé → chemin anglais (le chemin français est préfixé par fr/)
 PAGES = {"home": "", "help": "help/", **{f"help/{k}": f"help/{k}/" for k in HELP}, "terms": "terms/",
          "policy": "policy/", "discord-automod": "discord-automod/", "features": "features/",
          "contact": "contact/"}
 ARTICLES = ("terms", "policy", "discord-automod", "features", "contact")
 SPECIAL = {"dash": "dash/", "support": "support/"}             # servis par le Worker (pas par ce site)
-UPDATED = {"terms": {"fr": "Dernière mise à jour : 15 novembre 2026 (version 2026-11-15)",
-                     "en": "Last updated: November 15, 2026 (version 2026-11-15)"},
+UPDATED = {"terms": {"fr": "Dernière mise à jour : 21 novembre 2026 (version 2026-11-21)",
+                     "en": "Last updated: November 21, 2026 (version 2026-11-21)"},
            "policy": {"fr": "Dernière mise à jour : 17 novembre 2026", "en": "Last updated: November 17, 2026"},
            "discord-automod": {"fr": "Mis à jour le 14 novembre 2026", "en": "Updated November 14, 2026"}}
 
@@ -50,7 +51,8 @@ UI = {
                    ("contact", "Support"), ("dash", "Tableau de bord")],
            "cta": "Ajouter à Discord", "skip": "Aller au contenu", "crumbs": "Fil d'Ariane", "help": "Aide", "in_help": "Dans l'aide",
            "prev": "Précédent", "next": "Suivant", "other": "English", "other_short": "EN",
-           "foot": [("Produit", [("features", "Fonctions phares"), ("help/plans", "Offres"), ("dash", "Tableau de bord"),
+           "foot": [("Produit", [("features", "Fonctions phares"), ("help/plans", "Offres"),
+                                 ("help/referral", "Parrainage"), ("dash", "Tableau de bord"),
                                  ("invite", "Ajouter à Discord"),
                                  ("discord-automod", "AI Automod ou AutoMod de Discord ?")]),
                     ("Aide", [("help", "Mode d'emploi"), ("help/ai", "L'IA d'AI Automod"), ("contact", "Demander de l'aide"),
@@ -63,7 +65,8 @@ UI = {
                    ("contact", "Support"), ("dash", "Dashboard")],
            "cta": "Add to Discord", "skip": "Skip to content", "crumbs": "Breadcrumb", "help": "Help", "in_help": "In the help",
            "prev": "Previous", "next": "Next", "other": "Français", "other_short": "FR",
-           "foot": [("Product", [("features", "Signature features"), ("help/plans", "Pricing"), ("dash", "Dashboard"),
+           "foot": [("Product", [("features", "Signature features"), ("help/plans", "Pricing"),
+                                 ("help/referral", "Referrals"), ("dash", "Dashboard"),
                                  ("invite", "Add to Discord"),
                                  ("discord-automod", "AI Automod vs Discord AutoMod")]),
                     ("Help", [("help", "User guide"), ("help/ai", "AI Automod's AI"), ("contact", "Get help"),

@@ -225,6 +225,7 @@ code { font: 500 .88em/1.4 var(--mono); background: rgba(236, 226, 255, .07); bo
 .sec-line { border-top: 1px solid var(--line); }
 .sec-head { max-width: 720px; margin: 0 0 56px; }
 .sec-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+.ref-more { text-align: center; margin-top: 28px; }
 .sec h2, .endcta h2 { font-size: clamp(32px, 4.2vw, 52px); line-height: 1.06; letter-spacing: -.035em;
                       margin: 0 0 16px; }
 .sec .intro, .sec-head p { color: var(--dim); font-size: 17.5px; line-height: 1.6; margin: 0; }
@@ -404,6 +405,7 @@ code { font: 500 .88em/1.4 var(--mono); background: rgba(236, 226, 255, .07); bo
 .plan li .ico { margin-top: 3px; color: var(--pink); stroke-width: 2.2; }
 .plan-hi li .ico { color: var(--orange); }
 .plans + .muted { max-width: 680px; margin: 28px auto 0; text-align: center; color: var(--faint); }
+.plans-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 900px) { .plans { grid-template-columns: 1fr; max-width: 520px; } }
 
 /* ── FAQ ─────────────────────────────────────────────────────────────────── */
