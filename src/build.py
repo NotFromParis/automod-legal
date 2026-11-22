@@ -24,7 +24,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "src", "pages")
 SITE = "https://aiautomod.com"
-INVITE = ("https://discord.com/oauth2/authorize?client_id=1476525696980357241&permissions=8"
+INVITE = ("https://discord.com/oauth2/authorize?client_id=1476525696980357241&permissions=2253228847787255"
           "&scope=bot+applications.commands")
 LANGS = ("en", "fr")                                   # la première est la langue par défaut (racine)
 BRAND = "AI Automod"

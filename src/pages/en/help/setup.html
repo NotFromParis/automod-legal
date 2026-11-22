@@ -10,7 +10,10 @@ label: Install and set up
 <ul>
   <li>You need the <strong>Manage Server</strong> permission to add a bot.</li>
   <li>Keep the requested permissions: without them, some features can't work (creating log channels, banning,
-  kicking…).</li>
+  kicking…). Automod does <strong>not</strong> ask for the Administrator permission, only the ones it uses. If one is
+  missing, it tells you which.</li>
+  <li>A <strong>private</strong> channel is only visible to the roles allowed in it: for Automod to moderate it, add its
+  role to that channel's allowed roles.</li>
   <li>Move the <strong>Automod</strong> role above the roles of the members it should moderate (Server Settings →
   Roles): Discord doesn't let a bot sanction someone with a higher role.</li>
   <li>If someone other than the owner adds the bot, they become the <strong>buyer</strong> and get the same Automod
