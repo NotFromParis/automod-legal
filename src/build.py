@@ -29,7 +29,8 @@ INVITE = ("https://discord.com/oauth2/authorize?client_id=1476525696980357241&pe
 LANGS = ("en", "fr")                                   # la première est la langue par défaut (racine)
 BRAND = "AI Automod"
 DISCOVERY = "https://discord.com/discovery/applications/1476525696980357241"
-LISTINGS = [DISCOVERY, "https://discordbotlist.com/bots/ai-automod"]   # fiches publiques du bot (ajouter Top.gg une fois validé)
+TOPGG = "https://top.gg/bot/1476525696980357241"
+LISTINGS = [DISCOVERY, TOPGG, "https://discordbotlist.com/bots/ai-automod"]   # fiches publiques du bot
 INDEXNOW_KEY = "5f0c8e2a9b7d4c61a3e8f1b2d6c4a907"     # fichier /<clé>.txt : prouve à Bing/IndexNow que le site est à nous
 TODAY = datetime.date.today().isoformat()
 
@@ -53,7 +54,7 @@ UI = {
            "prev": "Précédent", "next": "Suivant", "other": "English", "other_short": "EN",
            "foot": [("Produit", [("features", "Fonctions phares"), ("help/plans", "Offres"),
                                  ("help/referral", "Parrainage"), ("dash", "Tableau de bord"),
-                                 ("invite", "Ajouter à Discord"),
+                                 ("invite", "Ajouter à Discord"), (TOPGG, "Voter sur top.gg"),
                                  ("discord-automod", "AI Automod ou AutoMod de Discord ?")]),
                     ("Aide", [("help", "Mode d'emploi"), ("help/ai", "L'IA d'AI Automod"), ("contact", "Demander de l'aide"),
                               ("support", "Serveur support")]),
@@ -67,7 +68,7 @@ UI = {
            "prev": "Previous", "next": "Next", "other": "Français", "other_short": "FR",
            "foot": [("Product", [("features", "Signature features"), ("help/plans", "Pricing"),
                                  ("help/referral", "Referrals"), ("dash", "Dashboard"),
-                                 ("invite", "Add to Discord"),
+                                 ("invite", "Add to Discord"), (TOPGG, "Vote on top.gg"),
                                  ("discord-automod", "AI Automod vs Discord AutoMod")]),
                     ("Help", [("help", "User guide"), ("help/ai", "AI Automod's AI"), ("contact", "Get help"),
                               ("support", "Support server")]),
@@ -220,6 +221,8 @@ def rel(from_path: str, to_path: str) -> str:
 def link(key: str, lang: str, here: str) -> str:
     if key == "invite":
         return INVITE
+    if key.startswith("https://"):
+        return key
     anchor = ""
     if "#" in key:
         key, anchor = key.split("#", 1)
